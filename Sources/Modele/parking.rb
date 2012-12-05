@@ -6,6 +6,8 @@ Eglem - Pinto
 parking.rb
 =end
 
+require 'set'
+
 #Classe Parking
 #
 # Cette classe représente l'objet principal de la gestion
@@ -16,11 +18,11 @@ class Parking
 	attr_writer :place,:listAbonnes,:listVehicules,:nom
 	attr_reader :place,:listAbonnes,:listVehicules,:nom
 
-	def initialize(nom="DreamPark",places=[])
+	def initialize(nom="DreamPark",niveau,places=[])
 		@nom = nom
 		@place = places
-		@listAbonnes = []
-		@listClient = []
+		@listAbonnes = Set.new
+		@listClient = Set.new
 	end
 
 	#Ajoute un véhicule dans la liste correspondante.
@@ -28,7 +30,13 @@ class Parking
 	#not is_abonne? => listClient
 	def add_vehicule(p,v)
 		p.vehicule = v
-		@listAbonnes.push(p) if v.is_abonne? else @listClient.push(p)
+		if v.is_abonne? then
+			v.up_nb_visite
+			@listAbonnes.add(v) if not @listAbonne.member?
+		else
+			v.up_nb_visite
+			@listClient.add(v) if not @listClient.member?
+		end
 	end
 
 	#Remove le vehicule des listes et libère la place

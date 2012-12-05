@@ -21,7 +21,7 @@ class Camera
 	# - [0] = immatriculation
 	# - [1] = hauteur
 	# - [2] = longueur
-	def send_info()
+	def send_info(imma="",hauteur,longueur)
 		return ["123AB45C",180,400]
 	end
 end
