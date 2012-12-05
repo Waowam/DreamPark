@@ -17,8 +17,8 @@ class TestPlace < Test::Unit::TestCase
 	
 	#Test des attributs apres l'instanciation d'une place
 	#placeOK : place avec des attributs correct
-	#placeTailleNulle : erreur de taille
-	#placeTailleNeg : erreur de taille
+	#placeTailleNulle : erreur de taille (nulle)
+	#placeTailleNeg : erreur de taille (negative)
 	def test_new
 		assert(@placeOK, "Erreur creation placeOK")
 		assert(!@placeTailleNulle, "Erreur : placeTailleNulle creee")
