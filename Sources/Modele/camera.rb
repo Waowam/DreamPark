@@ -22,6 +22,6 @@ class Camera
 	# - [1] = hauteur
 	# - [2] = longueur
 	def send_info(imma="",hauteur,longueur)
-		return ["123AB45C",180,400]
+		return [imma,hauteur,longueur]
 	end
 end

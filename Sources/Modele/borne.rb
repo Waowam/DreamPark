@@ -10,12 +10,12 @@ class Borne
 
 	attr_reader :idBorne,:acces
 
-	def initialize(acces)
-		@idBorne = 01
-		@acces = acces
+	def initialize(id=00)
+		@idBorne = id
 	end
 
 	def abonnerClient
+		 
 	end
 
 	def editerTicker(place,imma)

@@ -6,13 +6,11 @@ Eglem - Pinto
 teleporteur.rb
 =end
 
-require './acces.rb'
 
 class Teleporteur
 
-	def initialize(acces)
+	def initialize()
 		@idTp = 001
-		@acces=acces
 	end
 
 	def transporter_garer(place)

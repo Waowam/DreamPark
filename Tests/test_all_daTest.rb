@@ -9,4 +9,5 @@ test_all_daTest.rb
 require "test/unit"
 require "./testPlace.rb"
 require "./testCamera.rb"
-#require "./testBorne.rb"
+require "./testBorne.rb"
+require "./testTeleporteur.rb"

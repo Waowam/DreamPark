@@ -23,7 +23,8 @@ class Acces
 		@teleporteur2
 	end
 
-	def notifier
+	def capture_vehicule
+		#Il boucle sur la camera pour recuperé un vehicule
 	end
 
 	def est_entree

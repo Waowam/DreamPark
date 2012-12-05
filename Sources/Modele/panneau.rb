@@ -6,15 +6,20 @@ Eglem - Pinto
 panneau.rb
 =end
 
+#Classe panneau représentant le panneau
+#d'affichage des places totales restantes.
 class Panneau
-	attr_reader :txt
-	attr_writer :txt
+	attr_accessor :place
 
-	def initialize(txt="0")
-		@text=txt
+	def initialize(place=0)
+		@place=place
 	end
 
-	def changer_text(txt)
-		@text = txt
+	def incrementer
+		@place+=1
+	end
+
+	def decrementer
+		@place-=1
 	end
 end
