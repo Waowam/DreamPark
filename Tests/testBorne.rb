@@ -6,10 +6,10 @@ Eglem - Pinto
 testBorne.rb
 =end
 
-require 'test/unit'
-require '../Sources/borne.rb'
-require '../Sources/acces.rb'
-require './fauxParking.rb'
+require "test/unit"
+require "../Sources/borne.rb"
+require "./fauxAcces.rb"
+require "./fauxParking.rb"
 
 
 #Class Test_borne
@@ -18,8 +18,7 @@ require './fauxParking.rb'
 class Test_borne < Test::Unit::TestCase
 
 	def setup
-		@park = FauxParking.new()
-		@acces = 
+		@park = FauxParking.new
 		@borne = Borne.new
 	end
 
@@ -27,6 +26,7 @@ class Test_borne < Test::Unit::TestCase
 	#Verifie si pour un vehicule donnée
 	#son abonnement est bien pris en compte
 	def test_abonnerClient(vehicule)
+
 
 	end
 

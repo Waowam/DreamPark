@@ -6,9 +6,10 @@ Eglem - Pinto
 testCamera.rb
 =end
 
+require "../Sources/Modele/camera.rb"
 #Classe de test unitaire des cameras
 #Regroupant l'ensemble des test 
-class test_camera < Test::Unit::TestCase
+class Test_camera < Test::Unit::TestCase
 
 	#Setup variables
 	def setup
@@ -18,9 +19,9 @@ class test_camera < Test::Unit::TestCase
 	#test d'instanciation de vehicule,
 	#Ce test permet de verifier si le vehicule envoyé est bien le vehicule vu
 	#par la camera.
-	def test_sendInfo()
+	def test_send_info()
 		res = ["imma",200,300]
-		v = @cam.sendInfo("imma",200,300)
+		v = @cam.send_info("imma",200,300)
 	 	assert_equal(res,v,"Send info erreur")
 	end
 
