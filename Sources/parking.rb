@@ -6,6 +6,11 @@ Eglem - Pinto
 parking.rb
 =end
 
+#Classe Parking
+#
+# Cette classe représente l'objet principal de la gestion
+# du parking. Elle gère l'entrée/sortie de véhicules
+# ainsi que la gestion des clients et des abonnées
 class Parking
 
 	attr_writer :place,:listAbonnes,:listVehicules,:nom
@@ -18,16 +23,20 @@ class Parking
 		@listClient = []
 	end
 
-	def add_vehicule(v)
-		@place.push(v)
+	#Ajoute un véhicule 
+	def add_vehicule(p,v)
+		p.vehicule = v
+		@listAbonnes.push(p) if v.is_abonne? else @listClient.push(p)
 	end
 
-	def remove_vehicule(v)
-		@place.delete(v)
+	def remove_vehicule(p,v)
+		@listAbonnes.delete(p) if v.is_abonne? else @listClient.delete(p)
+		p.vehicule = nil
 	end
 
 	def get_nb_place
-		return @place.length
+		som = @listAbonnes.length+@listClient.length
+		return @place.length - som
 	end
 
 	def assigner_place
