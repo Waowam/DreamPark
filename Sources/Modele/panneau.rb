@@ -15,10 +15,12 @@ class Panneau
 		@place=place
 	end
 
+	#Incremente le nombre de places restantes
 	def incrementer
 		@place+=1
 	end
 
+	#Decremente le nombre de places restantes
 	def decrementer
 		@place-=1
 	end
