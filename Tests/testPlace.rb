@@ -1,3 +1,5 @@
+require "../Sources/Modele/place.rb"
+
 #Classe TestPlace
 #
 #Classe permettant de tester les méthodes de la classe Place.
