@@ -15,6 +15,13 @@ class TestPlace
 	
 	end
 	
+	def test_new
+		assert(@placeOK, "Erreur creation placeOK")
+		assert(@placeTailleNulle, "Erreur creation placeTailleNulle")
+		assert(@placeTailleNeg, "Erreur creation placeTailleNeg")
+		assert(@placeOccupe, "Erreur creation placeOccupe")
+	end
+	
 	def test_occupe?
 	
 	end
