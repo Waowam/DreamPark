@@ -7,7 +7,6 @@ panneau.rb
 =end
 
 class Panneau
-
 	attr_reader :txt
 	attr_writer :txt
 
