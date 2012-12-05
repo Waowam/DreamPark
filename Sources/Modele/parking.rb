@@ -16,7 +16,7 @@ class Parking
 	attr_writer :place,:listAbonnes,:listVehicules,:nom
 	attr_reader :place,:listAbonnes,:listVehicules,:nom
 
-	def initialize(nom="DreamPark",places=[])
+	def initialize(nom="DreamPark",niveau,places=[])
 		@nom = nom
 		@place = places
 		@listAbonnes = []
