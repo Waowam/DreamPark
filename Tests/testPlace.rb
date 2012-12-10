@@ -4,11 +4,9 @@ require "../Sources/Modele/place.rb"
 #
 #Classe permettant de tester les méthodes de la classe Place.
 class TestPlace < Test::Unit::TestCase
-	
+	NUM, NIV, HAUT, LONG = 1, 0, 125, 200
 	def setup
-		@placeOK = Place.new(1,0,125,200)
-		@placeTailleNulle = Place.new(1,0,0,0)
-		@placeTailleNeg = Place.new(1,0,-10,-20)
+		@placeOK = Place.new(NUM, NIV, HAUT, LONG)
 	end
 	
 	def teardown
@@ -21,12 +19,11 @@ class TestPlace < Test::Unit::TestCase
 	#placeTailleNeg : erreur de taille (negative)
 	def test_new
 		assert_instance_of(Place,@placeOK, "Erreur creation placeOK")
+		assert_equal(nil, @placeOK.vehicule, "Erreur : creation de placeOK non vide")
 		
-		assert_raise(IllegalArgument) {@placeTailleNulle}
+		assert_raise(ArgumentError) {Place.new(1,0,0,0)}
 		
-		assert(!@placeTailleNeg, "Erreur creation placeTailleNeg")
-		
-		assert(!@placeOK.vehicule, "Erreur : creation de placeOK non vide")
+		assert_raise(ArgumentError) {Place.new(1,0,-10,-20)}
 	end
 	
 end
