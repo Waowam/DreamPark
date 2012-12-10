@@ -21,7 +21,9 @@ class TestPlace < Test::Unit::TestCase
 	#placeTailleNeg : erreur de taille (negative)
 	def test_new
 		assert_instance_of(Place,@placeOK, "Erreur creation placeOK")
-		assert(!@placeTailleNulle, "Erreur : placeTailleNulle creee")
+		
+		assert_raise(IllegalArgument) {@placeTailleNulle}
+		
 		assert(!@placeTailleNeg, "Erreur creation placeTailleNeg")
 		
 		assert(!@placeOK.vehicule, "Erreur : creation de placeOK non vide")
