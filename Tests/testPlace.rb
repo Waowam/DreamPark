@@ -14,11 +14,10 @@ class TestPlace < Test::Unit::TestCase
 	end
 	
 	#Test des attributs apres l'instanciation d'une place
-	#placeOK : place avec des attributs correct
-	#placeTailleNulle : erreur de taille (nulle)
-	#placeTailleNeg : erreur de taille (negative)
+	#placeOK : place avec des attributs correct et pas de vehicule
+	#places incorrectes (taille nulle ou négative) : lève ArgumentError
 	def test_new
-		assert_instance_of(Place,@placeOK, "Erreur creation placeOK")
+		assert_instance_of(Place, @placeOK, "Erreur creation placeOK")
 		assert_equal(nil, @placeOK.vehicule, "Erreur : creation de placeOK non vide")
 		
 		assert_raise(ArgumentError) {Place.new(1,0,0,0)}

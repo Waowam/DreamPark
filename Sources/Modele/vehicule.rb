@@ -8,22 +8,25 @@ vehicule.rb
 
 class Vehicule
 
-	attr_writer :immatriculation
-	attr_reader :immatriculation,:hauteur,:longueur
+	attr_writer :immatriculation,:abonne
+	attr_reader :immatriculation,:hauteur,:longueur,:nbreVisites,:abonne
 
-	def initialize(imma="",hauteur=0,longueur=0)
-		@immatriculation=imma
+	def initialize(imma="",hauteur,longueur)
+		self.immatriculation=imma
 		self.hauteur=hauteur
 		self.longueur=longueur
 		@nbreVisites=0
+		@abonne=nil
 	end
 	
 	def hauteur=(h)
-		@hauteur = h > 0 ? h : 0
+		raise ArgumentError.new("Error : hauteur must be positive.") if h <= 0
+		@niveau= h
 	end
 	
 	def longueur=(l)
-		@longueur = l > 0 ? l : 0
+		raise ArgumentError.new("Error : longueur must be positive.") if l <= 0
+		@niveau= l
 	end
 	
 	def incrementer_visite
@@ -31,7 +34,7 @@ class Vehicule
 	end
 	
 	def decrementer_visite
-		@nbreVisites-= 1
+		@nbreVisites-= nbreVisites > 0 ? 1 : 0
 	end
 			
 end
