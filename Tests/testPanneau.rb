@@ -7,7 +7,7 @@ testPanneau.rb
 =end
 
 require "test/unit"
-require "..Sources/Modele/panneau.rb"
+require "../Sources/Modele/panneau.rb"
 
 class Test_panneau < Test::Unit::TestCase
 
@@ -23,11 +23,13 @@ class Test_panneau < Test::Unit::TestCase
 	def test_incrementer
 		@pan.incrementer
 		assert_equal(1,@pan.place)
+		@pan.decrementer
+		assert_equal(0,@pan.place)
 	end
 
 	def test_decrementer
 		@pan.decrementer
-		assert_equel(0,@pan.place)
+		assert_equal(0,@pan.place)
 	end
 end
 

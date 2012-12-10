@@ -22,6 +22,6 @@ class Panneau
 
 	#Decremente le nombre de places restantes
 	def decrementer
-		@place-=1
+		@place-=1 if @place > 0
 	end
 end
