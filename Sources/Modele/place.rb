@@ -23,4 +23,14 @@ class Place
 		@hauteur=hauteur
 		@longueur=longueur
 	end
+	
+	def num=(n)
+		raise IllegalArgument, "Error : num must be positive." if n < 0
+		@num= n
+	end
+	
+	def niveau=(niv)
+		raise IllegalArgument, "Error : niveau must be positive." if n < 0
+		@niveau= niv
+	end
 end

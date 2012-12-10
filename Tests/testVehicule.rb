@@ -21,7 +21,7 @@ class TestVehicule < Test::Unit::TestCase
 	#vehiculeTailleNulle : erreur de taille (nulle)
 	#vehiculeTailleNeg : erreur de taille (négative)
 	def test_new
-		assert(@vehiculeOK, "Erreur creation vehiculeOK")
+		assert_instance_of(@vehiculeOK, "Erreur creation vehiculeOK")
 		assert(!@vehiculeTailleNulle, "Erreur : vehiculeTailleNulle creee")
 		assert(!@vehiculeTailleNeg, "Erreur creation vehiculeTailleNeg")
 		

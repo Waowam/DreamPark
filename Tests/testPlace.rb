@@ -20,7 +20,7 @@ class TestPlace < Test::Unit::TestCase
 	#placeTailleNulle : erreur de taille (nulle)
 	#placeTailleNeg : erreur de taille (negative)
 	def test_new
-		assert(@placeOK, "Erreur creation placeOK")
+		assert_instance_of(Place,@placeOK, "Erreur creation placeOK")
 		assert(!@placeTailleNulle, "Erreur : placeTailleNulle creee")
 		assert(!@placeTailleNeg, "Erreur creation placeTailleNeg")
 		
