@@ -4,12 +4,12 @@
   <object class="GtkWindow" id="vue_config">
     <property name="can_focus">False</property>
     <child>
-      <object class="GtkBox" id="box4">
+      <object class="GtkVBox" id="box4">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <property name="orientation">vertical</property>
         <child>
-          <object class="GtkBox" id="box5">
+          <object class="GtkHBox" id="box5">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <child>
@@ -48,7 +48,7 @@
           </packing>
         </child>
         <child>
-          <object class="GtkBox" id="box6">
+          <object class="GtkHBox" id="box6">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <child>
@@ -86,7 +86,7 @@
           </packing>
         </child>
         <child>
-          <object class="GtkBox" id="box7">
+          <object class="GtkHBox" id="box7">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <child>
@@ -148,7 +148,7 @@
           </packing>
         </child>
         <child>
-          <object class="GtkBox" id="box15">
+          <object class="GtkHBox" id="box15">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <child>
