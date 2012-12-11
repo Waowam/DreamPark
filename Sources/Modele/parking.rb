@@ -7,6 +7,7 @@ parking.rb
 =end
 
 require 'set'
+require "./place.rb"
 
 #Classe Parking
 #
@@ -18,7 +19,7 @@ class Parking
 	attr_writer :place,:listAbonnes,:listVehicules,:nom
 	attr_reader :place,:listAbonnes,:listVehicules,:nom
 
-	def initialize(nom="DreamPark",niveau,places=[])
+	def initialize(nom="DreamPark",places=[])
 		@nom = nom
 		@place = places
 		@listAbonnes = Set.new
@@ -41,7 +42,8 @@ class Parking
 
 	#Remove le vehicule des listes et libère la place
 	def remove_vehicule(p,v)
-		@listAbonnes.delete(p) if v.is_abonne? else @listClient.delete(p)
+		@listAbonnes.delete(p) if v.is_abonne?
+		@listClient.delete(p) if not v.is_abonne?
 		p.vehicule = nil
 	end
 
@@ -66,6 +68,28 @@ class Parking
 			# 				  prendre la premiere place libre avec h&l plus grand mais de juste assez
 			# 					pour garder les plus grandes places.
 		end
+	end
+
+	#Rapide vue en text d'un parking
+	def to_s
+		puts "Nom : #{@nom}"
+		puts "Nombre place totale : #{@place.length}"
+		@place.each_with_index{ |p,i| puts "Place #{i} : #{p}"}
+	end
+
+
+	#Méthode de class
+
+	def self.generate_place(niveau,nbPlace,rangHaut,rangLong)
+		p = []
+		for niv in (1..niveau)
+			for id in (1..nbPlace)
+				idP = (niv*nbPlace)+id
+				#puts rand(Range.new(rangHaut[0],rangHaut[1]))
+				p<<Place.new(idP,niv,rand(Range.new(rangHaut[0].to_i,rangHaut[1].to_i)),rand(Range.new(rangLong[0].to_i,rangLong[1].to_i)))
+			end
+		end
+		return p
 	end
 
 end

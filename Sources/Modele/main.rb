@@ -1,18 +1,12 @@
 =begin
-03/12/12
+10/12/12
 
 Eglem - Pinto
 
-GestionPark.rb
+main.rb
 =end
 
-PlaceDispo = 100
-
-begin
-
-	require "./parking.rb"
-	require "./vehicule.rb"
-end
+require "./parking.rb"
 
 def banner()
   puts '____________________________________________________'
@@ -41,11 +35,46 @@ def usage()
   puts "ruby " + script_name
 end
 
-class GestionPark
+# Output banner
 
-	def initialize
+banner()
+puts
 
-		dreamPark = Parking.new("DreamPark v1",3)
-	end
+# do we have any input?!
+
+if ARGV.length > 0
+  usage()
+  exit(1)
 end
+
+puts "Administrateur merci de parametre votre parking - \n"
+puts "Nom : "
+until (nom = gets.chomp).match(/.+/) do
+   nom = gets.chomp
+end
+puts "Nombre de niveau : "
+until (niveau = gets.chomp).match(/\d+/) do
+   niveau = gets.chomp
+end
+puts "Nombre de place maximum par niveau :"
+until (nbPlaceMax = gets.chomp).match(/\d+/) do
+  nbPlaceMax = gets.chomp
+end
+puts "Intervalle de hauteur min-max : min-max"
+until (interHauteur = gets.chomp).match(/\d+-\d+/)do
+  interHauteur = gets.chomp
+end
+interHauteur = interHauteur.split('-')
+
+puts "Intervalle de hauteur min-max : min-max"
+until (interLongueur = gets.chomp).match(/\d+-\d+/)do
+  interLongueur = gets.chomp
+end
+interLongueur = interLongueur.split('-')
+interLongueur.each { |v| v.to_i}
+
+place = Parking.generate_place(niveau.to_i,nbPlaceMax.to_i,interHauteur,interLongueur)
+
+park = Parking.new(nom,place)
+puts "#{park}"
 
