@@ -5,13 +5,15 @@ Eglem - Pinto
 
 borne.rb
 =end
+require "../../Sources/Controleur/ctrlBorne.rb"
 
 class Borne
 
-	attr_reader :idBorne,:acces
+	attr_reader :nom
 
-	def initialize(id=00)
-		@idBorne = id
+	def initialize(nom)
+		@nom = nom
+		@controleur = Ctrl_borne.new(self)
 	end
 
 	def abonnerClient

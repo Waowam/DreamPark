@@ -7,6 +7,7 @@ main.rb
 =end
 
 require "./parking.rb"
+require "gtk2"
 
 def banner()
   puts '____________________________________________________'
@@ -66,7 +67,7 @@ until (interHauteur = gets.chomp).match(/^\d+-\d+$/)do
 end
 interHauteur = interHauteur.split('-')
 
-puts "Intervalle de hauteur min-max : min-max"
+puts "Intervalle de longueur min-max : min-max"
 until (interLongueur = gets.chomp).match(/^\d+-\d+$/)do
   interLongueur = gets.chomp
 end
@@ -74,6 +75,9 @@ interLongueur = interLongueur.split('-')
 
 place = Parking.generate_place(niveau.to_i,nbPlaceMax.to_i,interHauteur,interLongueur)
 
-park = Parking.new(nom,place)
-puts "#{park}"
 
+Gtk.init
+
+park = Parking.new(nom,place)
+
+Gtk.main

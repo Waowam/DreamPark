@@ -6,46 +6,22 @@ Eglem - Pinto
 GestionPark.rb
 =end
 
-PlaceDispo = 100
 
-begin
-
-	require "./parking.rb"
-	require "./vehicule.rb"
-end
-
-def banner()
-  puts '____________________________________________________'
-  puts "       ######                              "
-  puts "       #     # #####  ######   ##   #    # "
-  puts "       #     # #    # #       #  #  ##  ## "
-  puts "       #     # #    # #####  #    # # ## # "
-  puts "       #     # #####  #      ###### #    # "
-  puts "       #     # #   #  #      #    # #    # "
-  puts "       ######  #    # ###### #    # #    # "
-  puts "                                           "
-  puts "			  ######                       "
-  puts "			  #     #   ##   #####  #    # "
-  puts "			  #     #  #  #  #    # #   #  "
-  puts "			  ######  #    # #    # ####   "
-  puts "			  #       ###### #####  #  #   "
-  puts "			  #       #    # #   #  #   #  "
-  puts "			  #       #    # #    # #    # "
-  puts '____________________________________________________'
-  puts
-end
-
-def usage()
-  script_name = $0 
-  puts "Usage pour le projet dreamPark :\n"
-  puts "ruby " + script_name
-end
+require "./parking.rb"
+require "../../Sources/Controleur/ctrlGeneral.rb"
 
 class GestionPark
 
 	def initialize
+		@parks = []
+		@ctrl = Ctrl_gen.new(self)
+	end
 
-		dreamPark = Parking.new("DreamPark v1",3)
+	def creerPark(nom="",niv,placeMax,hauteur,longueur)
+		@parks<<Parking.new(nom,Parking.generate_place(niv,placeMax,hauteur,longueur))
+		@ctrl.maj_parking
 	end
 end
+
+
 

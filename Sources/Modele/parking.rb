@@ -8,6 +8,7 @@ parking.rb
 
 require 'set'
 require "./place.rb"
+require "./acces.rb"
 
 #Classe Parking
 #
@@ -24,6 +25,8 @@ class Parking
 		@place = places
 		@listAbonnes = Set.new
 		@listClient = Set.new
+		@accesNord = Acces.new("AccesNord",self)
+		@accesSud = Acces.new("AccesSud",self)
 	end
 
 	#Ajoute un véhicule dans la liste correspondante.

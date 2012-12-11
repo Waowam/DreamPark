@@ -1,17 +1,16 @@
 =begin
-05/12/12
+11/12/12
 
 Eglem - Pinto
 
-vueBorne.rb
+vuePanneau.rb
 =end
 
 require 'gtk2'
 
-class Vue_borne < Gtk::Window
+class Vue_panneau < Gtk::Window
 
 	def initialize(nomWindow)
 		super(nomWindow)
 	end
 end
-

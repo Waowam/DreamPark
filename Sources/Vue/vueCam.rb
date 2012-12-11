@@ -10,12 +10,7 @@ require 'gtk2'
 
 class Vue_cam < Gtk::Window
 
-	def initialize(name)
-		super(name)
-		self.show_all
+	def initialize(nom)
+		super(nom)
 	end
 end
-
-Gtk.init
-Vue_cam.new
-Gtk.main

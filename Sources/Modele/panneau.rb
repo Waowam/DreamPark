@@ -6,15 +6,18 @@ Eglem - Pinto
 panneau.rb
 =end
 
+require "../../Sources/Controleur/ctrlPanneau.rb"
+
 #Classe panneau représentant le panneau
 #d'affichage des places totales restantes.
 class Panneau
-	attr_accessor :placeLib,:placeTot
+	attr_accessor :placeLib,:placeTot,:nom
 
 	def initialize(nom="",place=0)
 		@nom = nom
 		@placeLib=place
 		@placeTot
+		@ctrl_pan = Ctrl_pan.new(self)
 	end
 
 	#Incremente le nombre de places restantes

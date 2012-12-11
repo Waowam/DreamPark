@@ -6,13 +6,15 @@ Eglem - Pinto
 ctrlCam.rb
 =end
 
-require "../Sources/Vue/vueCam.rb"
+require 'gtk2'
+require "../../Sources/Vue/vueCam.rb"
 
 class Ctrl_cam
 
 	def initialize(cam)
 		@mdl_cam = cam
-		@vue_borne = Vue_cam.new(cam.nom)
+		@vue_cam = Vue_cam.new(@mdl_cam.nom)
+		@vue_cam.show_all
 	end
 
 	def pop_Vehicule

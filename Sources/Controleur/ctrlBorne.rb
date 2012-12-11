@@ -6,13 +6,15 @@ Eglem - Pinto
 ctrlBorne.rb
 =end
 
-require "../Sources/Vue/vueBorne.rb"
+require 'gtk2'
+require "../../Sources/Vue/vueBorne.rb"
 
 class Ctrl_borne
 
 	def initialize(borne)
 		@mdl_borne = borne
-		@vue_borne = Vue_borne.new
+		@vue_borne = Vue_borne.new(@mdl_borne.nom)
+		@vue_borne.show_all
 	end
 
 	def ask_abonnement
