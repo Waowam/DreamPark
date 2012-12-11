@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-require ’gtk2’
+require 'gtk2'
 
 class Builder < Gtk::Builder
 
@@ -14,10 +14,11 @@ class Builder < Gtk::Builder
 
 	def onClick(w)
 		case w.label
-		when ’gtk-quit’
-		onDestroy
-		else
-		puts "Vous avez cliqué sur : " + w.label
+			when ’gtk-quit’
+			onDestroy
+			else
+			puts "Vous avez cliqué sur : " + w.label
+		end
 	end
 
 	def onDestroy
