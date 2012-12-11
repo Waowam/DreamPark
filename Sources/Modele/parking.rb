@@ -72,9 +72,10 @@ class Parking
 
 	#Rapide vue en text d'un parking
 	def to_s
-		puts "Nom : #{@nom}"
-		puts "Nombre place totale : #{@place.length}"
-		@place.each_with_index{ |p,i| puts "Place #{i} : #{p}"}
+		s= "Nom : #{@nom}\n"
+		s+= "Nombre place totale : #{@place.length}\n"
+		@place.each_with_index{ |p,i| s+= "Place #{i} : #{p}\n"}
+		return s
 	end
 
 
@@ -82,11 +83,12 @@ class Parking
 
 	def self.generate_place(niveau,nbPlace,rangHaut,rangLong)
 		p = []
-		for niv in (1..niveau)
+		for niv in (0..niveau-1)
 			for id in (1..nbPlace)
 				idP = (niv*nbPlace)+id
-				#puts rand(Range.new(rangHaut[0],rangHaut[1]))
-				p<<Place.new(idP,niv,rand(Range.new(rangHaut[0].to_i,rangHaut[1].to_i)),rand(Range.new(rangLong[0].to_i,rangLong[1].to_i)))
+				newP = Place.new(idP,niv,rand(Range.new(rangHaut[0].to_i,rangHaut[1].to_i)),rand(Range.new(rangLong[0].to_i,rangLong[1].to_i)))
+				puts "#{newP}"
+				p<<newP
 			end
 		end
 		return p

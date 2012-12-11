@@ -49,29 +49,28 @@ end
 
 puts "Administrateur merci de parametre votre parking - \n"
 puts "Nom : "
-until (nom = gets.chomp).match(/.+/) do
+until (nom = gets.chomp).match(/^.+$/) do
    nom = gets.chomp
 end
 puts "Nombre de niveau : "
-until (niveau = gets.chomp).match(/\d+/) do
+until (niveau = gets.chomp).match(/^\d+$/) do
    niveau = gets.chomp
 end
 puts "Nombre de place maximum par niveau :"
-until (nbPlaceMax = gets.chomp).match(/\d+/) do
+until (nbPlaceMax = gets.chomp).match(/^\d+$/) do
   nbPlaceMax = gets.chomp
 end
 puts "Intervalle de hauteur min-max : min-max"
-until (interHauteur = gets.chomp).match(/\d+-\d+/)do
+until (interHauteur = gets.chomp).match(/^\d+-\d+$/)do
   interHauteur = gets.chomp
 end
 interHauteur = interHauteur.split('-')
 
 puts "Intervalle de hauteur min-max : min-max"
-until (interLongueur = gets.chomp).match(/\d+-\d+/)do
+until (interLongueur = gets.chomp).match(/^\d+-\d+$/)do
   interLongueur = gets.chomp
 end
 interLongueur = interLongueur.split('-')
-interLongueur.each { |v| v.to_i}
 
 place = Parking.generate_place(niveau.to_i,nbPlaceMax.to_i,interHauteur,interLongueur)
 

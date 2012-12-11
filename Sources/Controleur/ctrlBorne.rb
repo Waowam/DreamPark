@@ -6,6 +6,8 @@ Eglem - Pinto
 ctrlBorne.rb
 =end
 
+require "../Sources/Vue/vueBorne.rb"
+
 class Ctrl_borne
 
 	def initialize(borne)

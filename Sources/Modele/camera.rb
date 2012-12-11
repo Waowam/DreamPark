@@ -5,14 +5,16 @@ Eglem - Pinto
 
 camera.rb
 =end
+require "../Sources/Controleur/ctrlCam.rb"
 
 class Camera
 
-	attr_reader :numero,:moi
+	attr_reader :numero,:nom
 
-	def initialize
-		@numero=0
-		@moi = "JE SUIS UNE CAMERA"
+	def initialize(num=0,nom)
+		@ControleurCam = Ctrl_cam.new(self)
+		@numero= num
+		@nom = nom
 	end
 
 	#Par défaut send_info renvois les informations

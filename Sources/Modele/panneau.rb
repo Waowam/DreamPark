@@ -9,19 +9,27 @@ panneau.rb
 #Classe panneau représentant le panneau
 #d'affichage des places totales restantes.
 class Panneau
-	attr_accessor :place
+	attr_accessor :placeLib,:placeTot
 
-	def initialize(place=0)
-		@place=place
+	def initialize(nom="",place=0)
+		@nom = nom
+		@placeLib=place
+		@placeTot
 	end
 
 	#Incremente le nombre de places restantes
 	def incrementer
-		@place+=1
+		@placeLib+=1 if @placeLib >= @placeTot
 	end
 
 	#Decremente le nombre de places restantes
 	def decrementer
-		@place-=1 if @place > 0
+		@placeLib-=1 if @place > 0
 	end
+
+	#Redef to_s
+	def to_s
+		s="#{@nom} : #{@placeLib}/#{@placeTot}"
+	end
+
 end

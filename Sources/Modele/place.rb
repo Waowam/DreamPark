@@ -17,10 +17,10 @@ class Place
 	attr_accessor :num,:niveau,:hauteur,:longueur,:vehicule
 
 	def initialize(num,niveau,hauteur,longueur)
-		self.num=num
-		self.niveau=niveau
-		self.hauteur=hauteur
-		self.longueur=longueur
+		@num=num
+		@niveau=niveau
+		@hauteur=hauteur
+		@longueur=longueur
 		@vehicule=nil
 	end
 	
@@ -42,5 +42,9 @@ class Place
 	def longueur=(l)
 		raise ArgumentError.new("Error : longueur must be positive.") if l <= 0
 		@niveau= l
+	end
+
+	def to_s
+		s ="Place n #{@num}, niveau : #{@niveau}, h : #{@hauteur}, l : #{@longueur}"
 	end
 end
