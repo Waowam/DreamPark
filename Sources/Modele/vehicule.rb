@@ -21,12 +21,12 @@ class Vehicule
 	
 	def hauteur=(h)
 		raise ArgumentError.new("Error : hauteur must be positive.") if h <= 0
-		@niveau= h
+		@hauteur= h
 	end
 	
 	def longueur=(l)
 		raise ArgumentError.new("Error : longueur must be positive.") if l <= 0
-		@niveau= l
+		@longueur= l
 	end
 	
 	def incrementer_visite
@@ -35,6 +35,14 @@ class Vehicule
 	
 	def decrementer_visite
 		@nbreVisites-= nbreVisites > 0 ? 1 : 0
+	end
+	
+	def is_abonne?
+		abonne != nil
+	end
+	
+	def to_s
+		s = "IMM : #{immatriculation}"
 	end
 			
 end

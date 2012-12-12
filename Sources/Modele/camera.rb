@@ -10,10 +10,11 @@ require "../../Sources/Controleur/ctrlCam.rb"
 class Camera
 
 	attr_reader :numero,:nom
+	attr_writer :numero,:nom
 
 	def initialize(num=0,nom)	
-		@numero= num
-		@nom = nom
+		self.numero= num
+		self.nom= nom
 		@ControleurCam = Ctrl_cam.new(self)
 	end
 
@@ -23,7 +24,10 @@ class Camera
 	# - [0] = immatriculation
 	# - [1] = hauteur
 	# - [2] = longueur
-	def send_info(imma="",hauteur,longueur)
+	def send_info()
+		imma = rand(Range(0,9999)).to_s
+		hauteur= rand(Range(-100,$hauteur_max+100))
+		longueur= rand(Range(-100,$longueur_max+100))
 		return [imma,hauteur,longueur]
 	end
 end

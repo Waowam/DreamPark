@@ -6,6 +6,8 @@ Eglem - Pinto
 place.rb
 =end
 
+require "./parking.rb"
+require "./vehicule.rb"
 
 #Classe Place
 #
@@ -14,14 +16,15 @@ place.rb
 #sa hauteur, sa longueur et son vehicule.
 class Place
 
-	attr_accessor :num,:niveau,:hauteur,:longueur,:vehicule
+	attr_reader :num,:niveau,:hauteur,:longueur,:vehicule
+	attr_writer :vehicule
 
 	def initialize(num,niveau,hauteur,longueur)
-		@num=num
-		@niveau=niveau
-		@hauteur=hauteur
-		@longueur=longueur
-		@vehicule=nil
+		self.num=num
+		self.niveau=niveau
+		self.hauteur=hauteur
+		self.longueur=longueur
+		self.vehicule=nil
 	end
 	
 	def num=(n)
@@ -36,15 +39,21 @@ class Place
 	
 	def hauteur=(h)
 		raise ArgumentError.new("Error : hauteur must be positive.") if h <= 0
-		@niveau= h
+		@hauteur= h
 	end
 	
 	def longueur=(l)
 		raise ArgumentError.new("Error : longueur must be positive.") if l <= 0
-		@niveau= l
+		@longueur= l
+	end
+	
+	def libre?
+		vehicule == nil
 	end
 
 	def to_s
-		s ="Place n #{@num}, niveau : #{@niveau}, h : #{@hauteur}, l : #{@longueur}"
+		s ="Place n #{num}, niveau : #{niveau}, h : #{hauteur}, l : #{longueur}"
+		s += vehicule.to_s if not libre?
+		return s
 	end
 end

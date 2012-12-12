@@ -8,23 +8,26 @@ ticket.rb
 
 class Ticket
 
-	def initialize(nomPark="DreamPark",place=00, vehicule=nil, abonnee=nil)
-		@nom = nomPark
-		@time = Time.now.to_s
-		@place = place
-		@vehicule = vehicule
-		@client = abonnee
+	attr_reader :nom, :time, :place, :vehicule, :abonne
+	attr_writer :nom, :time, :place, :vehicule, :abonne
+
+	def initialize(nom, place, vehicule, abonne=nil)
+		self.nom = nom
+		self.time = Time.now.to_s
+		self.place = place
+		self.vehicule = vehicule
+		self.abonne = abonne
 	end
 
-	def print
+	def to_s
 		result = ""
 		result+= "----------------------------------\n"
 		result+= @nom.center(20,'-')
 		result+= "----------------------------------\n"
 		result+= @time.center(20,' ')
 		result+="\nPlace : #{@place}\n"
-		result+="Client : #{@client}" if @client !=nil
-		result+="Vehicule : #{@vehicule}" if @vehicule !=nil
+		result+="Client : #{@abonne}" if @abonne !=nil
+		result+="Vehicule : #{@vehicule}"
 		return result
 	end
 end
