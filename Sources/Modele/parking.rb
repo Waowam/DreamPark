@@ -18,7 +18,7 @@ require "./acces.rb"
 class Parking
 
 	attr_writer :place,:listAbonnes,:listVehicules,:nom
-	attr_reader :place,:listAbonnes,:listVehicules,:nom
+	attr_reader :place,:listAbonnes,:listVehicules,:nom,:accesNord,:accesSud
 
 	def initialize(nom="DreamPark",places=[])
 		@nom = nom
@@ -34,16 +34,12 @@ class Parking
 	#not is_abonne? => listClient
 	def add_vehicule(p,v)
 		p.vehicule = v
-		if v.is_abonne? then
-			v.up_nb_visite
-			@listAbonnes.add(v) if not @listAbonne.member?
-		else
-			v.up_nb_visite
-			@listClient.add(v) if not @listClient.member?
-		end
+		v.up_nb_visite
+		@listAbonnes.add(v) if v.is_abonne?
+		@listClient.add(v) if not v.is_abonne?
 	end
 
-	#Remove le vehicule des listes et libère la place
+	#Remove le vehicule des listes
 	def remove_vehicule(p,v)
 		@listAbonnes.delete(p) if v.is_abonne?
 		@listClient.delete(p) if not v.is_abonne?
