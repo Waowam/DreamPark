@@ -14,8 +14,8 @@ require './teleporteur.rb'
 
 class Acces
 
-	attr_reader :nom,:park,:teleporteur1,:teleporteur2,:panneau,:borne1,:borne2
-	attr_writer :nom,:park,:teleporteur1,:teleporteur2
+	attr_reader :nom,:park,:teleporteurs,:panneau,:borne
+	attr_writer :nom,:park,:teleporteurs
 
 	def initialize(nom="",parking)
 		self.nom= nom
@@ -23,32 +23,45 @@ class Acces
 		#Initialisation des composants utiles
 
 		#Les bornes, interface client
-		@borne1 = Borne.new("Borne 1-#{@nom}")
-		@borne2 = Borne.new("Borne 2-#{@nom}")
+		@borne = Borne.new("Borne-#{@nom}")
 
 		#La camera
 		@camera = Camera.new(00,"Camera-#{@nom}")
 
-		#Le panneau
-		@panneau = Panneau.new("Panneau-#{@nom}",@park.nb_place)
-
 		#Les deux téléporteur
-		self.teleporteur1(1)
-		self.teleporteur2(2)
+		self.teleporteurs= [Teleporteur.new(1,self), Teleporteur.new(2,self)]
 	end
 
 	def capture_vehicule
 		begin
 			v = camera.send_info
 		end while v[0].length == 4 and v[1].between?(10,$hauteur_max) and v[2].between?(10,$longeur_max)
-		return v
+		est_entre(v)
 	end
 
 	def est_entre(v)
-		park.garer(v)
+		if park.nb_place_libre then
+			if v.is_abonne? then
+				if not v.abonne.has_pack? then
+					borne.controleur.ask_upgrade(v.abonne) if v.nbreVisites >= 10 #CAS : Proposer pack garanti
+				end
+				borne.controleur.ask_services #Params ????
+			else
+				borne.controleur.ask_abonnement(v) if v.nbreVisites >= 10 #CAS : Abonner le client
+			end
+		
+			if borne.controleur.ask_paiement then
+				numPlace = teleporteurs[0].transporter_garer(v)
+				borne.editerTicker(numPlace,v)
+				park.incrementer_panneaux
+			end
+		else
+			#le garer quand même if v.is_abonne? and v.abonne.has_pack?
+		end
 	end
 
 	def est_sorti
-		park.reprendre(v)
+		teleporteurs[0].transporter_reprendre(v)
+		park.decrementer_panneaux
 	end
 end

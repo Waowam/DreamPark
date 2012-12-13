@@ -9,18 +9,19 @@ teleporteur.rb
 
 class Teleporteur
 
-	attr_reader :id
-	attr_writer :id
+	attr_reader :id,:acces
+	attr_writer :id,:acces
 
-	def initialize(id)
+	def initialize(id, acces)
 		self.id= id
+		self.acces= acces
 	end
 
 	def transporter_garer(v)
-		acces.est_entree(v)
+		acces.park.garer(v)
 	end
 
 	def transporter_reprendre(v)
-		acces.est_sorti(v)
+		acces.park.reprendre(v)
 	end
 end

@@ -18,15 +18,15 @@ require "./acces.rb"
 class Parking
 
 	attr_writer :place,:listAbonnes,:listClient,:nom
-	attr_reader :place,:listAbonnes,:listClient,:nom,:accesNord,:accesSud
+	attr_reader :place,:listAbonnes,:listClient,:nom,:acces,:panneaux
 
 	def initialize(nom="DreamPark",places=[])
 		self.nom = nom
 		self.place = places
 		self.listAbonnes = Set.new
 		self.listClient = Set.new
-		@accesNord = Acces.new("AccesNord",self)
-		@accesSud = Acces.new("AccesSud",self)
+		@acces = [Acces.new("AccesNord",self), Acces.new("AccesSud",self)]
+		@panneaux = [Panneau.new("Panneau-1", self.nb_place), Panneau.new("Panneau-2", self.nb_place)]
 	end
 
 	#Ajoute un véhicule dans la liste correspondante.
@@ -76,7 +76,7 @@ class Parking
 	#Assigne une place à un véhicule et ajoute le client.
 	def garer(v)
 		numPlace = assigner_place(v)
-		add_vehicule(v) if numPlace != -1
+		add_vehicule(v) if numPlace
 		return numPlace
 	end
 	
@@ -92,6 +92,20 @@ class Parking
 			end
 		end
 		return res
+	end
+	
+	#Incremente le compteur des panneaux du parking
+	def incrementer_panneaux
+		panneaux.each do |p|
+			p.incrementer
+		end
+	end
+	
+	#Decremente le compteur des panneaux du parking
+	def decrementer_panneaux
+		panneaux.each do |p|
+			p.decrementer
+		end
 	end
 
 	#Rapide vue en text d'un parking

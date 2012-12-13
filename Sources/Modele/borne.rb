@@ -15,12 +15,21 @@ class Borne
 	def initialize(nom)
 		self.nom = nom
 		@controleur = Ctrl_borne.new(self)
+		listTickets = []
 	end
 
-	def abonnerClient
-		 
+	#Lie le nouveau client abonné à son véhicule
+	def abonner(v,c)
+		v.abonne=c
+	end
+	
+	#Abonne au pack garanti le client passé en paramètre
+	def upgrade(c)
+		c.hasPack=true
 	end
 
-	def editerTicker(place,imma)
+	#creer un ticket pour un véhicule donné
+	def editerTicker(place,v)
+		Ticket.new(place, v)
 	end
 end
