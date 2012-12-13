@@ -52,8 +52,9 @@ class Place
 	end
 
 	def to_s
-		s ="Place n #{num}, niveau : #{niveau}, h : #{hauteur}, l : #{longueur}"
+		s ="Place n #{num}, niveau : #{niveau}, h : #{hauteur}, l : #{longueur} "
 		s += vehicule.to_s if not libre?
+		s += "LIBRE" if libre?
 		return s
 	end
 end

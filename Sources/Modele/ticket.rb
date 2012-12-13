@@ -11,11 +11,11 @@ class Ticket
 	attr_reader :nom, :time, :place, :vehicule
 	attr_writer :nom, :time, :place, :vehicule
 
-	def initialize(place, vehicule)
+	def initialize(numPlace, vehicule)
 		self.time = Time.now.to_s
-		self.place = place
+		self.place = numPlace
 		self.vehicule = vehicule
-		self.nom = "Ticket P#{place.num}V#{vehicule.immatriculation} - #{self.time}"
+		self.nom = "Ticket P#{self.place}V#{self.vehicule.immatriculation} - #{self.time}"
 	end
 
 	def to_s

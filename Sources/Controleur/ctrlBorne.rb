@@ -38,7 +38,7 @@ class Ctrl_borne
 	
 	#Méthode de demande de ask_paiement
 	def ask_paiement
-		
+		true
 	end
 
 end

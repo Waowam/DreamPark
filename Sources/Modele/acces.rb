@@ -11,10 +11,9 @@ require './borne.rb'
 require './panneau.rb'
 require './teleporteur.rb'
 
-
 class Acces
 
-	attr_reader :nom,:park,:teleporteurs,:panneau,:borne
+	attr_reader :nom,:park,:teleporteurs,:panneau,:borne,:camera
 	attr_writer :nom,:park,:teleporteurs
 
 	def initialize(nom="",parking)
@@ -35,12 +34,12 @@ class Acces
 	def capture_vehicule
 		begin
 			v = camera.send_info
-		end while v[0].length == 4 and v[1].between?(10,$hauteur_max) and v[2].between?(10,$longeur_max)
-		est_entre(v)
+		end until v[0].length == 4 and v[1].between?(10,$hauteur_max) and v[2].between?(10,$longueur_max)
+		est_entre(Vehicule.new(*v))
 	end
 
 	def est_entre(v)
-		if park.nb_place_libre then
+		if park.nb_place_libre and park.where_to_park(v) then
 			if v.is_abonne? then
 				if not v.abonne.has_pack? then
 					borne.controleur.ask_upgrade(v.abonne) if v.nbreVisites >= 10 #CAS : Proposer pack garanti

@@ -58,19 +58,36 @@ class Parking
 	def nb_place
 		return place.length
 	end
+	
+	#Retourne la liste des places coresspondant aux dimensions du véhivule
+	#Retourne nil si aucune place trouvée
+	def where_to_park(v)
+		res=[]
+		place.each do |p| #Peut être optimisé pour se rapprocher des dimension du véhicule
+			if p.libre? and p.longueur >= v.longueur and p.hauteur >= v.hauteur then 
+				res<<p
+			end
+		end
+		res= nil if res == []
+		return res
+	end
 
 	#Choisis une place correspondante au vehicule donné.
 	#Retourne le numéro de la place attribuée.
 	#Retourne -1 en cas d'echec.
 	def assigner_place(v)
-		res= nil
-		place.each do |p| #Peut être optimisé pour se rapprocher des dimension du véhicule
-			if not res and p.libre? and p.longueur >= v.longueur and p.hauteur >= v.hauteur then
-				p.vehicule= v 
-				res = p.num
-			end
+		listPlaces = where_to_park(v)
+		if listPlaces then
+			best = listPlaces[0]
+			for i in (1...listPlaces.length) do
+				if listPlaces[i].longueur <= best.longueur and listPlaces[i].hauteur <= best.hauteur or
+				   listPlaces[i].longueur <= best.longueur and listPlaces[i].hauteur == best.hauteur or
+				   listPlaces[i].longueur == best.longueur and listPlaces[i].hauteur <= best.hauteur then
+				   best = listPlaces[i]
+				  end
+			end		
+			best.vehicule = v if listPlaces
 		end
-		return res
 	end
 	
 	#Assigne une place à un véhicule et ajoute le client.
@@ -110,8 +127,10 @@ class Parking
 
 	#Rapide vue en text d'un parking
 	def to_s
-		s= "Nom : #{@nom}\n"
-		s+= "Nombre place totale : #{@place.length}\n"
+		s= "Nom : #{nom}\n"
+		for p in panneaux do
+			s+= "#{p}\n"
+		end
 		place.each_with_index{ |p,i| s+= "Place #{i} : #{p}\n"}
 		return s
 	end

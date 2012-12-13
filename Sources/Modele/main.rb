@@ -78,19 +78,33 @@ place = Parking.generate_place(3,3,[100,500],[100,500])
 $hauteur_max= 500
 $longueur_max= 500
 
-
 Gtk.init
 
 park = Parking.new("Park King",place)
 
-veh = Vehicule.new("IMM",200,300)
-park.garer(veh)
-park.reprendre(veh)
-park.garer(veh)
-park.reprendre(veh)
+#veh = Vehicule.new("IMM",200,300)
+#park.garer(veh)
+#park.reprendre(veh)
+#park.garer(veh)
+#park.reprendre(veh)
 
 puts park
 
-puts veh.nbreVisites
+park.acces[0].capture_vehicule #1
+park.acces[0].capture_vehicule #2
+park.acces[0].capture_vehicule #3
+park.acces[0].capture_vehicule #4
+park.acces[0].capture_vehicule #5
+park.acces[0].capture_vehicule #6
+park.acces[0].capture_vehicule #7
+park.acces[0].capture_vehicule #8
+park.acces[0].capture_vehicule #9
+park.acces[0].capture_vehicule #10
+park.acces[0].capture_vehicule #11
+
+puts
+puts park
+
+#puts veh.nbreVisites
 
 Gtk.main

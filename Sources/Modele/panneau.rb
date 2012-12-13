@@ -11,29 +11,29 @@ require "../../Sources/Controleur/ctrlPanneau.rb"
 #Classe panneau représentant le panneau
 #d'affichage des places totales restantes.
 class Panneau
-	attr_reader :placeLib,:placeTot,:nom,:ctrl_pan
-	attr_writer :placeLib,:placeTot,:nom
+	attr_reader :placeUsed,:placeTot,:nom,:ctrl_pan
+	attr_writer :placeUsed,:placeTot,:nom
 
 	def initialize(nom="",place=0)
 		self.nom = nom
-		self.placeLib
+		self.placeUsed=0
 		self.placeTot=place
 		@ctrl_pan = Ctrl_pan.new(self)
 	end
-
-	#Incremente le nombre de places restantes
+	
+	#Incremente le nombre de places utilisées
 	def incrementer
-		placeLib+=1 if placeLib < placeTot
+		self.placeUsed= placeUsed + 1 if placeUsed<placeTot
 	end
 
-	#Decremente le nombre de places restantes
+	#Decremente le nombre de places utilisées
 	def decrementer
-		placeLib-=1 if placeLib > 0
+		self.placeUsed-=1 if placeUsed > 0
 	end
 
 	#Redef to_s
 	def to_s
-		s="#{nom} : #{placeLib}/#{placeTot}"
+		s="#{nom} : #{placeUsed}/#{placeTot}"
 	end
 
 end

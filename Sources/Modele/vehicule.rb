@@ -42,7 +42,7 @@ class Vehicule
 	end
 	
 	def to_s
-		s = "IMM : #{immatriculation}"
+		s = "IMM : #{immatriculation} Hauteur : #{hauteur} Longueur : #{longueur}"
 	end
 			
 end

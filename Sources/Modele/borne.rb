@@ -6,6 +6,7 @@ Eglem - Pinto
 borne.rb
 =end
 require "../../Sources/Controleur/ctrlBorne.rb"
+require "./ticket.rb"
 
 class Borne
 
