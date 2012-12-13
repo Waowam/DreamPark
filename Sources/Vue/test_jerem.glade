@@ -75,6 +75,30 @@
       <action-widget response="0">but_cancel</action-widget>
     </action-widgets>
   </object>
+  <object class="GtkAdjustment" id="adjustHaut">
+    <property name="lower">10</property>
+    <property name="upper">500</property>
+    <property name="value">250</property>
+    <property name="step_increment">10</property>
+    <property name="page_increment">50</property>
+  </object>
+  <object class="GtkAdjustment" id="adjustLong">
+    <property name="lower">10</property>
+    <property name="upper">500</property>
+    <property name="value">250</property>
+    <property name="step_increment">10</property>
+    <property name="page_increment">50</property>
+  </object>
+  <object class="GtkAdjustment" id="adjustNiv">
+    <property name="upper">10</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">2</property>
+  </object>
+  <object class="GtkAdjustment" id="adjustPlance">
+    <property name="upper">300</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">20</property>
+  </object>
   <object class="GtkDialog" id="d_newPark">
     <property name="can_focus">False</property>
     <property name="border_width">5</property>
@@ -465,7 +489,6 @@
       <action-widget response="0">d_butt_annul1</action-widget>
     </action-widgets>
   </object>
-  <object class="GtkListStore" id="liststore1"/>
   <object class="GtkWindow" id="vue_main">
     <property name="can_focus">False</property>
     <signal name="destroy" handler="gtk_main_quit" swapped="no"/>
@@ -764,15 +787,15 @@
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkSpinButton" id="spinbutton13">
+                              <object class="GtkSpinButton" id="spinbutton1">
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
-                                <property name="invisible_char">•</property>
+                                <property name="invisible_char">●</property>
                                 <property name="primary_icon_activatable">False</property>
                                 <property name="secondary_icon_activatable">False</property>
                                 <property name="primary_icon_sensitive">True</property>
                                 <property name="secondary_icon_sensitive">True</property>
-                                <property name="update_policy">if-valid</property>
+                                <property name="adjustment">adjustNiv</property>
                               </object>
                               <packing>
                                 <property name="expand">False</property>
@@ -806,14 +829,15 @@
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkSpinButton" id="spinbutton14">
+                              <object class="GtkSpinButton" id="spinbutton2">
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
-                                <property name="invisible_char">•</property>
+                                <property name="invisible_char">●</property>
                                 <property name="primary_icon_activatable">False</property>
                                 <property name="secondary_icon_activatable">False</property>
                                 <property name="primary_icon_sensitive">True</property>
                                 <property name="secondary_icon_sensitive">True</property>
+                                <property name="adjustment">adjustPlance</property>
                               </object>
                               <packing>
                                 <property name="expand">False</property>
@@ -848,14 +872,15 @@
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkSpinButton" id="spinbutton18">
+                              <object class="GtkSpinButton" id="spinbutton3">
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
-                                <property name="invisible_char">•</property>
+                                <property name="invisible_char">●</property>
                                 <property name="primary_icon_activatable">False</property>
                                 <property name="secondary_icon_activatable">False</property>
                                 <property name="primary_icon_sensitive">True</property>
                                 <property name="secondary_icon_sensitive">True</property>
+                                <property name="adjustment">adjustLong</property>
                               </object>
                               <packing>
                                 <property name="expand">False</property>
@@ -871,7 +896,7 @@
                           </packing>
                         </child>
                         <child>
-                          <object class="GtkHBox" id="HBox_HautPlace2">
+                          <object class="GtkHBox" id="HBox_Haut2">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
                             <child>
@@ -889,14 +914,15 @@
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkSpinButton" id="spinbutton16">
+                              <object class="GtkSpinButton" id="spinbutton4">
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
-                                <property name="invisible_char">•</property>
+                                <property name="invisible_char">●</property>
                                 <property name="primary_icon_activatable">False</property>
                                 <property name="secondary_icon_activatable">False</property>
                                 <property name="primary_icon_sensitive">True</property>
                                 <property name="secondary_icon_sensitive">True</property>
+                                <property name="adjustment">adjustHaut</property>
                               </object>
                               <packing>
                                 <property name="expand">False</property>

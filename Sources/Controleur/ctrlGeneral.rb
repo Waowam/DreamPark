@@ -16,13 +16,13 @@ class Ctrl_gen
 	def initialize(mdl)
 		@mdl_gen = mdl
 		@vue_gen = VueGeneral.new(self)
-		#@vue_gen.show_all
 	end
 
 	def maj_combo(b,vbox)
 		combo = Gtk::ComboBox.new(true)
 		combo.append_text 'Nouveau..'
 		mdl_gen.parks.each { |p| combo.append_text(p.nom)}
+		combo.active=0
 		vbox.add_child(b,combo,nil)
 	end
 

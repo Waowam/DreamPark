@@ -54,7 +54,7 @@ class VueGeneral
         @quit_dialog  = builder.get_object( "RUSURE" )
 
         @ctrl.maj_combo(builder,builder.get_object("VBox_OpenPark"))
-
+        
         @window.show_all
 
         builder.connect_signals{ |handler| method(handler) }
