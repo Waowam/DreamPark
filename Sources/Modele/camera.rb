@@ -12,10 +12,9 @@ class Camera
 	attr_reader :numero,:nom
 	attr_writer :numero,:nom
 
-	def initialize(num=0,nom)	
+	def initialize(num=0,nom)
 		self.numero= num
 		self.nom= nom
-		@ControleurCam = Ctrl_cam.new(self)
 	end
 
 	#Par défaut send_info renvois les informations

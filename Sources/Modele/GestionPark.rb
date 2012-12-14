@@ -16,12 +16,18 @@ class GestionPark
 
 	def initialize
 		@parks = []
+		@parks<<Parking.new("DreamPark",Parking.generate_place(3,20,[10,500],[10,500]))
 		@ctrl = Ctrl_gen.new(self)
 	end
 
 	def creerPark(nom="",niv,placeMax,hauteur,longueur)
-		@parks<<Parking.new(nom,Parking.generate_place(nom,niv,placeMax,hauteur,longueur))
+		@parks<<Parking.new(nom,Parking.generate_place(niv,placeMax,hauteur,longueur))
 		@ctrl.maj_parking
+	end
+
+	def get_ctrl_park(nom)
+		parks.each { |p| parking=p if p.nom==nom}
+		return parking
 	end
 end
 

@@ -2,6 +2,30 @@
 <interface>
   <!-- interface-requires gtk+ 2.0 -->
   <!-- interface-naming-policy toplevel-contextual -->
+  <object class="GtkAdjustment" id="adjustHaut">
+    <property name="lower">10</property>
+    <property name="upper">500</property>
+    <property name="value">250</property>
+    <property name="step_increment">10</property>
+    <property name="page_increment">50</property>
+  </object>
+  <object class="GtkAdjustment" id="adjustLong">
+    <property name="lower">10</property>
+    <property name="upper">500</property>
+    <property name="value">250</property>
+    <property name="step_increment">10</property>
+    <property name="page_increment">50</property>
+  </object>
+  <object class="GtkAdjustment" id="adjustNiv">
+    <property name="upper">10</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">2</property>
+  </object>
+  <object class="GtkAdjustment" id="adjustPlance">
+    <property name="upper">300</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">20</property>
+  </object>
   <object class="GtkDialog" id="RUSURE">
     <property name="can_focus">False</property>
     <property name="border_width">5</property>
@@ -74,30 +98,6 @@
       <action-widget response="-1">but_yes</action-widget>
       <action-widget response="0">but_cancel</action-widget>
     </action-widgets>
-  </object>
-  <object class="GtkAdjustment" id="adjustHaut">
-    <property name="lower">10</property>
-    <property name="upper">500</property>
-    <property name="value">250</property>
-    <property name="step_increment">10</property>
-    <property name="page_increment">50</property>
-  </object>
-  <object class="GtkAdjustment" id="adjustLong">
-    <property name="lower">10</property>
-    <property name="upper">500</property>
-    <property name="value">250</property>
-    <property name="step_increment">10</property>
-    <property name="page_increment">50</property>
-  </object>
-  <object class="GtkAdjustment" id="adjustNiv">
-    <property name="upper">10</property>
-    <property name="step_increment">1</property>
-    <property name="page_increment">2</property>
-  </object>
-  <object class="GtkAdjustment" id="adjustPlance">
-    <property name="upper">300</property>
-    <property name="step_increment">1</property>
-    <property name="page_increment">20</property>
   </object>
   <object class="GtkDialog" id="d_newPark">
     <property name="can_focus">False</property>
@@ -424,7 +424,7 @@
             <property name="can_focus">False</property>
             <property name="layout_style">end</property>
             <child>
-              <object class="GtkButton" id="button1">
+              <object class="GtkButton" id="d_wl_charged">
                 <property name="label" translatable="yes">Charger</property>
                 <property name="use_action_appearance">False</property>
                 <property name="visible">True</property>
@@ -472,20 +472,12 @@
           </packing>
         </child>
         <child>
-          <object class="GtkComboBox" id="combobox1">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-          </object>
-          <packing>
-            <property name="expand">True</property>
-            <property name="fill">True</property>
-            <property name="position">2</property>
-          </packing>
+          <placeholder/>
         </child>
       </object>
     </child>
     <action-widgets>
-      <action-widget response="0">button1</action-widget>
+      <action-widget response="0">d_wl_charged</action-widget>
       <action-widget response="0">d_butt_annul1</action-widget>
     </action-widgets>
   </object>
@@ -550,41 +542,12 @@
                     <property name="label_xalign">0</property>
                     <property name="shadow_type">none</property>
                     <child>
-                      <object class="GtkAlignment" id="alignment3">
+                      <object class="GtkAlignment" id="align_panneau">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="left_padding">12</property>
                         <child>
-                          <object class="GtkHBox" id="HBox_Panel">
-                            <property name="visible">True</property>
-                            <property name="can_focus">False</property>
-                            <child>
-                              <object class="GtkLabel" id="label_Panel1">
-                                <property name="visible">True</property>
-                                <property name="can_focus">False</property>
-                                <property name="xalign">0</property>
-                                <property name="label" translatable="yes">Panneau 1 : </property>
-                              </object>
-                              <packing>
-                                <property name="expand">True</property>
-                                <property name="fill">True</property>
-                                <property name="position">0</property>
-                              </packing>
-                            </child>
-                            <child>
-                              <object class="GtkLabel" id="label_Panel2">
-                                <property name="visible">True</property>
-                                <property name="can_focus">False</property>
-                                <property name="xalign">1</property>
-                                <property name="label" translatable="yes">Panneau 2 : </property>
-                              </object>
-                              <packing>
-                                <property name="expand">True</property>
-                                <property name="fill">True</property>
-                                <property name="position">1</property>
-                              </packing>
-                            </child>
-                          </object>
+                          <placeholder/>
                         </child>
                       </object>
                     </child>
@@ -610,16 +573,12 @@
                     <property name="label_xalign">0</property>
                     <property name="shadow_type">none</property>
                     <child>
-                      <object class="GtkAlignment" id="alignment4">
+                      <object class="GtkAlignment" id="align_parking">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="left_padding">12</property>
                         <child>
-                          <object class="GtkLabel" id="labelPark">
-                            <property name="visible">True</property>
-                            <property name="can_focus">False</property>
-                            <property name="label" translatable="yes">label</property>
-                          </object>
+                          <placeholder/>
                         </child>
                       </object>
                     </child>
@@ -638,39 +597,9 @@
                     <property name="position">1</property>
                   </packing>
                 </child>
-                <child>
-                  <object class="GtkButton" id="but_park">
-                    <property name="label" translatable="yes">newPark</property>
-                    <property name="use_action_appearance">False</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="receives_default">True</property>
-                    <signal name="clicked" handler="cb_newPark" swapped="no"/>
-                  </object>
-                  <packing>
-                    <property name="expand">True</property>
-                    <property name="fill">True</property>
-                    <property name="position">2</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkButton" id="butt_wlcm">
-                    <property name="label" translatable="yes">welcom</property>
-                    <property name="use_action_appearance">False</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="receives_default">True</property>
-                    <signal name="clicked" handler="cb_welcom" swapped="no"/>
-                  </object>
-                  <packing>
-                    <property name="expand">True</property>
-                    <property name="fill">True</property>
-                    <property name="position">3</property>
-                  </packing>
-                </child>
               </object>
               <packing>
-                <property name="expand">False</property>
+                <property name="expand">True</property>
                 <property name="fill">True</property>
                 <property name="position">1</property>
               </packing>
@@ -722,6 +651,7 @@
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">True</property>
+                            <signal name="clicked" handler="cb_charged" swapped="no"/>
                           </object>
                           <packing>
                             <property name="expand">False</property>
