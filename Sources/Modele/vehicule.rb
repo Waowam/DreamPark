@@ -46,9 +46,9 @@ class Vehicule
 	end
 	
 	def save(db, nomPark)
-		db.execute "INSERT INTO vehicule(imm, hauteur, longueur, nbVisit) VALUES (#{immatriculation}, #{hauteur}, #{longueur}, #{nbreVisites})"
-		db.execute "UPDATE vehicule SET aboNom=#{abonne.nom}" if abonne
-		db.execute "UPDATE vehicule SET aboPrenom=#{abonne.prenom}" if abonne
+		db.execute "INSERT INTO vehicule(imm, hauteur, longueur, nbVisit, park) VALUES (#{immatriculation}, #{hauteur}, #{longueur}, #{nbreVisites}, '#{nomPark}')"
+		db.execute "UPDATE vehicule SET aboNom='#{abonne.nom}'" if abonne
+		db.execute "UPDATE vehicule SET aboPrenom='#{abonne.prenom}'" if abonne
 	end
 			
 end
