@@ -24,8 +24,4 @@ class Teleporteur
 	def transporter_reprendre(v)
 		acces.park.reprendre(v)
 	end
-	
-	def save(db, nomPark, nomAcce)
-		db.execute "INSERT INTO teleporteur(id, park, acce) VALUES ('#{id}', '#{nomPark}', '#{nomAcce}')"
-	end
 end

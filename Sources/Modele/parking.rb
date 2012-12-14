@@ -88,6 +88,7 @@ class Parking
 			end		
 			best.vehicule = v if listPlaces
 		end
+		res = best ? best.num : nil
 	end
 	
 	#Assigne une place à un véhicule et ajoute le client.
@@ -145,8 +146,6 @@ class Parking
 			db.execute "DROP TABLE IF EXISTS acce"
 			db.execute "DROP TABLE IF EXISTS panneau"
 			db.execute "DROP TABLE IF EXISTS borne"
-			db.execute "DROP TABLE IF EXISTS camera"
-			db.execute "DROP TABLE IF EXISTS teleporteur"
 			db.execute "DROP TABLE IF EXISTS place"
 			db.execute "DROP TABLE IF EXISTS vehicule"
 			db.execute "DROP TABLE IF EXISTS abonne"
@@ -197,25 +196,6 @@ class Parking
 				FOREIGN KEY(place) REFERENCES place(num),
 				FOREIGN KEY(borne) REFERENCES borne(nom),
 				PRIMARY KEY(nom,park))"
-				
-				#TABLE CAMERA
-			db.execute "CREATE TABLE camera(
-				numero INTEGER,
-				nom TEXT,
-				park TEXT,
-				acce TEXT,
-				FOREIGN KEY(park) REFERENCES parking(nom),
-				FOREIGN KEY(acce) REFERENCES acce(nom),
-				PRIMARY KEY(numero,park))"
-				
-				#TABLE TELEPORTEUR
-			db.execute "CREATE TABLE teleporteur(
-				id INTEGER,
-				park TEXT,
-				acce TEXT,
-				FOREIGN KEY(park) REFERENCES parking(nom),
-				FOREIGN KEY(acce) REFERENCES acce(nom),
-				PRIMARY KEY(id,park))"
 			
 				#TABLE PLACE
 			db.execute "CREATE TABLE place(
@@ -255,7 +235,7 @@ class Parking
 			#db.execute "CREATE TABLE livraison(Nom TEXT PRIMARY KEY)"
 			
 			#Sauvegarde du parking
-			db.execute "INSERT INTO parking(nom) VALUES (#{nom})"
+			db.execute "INSERT INTO parking(nom) VALUES ('#{nom}')"
 			
 			#Appel des méthodes save
 			listAbonnes.each { |a| a.save(db, nom) }
@@ -267,8 +247,8 @@ class Parking
 			
 		rescue SQLite3::Exception => e 
 			
-			puts "Exception occured"
-			puts e
+			print "Exception occured : "
+			puts e.message
 			
 		ensure
 			db.close if db

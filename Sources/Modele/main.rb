@@ -81,7 +81,7 @@ $longueur_max= 500
 
 Gtk.init
 
-park = Parking.new("Park King",place)
+park = Parking.new("ParkKing",place)
 
 #veh = Vehicule.new("IMM",200,300)
 #park.garer(veh)
@@ -105,6 +105,10 @@ park.acces[0].capture_vehicule #11
 
 puts
 puts park
+
+park.save
+
+puts "SAVED!"
 
 #puts veh.nbreVisites
 

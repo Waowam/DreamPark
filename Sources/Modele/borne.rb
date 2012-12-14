@@ -10,13 +10,13 @@ require "./ticket.rb"
 
 class Borne
 
-	attr_reader :nom,:controleur
-	attr_writer :nom
+	attr_reader :nom,:controleur,:listTickets
+	attr_writer :nom,:listTickets
 
 	def initialize(nom)
 		self.nom = nom
 		@controleur = Ctrl_borne.new(self)
-		listTickets = []
+		self.listTickets = []
 	end
 
 	#Lie le nouveau client abonné à son véhicule
@@ -30,7 +30,7 @@ class Borne
 	end
 
 	#creer un ticket pour un véhicule donné
-	def editerTicker(place,v)
+	def editerTicket(place,v)
 		listTickets<<Ticket.new(place, v)
 	end
 	

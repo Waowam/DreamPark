@@ -50,7 +50,7 @@ class Acces
 		
 			if borne.controleur.ask_paiement then
 				numPlace = teleporteurs[0].transporter_garer(v)
-				borne.editerTicker(numPlace,v)
+				borne.editerTicket(numPlace,v) #if numPlace
 				park.incrementer_panneaux
 			end
 		else
@@ -64,9 +64,7 @@ class Acces
 	end
 	
 	def save(db, nomPark)
-		db.execute "INSERT INTO acce(nom, park) VALUES (#{nom}, '#{nomPark}')"
+		db.execute "INSERT INTO acce(nom, park) VALUES ('#{nom}', '#{nomPark}')"
 		borne.save(db, nomPark, nom)
-		camera.save(db, nomPark, nom)
-		teleporteurs.each { |tp| tp.save(db, nomPark, nom) }
 	end
 end
