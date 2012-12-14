@@ -33,4 +33,8 @@ class Borne
 	def editerTicker(place,v)
 		Ticket.new(place, v)
 	end
+	
+	def save(db, nomPark)
+		
+	end
 end

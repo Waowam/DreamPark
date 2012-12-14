@@ -63,4 +63,8 @@ class Acces
 		teleporteurs[0].transporter_reprendre(v)
 		park.decrementer_panneaux
 	end
+	
+	def save(db, nomPark)
+		
+	end
 end

@@ -8,6 +8,7 @@ main.rb
 
 require "./parking.rb"
 require "gtk2"
+require "sqlite3"
 
 def banner()
   puts '____________________________________________________'

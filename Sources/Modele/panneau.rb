@@ -35,5 +35,9 @@ class Panneau
 	def to_s
 		s="#{nom} : #{placeUsed}/#{placeTot}"
 	end
+	
+	def save(db, nomPark)
+		
+	end
 
 end

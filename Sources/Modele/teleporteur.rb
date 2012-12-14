@@ -24,4 +24,8 @@ class Teleporteur
 	def transporter_reprendre(v)
 		acces.park.reprendre(v)
 	end
+	
+	def save(db, nomPark)
+		
+	end
 end

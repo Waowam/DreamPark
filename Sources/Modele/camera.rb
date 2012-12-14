@@ -30,4 +30,8 @@ class Camera
 		longueur= rand(Range.new(-100,$longueur_max+100))
 		return [imma,hauteur,longueur]
 	end
+	
+	def save(db, nomPark)
+		
+	end
 end

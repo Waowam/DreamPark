@@ -57,4 +57,9 @@ class Place
 		s += "LIBRE" if libre?
 		return s
 	end
+	
+	def save(db, nomPark)
+		db.execute "INSERT INTO place(num, niveau, hauteur, longueur) VALUES (#{num}, #{niveau}, #{hauteur}, #{longueur})"
+		db.execute "UPDATE vehicule SET place=#{num}"
+	end
 end

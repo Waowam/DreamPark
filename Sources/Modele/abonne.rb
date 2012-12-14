@@ -20,6 +20,10 @@ class Abonne
 	def has_pack?
 		self.hasPack
 	end
+	
+	def save(db, nomPark)
+		
+	end
 			
 end
 

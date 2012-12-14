@@ -135,7 +135,58 @@ class Parking
 		return s
 	end
 
-
+	def save
+		begin
+			#Ouverture de la base de donnée
+			db = SQLite3::Database.open "dreampark.db"
+			
+			#Drop des tables
+			db.execute "DROP TABLE IF EXISTS Parking"
+			db.execute "DROP TABLE IF EXISTS Acce"
+			db.execute "DROP TABLE IF EXISTS Panneau"
+			db.execute "DROP TABLE IF EXISTS Borne"
+			db.execute "DROP TABLE IF EXISTS Camera"
+			db.execute "DROP TABLE IF EXISTS Teleporteur"
+			db.execute "DROP TABLE IF EXISTS Place"
+			db.execute "DROP TABLE IF EXISTS Vehicule"
+			db.execute "DROP TABLE IF EXISTS Abonne"
+			#db.execute "DROP TABLE IF EXISTS Service"
+			#db.execute "DROP TABLE IF EXISTS Livraison"
+			
+			#Creation des tables
+			db.execute "CREATE TABLE Parking(Nom TEXT PRIMARY KEY)"
+			db.execute "CREATE TABLE Acce(Nom TEXT PRIMARY KEY)"
+			db.execute "CREATE TABLE Panneau(Nom TEXT PRIMARY KEY)"
+			db.execute "CREATE TABLE Borne(Nom TEXT PRIMARY KEY)"
+			db.execute "CREATE TABLE Camera(Nom TEXT PRIMARY KEY)"
+			db.execute "CREATE TABLE Teleporteur(Nom TEXT PRIMARY KEY)"
+			db.execute "CREATE TABLE Place(Num INTEGER PRIMARY KEY, Niveau INTEGER, Hauteur INTEGER, Longueur INTEGER)"
+			db.execute "CREATE TABLE Vehicule(Nom TEXT PRIMARY KEY)"
+			db.execute "CREATE TABLE Abonne(Nom TEXT PRIMARY KEY)"
+			#db.execute "CREATE TABLE Service(Nom TEXT PRIMARY KEY)"
+			#db.execute "CREATE TABLE Livraison(Nom TEXT PRIMARY KEY)"
+			
+			#Sauvegarde du parking
+			db.execute "INSERT INTO Parking(Nom) VALUES (#{nom})"
+			
+			#Appel des méthodes save
+			listAbonnes.each { |a| a.save(db, nom) }
+			listClient.each { |c| c.save(db, nom) }
+			place.each { |p| p.save(db, nom) }
+			acces.each { |a| a.save(db, nom) }
+			panneaux.each { |p| p.save(db, nom) }
+			
+			
+		rescue SQLite3::Exception => e 
+			
+			puts "Exception occured"
+			puts e
+			
+		ensure
+			db.close if db
+		end
+	end
+	
 	#Méthode de class
 
 	def self.generate_place(niveau,nbPlace,rangHaut,rangLong)

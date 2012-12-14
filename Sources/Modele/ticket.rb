@@ -29,6 +29,10 @@ class Ticket
 		result+="Vehicule : #{@vehicule}"
 		return result
 	end
+	
+	def save(db, nomPark)
+		
+	end
 end
 		
 		
