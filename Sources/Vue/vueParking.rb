@@ -19,7 +19,7 @@ class Vue_parking < Gtk::VBox
 		vuePop = Gtk::VBox.new
 		vuePopImma = Gtk::HBox.new
 			lbl_imm = Gtk::Label.new("Immatriculation :")
-			txt_imma = Gtl::Entry.new
+			txt_imma = Gtk::Entry.new
 		vuePopHautLong = Gtk::HBox.new
 			lbl_H = Gtk::Label.new("Hauteur :")
 			lbl_L = Gtk::Label.new("Longueur :")
@@ -47,7 +47,7 @@ class Vue_parking < Gtk::VBox
 		vue_L.selection.set_mode(Gtk::SELECTION_SINGLE)
 
 		vehi = ctrl.get_vehicule
-		vehi.each do |imma,haut,long||
+		vehi.each do |imma,haut,long|
 			iter=model_L.append
 			iter[0],iter[1],iter[2] = imma,haut,long
 		end
@@ -62,7 +62,7 @@ class Vue_parking < Gtk::VBox
 		end
 
 		vuePopImma.add(lbl_imm).add(txt_imma)
-		vuePopHautLong(lbl_H).add(spin_H).add(lbl_L).add(spin_L)
+		vuePopHautLong.add(lbl_H).add(spin_H).add(lbl_L).add(spin_L)
 		vuePop.add(vuePopImma).add(vuePopHautLong).add(butt_pop)
 		vueList.add(vue_L).add(butt_rep)
 		self.add(vuePop).add(vueList)

@@ -21,13 +21,15 @@ class Ctrl_parking
 	end
 
 	def get_txt_panneau
-		return [mdl.panneaux[0].to_s,mdl.panneaux[1].to_s]
+		return [mdl_par.panneaux[0].to_s,mdl_par.panneaux[1].to_s]
 	end
 
 	def get_vehicule
 		v = []
-		plce = mdl.place
-		plce.each {|p| v<<p.vehicule if p.vehicule not = nil}
+		plce = mdl_par.place
+		plce.each do |p| 
+			v<<p.vehicule if p.vehicule != nil
+		end
 		return v
 	end
 
