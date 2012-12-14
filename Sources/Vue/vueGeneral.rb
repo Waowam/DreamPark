@@ -10,7 +10,7 @@ require 'gtk2'
 
 class VueGeneral
 
-	attr_accessor :window,:create_dialog,:quit_dialog,:ctrl,:builder,:combo_main,:combo_load,:windowWelcom
+	attr_accessor :window,:create_dialog,:quit_dialog,:ctrl,:builder,:combo_main,:combo_load,:windowWelcom,:framePar,:framePan
 
 	def gtk_main_quit
         Gtk::main_quit()

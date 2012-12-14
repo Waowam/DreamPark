@@ -28,7 +28,7 @@ class Parking
 		self.listClient = Set.new
 		@acces = [Acces.new("AccesNord",self), Acces.new("AccesSud",self)]
 		@panneaux = [Panneau.new("Panneau-1", self.nb_place), Panneau.new("Panneau-2", self.nb_place)]
-		self.ctrl_park = Ctrl_parking.new(self)
+		@ctrl_park = Ctrl_parking.new(self)
 	end
 
 	#Ajoute un véhicule dans la liste correspondante.
