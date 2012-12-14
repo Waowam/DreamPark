@@ -6,7 +6,6 @@ Eglem - Pinto
 panneau.rb
 =end
 
-require "../../Sources/Controleur/ctrlPanneau.rb"
 
 #Classe panneau représentant le panneau
 #d'affichage des places totales restantes.
