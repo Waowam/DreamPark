@@ -18,12 +18,12 @@ class Ctrl_gen
 		@vue_gen = VueGeneral.new(self)
 	end
 
-	def maj_combo(b,vbox,cmb)
-		cmb.clear
-		cmb.append_text 'Nouveau..'
-		mdl_gen.parks.each { |p| cmb.append_text(p.nom)}
-		cmb.active=0
-		vbox.add_child(b,cmb,nil)
+	def maj_combo
+		names=["Nouveau"]
+		mdl_gen.parks.each do |p| 
+			names<<p.nom
+		end
+		return names
 	end
 
 	def post_newPark(park)
@@ -31,7 +31,8 @@ class Ctrl_gen
 	end
 
 	def get_views(nom)
-		ctrlP = get_ctr_park(nom)
+		ctrlP = mdl_gen.get_ctrl_park(nom)
+		puts "#{ctrlP.class}"
 		return [ctrlP.vue_par,ctrlP.vue_pan]
 	end
 end

@@ -2,30 +2,6 @@
 <interface>
   <!-- interface-requires gtk+ 2.0 -->
   <!-- interface-naming-policy toplevel-contextual -->
-  <object class="GtkAdjustment" id="adjustHaut">
-    <property name="lower">10</property>
-    <property name="upper">500</property>
-    <property name="value">250</property>
-    <property name="step_increment">10</property>
-    <property name="page_increment">50</property>
-  </object>
-  <object class="GtkAdjustment" id="adjustLong">
-    <property name="lower">10</property>
-    <property name="upper">500</property>
-    <property name="value">250</property>
-    <property name="step_increment">10</property>
-    <property name="page_increment">50</property>
-  </object>
-  <object class="GtkAdjustment" id="adjustNiv">
-    <property name="upper">10</property>
-    <property name="step_increment">1</property>
-    <property name="page_increment">2</property>
-  </object>
-  <object class="GtkAdjustment" id="adjustPlance">
-    <property name="upper">300</property>
-    <property name="step_increment">1</property>
-    <property name="page_increment">20</property>
-  </object>
   <object class="GtkDialog" id="RUSURE">
     <property name="can_focus">False</property>
     <property name="border_width">5</property>
@@ -98,6 +74,30 @@
       <action-widget response="-1">but_yes</action-widget>
       <action-widget response="0">but_cancel</action-widget>
     </action-widgets>
+  </object>
+  <object class="GtkAdjustment" id="adjustHaut">
+    <property name="lower">10</property>
+    <property name="upper">500</property>
+    <property name="value">250</property>
+    <property name="step_increment">10</property>
+    <property name="page_increment">50</property>
+  </object>
+  <object class="GtkAdjustment" id="adjustLong">
+    <property name="lower">10</property>
+    <property name="upper">500</property>
+    <property name="value">250</property>
+    <property name="step_increment">10</property>
+    <property name="page_increment">50</property>
+  </object>
+  <object class="GtkAdjustment" id="adjustNiv">
+    <property name="upper">10</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">2</property>
+  </object>
+  <object class="GtkAdjustment" id="adjustPlance">
+    <property name="upper">300</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">20</property>
   </object>
   <object class="GtkDialog" id="d_newPark">
     <property name="can_focus">False</property>
@@ -403,82 +403,6 @@
     <action-widgets>
       <action-widget response="1">but_creer</action-widget>
       <action-widget response="-1">but_annuler</action-widget>
-    </action-widgets>
-  </object>
-  <object class="GtkDialog" id="d_welcom">
-    <property name="can_focus">False</property>
-    <property name="border_width">5</property>
-    <property name="title" translatable="yes">Bienvenue</property>
-    <property name="resizable">False</property>
-    <property name="default_width">200</property>
-    <property name="default_height">150</property>
-    <property name="type_hint">dialog</property>
-    <child internal-child="vbox">
-      <object class="GtkVBox" id="dialog-vbox1">
-        <property name="visible">True</property>
-        <property name="can_focus">False</property>
-        <property name="spacing">2</property>
-        <child internal-child="action_area">
-          <object class="GtkHButtonBox" id="dialog-action_area1">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="layout_style">end</property>
-            <child>
-              <object class="GtkButton" id="d_wl_charged">
-                <property name="label" translatable="yes">Charger</property>
-                <property name="use_action_appearance">False</property>
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="receives_default">True</property>
-              </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="fill">False</property>
-                <property name="position">0</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkButton" id="d_butt_annul1">
-                <property name="label" translatable="yes">Annuler</property>
-                <property name="use_action_appearance">False</property>
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="receives_default">True</property>
-              </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="fill">False</property>
-                <property name="position">1</property>
-              </packing>
-            </child>
-          </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">True</property>
-            <property name="pack_type">end</property>
-            <property name="position">0</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkLabel" id="labelTxt">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="label" translatable="yes">Veuillez selectionner le parking à charger :</property>
-          </object>
-          <packing>
-            <property name="expand">True</property>
-            <property name="fill">True</property>
-            <property name="position">1</property>
-          </packing>
-        </child>
-        <child>
-          <placeholder/>
-        </child>
-      </object>
-    </child>
-    <action-widgets>
-      <action-widget response="0">d_wl_charged</action-widget>
-      <action-widget response="0">d_butt_annul1</action-widget>
     </action-widgets>
   </object>
   <object class="GtkWindow" id="vue_main">
@@ -891,6 +815,82 @@
             <property name="expand">False</property>
             <property name="fill">True</property>
             <property name="position">1</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+  <object class="GtkWindow" id="win_welcom">
+    <property name="can_focus">False</property>
+    <property name="modal">True</property>
+    <child>
+      <object class="GtkVBox" id="d_VBox">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="spacing">2</property>
+        <child>
+          <object class="GtkHButtonBox" id="dialog-action_area1">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="layout_style">end</property>
+            <child>
+              <object class="GtkButton" id="d_wl_charged">
+                <property name="label" translatable="yes">Charger</property>
+                <property name="use_action_appearance">False</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <signal name="clicked" handler="first_load" swapped="no"/>
+              </object>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="pack_type">end</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkVBox" id="vboxLabel">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <child>
+              <object class="GtkLabel" id="label1">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">Veuillez choisir le parking a charger :</property>
+              </object>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">True</property>
+            <property name="fill">True</property>
+            <property name="position">1</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkVBox" id="d_vbox_combo">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <child>
+              <placeholder/>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">True</property>
+            <property name="fill">True</property>
+            <property name="position">2</property>
           </packing>
         </child>
       </object>

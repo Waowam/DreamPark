@@ -9,6 +9,7 @@ parking.rb
 require 'set'
 require "./place.rb"
 require "./acces.rb"
+require "../../Sources/Controleur/ctrlParking.rb"
 
 #Classe Parking
 #
@@ -18,9 +19,10 @@ require "./acces.rb"
 class Parking
 
 	attr_writer :place,:listAbonnes,:listClient,:nom
-	attr_reader :place,:listAbonnes,:listClient,:nom,:acces,:panneaux
+	attr_reader :place,:listAbonnes,:listClient,:nom,:acces,:panneaux,:ctrl_park
 
 	def initialize(nom="DreamPark",places=[])
+		self.ctrl_park = Ctrl_parking.new(self)
 		self.nom = nom
 		self.place = places
 		self.listAbonnes = Set.new

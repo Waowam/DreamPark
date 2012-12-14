@@ -26,8 +26,9 @@ class GestionPark
 	end
 
 	def get_ctrl_park(nom)
+		parking=""
 		parks.each { |p| parking=p if p.nom==nom}
-		return parking
+		return parking.ctrl_park
 	end
 end
 
