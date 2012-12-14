@@ -5,7 +5,6 @@ Eglem - Pinto
 
 camera.rb
 =end
-require "../../Sources/Controleur/ctrlCam.rb"
 
 class Camera
 
