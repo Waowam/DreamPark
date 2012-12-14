@@ -34,8 +34,8 @@ class Borne
 		listTickets<<Ticket.new(place, v)
 	end
 	
-	def save(db, nomPark, nomAcce)
-		db.execute "INSERT INTO borne(nom, park, acce) VALUES ('#{nom}', '#{nomPark}', '#{nomAcce}')"
-		listTickets.each { |t| t.save(db, nomPark, nom) }
+	def save(nomPark, nomAcce)
+		$db.execute "INSERT INTO borne(nom, park, acce) VALUES ('#{nom}', '#{nomPark}', '#{nomAcce}')"
+		listTickets.each { |t| t.save(nomPark, nom) }
 	end
 end

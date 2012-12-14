@@ -29,8 +29,8 @@ class Ticket
 		return result
 	end
 	
-	def save(db, nomPark, nomBorne)
-		db.execute "INSERT INTO ticket(nom, time, place, vehicule, park, borne) VALUES 
+	def save(nomPark, nomBorne)
+		$db.execute "INSERT INTO ticket(nom, time, place, vehicule, park, borne) VALUES 
 					('#{nom}', '#{time}', #{place}, '#{vehicule.immatriculation}', '#{nomPark}', '#{nomBorne}')"
 	end
 end

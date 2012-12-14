@@ -45,10 +45,10 @@ class Vehicule
 		s = "IMM : #{immatriculation} Hauteur : #{hauteur} Longueur : #{longueur}"
 	end
 	
-	def save(db, nomPark)
-		db.execute "INSERT INTO vehicule(imm, hauteur, longueur, nbVisit, park) VALUES (#{immatriculation}, #{hauteur}, #{longueur}, #{nbreVisites}, '#{nomPark}')"
-		db.execute "UPDATE vehicule SET aboNom='#{abonne.nom}'" if abonne
-		db.execute "UPDATE vehicule SET aboPrenom='#{abonne.prenom}'" if abonne
+	def save(nomPark)
+		$db.execute "INSERT INTO vehicule(imm, hauteur, longueur, nbVisit, park) VALUES (#{immatriculation}, #{hauteur}, #{longueur}, #{nbreVisites}, '#{nomPark}')"
+		$db.execute "UPDATE vehicule SET aboNom='#{abonne.nom}'" if abonne
+		$db.execute "UPDATE vehicule SET aboPrenom='#{abonne.prenom}'" if abonne
 	end
 			
 end

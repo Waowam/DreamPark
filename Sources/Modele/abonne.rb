@@ -20,8 +20,8 @@ class Abonne
 		self.hasPack
 	end
 	
-	def save(db, nomPark)
-		db.execute "INSERT INTO abonne(nom, prenom, adresse, tel, hasPack, park) VALUES (#{nom}, #{prenom}, #{adresse}, #{tel}, #{hasPack}, '#{nomPark}')"
+	def save(nomPark)
+		$db.execute "INSERT INTO abonne(nom, prenom, adresse, tel, hasPack, park) VALUES (#{nom}, #{prenom}, #{adresse}, #{tel}, #{hasPack}, '#{nomPark}')"
 	end
 			
 end

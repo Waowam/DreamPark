@@ -33,6 +33,7 @@ class Acces
 	def capture_vehicule
 		begin
 			v = camera.send_info
+			$db.execute 
 		end until v[0].length == 4 and v[1].between?(10,$hauteur_max) and v[2].between?(10,$longueur_max)
 		est_entre(Vehicule.new(*v))
 	end
@@ -63,8 +64,8 @@ class Acces
 		park.decrementer_panneaux
 	end
 	
-	def save(db, nomPark)
-		db.execute "INSERT INTO acce(nom, park) VALUES ('#{nom}', '#{nomPark}')"
-		borne.save(db, nomPark, nom)
+	def save(nomPark)
+		$db.execute "INSERT INTO acce(nom, park) VALUES ('#{nom}', '#{nomPark}')"
+		borne.save(nomPark, nom)
 	end
 end

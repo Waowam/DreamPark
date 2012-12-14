@@ -34,8 +34,8 @@ class Panneau
 		s="#{nom} : #{placeUsed}/#{placeTot}"
 	end
 	
-	def save(db, nomPark)
-		db.execute "INSERT INTO panneau(nom, placeUsed, placeTot, park) VALUES ('#{nom}', #{placeUsed}, #{placeTot}, '#{nomPark}')"
+	def save(nomPark)
+		$db.execute "INSERT INTO panneau(nom, placeUsed, placeTot, park) VALUES ('#{nom}', #{placeUsed}, #{placeTot}, '#{nomPark}')"
 	end
 
 end

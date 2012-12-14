@@ -58,8 +58,8 @@ class Place
 		return s
 	end
 	
-	def save(db, nomPark)
-		db.execute "INSERT INTO place(num, niveau, hauteur, longueur, park) VALUES (#{num}, #{niveau}, #{hauteur}, #{longueur}, '#{nomPark}')"
-		db.execute "UPDATE vehicule SET place=#{num}"
+	def save(nomPark)
+		$db.execute "INSERT INTO place(num, niveau, hauteur, longueur, park) VALUES (#{num}, #{niveau}, #{hauteur}, #{longueur}, '#{nomPark}')"
+		$db.execute "UPDATE vehicule SET place=#{num}"
 	end
 end
