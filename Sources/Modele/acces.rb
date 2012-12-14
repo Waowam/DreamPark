@@ -33,7 +33,10 @@ class Acces
 	def capture_vehicule
 		begin
 			v = camera.send_info
-			$db.execute 
+			listImmat = $db.execute "SELECT imm FROM vehicule"
+			while row = listImmat.next do
+				v[0] = "" if row == v[0]
+			end
 		end until v[0].length == 4 and v[1].between?(10,$hauteur_max) and v[2].between?(10,$longueur_max)
 		est_entre(Vehicule.new(*v))
 	end
