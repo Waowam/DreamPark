@@ -35,7 +35,7 @@ class Panneau
 	end
 	
 	def save(db, nomPark)
-		
+		db.execute "INSERT INTO panneau(nom, placeUsed, placeTot, park) VALUES ('#{nom}', #{placeUsed}, #{placeTot}, '#{nomPark}')"
 	end
 
 end

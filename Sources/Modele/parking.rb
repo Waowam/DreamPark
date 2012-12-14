@@ -140,7 +140,7 @@ class Parking
 			#Ouverture de la base de donnée
 			db = SQLite3::Database.open "dreampark.db"
 			
-			#Drop des tables
+			#-------------Drop des tables-------------#
 			db.execute "DROP TABLE IF EXISTS parking"
 			db.execute "DROP TABLE IF EXISTS acce"
 			db.execute "DROP TABLE IF EXISTS panneau"
@@ -150,19 +150,107 @@ class Parking
 			db.execute "DROP TABLE IF EXISTS place"
 			db.execute "DROP TABLE IF EXISTS vehicule"
 			db.execute "DROP TABLE IF EXISTS abonne"
+			db.execute "DROP TABLE IF EXISTS ticket"
 			#db.execute "DROP TABLE IF EXISTS service"
 			#db.execute "DROP TABLE IF EXISTS livraison"
 			
-			#Creation des tables
-			db.execute "CREATE TABLE parking(nom TEXT PRIMARY KEY)"
-			db.execute "CREATE TABLE acce(Nom TEXT PRIMARY KEY)"
-			db.execute "CREATE TABLE panneau(Nom TEXT PRIMARY KEY)"
-			db.execute "CREATE TABLE borne(Nom TEXT PRIMARY KEY)"
-			db.execute "CREATE TABLE camera(Nom TEXT PRIMARY KEY)"
-			db.execute "CREATE TABLE teleporteur(Nom TEXT PRIMARY KEY)"
-			db.execute "CREATE TABLE place(num INTEGER PRIMARY KEY, niveau INTEGER, hauteur INTEGER, longueur INTEGER, park REFERENCES parking(nom))"
-			db.execute "CREATE TABLE vehicule(imm TEXT PRIMARY KEY, hauteur INTEGER, longueur INTEGER, nbVisit INTEGER, place INTEGER, park REFERENCES parking(nom))"
-			db.execute "CREATE TABLE abonne(Nom TEXT PRIMARY KEY)"
+			#----------Creation des tables----------#
+				#TABLE PARKING
+			db.execute "CREATE TABLE parking(
+				nom TEXT,
+				PRIMARY KEY(nom))"
+				
+				#TABLE ACCE
+			db.execute "CREATE TABLE acce(
+				nom TEXT,
+				park TEXT,
+				FOREIGN KEY(park) REFERENCES parking(nom),
+				PRIMARY KEY(nom,park))"
+				
+				#TABLE PANNEAU
+			db.execute "CREATE TABLE panneau(
+				nom TEXT, 
+				placeUsed INTEGER, 
+				placeTot INTEGER, 
+				park TEXT,
+				FOREIGN KEY(park) REFERENCES parking(nom),
+				PRIMARY KEY(nom,park))"
+				
+				#TABLE BORNE
+			db.execute "CREATE TABLE borne(
+				nom TEXT,
+				park TEXT,
+				acce TEXT,
+				FOREIGN KEY(park) REFERENCES parking(nom),
+				FOREIGN KEY(acce) REFERENCES acce(nom),
+				PRIMARY KEY(nom,park))"
+				
+				#TABLE TICKET
+			db.execute "CREATE TABLE ticket(
+				nom TEXT, 
+				time TEXT,
+				place INTEGER,
+				vehicule TEXT,
+				park TEXT,
+				borne TEXT,
+				FOREIGN KEY(park) REFERENCES parking(nom),
+				FOREIGN KEY(place) REFERENCES place(num),
+				FOREIGN KEY(borne) REFERENCES borne(nom),
+				PRIMARY KEY(nom,park))"
+				
+				#TABLE CAMERA
+			db.execute "CREATE TABLE camera(
+				numero INTEGER,
+				nom TEXT,
+				park TEXT,
+				acce TEXT,
+				FOREIGN KEY(park) REFERENCES parking(nom),
+				FOREIGN KEY(acce) REFERENCES acce(nom),
+				PRIMARY KEY(numero,park))"
+				
+				#TABLE TELEPORTEUR
+			db.execute "CREATE TABLE teleporteur(
+				id INTEGER,
+				park TEXT,
+				acce TEXT,
+				FOREIGN KEY(park) REFERENCES parking(nom),
+				FOREIGN KEY(acce) REFERENCES acce(nom),
+				PRIMARY KEY(id,park))"
+			
+				#TABLE PLACE
+			db.execute "CREATE TABLE place(
+				num INTEGER, 
+				niveau INTEGER, 
+				hauteur INTEGER, 
+				longueur INTEGER, 
+				park TEXT,
+				FOREIGN KEY(park) REFERENCES parking(nom),
+				PRIMARY KEY(num, park))"
+				
+				#TABLE VEHICULE
+			db.execute "CREATE TABLE vehicule(
+				imm TEXT, 
+				hauteur INTEGER, 
+				longueur INTEGER, 
+				nbVisit INTEGER, 
+				place INTEGER, 
+				aboNom REFERENCES abonne(nom),
+				aboPrenom REFERENCES abonne(prenom),
+				park TEXT,
+				FOREIGN KEY(park) REFERENCES parking(nom),
+				PRIMARY KEY(imm))"
+				
+				#TABLE ABONNE
+			db.execute "CREATE TABLE abonne(
+				nom TEXT, 
+				prenom TEXT, 
+				adresse TEXT, 
+				tel INTEGER, 
+				hasPack BOOLEAN, 
+				park TEXT,
+				FOREIGN KEY(park) REFERENCES parking(nom),
+				PRIMARY KEY(nom, prenom))"
+				
 			#db.execute "CREATE TABLE service(Nom TEXT PRIMARY KEY)"
 			#db.execute "CREATE TABLE livraison(Nom TEXT PRIMARY KEY)"
 			

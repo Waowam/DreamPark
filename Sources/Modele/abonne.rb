@@ -4,7 +4,6 @@ class Abonne
 	attr_reader :id,:nom,:prenom,:adresse,:tel
 
 	def initialize(id,nom,prenom,adresse,tel)
-		self.id=id
 		self.nom=nom
 		self.prenom=prenom
 		self.adresse=adresse
@@ -22,7 +21,7 @@ class Abonne
 	end
 	
 	def save(db, nomPark)
-		
+		db.execute "INSERT INTO abonne(nom, prenom, adresse, tel, hasPack, park) VALUES (#{nom}, #{prenom}, #{adresse}, #{tel}, #{hasPack}, '#{nomPark}')"
 	end
 			
 end

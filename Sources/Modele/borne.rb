@@ -31,10 +31,11 @@ class Borne
 
 	#creer un ticket pour un véhicule donné
 	def editerTicker(place,v)
-		Ticket.new(place, v)
+		listTickets<<Ticket.new(place, v)
 	end
 	
-	def save(db, nomPark)
-		
+	def save(db, nomPark, nomAcce)
+		db.execute "INSERT INTO borne(nom, park, acce) VALUES ('#{nom}', '#{nomPark}', '#{nomAcce}')"
+		listTickets.each { |t| t.save(db, nomPark, nom) }
 	end
 end

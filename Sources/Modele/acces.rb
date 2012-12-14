@@ -19,7 +19,6 @@ class Acces
 	def initialize(nom="",parking)
 		self.nom= nom
 		self.park= parking
-		#Initialisation des composants utiles
 
 		#Les bornes, interface client
 		@borne = Borne.new("Borne-#{@nom}")
@@ -65,6 +64,9 @@ class Acces
 	end
 	
 	def save(db, nomPark)
-		
+		db.execute "INSERT INTO acce(nom, park) VALUES (#{nom}, '#{nomPark}')"
+		borne.save(db, nomPark, nom)
+		camera.save(db, nomPark, nom)
+		teleporteurs.each { |tp| tp.save(db, nomPark, nom) }
 	end
 end

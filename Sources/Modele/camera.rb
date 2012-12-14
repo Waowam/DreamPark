@@ -29,7 +29,7 @@ class Camera
 		return [imma,hauteur,longueur]
 	end
 	
-	def save(db, nomPark)
-		
+	def save(db, nomPark, nomAcce)
+		db.execute "INSERT INTO camera(numero, nom, park, acce) VALUES ('#{numero}', '#{nom}', '#{nomPark}', '#{nomAcce}')"
 	end
 end

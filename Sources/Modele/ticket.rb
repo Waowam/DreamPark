@@ -19,8 +19,7 @@ class Ticket
 	end
 
 	def to_s
-		result = ""
-		result+= "----------------------------------\n"
+		result = "----------------------------------\n"
 		result+= @nom.center(20,'-')
 		result+= "----------------------------------\n"
 		result+= @time.center(20,' ')
@@ -30,8 +29,9 @@ class Ticket
 		return result
 	end
 	
-	def save(db, nomPark)
-		
+	def save(db, nomPark, nomBorne)
+		db.execute "INSERT INTO ticket(nom, time, place, vehicule, park, borne) VALUES 
+					('#{nom}', '#{time}', #{place}, '#{vehicule.immatriculation}', '#{nomPark}', '#{nomBorne}')"
 	end
 end
 		
