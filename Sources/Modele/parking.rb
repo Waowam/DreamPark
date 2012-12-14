@@ -22,13 +22,13 @@ class Parking
 	attr_reader :place,:listAbonnes,:listClient,:nom,:acces,:panneaux,:ctrl_park
 
 	def initialize(nom="DreamPark",places=[])
-		self.ctrl_park = Ctrl_parking.new(self)
 		self.nom = nom
 		self.place = places
 		self.listAbonnes = Set.new
 		self.listClient = Set.new
 		@acces = [Acces.new("AccesNord",self), Acces.new("AccesSud",self)]
 		@panneaux = [Panneau.new("Panneau-1", self.nb_place), Panneau.new("Panneau-2", self.nb_place)]
+		@ctrl_park = Ctrl_parking.new(self)
 	end
 
 	#Ajoute un véhicule dans la liste correspondante.

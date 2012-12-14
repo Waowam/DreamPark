@@ -32,7 +32,6 @@ class Ctrl_gen
 
 	def get_views(nom)
 		ctrlP = mdl_gen.get_ctrl_park(nom)
-		puts "#{ctrlP.class}"
 		return [ctrlP.vue_par,ctrlP.vue_pan]
 	end
 end
