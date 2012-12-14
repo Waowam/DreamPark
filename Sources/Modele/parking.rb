@@ -144,32 +144,33 @@ class Parking
 			$db = SQLite3::Database.open "dreampark.db"
 			
 			#-------------Drop des tables-------------#
-			$db.execute "DROP TABLE IF EXISTS parking"
-			$db.execute "DROP TABLE IF EXISTS acce"
-			$db.execute "DROP TABLE IF EXISTS panneau"
-			$db.execute "DROP TABLE IF EXISTS borne"
-			$db.execute "DROP TABLE IF EXISTS place"
-			$db.execute "DROP TABLE IF EXISTS vehicule"
-			$db.execute "DROP TABLE IF EXISTS abonne"
-			$db.execute "DROP TABLE IF EXISTS ticket"
+			$db.execute "DELETE FROM parking"
+			#A FAIRE : AU LIEU DE DROP LES TABLES SUIVANTE FAIRE UN DELETE FROM table WHERE park = nom !!!!
+			$db.execute "DELETE FROM acce "
+			$db.execute "DELETE FROM panneau"
+			$db.execute "DELETE FROM borne"
+			$db.execute "DELETE FROM place"
+			$db.execute "DELETE FROM vehicule"
+			$db.execute "DELETE FROM abonne"
+			$db.execute "DELETE FROM ticket"
 			#$db.execute "DROP TABLE IF EXISTS service"
 			#$db.execute "DROP TABLE IF EXISTS livraison"
 			
 			#----------Creation des tables----------#
 				#TABLE PARKING
-			$db.execute "CREATE TABLE parking(
+			$db.execute "CREATE TABLE IF NOT EXISTS parking(
 				nom TEXT,
 				PRIMARY KEY(nom))"
 				
 				#TABLE ACCE
-			$db.execute "CREATE TABLE acce(
+			$db.execute "CREATE TABLE IF NOT EXISTS acce(
 				nom TEXT,
 				park TEXT,
 				FOREIGN KEY(park) REFERENCES parking(nom),
 				PRIMARY KEY(nom,park))"
 				
 				#TABLE PANNEAU
-			$db.execute "CREATE TABLE panneau(
+			$db.execute "CREATE TABLE IF NOT EXISTS panneau(
 				nom TEXT, 
 				placeUsed INTEGER, 
 				placeTot INTEGER, 
@@ -178,7 +179,7 @@ class Parking
 				PRIMARY KEY(nom,park))"
 				
 				#TABLE BORNE
-			$db.execute "CREATE TABLE borne(
+			$db.execute "CREATE TABLE IF NOT EXISTS borne(
 				nom TEXT,
 				park TEXT,
 				acce TEXT,
@@ -187,7 +188,7 @@ class Parking
 				PRIMARY KEY(nom,park))"
 				
 				#TABLE TICKET
-			$db.execute "CREATE TABLE ticket(
+			$db.execute "CREATE TABLE IF NOT EXISTS ticket(
 				nom TEXT, 
 				time TEXT,
 				place INTEGER,
@@ -200,7 +201,7 @@ class Parking
 				PRIMARY KEY(nom,park))"
 			
 				#TABLE PLACE
-			$db.execute "CREATE TABLE place(
+			$db.execute "CREATE TABLE IF NOT EXISTS place(
 				num INTEGER, 
 				niveau INTEGER, 
 				hauteur INTEGER, 
@@ -210,7 +211,7 @@ class Parking
 				PRIMARY KEY(num, park))"
 				
 				#TABLE VEHICULE
-			$db.execute "CREATE TABLE vehicule(
+			$db.execute "CREATE TABLE IF NOT EXISTS vehicule(
 				imm TEXT, 
 				hauteur INTEGER, 
 				longueur INTEGER, 
@@ -225,7 +226,7 @@ class Parking
 				PRIMARY KEY(imm,park))"
 				
 				#TABLE ABONNE
-			$db.execute "CREATE TABLE abonne(
+			$db.execute "CREATE TABLE IF NOT EXISTS abonne(
 				nom TEXT, 
 				prenom TEXT, 
 				adresse TEXT, 
@@ -235,8 +236,8 @@ class Parking
 				FOREIGN KEY(park) REFERENCES parking(nom),
 				PRIMARY KEY(nom, prenom))"
 				
-			#$db.execute "CREATE TABLE service(Nom TEXT PRIMARY KEY)"
-			#$db.execute "CREATE TABLE livraison(Nom TEXT PRIMARY KEY)"
+			#$db.execute "CREATE TABLE IF NOT EXISTS service(Nom TEXT PRIMARY KEY)"
+			#$db.execute "CREATE TABLE IF NOT EXISTS livraison(Nom TEXT PRIMARY KEY)"
 			
 			#Sauvegarde du parking
 			$db.execute "INSERT INTO parking(nom) VALUES ('#{nom}')"
