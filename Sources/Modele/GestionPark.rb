@@ -17,6 +17,7 @@ class GestionPark
 	def initialize
 		@parks = []
 		@parks<<Parking.new("DreamPark",Parking.generate_place(3,20,[10,500],[10,500]))
+		@parks<<Parking.new("ProutPark",Parking.generate_place(3,20,[10,500],[10,500]))
 		@ctrl = Ctrl_gen.new(self)
 	end
 
