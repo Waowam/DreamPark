@@ -41,7 +41,7 @@ class Acces
 				listImmat.each do |row|
 					v[0] = "" if row == v[0]
 				end
-			end until v[0].length == 4 and v[1].between?(10,$hauteur_max) and v[2].between?(10,$longueur_max)
+			end until v[0].length == 4 and v[1].between?(10,park.hauteurMax) and v[2].between?(10,park.longueurMax)
 			est_entre(Vehicule.new(*v))
 			
 		rescue SQLite3::Exception => e 	

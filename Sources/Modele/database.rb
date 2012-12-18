@@ -6,10 +6,6 @@
 class Database
 
 	def self.save(nomParking)
-		#begin
-			#Ouverture de la base de donnée
-			#$db = SQLite3::Database.open "dreampark.db"
-			
 			#-------------Drop des tables-------------#
 			$db.execute "DELETE FROM parking WHERE nom='#{nomParking}'"
 			$db.execute "DELETE FROM acce WHERE park='#{nomParking}'"
@@ -104,16 +100,6 @@ class Database
 				
 			#$db.execute "CREATE TABLE IF NOT EXISTS service(Nom TEXT PRIMARY KEY)"
 			#$db.execute "CREATE TABLE IF NOT EXISTS livraison(Nom TEXT PRIMARY KEY)"
-			
-			
-		#rescue SQLite3::Exception => e 
-			
-		#	print "Exception occured : "
-		#	puts e.message
-			
-		#ensure
-		#	$db.close if $db
-		#end
 	end
 
 end

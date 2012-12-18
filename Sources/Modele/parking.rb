@@ -29,6 +29,7 @@ class Parking
 		self.hauteurMax=hauteurMax
 		self.longueurMax=longueurMax
 		self.place = Parking.generate_place(nbNiv,nbPlaceNiv,Range.new(50,hauteurMax),Range.new(50,longueurMax))
+		p place
 		self.listAbonnes = Set.new
 		self.listClient = Set.new
 		@acces = [Acces.new("AccesNord",self), Acces.new("AccesSud",self)]
