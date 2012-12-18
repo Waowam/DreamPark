@@ -144,15 +144,15 @@ class Parking
 			$db = SQLite3::Database.open "dreampark.db"
 			
 			#-------------Drop des tables-------------#
-			$db.execute "DELETE FROM parking"
+			$db.execute "DELETE FROM parking WHERE nom='#{nom}'"
 			#A FAIRE : AU LIEU DE DROP LES TABLES SUIVANTE FAIRE UN DELETE FROM table WHERE park = nom !!!!
-			$db.execute "DELETE FROM acce "
-			$db.execute "DELETE FROM panneau"
-			$db.execute "DELETE FROM borne"
-			$db.execute "DELETE FROM place"
-			$db.execute "DELETE FROM vehicule"
-			$db.execute "DELETE FROM abonne"
-			$db.execute "DELETE FROM ticket"
+			$db.execute "DELETE FROM acce WHERE park='#{nom}'"
+			$db.execute "DELETE FROM panneau WHERE park='#{nom}'"
+			$db.execute "DELETE FROM borne WHERE park='#{nom}'"
+			$db.execute "DELETE FROM place WHERE park='#{nom}'"
+			$db.execute "DELETE FROM vehicule WHERE park='#{nom}'"
+			$db.execute "DELETE FROM abonne WHERE park='#{nom}'"
+			$db.execute "DELETE FROM ticket WHERE park='#{nom}'"
 			#$db.execute "DROP TABLE IF EXISTS service"
 			#$db.execute "DROP TABLE IF EXISTS livraison"
 			
