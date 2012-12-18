@@ -8,12 +8,14 @@ camera.rb
 
 class Camera
 
-	attr_reader :numero,:nom
-	attr_writer :numero,:nom
+	attr_reader :numero,:nom,:hauteurMax,:longueurMax
+	attr_writer :numero,:nom,:hauteurMax,:longueurMax
 
-	def initialize(num=0,nom)
+	def initialize(num=0,nom, hauteurMax, longueurMax)
 		self.numero= num
 		self.nom= nom
+		self.hauteurMax=hauteurMax
+		self.longueurMax=longueurMax
 	end
 
 	#Par défaut send_info renvois les informations
@@ -24,8 +26,8 @@ class Camera
 	# - [2] = longueur
 	def send_info()
 		imma = rand(Range.new(0,9999)).to_s
-		hauteur= rand(Range.new(-100,$hauteur_max+100))
-		longueur= rand(Range.new(-100,$longueur_max+100))
+		hauteur= rand(Range.new(-100,hauteurMax+100))
+		longueur= rand(Range.new(-100,longueurMax+100))
 		return [imma,hauteur,longueur]
 	end
 end

@@ -24,7 +24,7 @@ class Acces
 		@borne = Borne.new("Borne-#{@nom}")
 
 		#La camera
-		@camera = Camera.new(00,"Camera-#{@nom}")
+		@camera = Camera.new(00,"Camera-#{@nom}", park.hauteurMax, park.longueurMax)
 
 		#Les deux téléporteur
 		self.teleporteurs= [Teleporteur.new(1,self), Teleporteur.new(2,self)]
