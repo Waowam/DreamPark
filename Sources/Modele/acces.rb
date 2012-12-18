@@ -32,13 +32,24 @@ class Acces
 
 	def capture_vehicule
 		begin
-			v = camera.send_info
-			listImmat = $db.execute "SELECT imm FROM vehicule"
-			while row = listImmat.next do
-				v[0] = "" if row == v[0]
-			end
-		end until v[0].length == 4 and v[1].between?(10,$hauteur_max) and v[2].between?(10,$longueur_max)
-		est_entre(Vehicule.new(*v))
+			#Ouverture de la base de donnée
+			$db = SQLite3::Database.open "dreampark.db"
+			
+			begin
+				v = camera.send_info
+				listImmat = $db.execute "SELECT imm FROM vehicule"
+				listImmat.each do |row|
+					v[0] = "" if row == v[0]
+				end
+			end until v[0].length == 4 and v[1].between?(10,$hauteur_max) and v[2].between?(10,$longueur_max)
+			est_entre(Vehicule.new(*v))
+			
+		rescue SQLite3::Exception => e 	
+			print "Exception occured : "
+			puts e.message
+		ensure
+			$db.close if $db
+		end
 	end
 
 	def est_entre(v)

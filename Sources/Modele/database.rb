@@ -6,9 +6,9 @@
 class Database
 
 	def self.save(nomParking)
-		begin
+		#begin
 			#Ouverture de la base de donnée
-			$db = SQLite3::Database.open "dreampark.db"
+			#$db = SQLite3::Database.open "dreampark.db"
 			
 			#-------------Drop des tables-------------#
 			$db.execute "DELETE FROM parking WHERE nom='#{nomParking}'"
@@ -106,14 +106,14 @@ class Database
 			#$db.execute "CREATE TABLE IF NOT EXISTS livraison(Nom TEXT PRIMARY KEY)"
 			
 			
-		rescue SQLite3::Exception => e 
+		#rescue SQLite3::Exception => e 
 			
-			print "Exception occured : "
-			puts e.message
+		#	print "Exception occured : "
+		#	puts e.message
 			
-		ensure
-			$db.close if $db
-		end
+		#ensure
+		#	$db.close if $db
+		#end
 	end
 
 end

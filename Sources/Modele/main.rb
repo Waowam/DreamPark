@@ -75,13 +75,12 @@ end
 #interLongueur = interLongueur.split('-')
 
 #place = Parking.generate_place(niveau.to_i,nbPlaceMax.to_i,interHauteur,interLongueur)
-place = Parking.generate_place(3,3,[100,500],[100,500])
 $hauteur_max= 500
 $longueur_max= 500
 
 Gtk.init
 
-park = Parking.new("ParkKing",place)
+park = Parking.new("ParkKing",3,3,500,500)
 
 #veh = Vehicule.new("IMM",200,300)
 #park.garer(veh)
