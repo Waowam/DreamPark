@@ -193,6 +193,10 @@ class Parking
 		end
 	end
 	
+	def load
+		#LOAD ! Plus qu'a........-_-..........T-T !
+	end
+	
 	#Méthode de class
 
 	def self.generate_place(niveau,nbPlace,rangHaut,rangLong)

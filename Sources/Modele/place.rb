@@ -48,7 +48,7 @@ class Place
 	end
 	
 	def libre?
-		vehicule == nil
+		vehicule.nil?
 	end
 
 	def to_s

@@ -34,12 +34,14 @@ class Acces
 		begin
 			#Ouverture de la base de donnée
 			$db = SQLite3::Database.open "dreampark.db"
-			
+			tableVehicule = $db.get_first_value "SELECT count(*) FROM sqlite_master WHERE type='table' AND name='vehicule'"
 			begin
 				v = camera.send_info
-				listImmat = $db.execute "SELECT imm FROM vehicule"
-				listImmat.each do |row|
-					v[0] = "" if row == v[0]
+				if tableVehicule != 0 then
+					listImmat = $db.execute "SELECT imm FROM vehicule"
+					listImmat.each do |row|
+						v[0] = "" if row == v[0]
+					end
 				end
 			end until v[0].length == 4 and v[1].between?(10,park.hauteurMax) and v[2].between?(10,park.longueurMax)
 			est_entre(Vehicule.new(*v))

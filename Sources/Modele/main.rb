@@ -71,4 +71,7 @@ park.save
 
 puts "SAVED!"
 
+parkLoaded = Database.load "ParkKing"
+
+
 Gtk.main

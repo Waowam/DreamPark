@@ -105,5 +105,26 @@ class Database
 			#$db.execute "DROP TABLE IF EXISTS service"
 			#$db.execute "DROP TABLE IF EXISTS livraison"
 	end
-
+	
+	def self.load(nomParking)
+		begin
+			#Ouverture de la base de donnée
+			$db = SQLite3::Database.open "dreampark.db"
+			
+			parkInfo = $db.get_first_row "SELECT * FROM parking WHERE nom='#{nomParking}'"
+			if parkInfo then
+				park = Parking.new(parkInfo[0],parkInfo[1],parkInfo[2],parkInfo[3],parkInfo[4])
+				park.load
+				return park	
+			end
+			
+		rescue SQLite3::Exception => e 
+			
+			print "Exception occured : "
+			puts e.message
+			
+		ensure
+			$db.close if $db
+		end
+	end
 end
