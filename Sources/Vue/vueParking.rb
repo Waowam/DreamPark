@@ -25,7 +25,8 @@ class Vue_parking < Gtk::VBox
 			lbl_L = Gtk::Label.new("Longueur :")
 			spin_H= Gtk::SpinButton.new(10,500,1)
 			spin_L=Gtk::SpinButton.new(10,500,1)
-		butt_pop = Gtk::Button.new("Popper vehicule")
+		butt_pop = Gtk::Button.new("Pop acces 1")
+		butt_pop2 = Gtk::Button.new("Pop acces 2")
 		
 		vueList = Gtk::HBox.new
 		butt_rep = Gtk::Button.new("Reprendre")
@@ -53,8 +54,10 @@ class Vue_parking < Gtk::VBox
 		end
 
 		butt_pop.signal_connect('clicked') do
-			ctrl.append_vehicule([txt_imma.text,spin_H.value.to_s,spin_L.value.to_s])
+			ctrl.append_vehicule(1,[txt_imma.text,spin_H.value.to_s,spin_L.value.to_s])
 		end
+
+		butt_pop2.signal_connect('clicked') {ctrl.append_vehicule(2,[txt_imma.text,spin_H.value.to_s,spin_L.value.to_s])}
 
 		butt_rep.signal_connect('clicked') do
 			iter = vue_L.selection.selected
@@ -63,7 +66,7 @@ class Vue_parking < Gtk::VBox
 
 		vuePopImma.add(lbl_imm).add(txt_imma)
 		vuePopHautLong.add(lbl_H).add(spin_H).add(lbl_L).add(spin_L)
-		vuePop.add(vuePopImma).add(vuePopHautLong).add(butt_pop)
+		vuePop.add(vuePopImma).add(vuePopHautLong).add(butt_pop).add(butt_pop2)
 		vueList.add(vue_L).add(butt_rep)
 		self.add(vuePop).add(vueList)
 	end

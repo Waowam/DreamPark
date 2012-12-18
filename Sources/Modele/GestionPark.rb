@@ -16,14 +16,16 @@ class GestionPark
 
 	def initialize
 		@parks = []
-		@parks<<Parking.new("DreamPark",Parking.generate_place(3,20,[10,500],[10,500]))
-		@parks<<Parking.new("ProutPark",Parking.generate_place(3,20,[10,500],[10,500]))
+		p1 = Parking.new("DreamPark",3,20,500,500)
+		@parks<<p1
+		@parks<<Parking.new("ProutPark",3,20,500,500)
 		@ctrl = Ctrl_gen.new(self)
 	end
 
 	def creerPark(nom="",niv,placeMax,hauteur,longueur)
-		@parks<<Parking.new(nom,Parking.generate_place(niv,placeMax,hauteur,longueur))
-		@ctrl.maj_parking
+		p1 = Parking.new(nom,niv,placeMax,hauteur,longueur)
+		puts "#{p1}"
+		@parks<<p1
 	end
 
 	def get_ctrl_park(nom)
@@ -31,6 +33,16 @@ class GestionPark
 		parks.each { |p| parking=p if p.nom==nom}
 		return parking.ctrl_park
 	end
+
+	#Delete le parking correspondant au nom 
+	#Retourne l'ancien-index du parking supprimé
+	def delete_park nomP
+		index = (-1)
+		@parks.each_with_index { |e,i| index = i if e.nom==nomP}
+		@parks.delete_at index if index != (-1)
+		return index
+	end
+
 end
 
 Gtk.init

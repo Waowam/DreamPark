@@ -26,12 +26,30 @@ class Ctrl_gen
 		return names
 	end
 
-	def post_newPark(park)
-		mdl.creerPark(park[0],park[1],park[2],park[3],park[4])
+	def post_park_info(park)
+		mdl_gen.creerPark(park[0],park[1],park[2],park[3],park[4])
 	end
 
-	def get_views(nom)
+	def get_park_views(nom)
 		ctrlP = mdl_gen.get_ctrl_park(nom)
 		return [ctrlP.vue_par,ctrlP.vue_pan]
+	end
+
+	def get_park_info(nom)
+		return mdl_gen.get_ctrl_park(nom).get_info
+	end
+
+	def nb_park
+		return mdl_gen.parks.length
+	end
+
+	def getPos(nomP)
+		mdl_gen.parks.each_with_index{|e,i| return i if e.nom==nomP}
+	end
+
+	def del_park nomP
+		index = mdl_gen.delete_park nomP
+		puts "INDEX (ctrlGen) : #{index}"
+		return index
 	end
 end

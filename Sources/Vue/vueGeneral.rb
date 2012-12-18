@@ -28,31 +28,47 @@ class VueGeneral
         # Run dialog
         response = self.create_dialog.run
         self.create_dialog.hide
-        return response == 1
     end
 
     def create_park
-    	park = [builder.get_object("nomPark").text,builder.get_object("d_niveau").value,builder.get_object("d_hauteur").value,builder.get_object("d_longueur").value]
-    	puts "#{park}"
-    	ctrl.post_info_newPark(park)
+    	park = [builder.get_object("nomPark").text,builder.get_object("d_niveau").value.to_i,builder.get_object("d_nbPlaceM").value.to_i,builder.get_object("d_hauteur").value.to_i,builder.get_object("d_longueur").value.to_i]
+    	ctrl.post_park_info(park)
+        combo_main.append_text(park[0])
+        combo_main.active = ctrl.nb_park
+        cb_charged
     end
 
     def cb_welcom
     	@windowWelcom.show_all
     end
 
+    def delete_park
+       nomPark = builder.get_object("label_nomPark1").text
+       indexComboPark = ctrl.del_park nomPark
+
+       #Maj de la combo box
+       combo_main.remove_text (indexComboPark+1)
+    end
+
     def cb_charged
-        combo=builder.get_object("combo_park")
-        if combo.active==0 then
+        if combo_main.active==0 then
             cb_newPark
         else
+            #Vidage des frames
+            framePan.each{|child| framePan.remove(child)}
+            framePar.each{|child| framePar.remove(child)}
+
             #Recuperation des vues panneau et parking utile
-            nomPark=self.combo.active_text
-            vues=self.ctrl.get_views
+            nomPark =self.combo_main.active_text
+            builder.get_object("label_nomPark1").text=nomPark
+            vues=self.ctrl.get_park_views nomPark #Recup des 
 
             #Ajout des vues
             framePar.add_child(builder,vues[0],nil)
             framePan.add_child(builder,vues[1],nil)
+
+            #Mise a jour des info du parking affichés
+            _change_park_property(self.ctrl.get_park_info nomPark)
         end
         #Show all
         @window.show_all
@@ -64,16 +80,34 @@ class VueGeneral
         else
             #Recuperation des vues panneau et parking utile
             nomPark=self.combo_load.active_text
-            vues=self.ctrl.get_views nomPark
+            builder.get_object("label_nomPark1").text = nomPark
+            vues=self.ctrl.get_park_views nomPark
 
             #Ajout des vues
             framePar.add_child(builder,vues[0],nil)
             framePan.add_child(builder,vues[1],nil)
+
+            #Mise a jour des info du parking affichés
+            _change_park_property(self.ctrl.get_park_info nomPark)
+
+            #Lien avec la combo du main
+            combo_main.active=combo_load.active
         end
         windowWelcom.hide
         window.show_all
     end
 
+    def _change_park_property tab
+        builder.get_object("label_nomPark1").text = tab[0].to_s
+        builder.get_object("entry_niv").text = tab[1].to_s
+        builder.get_object("entry_place").text = tab[2].to_s
+        builder.get_object("entry_haut").text = tab[3].to_s
+        builder.get_object("entry_long").text = tab[4].to_s
+    end
+
+    def _get_park_property
+        return [builder.get_object("label_nomPark1").text,builder.get_object("entry_niv").text.to_i,builder.get_object("entry_place").text.to_i,builder.get_object("entry_haut").text.to_i,builder.get_object("entry_long").text.to_i]
+    end
 
     def initialize(ctrl)
         #Builder de la fenetre

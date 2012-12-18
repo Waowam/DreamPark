@@ -75,27 +75,59 @@
       <action-widget response="0">but_cancel</action-widget>
     </action-widgets>
   </object>
-  <object class="GtkAdjustment" id="adjustHaut">
+  <object class="GtkAdjustment" id="adjustPlace_d">
+    <property name="lower">1</property>
+    <property name="upper">300</property>
+    <property name="value">1</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">20</property>
+  </object>
+  <object class="GtkAdjustment" id="adjustHaut_d">
     <property name="lower">10</property>
     <property name="upper">500</property>
     <property name="value">250</property>
     <property name="step_increment">10</property>
     <property name="page_increment">50</property>
   </object>
-  <object class="GtkAdjustment" id="adjustLong">
+  <object class="GtkAdjustment" id="adjustHaut_m">
     <property name="lower">10</property>
     <property name="upper">500</property>
     <property name="value">250</property>
     <property name="step_increment">10</property>
     <property name="page_increment">50</property>
   </object>
-  <object class="GtkAdjustment" id="adjustNiv">
+  <object class="GtkAdjustment" id="adjustLong_d">
+    <property name="lower">10</property>
+    <property name="upper">500</property>
+    <property name="value">250</property>
+    <property name="step_increment">10</property>
+    <property name="page_increment">50</property>
+  </object>
+  <object class="GtkAdjustment" id="adjustLong_m">
+    <property name="lower">10</property>
+    <property name="upper">500</property>
+    <property name="value">250</property>
+    <property name="step_increment">10</property>
+    <property name="page_increment">50</property>
+  </object>
+  <object class="GtkAdjustment" id="adjustNiv_d">
+    <property name="lower">1</property>
     <property name="upper">10</property>
+    <property name="value">1</property>
     <property name="step_increment">1</property>
     <property name="page_increment">2</property>
   </object>
-  <object class="GtkAdjustment" id="adjustPlance">
+  <object class="GtkAdjustment" id="adjustNiv_m">
+    <property name="lower">1</property>
+    <property name="upper">10</property>
+    <property name="value">1</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">2</property>
+  </object>
+  <object class="GtkAdjustment" id="adjustPlace_m">
+    <property name="lower">1</property>
     <property name="upper">300</property>
+    <property name="value">1</property>
     <property name="step_increment">1</property>
     <property name="page_increment">20</property>
   </object>
@@ -249,6 +281,7 @@
                     <property name="secondary_icon_activatable">False</property>
                     <property name="primary_icon_sensitive">True</property>
                     <property name="secondary_icon_sensitive">True</property>
+                    <property name="adjustment">adjustNiv_d</property>
                     <property name="update_policy">if-valid</property>
                   </object>
                   <packing>
@@ -292,6 +325,7 @@
                     <property name="secondary_icon_activatable">False</property>
                     <property name="primary_icon_sensitive">True</property>
                     <property name="secondary_icon_sensitive">True</property>
+                    <property name="adjustment">adjustPlace_d</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -335,6 +369,7 @@
                     <property name="secondary_icon_activatable">False</property>
                     <property name="primary_icon_sensitive">True</property>
                     <property name="secondary_icon_sensitive">True</property>
+                    <property name="adjustment">adjustLong_d</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -377,6 +412,7 @@
                     <property name="secondary_icon_activatable">False</property>
                     <property name="primary_icon_sensitive">True</property>
                     <property name="secondary_icon_sensitive">True</property>
+                    <property name="adjustment">adjustHaut_d</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -407,6 +443,7 @@
   </object>
   <object class="GtkWindow" id="vue_main">
     <property name="can_focus">False</property>
+    <property name="window_position">center-always</property>
     <signal name="destroy" handler="gtk_main_quit" swapped="no"/>
     <signal name="delete-event" handler="cb_delete_event" swapped="no"/>
     <child>
@@ -434,17 +471,17 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkButton" id="button_reset1">
-                    <property name="label" translatable="yes">Reset</property>
+                  <object class="GtkButton" id="but_del">
+                    <property name="label" translatable="yes">Supprimer</property>
                     <property name="use_action_appearance">False</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
+                    <signal name="clicked" handler="delete_park" swapped="no"/>
                   </object>
                   <packing>
                     <property name="expand">False</property>
                     <property name="fill">True</property>
-                    <property name="padding">5</property>
                     <property name="position">1</property>
                   </packing>
                 </child>
@@ -575,6 +612,7 @@
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="receives_default">True</property>
+                            <property name="tooltip_text" translatable="yes">Ouvre un nouveau parking</property>
                             <signal name="clicked" handler="cb_charged" swapped="no"/>
                           </object>
                           <packing>
@@ -641,19 +679,21 @@
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkSpinButton" id="spinbutton1">
+                              <object class="GtkEntry" id="entry_niv">
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
+                                <property name="tooltip_text" translatable="yes">Indicateur de niveau</property>
+                                <property name="editable">False</property>
                                 <property name="invisible_char">●</property>
+                                <property name="width_chars">4</property>
                                 <property name="primary_icon_activatable">False</property>
                                 <property name="secondary_icon_activatable">False</property>
                                 <property name="primary_icon_sensitive">True</property>
                                 <property name="secondary_icon_sensitive">True</property>
-                                <property name="adjustment">adjustNiv</property>
                               </object>
                               <packing>
                                 <property name="expand">False</property>
-                                <property name="fill">True</property>
+                                <property name="fill">False</property>
                                 <property name="position">1</property>
                               </packing>
                             </child>
@@ -683,19 +723,21 @@
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkSpinButton" id="spinbutton2">
+                              <object class="GtkEntry" id="entry_place">
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
+                                <property name="tooltip_text" translatable="yes">indicateur de place maximum par niveau</property>
+                                <property name="editable">False</property>
                                 <property name="invisible_char">●</property>
+                                <property name="width_chars">4</property>
                                 <property name="primary_icon_activatable">False</property>
                                 <property name="secondary_icon_activatable">False</property>
                                 <property name="primary_icon_sensitive">True</property>
                                 <property name="secondary_icon_sensitive">True</property>
-                                <property name="adjustment">adjustPlance</property>
                               </object>
                               <packing>
                                 <property name="expand">False</property>
-                                <property name="fill">True</property>
+                                <property name="fill">False</property>
                                 <property name="position">1</property>
                               </packing>
                             </child>
@@ -726,19 +768,21 @@
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkSpinButton" id="spinbutton3">
+                              <object class="GtkEntry" id="entry_long">
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
+                                <property name="tooltip_text" translatable="yes">indicateur de la longueur maximum d'une place</property>
+                                <property name="editable">False</property>
                                 <property name="invisible_char">●</property>
+                                <property name="width_chars">5</property>
                                 <property name="primary_icon_activatable">False</property>
                                 <property name="secondary_icon_activatable">False</property>
                                 <property name="primary_icon_sensitive">True</property>
                                 <property name="secondary_icon_sensitive">True</property>
-                                <property name="adjustment">adjustLong</property>
                               </object>
                               <packing>
                                 <property name="expand">False</property>
-                                <property name="fill">True</property>
+                                <property name="fill">False</property>
                                 <property name="position">1</property>
                               </packing>
                             </child>
@@ -768,19 +812,21 @@
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkSpinButton" id="spinbutton4">
+                              <object class="GtkEntry" id="entry_haut">
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
+                                <property name="tooltip_text" translatable="yes">indicateur de la hauteur maximum d'une place</property>
+                                <property name="editable">False</property>
                                 <property name="invisible_char">●</property>
+                                <property name="width_chars">5</property>
                                 <property name="primary_icon_activatable">False</property>
                                 <property name="secondary_icon_activatable">False</property>
                                 <property name="primary_icon_sensitive">True</property>
                                 <property name="secondary_icon_sensitive">True</property>
-                                <property name="adjustment">adjustHaut</property>
                               </object>
                               <packing>
                                 <property name="expand">False</property>
-                                <property name="fill">True</property>
+                                <property name="fill">False</property>
                                 <property name="position">1</property>
                               </packing>
                             </child>
@@ -823,6 +869,9 @@
   <object class="GtkWindow" id="win_welcom">
     <property name="can_focus">False</property>
     <property name="modal">True</property>
+    <property name="window_position">center-always</property>
+    <signal name="destroy" handler="gtk_main_quit" swapped="no"/>
+    <signal name="delete-event" handler="cb_delete_event" swapped="no"/>
     <child>
       <object class="GtkVBox" id="d_VBox">
         <property name="visible">True</property>

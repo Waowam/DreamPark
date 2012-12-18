@@ -12,7 +12,7 @@ require "../../Sources/Vue/vuePanneau.rb"
 
 class Ctrl_parking
 
-	attr_reader :mdl_par,:vue_par, :vue_pan
+	attr_reader :mdl_par,:vue_par,:vue_pan
 
 	def initialize(mdl)
 		@mdl_par = mdl
@@ -33,13 +33,16 @@ class Ctrl_parking
 		return v
 	end
 
-	def append_vehicule(tabV)
+	def append_vehicule acces,tabV
 		puts "HERE IN APPEND_VEHICULE + #{tabV}"
 
 	end
 
-	def remove_vehicule(iter)
+	def remove_vehicule (iter)
 		puts "HERE IN REMOVE_VEHICULE + #{iter}"
+	end
 
+	def get_info
+		return [mdl_par.nom,mdl_par.nbNiv,mdl_par.nbPlaceNiv,mdl_par.hauteurMax,mdl_par.longueurMax]
 	end
 end
