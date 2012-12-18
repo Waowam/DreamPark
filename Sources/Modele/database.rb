@@ -6,22 +6,14 @@
 class Database
 
 	def self.save(nomParking)
-			#-------------Drop des tables-------------#
-			$db.execute "DELETE FROM parking WHERE nom='#{nomParking}'"
-			$db.execute "DELETE FROM acce WHERE park='#{nomParking}'"
-			$db.execute "DELETE FROM panneau WHERE park='#{nomParking}'"
-			$db.execute "DELETE FROM borne WHERE park='#{nomParking}'"
-			$db.execute "DELETE FROM place WHERE park='#{nomParking}'"
-			$db.execute "DELETE FROM vehicule WHERE park='#{nomParking}'"
-			$db.execute "DELETE FROM abonne WHERE park='#{nomParking}'"
-			$db.execute "DELETE FROM ticket WHERE park='#{nomParking}'"
-			#$db.execute "DROP TABLE IF EXISTS service"
-			#$db.execute "DROP TABLE IF EXISTS livraison"
-			
 			#----------Creation des tables----------#
 				#TABLE PARKING
 			$db.execute "CREATE TABLE IF NOT EXISTS parking(
 				nom TEXT,
+				nbNiv INTEGER,
+				nbPlaceNiv INTEGER,
+				hauteurMax INTEGER,
+				longueurMax INTEGER,
 				PRIMARY KEY(nom))"
 				
 				#TABLE ACCE
@@ -100,6 +92,18 @@ class Database
 				
 			#$db.execute "CREATE TABLE IF NOT EXISTS service(Nom TEXT PRIMARY KEY)"
 			#$db.execute "CREATE TABLE IF NOT EXISTS livraison(Nom TEXT PRIMARY KEY)"
+			
+			#-------------Drop des tables-------------#
+			$db.execute "DELETE FROM parking WHERE nom='#{nomParking}'"
+			$db.execute "DELETE FROM acce WHERE park='#{nomParking}'"
+			$db.execute "DELETE FROM panneau WHERE park='#{nomParking}'"
+			$db.execute "DELETE FROM borne WHERE park='#{nomParking}'"
+			$db.execute "DELETE FROM place WHERE park='#{nomParking}'"
+			$db.execute "DELETE FROM vehicule WHERE park='#{nomParking}'"
+			$db.execute "DELETE FROM abonne WHERE park='#{nomParking}'"
+			$db.execute "DELETE FROM ticket WHERE park='#{nomParking}'"
+			#$db.execute "DROP TABLE IF EXISTS service"
+			#$db.execute "DROP TABLE IF EXISTS livraison"
 	end
 
 end

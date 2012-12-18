@@ -43,7 +43,7 @@ class Parking
 	
 	def nbPlaceNiv=(n)
 		raise ArgumentError.new("Error : nbPlaceNiv (numbre of place by level) must be positive.") if n < 0
-		@nbNiv= n
+		@nbPlaceNiv= n
 	end
 	
 	def hauteurMax=(h)
@@ -172,7 +172,7 @@ class Parking
 			Database.save(nom)
 			
 			#Sauvegarde du parking
-			$db.execute "INSERT INTO parking(nom) VALUES ('#{nom}')"
+			$db.execute "INSERT INTO parking(nom, nbNiv, nbPlaceNiv, hauteurMax, longueurMax) VALUES ('#{nom}',#{nbNiv},#{nbPlaceNiv},#{hauteurMax},#{longueurMax})"
 			
 			#Appel des méthodes save
 			listAbonnes.each { |a| a.save(nom) }
