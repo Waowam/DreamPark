@@ -62,6 +62,7 @@ class Acces
 	end
 
 	def est_entre(v)
+		borne.controleur.show_view
 		if park.nb_place_libre and park.where_to_park(v) then
 			if v.is_abonne? then
 				if not v.abonne.has_pack? then
