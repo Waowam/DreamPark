@@ -20,6 +20,11 @@ class Abonne
 		self.hasPack
 	end
 	
+	def ==(a)
+		return  false if a.class != Abonne
+		return  a.nom == self.nom && a.prenom == self.prenom && a.tel == self.tel && a.hasPack == self.hasPack
+	end
+	
 	def save(nomPark)
 		$db.execute "INSERT INTO abonne(nom, prenom, adresse, tel, hasPack, park) VALUES (#{nom}, #{prenom}, #{adresse}, #{tel}, #{hasPack}, '#{nomPark}')"
 	end

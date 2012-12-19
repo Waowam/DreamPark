@@ -7,6 +7,7 @@ parking.rb
 =end
 
 require 'set'
+require 'hash'
 require "./place.rb"
 require "./acces.rb"
 require "./database.rb"
@@ -30,7 +31,7 @@ class Parking
 		self.longueurMax=longueurMax
 		self.place = Parking.generate_place(nbNiv,nbPlaceNiv,Range.new(50,hauteurMax),Range.new(50,longueurMax))
 		self.listAbonnes = Set.new
-		self.listClient = Set.new
+		self.listClient = Hash.new
 		@acces = [Acces.new("AccesNord",self), Acces.new("AccesSud",self)]
 		@panneaux = [Panneau.new("Panneau-1", self.nb_place), Panneau.new("Panneau-2", self.nb_place)]
 		@ctrl_park = Ctrl_parking.new(self)

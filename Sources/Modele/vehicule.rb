@@ -41,6 +41,13 @@ class Vehicule
 		abonne != nil
 	end
 	
+	def ==(v)
+		return  false if v.class != Vehicule
+		return  v.immatriculation == self.immatriculation && 
+				v.hauteur == self.hauteur && v.longueur == self.longueur && 
+				v.nbreVisites == self.nbreVisites && v.abonne == self.abonne
+	end
+	
 	def to_s
 		s = "IMM : #{immatriculation} Hauteur : #{hauteur} Longueur : #{longueur}"
 	end
