@@ -25,24 +25,21 @@ class Ctrl_borne
 	#Méthode de demande d'abonnement
 	#Retourne un objet Abonne construit avec les informations récupérées.
 	def ask_abonnement v
-		quest <<-EOF
-		Nous vous proposons notre abonnement
-		Il vous permettra de beneficier des services suivant : maintenance, entretien, livraison
-		Voulez vous vous abonner ? (y/n) 
-EOF
-		mdl_borne.insert Q
-		mdl_borne.majIter
-		until mdl_borne.answer=="-1"
+		quest=
+		"Nous vous proposons notre abonnement\nIl vous permettra de beneficier des services suivant : maintenance, entretien, livraison\nVoulez vous vous abonner ? (y/n)"
+		vue_borne.insert quest
+		vue_borne.maj_iter
+		until vue_borne.answer=="-1"
 		end
-		case mdl_borne.answer
-			when "y"|"Y"
-				mdl_borne.insert (mdl_borne.answer=="y" ? "y\n" : "Y\n")
-				mdl_borne.majIter
-			when "n"|"N"
-				mdl_borne.insert (mdl_borne.answer=="n" ? "n\n" : "N\n")
-				mdl_borne.majIter
+		case vue_borne.answer
+			when "y"
+				vue_borne.insert (vue_borne.answer=="y" ? "y\n" : "Y\n")
+				vue_borne.maj_iter
+			when "n"
+				vue_borne.insert (vue_borne.answer=="n" ? "n\n" : "N\n")
+				vue_borne.maj_iter
 			else
-				ask_abonnement
+				#ask_abonnement v
 		end
 	end
 	

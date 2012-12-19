@@ -8,6 +8,7 @@ GestionPark.rb
 
 require 'gtk2'
 require "./parking.rb"
+require 'sqlite3'
 require "../../Sources/Controleur/ctrlGeneral.rb"
 
 class GestionPark
