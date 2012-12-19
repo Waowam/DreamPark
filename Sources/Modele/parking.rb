@@ -34,7 +34,6 @@ class Parking
 		@acces = [Acces.new("AccesNord",self), Acces.new("AccesSud",self)]
 		@panneaux = [Panneau.new("Panneau-1", self.nb_place), Panneau.new("Panneau-2", self.nb_place)]
 		@ctrl_park = Ctrl_parking.new(self)
-		@services = Service.new
 		@listLivraisons = []
 	end
 
