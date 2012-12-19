@@ -1,13 +1,18 @@
-require 'Hash'
-
 #Classe service permettant de garder une trace des services proposés.
 class Service
 	attr_reader :entretien,:maintenance
-	attr_writer :entretien,:maintenance
 
 	def initialize
-		self.entretien= Hash.new
-		self.maintenance= Hash.new
+		@entretien= Hash.new
+		@maintenance= Hash.new
+	end
+	
+	def add_entretien(v)
+		@entretien[v.immatriculation]+=1
+	end
+	
+	def add_maintenance(v)
+		@maintenance[v.immatriculation]+=1
 	end
 	
 	def save(nomPark)
