@@ -53,6 +53,10 @@ class Acces
 			$db.close if $db
 		end
 	end
+	
+	def capture_vehicule(immat, hauteur, longueur)
+		est_entre(Vehicule.new(immat,hauteur,longueur))
+	end
 
 	def est_entre(v)
 		if park.nb_place_libre and park.where_to_park(v) then

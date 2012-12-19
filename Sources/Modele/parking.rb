@@ -19,7 +19,7 @@ require "../../Sources/Controleur/ctrlParking.rb"
 # ainsi que la gestion des clients et des abonnées
 class Parking
 
-	attr_writer :place,:listAbonnes,:listClient,:nom
+	attr_writer :place,:listAbonnes,:listClient,:nom,:acces,:panneaux
 	attr_reader :nom,:nbNiv,:nbPlaceNiv,:hauteurMax, :longueurMax, :place,:listAbonnes,:listClient,:acces,:panneaux,:ctrl_park
 
 	def initialize(nom="DreamPark",nbNiv=1,nbPlaceNiv=50,hauteurMax=500,longueurMax=500)
@@ -194,7 +194,64 @@ class Parking
 	end
 	
 	def load
-		#LOAD ! Plus qu'a........-_-..........T-T !
+		begin
+			#Ouverture de la base de donnée
+			$db = SQLite3::Database.open "dreampark.db"
+			
+			#Chargement des places, vehicules, abonnes
+			placesInfos = $db.execute "SELECT * FROM place WHERE park='#{nom}'"
+			if placesInfos then
+				self.place = []
+				placesInfos.each do |placeInf|
+					placeTemp = Place.new(placeInf[0],placeInf[1],placeInf[2],placeInf[3])
+					if placeInf[4] then
+						vehiculeInfo = $db.get_first_row "SELECT * FROM vehicule WHERE park='#{nom}' AND imm='#{placeInf[4]}'"
+						veh=Vehicule.new(vehiculeInfo[0],vehiculeInfo[1],vehiculeInfo[2])
+						veh.nbreVisites=vehiculeInfo[3]
+						if vehiculeInfo[4] then
+							abonneInfo = $db.get_first_row "SELECT * FROM abonne WHERE park='#{nom}' AND nom='#{placeInf[4]}' AND prenom='#{placeInf[5]}'"
+							abo = Abonne.new(abonneInfo[0],abonneInfo[1],abonneInfo[2],abonneInfo[3])
+							abo.hasPack=abonneInfo[4]
+							veh.abonne=abo
+						end
+						placeTemp.vehicule=veh
+					else
+						placeTemp.vehicule=nil
+					end
+					self.place<<placeTemp
+				end	
+			end
+			
+			#Chargement des panneaux
+			panneauxInfos = $db.execute "SELECT * FROM panneau WHERE park='#{nom}'"
+			if panneauxInfos then
+				self.panneaux = []
+				panneauxInfos.each do |panneauInf|
+					panel=Panneau.new
+					panel.nom = panneauInf[0]
+					panel.placeUsed= panneauInf[1]
+					panel.placeTot= panneauInf[2]
+					self.panneaux<<panel
+				end
+			end
+			
+			#Chargement des acces
+			accesInfos = $db.execute "SELECT * FROM acce WHERE park='#{nom}'"
+			if accesInfos then
+				self.acces = []
+				accesInfos.each do |acceInf|
+					self.acces<<Panneau.new(acceInf[0],self)
+				end
+			end
+			
+		rescue SQLite3::Exception => e 
+			
+			print "Exception occured : "
+			puts e.message
+			
+		ensure
+			$db.close if $db
+		end
 	end
 	
 	#Méthode de class

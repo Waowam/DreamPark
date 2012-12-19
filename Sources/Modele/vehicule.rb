@@ -8,15 +8,15 @@ vehicule.rb
 
 class Vehicule
 
-	attr_writer :immatriculation,:abonne
+	attr_writer :immatriculation,:abonne,:nbreVisites,:abonne
 	attr_reader :immatriculation,:hauteur,:longueur,:nbreVisites,:abonne
 
 	def initialize(imma="",hauteur,longueur)
 		self.immatriculation=imma
 		self.hauteur=hauteur
 		self.longueur=longueur
-		@nbreVisites=0
-		@abonne=nil
+		self.nbreVisites=0
+		self.abonne=nil
 	end
 	
 	def hauteur=(h)
@@ -46,9 +46,12 @@ class Vehicule
 	end
 	
 	def save(nomPark)
-		$db.execute "INSERT INTO vehicule(imm, hauteur, longueur, nbVisit, park) VALUES (#{immatriculation}, #{hauteur}, #{longueur}, #{nbreVisites}, '#{nomPark}')"
-		$db.execute "UPDATE vehicule SET aboNom='#{abonne.nom}'" if abonne
-		$db.execute "UPDATE vehicule SET aboPrenom='#{abonne.prenom}'" if abonne
+		$db.execute "INSERT INTO vehicule(imm, hauteur, longueur, nbVisit, park) VALUES ('#{immatriculation}', #{hauteur}, #{longueur}, #{nbreVisites}, '#{nomPark}')"
+		if abonne then
+			$db.execute "UPDATE vehicule SET aboNom='#{abonne.nom}' WHERE imm='#{immatriculation}' AND park='#{nomPark}'"
+			$db.execute "UPDATE vehicule SET aboPrenom='#{abonne.prenom}' WHERE imm='#{immatriculation}' AND park='#{nomPark}'"
+			abonne.save
+		end
 	end
 			
 end

@@ -1,14 +1,14 @@
 class Abonne
 
 	attr_writer :nom,:prenom,:adresse,:tel,:hasPack
-	attr_reader :id,:nom,:prenom,:adresse,:tel
+	attr_reader :nom,:prenom,:adresse,:tel
 
-	def initialize(id,nom,prenom,adresse,tel)
+	def initialize(nom,prenom,adresse,tel)
 		self.nom=nom
 		self.prenom=prenom
 		self.adresse=adresse
 		self.tel=tel
-		@hasPack=false
+		self.hasPack=false
 	end
 	
 	def id=(i)

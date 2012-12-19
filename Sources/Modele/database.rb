@@ -59,8 +59,10 @@ class Database
 				num INTEGER, 
 				niveau INTEGER, 
 				hauteur INTEGER, 
-				longueur INTEGER, 
+				longueur INTEGER,
+				vehicule TEXT,
 				park TEXT,
+				FOREIGN KEY(vehicule) REFERENCES vehicule(imm),
 				FOREIGN KEY(park) REFERENCES parking(nom),
 				PRIMARY KEY(num, park))"
 				
@@ -70,7 +72,6 @@ class Database
 				hauteur INTEGER, 
 				longueur INTEGER, 
 				nbVisit INTEGER, 
-				place INTEGER, 
 				aboNom REFERENCES abonne(nom),
 				aboPrenom REFERENCES abonne(prenom),
 				park TEXT,

@@ -73,5 +73,9 @@ puts "SAVED!"
 
 parkLoaded = Database.load "ParkKing"
 
+puts
+puts
+puts parkLoaded
+
 
 Gtk.main
