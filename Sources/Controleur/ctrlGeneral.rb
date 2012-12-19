@@ -49,7 +49,6 @@ class Ctrl_gen
 
 	def del_park nomP
 		index = mdl_gen.delete_park nomP
-		puts "INDEX (ctrlGen) : #{index}"
 		return index
 	end
 end

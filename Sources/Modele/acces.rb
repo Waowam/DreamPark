@@ -54,7 +54,7 @@ class Acces
 		end
 	end
 	
-	def capture_vehicule(immat, hauteur, longueur)
+	def capture_vehicule_with_info(immat, hauteur, longueur)
 		veh=Vehicule.new(immat,hauteur,longueur)
 		park.listClient.each { |client| return client if veh==client }
 		park.lisAbonnes.each { |abonne| return abonne if veh==abonne }
@@ -70,7 +70,7 @@ class Acces
 				end
 				borne.controleur.ask_services #Params ????
 			else
-				borne.controleur.ask_abonnement(v) if v.nbreVisites >= 10 #CAS : Abonner le client
+				borne.controleur.ask_abonnement(v) #if v.nbreVisites >= 10 #CAS : Abonner le client
 			end
 		
 			if borne.controleur.ask_paiement then

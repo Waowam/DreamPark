@@ -48,6 +48,14 @@ class VueGeneral
 
        #Maj de la combo box
        combo_main.remove_text (indexComboPark+1)
+
+       #Vidage des frames
+        framePan.each{|child| framePan.remove(child)}
+        framePar.each{|child| framePar.remove(child)}
+
+        #Changement du nom
+        builder.get_object("label_nomPark1").text="\#Unknown\#"
+
     end
 
     def cb_charged
@@ -129,7 +137,7 @@ class VueGeneral
         @combo_main = Gtk::ComboBox.new(true)
         @combo_load = Gtk::ComboBox.new(true)
 
-        #Mise en place des t
+        #Mise en place des combo
         remplssge=@ctrl.maj_combo
         remplssge.each do |name|
             @combo_main.append_text(name)

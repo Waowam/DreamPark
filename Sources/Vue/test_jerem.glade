@@ -75,21 +75,7 @@
       <action-widget response="0">but_cancel</action-widget>
     </action-widgets>
   </object>
-  <object class="GtkAdjustment" id="adjustPlace_d">
-    <property name="lower">1</property>
-    <property name="upper">300</property>
-    <property name="value">1</property>
-    <property name="step_increment">1</property>
-    <property name="page_increment">20</property>
-  </object>
   <object class="GtkAdjustment" id="adjustHaut_d">
-    <property name="lower">10</property>
-    <property name="upper">500</property>
-    <property name="value">250</property>
-    <property name="step_increment">10</property>
-    <property name="page_increment">50</property>
-  </object>
-  <object class="GtkAdjustment" id="adjustHaut_m">
     <property name="lower">10</property>
     <property name="upper">500</property>
     <property name="value">250</property>
@@ -103,13 +89,6 @@
     <property name="step_increment">10</property>
     <property name="page_increment">50</property>
   </object>
-  <object class="GtkAdjustment" id="adjustLong_m">
-    <property name="lower">10</property>
-    <property name="upper">500</property>
-    <property name="value">250</property>
-    <property name="step_increment">10</property>
-    <property name="page_increment">50</property>
-  </object>
   <object class="GtkAdjustment" id="adjustNiv_d">
     <property name="lower">1</property>
     <property name="upper">10</property>
@@ -117,14 +96,7 @@
     <property name="step_increment">1</property>
     <property name="page_increment">2</property>
   </object>
-  <object class="GtkAdjustment" id="adjustNiv_m">
-    <property name="lower">1</property>
-    <property name="upper">10</property>
-    <property name="value">1</property>
-    <property name="step_increment">1</property>
-    <property name="page_increment">2</property>
-  </object>
-  <object class="GtkAdjustment" id="adjustPlace_m">
+  <object class="GtkAdjustment" id="adjustPlace_d">
     <property name="lower">1</property>
     <property name="upper">300</property>
     <property name="value">1</property>

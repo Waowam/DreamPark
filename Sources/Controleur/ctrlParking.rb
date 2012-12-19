@@ -34,8 +34,29 @@ class Ctrl_parking
 	end
 
 	def append_vehicule acces,tabV
-		puts "HERE IN APPEND_VEHICULE + #{tabV}"
+		if acces==0 || tabV[0].match(/(^\d{4}\w{2}\d{2}$)|(^(\w{2})\d{3}\3$)|(^.{8}$)/)
+			case acces
+				when 0
+					indexAcc= rand(0..1)
+					puts "Acces #{indexAcc} = #{tabV}"
 
+					mdl_par.acces[indexAcc].capture_vehicule
+				when 1
+					imma,h,l= *tabV
+					#mdl_par.acces[0].capture_vehicule(imma,h,l)
+				when 2
+					imma,h,l= *tabV
+					#mdl_par.acces[1].capture_vehicule(imma,h,l)
+			end
+		else
+			dialog = Gtk::MessageDialog.new(nil, 
+                        Gtk::Dialog::DESTROY_WITH_PARENT,
+                        Gtk::MessageDialog::QUESTION,
+                        Gtk::MessageDialog::BUTTONS_CLOSE,
+                        "Une erreur est survenu, l'immatriculation '%s' est surement invalide"%tabV[0])
+			dialog.run
+			dialog.destroy
+		end
 	end
 
 	def remove_vehicule (iter)

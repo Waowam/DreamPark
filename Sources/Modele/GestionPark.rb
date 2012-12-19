@@ -42,7 +42,6 @@ class GestionPark
 		@parks.delete_at index if index != (-1)
 		return index
 	end
-
 end
 
 Gtk.init

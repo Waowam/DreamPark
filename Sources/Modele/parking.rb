@@ -7,7 +7,6 @@ parking.rb
 =end
 
 require 'set'
-require 'hash'
 require "./place.rb"
 require "./acces.rb"
 require "./database.rb"
