@@ -8,7 +8,7 @@ vehicule.rb
 
 class Vehicule
 
-	attr_writer :immatriculation,:abonne,:nbreVisites,:abonne
+	attr_writer :immatriculation,:abonne,:nbreVisites,:nbreMaintenance,:nbreEntretien,:livraisons,:abonne
 	attr_reader :immatriculation,:hauteur,:longueur,:nbreVisites,:nbreMaintenance,:nbreEntretien,:livraisons,:abonne
 
 	def initialize(imma="",hauteur,longueur)

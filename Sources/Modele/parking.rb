@@ -183,9 +183,7 @@ class Parking
 			acces.each { |a| a.save(nom) }
 			panneaux.each { |p| p.save(nom) }
 			
-			services.save(nom)
 			listLivraisons.each { |l| l.save(nom) }
-			
 			
 		rescue SQLite3::Exception => e 
 			
