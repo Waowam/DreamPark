@@ -19,8 +19,8 @@ require "../../Sources/Controleur/ctrlParking.rb"
 # ainsi que la gestion des clients et des abonnées
 class Parking
 
-	attr_writer :place,:listAbonnes,:listClient,:nom,:acces,:panneaux
-	attr_reader :nom,:nbNiv,:nbPlaceNiv,:hauteurMax, :longueurMax, :place,:listAbonnes,:listClient,:acces,:panneaux,:ctrl_park
+	attr_writer :place,:listAbonnes,:listClient,:nom,:acces,:panneaux,:services,:listLivraisons
+	attr_reader :nom,:nbNiv,:nbPlaceNiv,:hauteurMax, :longueurMax, :place,:listAbonnes,:listClient,:acces,:panneaux,:ctrl_park,:services,:listLivraisons
 
 	def initialize(nom="DreamPark",nbNiv=1,nbPlaceNiv=50,hauteurMax=500,longueurMax=500)
 		self.nom = nom
@@ -30,10 +30,12 @@ class Parking
 		self.longueurMax=longueurMax
 		self.place = Parking.generate_place(nbNiv,nbPlaceNiv,Range.new(50,hauteurMax),Range.new(50,longueurMax))
 		self.listAbonnes = Set.new
-		self.listClient = Hash.new
+		self.listClient = Set.new
 		@acces = [Acces.new("AccesNord",self), Acces.new("AccesSud",self)]
 		@panneaux = [Panneau.new("Panneau-1", self.nb_place), Panneau.new("Panneau-2", self.nb_place)]
 		@ctrl_park = Ctrl_parking.new(self)
+		@services = Service.new
+		@listLivraisons = []
 	end
 
 	def nbNiv=(n)
@@ -181,6 +183,9 @@ class Parking
 			
 			acces.each { |a| a.save(nom) }
 			panneaux.each { |p| p.save(nom) }
+			
+			services.save(nom)
+			listLivraisons.each { |l| l.save(nom) }
 			
 			
 		rescue SQLite3::Exception => e 

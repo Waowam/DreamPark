@@ -91,6 +91,16 @@ class Database
 				FOREIGN KEY(park) REFERENCES parking(nom),
 				PRIMARY KEY(nom, prenom))"
 				
+				#TABLE LIVRAISON
+			$db.execute "CREATE TABLE IF NOT EXISTS livraison(
+				dateTime TEXT, 
+				adresse TEXT, 
+				vehicule TEXT, 
+				park TEXT,
+				FOREIGN KEY(vehicule) REFERENCES vehicule(imm),
+				FOREIGN KEY(park) REFERENCES parking(nom),
+				PRIMARY KEY(dateTime, park))"
+				
 			#$db.execute "CREATE TABLE IF NOT EXISTS service(Nom TEXT PRIMARY KEY)"
 			#$db.execute "CREATE TABLE IF NOT EXISTS livraison(Nom TEXT PRIMARY KEY)"
 			

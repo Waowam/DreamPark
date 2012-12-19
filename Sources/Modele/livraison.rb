@@ -3,10 +3,9 @@ class Livraison
 	attr_reader :adresse,:dateTime,:vehicule
 	attr_reader :adresse,:dateTime,:vehicule
 
-	def initialize(dateTime, adresse, vehicule)
+	def initialize(dateTime, adresse)
 		self.dateTime=dateTime
 		self.adresse=adresse
-		self.vehicule=vehicule
 	end
 	
 	def save(nomPark)
