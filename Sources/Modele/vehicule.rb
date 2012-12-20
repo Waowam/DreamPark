@@ -56,12 +56,16 @@ class Vehicule
 	end
 	
 	def save(nomPark)
-		$db.execute "INSERT INTO vehicule(imm, hauteur, longueur, nbVisit, park) VALUES ('#{immatriculation}', #{hauteur}, #{longueur}, #{nbreVisites}, '#{nomPark}')"
+		$db.execute "INSERT INTO vehicule(imm, hauteur, longueur, nbVisit, nbEntretien, nbMaintenance, park) 
+					 VALUES ('#{immatriculation}', #{hauteur}, #{longueur}, #{nbreVisites}, #{nbreEntretien}, #{nbreMaintenance}, '#{nomPark}')"
+
 		if abonne then
 			$db.execute "UPDATE vehicule SET aboNom='#{abonne.nom}' WHERE imm='#{immatriculation}' AND park='#{nomPark}'"
 			$db.execute "UPDATE vehicule SET aboPrenom='#{abonne.prenom}' WHERE imm='#{immatriculation}' AND park='#{nomPark}'"
 			abonne.save
 		end
+		
+		#livraison.each { |l| l.save(nomPark, immatriculation) }
 	end
 			
 end

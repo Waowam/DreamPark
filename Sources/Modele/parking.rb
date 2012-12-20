@@ -9,6 +9,7 @@ parking.rb
 require 'set'
 require "./place.rb"
 require "./acces.rb"
+require "./abonne.rb"
 require "./database.rb"
 require "../../Sources/Controleur/ctrlParking.rb"
 
@@ -212,9 +213,11 @@ class Parking
 						veh.nbreVisites=vehiculeInfo[3]
 						if vehiculeInfo[4] then
 							abonneInfo = $db.get_first_row "SELECT * FROM abonne WHERE park='#{nom}' AND nom='#{placeInf[4]}' AND prenom='#{placeInf[5]}'"
-							abo = Abonne.new(abonneInfo[0],abonneInfo[1],abonneInfo[2],abonneInfo[3])
-							abo.hasPack=abonneInfo[4]
-							veh.abonne=abo
+							if abonneInfo then
+								abo = Abonne.new(abonneInfo[0],abonneInfo[1],abonneInfo[2],abonneInfo[3])
+								abo.hasPack=abonneInfo[4]
+								veh.abonne=abo
+							end
 						end
 						placeTemp.vehicule=veh
 					else

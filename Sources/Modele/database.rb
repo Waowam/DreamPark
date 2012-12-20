@@ -71,7 +71,9 @@ class Database
 				imm TEXT, 
 				hauteur INTEGER, 
 				longueur INTEGER, 
-				nbVisit INTEGER, 
+				nbVisit INTEGER,
+				nbEntretien INTEGER,
+				nbMaintenance INTEGER, 
 				aboNom REFERENCES abonne(nom),
 				aboPrenom REFERENCES abonne(prenom),
 				park TEXT,
@@ -100,9 +102,6 @@ class Database
 				FOREIGN KEY(vehicule) REFERENCES vehicule(imm),
 				FOREIGN KEY(park) REFERENCES parking(nom),
 				PRIMARY KEY(dateTime, park))"
-				
-			#$db.execute "CREATE TABLE IF NOT EXISTS service(Nom TEXT PRIMARY KEY)"
-			#$db.execute "CREATE TABLE IF NOT EXISTS livraison(Nom TEXT PRIMARY KEY)"
 			
 			#-------------Drop des tables-------------#
 			$db.execute "DELETE FROM parking WHERE nom='#{nomParking}'"
@@ -113,8 +112,7 @@ class Database
 			$db.execute "DELETE FROM vehicule WHERE park='#{nomParking}'"
 			$db.execute "DELETE FROM abonne WHERE park='#{nomParking}'"
 			$db.execute "DELETE FROM ticket WHERE park='#{nomParking}'"
-			#$db.execute "DROP TABLE IF EXISTS service"
-			#$db.execute "DROP TABLE IF EXISTS livraison"
+			$db.execute "DELETE FROM livraison WHERE park='#{nomParking}'"
 	end
 	
 	def self.load(nomParking)
