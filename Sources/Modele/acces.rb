@@ -13,12 +13,13 @@ require './teleporteur.rb'
 
 class Acces
 
-	attr_reader :nom,:park,:teleporteurs,:panneau,:borne,:camera
-	attr_writer :nom,:park,:teleporteurs
+	attr_reader :nom,:park,:teleporteurs,:panneau,:borne,:camera,:vehicule_temp
+	attr_writer :nom,:park,:teleporteurs,:vehicule_temp
 
 	def initialize(nom="",parking)
 		self.nom= nom
 		self.park= parking
+		self.vehicule_temp=nil
 
 		#Les bornes, interface client
 		@borne = Borne.new("Borne-#{@nom}")
@@ -28,6 +29,7 @@ class Acces
 
 		#Les deux téléporteur
 		self.teleporteurs= [Teleporteur.new(1,self), Teleporteur.new(2,self)]
+
 	end
 
 	def capture_vehicule
@@ -61,9 +63,23 @@ class Acces
 		return veh
 	end
 
-	def est_entre(v)
+	def est_entre v=nil
+		puts "Methode : est_entre, vehicule : #{v}, num_scenario = #{borne.get_num_scenario}"
+		vehicule_temp=v if v!=nil
+
+		#on determine le scenario initiale
+		vehicule_temp.is_abonne? ? borne.change_num_scenario(2) : borne.change_num_scenario(1)
 		borne.controleur.show_view
-		if park.nb_place_libre and park.where_to_park(v) then
+		borne.apply_scenarios
+
+		if borne.autorisation==true then
+			park.incrementer_panneaux
+			numPlace = teleporteurs[0].transporter_garer(v)
+			editerTicket(numPlace,v)
+			puts "Ca passe a ciao moineau"
+		end
+
+=begin if park.nb_place_libre and park.where_to_park(v) then
 			if v.is_abonne? then
 				if not v.abonne.has_pack? then
 					borne.controleur.ask_upgrade(v.abonne) if v.nbreVisites >= 10 #CAS : Proposer pack garanti
@@ -81,6 +97,7 @@ class Acces
 		else
 			#le garer quand même if v.is_abonne? and v.abonne.has_pack?
 		end
+=end
 	end
 
 	def est_sorti

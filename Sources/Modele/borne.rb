@@ -10,13 +10,14 @@ require "./ticket.rb"
 
 class Borne
 
-	attr_reader :nom,:controleur,:listTickets
+	attr_reader :nom,:controleur,:listTickets,:autorisation
 	attr_writer :nom,:listTickets
 
 	def initialize(nom)
 		self.nom = nom
-		@controleur = Ctrl_borne.new(self)
 		self.listTickets = []
+		@autorisation=nil
+		@controleur = Ctrl_borne.new(self)
 	end
 
 	#Lie le nouveau client abonné à son véhicule
@@ -37,5 +38,31 @@ class Borne
 	def save(nomPark, nomAcce)
 		$db.execute "INSERT INTO borne(nom, park, acce) VALUES ('#{nom}', '#{nomPark}', '#{nomAcce}')"
 		listTickets.each { |t| t.save(nomPark, nom) }
+	end
+
+	def get_num_scenario
+		return controleur.vue_borne.num_scenario
+	end
+
+	def change_num_scenario n
+		controleur.vue_borne.num_scenario= n
+	end
+
+	def apply_scenarios
+		puts "Method apply_scenarios, num_scenario = #{get_num_scenario}"
+		case get_num_scenario
+			when 1
+				controleur.ask_abonnement
+			when 2
+				controleur.ask_services
+			when 3
+				controleur.ask_upgrade
+			when 4
+				controleur.ask_paiement
+			when 5
+				controleur.ask_adhesion 1
+			when (-1)
+				puts "fin des scenarios" #if numPlace
+		end
 	end
 end
