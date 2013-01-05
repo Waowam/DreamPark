@@ -33,6 +33,14 @@ class Ctrl_parking
 		return v
 	end
 
+	def show_vehicule
+		vue_par.maj_modele_liste_vehicule
+	end
+
+	def show_panneau
+		vue_pan.maj_panneau
+	end
+
 	def append_vehicule acces,tabV
 		if acces==0 || tabV[0].match(/(^\d{4}\w{2}\d{2}$)|(^(\w{2})\d{3}\3$)|(^.{8}$)/)
 			case acces

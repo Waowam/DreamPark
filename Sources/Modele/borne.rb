@@ -11,12 +11,13 @@ require "./ticket.rb"
 class Borne
 
 	attr_reader :nom,:controleur,:listTickets,:autorisation
-	attr_writer :nom,:listTickets
+	attr_writer :nom,:listTickets,:autorisation
 
-	def initialize(nom)
+	def initialize(acces,nom)
 		self.nom = nom
 		self.listTickets = []
-		@autorisation=nil
+		@acces=acces
+		@autorisation=false
 		@controleur = Ctrl_borne.new(self)
 	end
 
@@ -64,6 +65,8 @@ class Borne
 			when (-1)
 				controleur.say_bybye
 				controleur.reset_view
+				@autorisation=true
+				@acces.est_entre
 				puts "fin des scenarios" #if numPlace
 		end
 	end

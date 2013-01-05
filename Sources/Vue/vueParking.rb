@@ -10,7 +10,8 @@ require 'gtk2'
 
 class Vue_parking < Gtk::VBox
 
-	attr_reader :ctrl
+	attr_reader :ctrl,:model_L
+	attr_writer :model_L
 
 	def initialize(ctrl)
 		super
@@ -34,7 +35,7 @@ class Vue_parking < Gtk::VBox
 		butt_rep = Gtk::Button.new("Reprendre")
 
 		#Liste de vehicule
-		model_L = Gtk::ListStore.new(String,Integer,Integer)
+		@model_L = Gtk::ListStore.new(String,Integer,Integer)
 		vue_L = Gtk::TreeView.new(model_L)
 
 		colonne_I = Gtk::TreeViewColumn.new("Immatriculation",
@@ -61,7 +62,9 @@ class Vue_parking < Gtk::VBox
 
 		butt_pop2.signal_connect('clicked') {ctrl.append_vehicule(2,[txt_imma.text,spin_H.value.to_s,spin_L.value.to_s])}
 
-		butt_popAlea.signal_connect('clicked') {ctrl.append_vehicule(0,[txt_imma.text,spin_H.value.to_s,spin_L.value.to_s])}
+		butt_popAlea.signal_connect('clicked') do
+			ctrl.append_vehicule(0,[txt_imma.text,spin_H.value.to_s,spin_L.value.to_s])
+		end
 		butt_rep.signal_connect('clicked') do
 			iter = vue_L.selection.selected
 			ctrl.remove_vehicule(iter)
@@ -73,5 +76,16 @@ class Vue_parking < Gtk::VBox
 		vuePop.add(vuePopImma).add(vuePopHautLong).add(vueButPop)
 		vueList.add(vue_L).pack_start(butt_rep,false,false,0)
 		self.add(vuePop).add(vueList)
+	end
+
+	def maj_modele_liste_vehicule
+		vehi = ctrl.get_vehicule
+		puts "MAJ : vehicule = #{vehi}"
+		@model_L.clear
+		vehi.each do |v|
+			puts "Vehi X = #{v}"
+			iter = @model_L.append
+			iter[0],iter[1],iter[2] = v.immatriculation,v.hauteur,v.longueur
+		end
 	end
 end

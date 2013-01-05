@@ -20,4 +20,10 @@ class Vue_panneau < Gtk::HBox
 		@lbl_pan2 = Gtk::Label.new p[1]
 		self.add(@lbl_pan1).add(@lbl_pan2)
 	end
+
+	def maj_panneau
+		p = ctrl.get_txt_panneau
+		@lbl_pan1.set_text p[0]
+		@lbl_pan2.set_text p[1]
+	end
 end

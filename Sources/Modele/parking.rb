@@ -146,6 +146,8 @@ class Parking
 		panneaux.each do |p|
 			p.incrementer
 		end
+		ctrl_park.show_vehicule
+		ctrl_park.show_panneau
 	end
 	
 	#Decremente le compteur des panneaux du parking

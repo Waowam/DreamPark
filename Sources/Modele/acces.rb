@@ -22,7 +22,7 @@ class Acces
 		self.vehicule_temp=nil
 
 		#Les bornes, interface client
-		@borne = Borne.new("Borne-#{@nom}")
+		@borne = Borne.new(self,"Borne-#{@nom}")
 
 		#La camera
 		@camera = Camera.new(00,"Camera-#{@nom}", park.hauteurMax, park.longueurMax)
@@ -64,18 +64,19 @@ class Acces
 	end
 
 	def est_entre v=nil
-		puts "Methode : est_entre, vehicule : #{v}, num_scenario = #{borne.get_num_scenario}"
-		vehicule_temp=v if v!=nil
-
+		@vehicule_temp=v if v!=nil
+		puts "Methode : est_entre, vehicule param : #{v}, vehicule_temp : #{vehicule_temp}, num_scenario = #{borne.get_num_scenario}"
 		#on determine le scenario initiale
-		vehicule_temp.is_abonne? ? borne.change_num_scenario(2) : borne.change_num_scenario(1)
-		borne.controleur.show_view
-		borne.apply_scenarios
-
+		if v!=nil then
+			vehicule_temp.is_abonne? ? borne.change_num_scenario(2) : borne.change_num_scenario(1)
+			borne.controleur.show_view
+			borne.apply_scenarios
+		end
 		if borne.autorisation==true then
+			borne.autorisation=false
+			numPlace = teleporteurs[0].transporter_garer(vehicule_temp)
+			borne.editerTicket(numPlace,vehicule_temp)
 			park.incrementer_panneaux
-			numPlace = teleporteurs[0].transporter_garer(v)
-			editerTicket(numPlace,v)
 			puts "Ca passe a ciao moineau"
 		end
 
