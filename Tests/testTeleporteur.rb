@@ -14,11 +14,13 @@ class Test_teleporteur < Test::Unit::TestCase
 
 	#Setup
 	def setup
-		@teleporteur=Teleporteur.new
+		@parkTest= FauxParking.new()
+		@accesTest= FauxAcces.new("test",@parkTest)
+		@teleporteur=Teleporteur.new(1,@parkTest.acces[1])
 	end
 
 	#Test d'instanciation
 	def test_new
-		assert_instance_of(Teleporteur,@teleporteur,"Porobleme instance teleporteur")
+		assert_instance_of(Teleporteur,@teleporteur,"Porbleme instance teleporteur")
 	end
 end

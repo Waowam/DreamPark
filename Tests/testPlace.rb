@@ -10,6 +10,7 @@ class TestPlace < Test::Unit::TestCase
 	#	placeOK : place devant être valide
 	def setup
 		@placeOK = Place.new(NUM, NIV, HAUT, LONG)
+		@vehiculeTest = FauxVehicule.new("test", HAUT, LONG)
 	end
 	
 	def teardown
@@ -28,9 +29,11 @@ class TestPlace < Test::Unit::TestCase
 		assert_raise(ArgumentError) {Place.new(1,0,-10,-20)}
 	end
 	
-	#Test de l'attribut vehicule de la place
+	#Test de la methode libre? de la place
 	def test_libre
-		
+		assert_equal(nil, @placeOK.libre?, "Erreur : creation de placeOK non vide")
+		@placeOK.vehicule= vehiculeTest
+		assert_not_equal(nil, @placeOK.libre?, "Erreur : attribution vehicule -> place vide")
 	end
 	
 end

@@ -53,16 +53,16 @@ park = Parking.new("ParkKing",3,3,500,500)
 puts park
 
 park.acces[0].capture_vehicule #1
-park.acces[0].capture_vehicule #2
-park.acces[0].capture_vehicule #3
-park.acces[0].capture_vehicule #4
-park.acces[0].capture_vehicule #5
-park.acces[0].capture_vehicule #6
-park.acces[0].capture_vehicule #7
-park.acces[0].capture_vehicule #8
-park.acces[0].capture_vehicule #9
-park.acces[0].capture_vehicule #10
-park.acces[0].capture_vehicule #11
+#park.acces[0].capture_vehicule #2
+#park.acces[0].capture_vehicule #3
+#park.acces[0].capture_vehicule #4
+#park.acces[0].capture_vehicule #5
+#park.acces[0].capture_vehicule #6
+#park.acces[0].capture_vehicule #7
+#park.acces[0].capture_vehicule #8
+#park.acces[0].capture_vehicule #9
+#park.acces[0].capture_vehicule #10
+#park.acces[0].capture_vehicule #11
 
 puts
 puts park

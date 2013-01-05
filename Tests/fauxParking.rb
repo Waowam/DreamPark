@@ -9,18 +9,25 @@ fauxParking.rb
 require '../Sources/parking.rb'
 require '../Sources/place.rb'
 
-#Classe fournissant l'instance d'un parking mettant a disposition
-#21 place de parking avec des numeros allant de 0 a 20
-#et pour chaque numéro une place de parking avec :
-# 	- hauteur : [150;250]
-# 	- longueur : [350;450]
+#Classe fournissant l'instance d'un parking
 class FauxParking < Parking
 
-	def initialize
-		place = []
-		for i in 0..20 do 
-			place.push(Place.new(i,rand(150..250),rand(350..450)))
-		end
-		super("DreamParkTest",place)
+	attr_writer :place,:listAbonnes,:listClient,:nom,:acces,:panneaux,:services,:listLivraisons
+	attr_reader :nom,:nbNiv,:nbPlaceNiv,:hauteurMax, :longueurMax, :place,:listAbonnes,:listClient,:acces,:panneaux,:services,:listLivraisons
+
+	def initialize(nom="DreamPark",nbNiv=1,nbPlaceNiv=50,hauteurMax=500,longueurMax=500)
+		self.nom =nom
+		self.nbNiv=nbNiv
+		self.nbPlaceNiv=nbPlaceNiv
+		self.hauteurMax=hauteurMax
+		self.longueurMax=longueurMax
+		
+		self.place = FaussePlace.new(1,0,hauteurMax,longueurMax)
+		self.listAbonnes = Set.new
+		self.listClient = Set.new
+		
+		@acces = [FauxAcces.new("AccesNord",self), FauxAcces.new("AccesSud",self)]
+		@panneaux = [FauxPanneau.new("Panneau-1", 1), FauxPanneau.new("Panneau-2", 1)]
+		@listLivraisons = []
 	end
 end
