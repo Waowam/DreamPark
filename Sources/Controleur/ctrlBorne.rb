@@ -39,7 +39,7 @@ class Ctrl_borne
 	#Demande la confirmation d'abonnement
 	def ask_upgrade
 		quest=
-		"Nous vous proposons de devenir membre prenium !\n Voulez vous le devenir ? (y/n) \n"
+		"Nous vous proposons de devenir membre prenium !\nAinsi vous profiterez d'une place assuree dans nos parkings.\nVoulez vous le devenir ? (y/n) \n"
 		vue_borne.insert quest
 	end
 	
@@ -53,7 +53,7 @@ class Ctrl_borne
 	#Méthode de demande de ask_paiement
 	def ask_paiement
 		quest=
-		"Veuillez effectue le paiement, au choix :\n\t1 - Carte Bleue\n\t2 - Especes\n\t0 - Annuler\n"
+		"Veuillez effectue le paiement, au choix :\n\t1 - Carte Bleue\n\t2 - Especes\n"
 		vue_borne.insert quest
 	end
 
@@ -61,9 +61,29 @@ class Ctrl_borne
 	def ask_adhesion n
 		case n
 			when 1
+				quest=
+				"Par la suite nous allons receuillir vos informations d'abonne.\nVeuillez specifier votre nom : "
+				vue_borne.insert quest
 			when 2
+				quest=
+				"Veuillez specifier votre prenom : "
+				vue_borne.insert quest
 			when 3
+				quest=
+				"Veuillez specifier votre adresse : "
+				vue_borne.insert quest
 			when 4
 		end
+	end
+
+	def say_bybye
+		quest=
+		"Merci et aurevoir"
+		vue_borne.insert quest
+	end
+
+	def reset_view
+		@vue_borne.window.hide
+		@vue_borne=Vue_borne.new(self)
 	end
 end

@@ -31,7 +31,7 @@ class Vue_borne
         	        puts "ANSWER = #{answer}"
                     if answer.match(/[yY]/) then
                       #si oui, on l'envoi au scenar d'adhesion.
-                        num_scenario=5
+                        @num_scenario=5
                     elsif answer.match(/[nN]/) then
                       #si non, paiement direct
                         @num_scenario=4
@@ -42,22 +42,22 @@ class Vue_borne
                        puts "Scenario des services : "
                        answer=entree.text
                        puts "ANSWER = #{answer}"
-                       num_scenario=3
+                       @num_scenario=3
                 when 3
                        puts "Scenario de l'upgrade : "
                        answer=entree.text
                        puts "ANSWER = #{answer}"
-                       num_scenario=4
+                       @num_scenario=4
                 when 4
                        puts "Scenario de paiement : "
                        answer=entree.text
                        puts "ANSWER = #{answer}"
-                       num_scenario=(-1)
+                       @num_scenario=(-1)
                 when 5
                       puts "Scenario de l'adhesion :"
                       answer=entree.text
                       puts "ANSWER = #{answer}"
-                      num_scenario=2
+                      @num_scenario=2
          end
          insert (answer+"\n")
          entree.text=""

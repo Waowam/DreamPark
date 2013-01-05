@@ -62,6 +62,8 @@ class Borne
 			when 5
 				controleur.ask_adhesion 1
 			when (-1)
+				controleur.say_bybye
+				controleur.reset_view
 				puts "fin des scenarios" #if numPlace
 		end
 	end
