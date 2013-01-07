@@ -1,4 +1,4 @@
-require '../Sources/teleporteur.rb'
+require './teleporteur.rb'
 
 #Classe fournissant l'instance d'un teleporteur 
 class FauxVehicule < Teleporteur

@@ -1,4 +1,5 @@
-require "../Sources/Modele/vehicule.rb"
+require "./vehicule.rb"
+require "../../Tests/fauxAbonne.rb"
 
 
 #Classe TestVehicule

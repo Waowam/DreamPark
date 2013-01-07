@@ -1,4 +1,4 @@
-require "../Sources/Modele/abonne.rb"
+require "./abonne.rb"
 
 #Classe TestAbonne
 #

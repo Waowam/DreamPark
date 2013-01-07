@@ -7,8 +7,8 @@ testBorne.rb
 =end
 
 require "test/unit"
-require "../Sources/Modele/borne.rb"
-require "./fauxParking.rb"
+require "./borne.rb"
+require "../../Tests/fauxParking.rb"
 
 
 #Class Test_borne

@@ -1,4 +1,4 @@
-require '../Sources/borne.rb'
+require './borne.rb'
 
 #Classe fournissant l'instance d'une borne 
 class FauxVehicule < Borne

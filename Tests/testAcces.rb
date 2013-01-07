@@ -1,4 +1,4 @@
-require "../Sources/Modele/acces.rb"
+require "./acces.rb"
 
 #Classe TestAcces
 #

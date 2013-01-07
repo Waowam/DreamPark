@@ -7,7 +7,9 @@ testTeleporteur.rb
 =end
 
 require "test/unit"
-require "../Sources/Modele/teleporteur.rb"
+require "./teleporteur.rb"
+require "../../Tests/fauxAcces.rb"
+require "../../Tests/fauxParking.rb"
 
 #Classe de test des teleporteurs
 class Test_teleporteur < Test::Unit::TestCase

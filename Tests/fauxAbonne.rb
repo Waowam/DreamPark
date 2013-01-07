@@ -1,4 +1,4 @@
-require '../Sources/abonne.rb'
+require './abonne.rb'
 
 #Classe fournissant l'instance d'un abonne 
 class FauxAbonne < Abonne

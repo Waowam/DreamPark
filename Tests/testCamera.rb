@@ -6,7 +6,7 @@ Eglem - Pinto
 testCamera.rb
 =end
 
-require "../Sources/Modele/camera.rb"
+require "./camera.rb"
 #Classe de test unitaire des cameras
 #Regroupant l'ensemble des test 
 class Test_camera < Test::Unit::TestCase

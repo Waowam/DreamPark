@@ -1,4 +1,4 @@
-require '../Sources/camera.rb'
+require './camera.rb'
 
 #Classe fournissant l'instance d'un vehicule 
 class FausseCamera < Camera

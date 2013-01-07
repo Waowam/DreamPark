@@ -1,5 +1,5 @@
 
-require '../Sources/vehicule.rb'
+require './vehicule.rb'
 
 #Classe fournissant l'instance d'un vehicule 
 class FauxVehicule < Vehicule

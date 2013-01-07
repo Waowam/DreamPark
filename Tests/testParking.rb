@@ -1,4 +1,7 @@
-require "../Sources/Modele/parking.rb"
+require "./parking.rb"
+require "../../Tests/fauxVehicule.rb"
+require "../../Tests/fauxAbonne.rb"
+require "../../Tests/faussePlace.rb"
 
 #Classe TestParking
 #
@@ -45,7 +48,7 @@ class TestParking < Test::Unit::TestCase
 		@parking.listClient<<@vehiculeFake
 		@parking.listAbonnes<<@vehiculeFake
 		
-		@placeFake.vehicule.@vehiculeFake
+		@placeFake.vehicule = @vehiculeFake
 		@parking.remove_vehicule(@placeFake,@vehiculeFake)
 		assert_equals(0, @parking.listClient.length, "Erreur : remove_vehicule (client) pas de modif de listCLient")
 		assert_equals(1, @parking.listAbonnes.length, "Erreur : remove_vehicule (client) modif de listAbonnes")

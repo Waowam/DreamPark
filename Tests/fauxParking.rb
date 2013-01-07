@@ -6,8 +6,8 @@ Eglem - Pinto
 fauxParking.rb
 =end
 
-require '../Sources/parking.rb'
-require '../Sources/place.rb'
+require './parking.rb'
+require './place.rb'
 
 #Classe fournissant l'instance d'un parking
 class FauxParking < Parking

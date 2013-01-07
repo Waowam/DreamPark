@@ -7,9 +7,10 @@ test_all_daTest.rb
 =end
 
 require "test/unit"
-require "./testPlace.rb"
-require "./testCamera.rb"
-require "./testBorne.rb"
-require "./testTeleporteur.rb"
-require "./testPanneau.rb"
-require "./testVehicule.rb"
+require "../../Tests/testBorne.rb"
+require "../../Tests/testCamera.rb"
+require "../../Tests/testPanneau.rb"
+require "../../Tests/testParking.rb"
+require "../../Tests/testPlace.rb"
+require "../../Tests/testTeleporteur.rb"
+require "../../Tests/testVehicule.rb"

@@ -1,4 +1,4 @@
-require '../Sources/place.rb'
+require './place.rb'
 
 #Classe fournissant l'instance d'une place 
 class FaussePlace < Place

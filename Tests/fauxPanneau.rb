@@ -1,4 +1,4 @@
-require '../Sources/panneau.rb'
+require './panneau.rb'
 
 #Classe fournissant l'instance d'un panneau 
 class FauxPanneau < Panneau

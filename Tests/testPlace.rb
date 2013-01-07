@@ -1,4 +1,5 @@
-require "../Sources/Modele/place.rb"
+require "./place.rb"
+require "../../Tests/fauxVehicule.rb"
 
 #Classe TestPlace
 #

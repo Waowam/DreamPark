@@ -7,7 +7,7 @@ testPanneau.rb
 =end
 
 require "test/unit"
-require "../Sources/Modele/panneau.rb"
+require "./panneau.rb"
 
 #Test de la classe panneau
 class Test_panneau < Test::Unit::TestCase

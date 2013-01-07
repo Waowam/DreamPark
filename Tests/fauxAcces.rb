@@ -6,7 +6,7 @@ Eglem - Pinto
 fauxAcces.rb
 =end
 
-require "../Sources/Modele/acces.rb"
+require "./acces.rb"
 
 class FauxAcces < Acces
 
