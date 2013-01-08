@@ -1,7 +1,6 @@
+require "./vehicule.rb"
 
-require './vehicule.rb'
-
-#Classe fournissant l'instance d'un vehicule 
+#Classe fournissant l'instance d'un vehicule
 class FauxVehicule < Vehicule
 
 	attr_writer :immatriculation,:abonne,:nbreVisites,:nbreMaintenance,:nbreEntretien,:livraisons,:abonne
@@ -17,4 +16,5 @@ class FauxVehicule < Vehicule
 		self.livraisons=[]
 		self.abonne=nil
 	end
+	
 end

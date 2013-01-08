@@ -1,5 +1,4 @@
 require "./vehicule.rb"
-require "../../Tests/fauxAbonne.rb"
 
 
 #Classe TestVehicule
@@ -46,8 +45,8 @@ class TestVehicule < Test::Unit::TestCase
 	
 	#Test de la méthode is_abonne?
 	def test_is_abonne?
-		assert_equal(nil, @vehiculeOK.is_abonne?, "Erreur : new vehicule -> is_abonne? non nul")
-		@vehiculeOK.abonne=abonneFake
+		assert_equal(false, @vehiculeOK.is_abonne?, "Erreur : new vehicule -> is_abonne? non nul")
+		@vehiculeOK.abonne=@abonneFake
 		assert(@vehiculeOK.is_abonne?, "Erreur : is_abonne? pas true alors qu'attribut abonne existe")
 	end
 end

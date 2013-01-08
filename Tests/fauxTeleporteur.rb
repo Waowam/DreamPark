@@ -1,7 +1,7 @@
 require './teleporteur.rb'
 
 #Classe fournissant l'instance d'un teleporteur 
-class FauxVehicule < Teleporteur
+class FauxTeleporteur < Teleporteur
 
 	attr_reader :id,:acces
 	attr_writer :id,:acces

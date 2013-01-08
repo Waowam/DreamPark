@@ -39,38 +39,39 @@ class Parking
 	end
 
 	def nbNiv=(n)
-		raise ArgumentError.new("Error : nbNiv (numbre of levels) must be positive.") if n < 0
+		raise ArgumentError.new("Error : nbNiv (numbre of levels) must be positive.") if n <= 0
 		@nbNiv= n
 	end
 	
 	def nbPlaceNiv=(n)
-		raise ArgumentError.new("Error : nbPlaceNiv (numbre of place by level) must be positive.") if n < 0
+		raise ArgumentError.new("Error : nbPlaceNiv (numbre of place by level) must be positive.") if n <= 0
 		@nbPlaceNiv= n
 	end
 	
 	def hauteurMax=(h)
-		raise ArgumentError.new("Error : hauteurMax (maximum height of a place) must be greater than 100.") if h < 0
+		raise ArgumentError.new("Error : hauteurMax (maximum height of a place) must be greater than 100.") if h < 100
 		@hauteurMax= h
 	end
 	
 	def longueurMax=(l)
-		raise ArgumentError.new("Error : longueurMax (maximum length of a place) must be greater than 100.") if l < 0
+		raise ArgumentError.new("Error : longueurMax (maximum length of a place) must be greater than 100.") if l < 100
 		@longueurMax= l
 	end
 
 	#Ajoute un véhicule dans la liste correspondante.
 	#is_abonne? => listAbonne
 	#not is_abonne? => listClient
-	def add_vehicule(v)
+	def add_vehicule(p,v)
 		v.incrementer_visite
 		listAbonnes.add(v) if v.is_abonne?
 		listClient.add(v) if not v.is_abonne?
+		p.vehicule = v
 	end
 
 	#Remove le vehicule des listes
 	def remove_vehicule(p,v)
-		listAbonnes.delete(p) if v.is_abonne?
-		listClient.delete(p) if not v.is_abonne?
+		listAbonnes.delete(v) if v.is_abonne?
+		listClient.delete(v) if not v.is_abonne?
 		p.vehicule = nil
 	end
 
@@ -115,16 +116,15 @@ class Parking
 				   best = listPlaces[i]
 				  end
 			end		
-			best.vehicule = v if listPlaces
 		end
-		res = best ? best.num : nil
+		res = best ? best : nil
 	end
 	
 	#Assigne une place à un véhicule et ajoute le client.
 	def garer(v)
-		numPlace = assigner_place(v)
-		add_vehicule(v) if numPlace
-		return numPlace
+		place = assigner_place(v)
+		add_vehicule(place,v) if place
+		return place.num
 	end
 	
 	#Libere une place occupée.

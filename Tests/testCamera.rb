@@ -19,11 +19,11 @@ class Test_camera < Test::Unit::TestCase
 
 	#test de la methode send_info.
 	def test_send_info()
-		v = @cam.send_info()
+		res = @cam.send_info()
 	 	assert_equal(3, res.length, "Erreur : send_info tableau de taille incorrecte")
-	 	assert_instance_of(String, res[1], "Erreur : send_info 1er element pas de classe String")
-	 	assert_instance_of(Fixnum, res[2], "Erreur : send_info 2eme element pas de classe Fixnum")
-	 	assert_instance_of(Fixnum, res[3], "Erreur : send_info 3eme element pas de classe Fixnum")
+	 	assert_instance_of(String, res[0], "Erreur : send_info 1er element pas de classe String")
+	 	assert_instance_of(Fixnum, res[1], "Erreur : send_info 2eme element pas de classe Fixnum")
+	 	assert_instance_of(Fixnum, res[2], "Erreur : send_info 3eme element pas de classe Fixnum")
 	end
 
 	#Free variables

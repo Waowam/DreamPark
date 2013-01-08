@@ -4,7 +4,7 @@ require './abonne.rb'
 class FauxAbonne < Abonne
 
 	attr_writer :nom,:prenom,:adresse,:tel,:hasPack
-	attr_reader :nom,:prenom,:adresse,:tel
+	attr_reader :nom,:prenom,:adresse,:tel,:hasPack
 
 	def initialize(nom,prenom,adresse,tel)
 		self.nom=nom

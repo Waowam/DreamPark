@@ -8,8 +8,6 @@ testTeleporteur.rb
 
 require "test/unit"
 require "./teleporteur.rb"
-require "../../Tests/fauxAcces.rb"
-require "../../Tests/fauxParking.rb"
 
 #Classe de test des teleporteurs
 class Test_teleporteur < Test::Unit::TestCase

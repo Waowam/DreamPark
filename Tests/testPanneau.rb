@@ -33,7 +33,7 @@ class Test_panneau < Test::Unit::TestCase
 
 	#Test d'incrémentation du nombre de places utilisées
 	def test_incrementer
-		@pan.incrementer
+		@panNoPlace.incrementer
 		assert_equal(0,@panNoPlace.placeUsed)
 
 		@pan.incrementer
