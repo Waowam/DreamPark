@@ -99,7 +99,7 @@ class Acces
 =end
 	end
 
-	def est_sorti
+	def est_sorti(v)
 		teleporteurs[0].transporter_reprendre(v)
 		park.decrementer_panneaux
 	end
