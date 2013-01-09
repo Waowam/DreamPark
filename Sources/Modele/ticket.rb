@@ -11,6 +11,7 @@ class Ticket
 	attr_reader :nom, :time, :place, :vehicule
 	attr_writer :nom, :time, :place, :vehicule
 
+	#Constructeur
 	def initialize(numPlace, vehicule)
 		self.time = Time.now.to_s
 		self.place = numPlace
@@ -18,6 +19,7 @@ class Ticket
 		self.nom = "Ticket P#{self.place}V#{self.vehicule.immatriculation} - #{self.time}"
 	end
 
+	#Redéfinition de la méthode to_s
 	def to_s
 		result = "----------------------------------\n"
 		result+= @nom.center(20,'-')
@@ -29,6 +31,7 @@ class Ticket
 		return result
 	end
 	
+	#Méthode de sauvegarde
 	def save(nomPark, nomBorne)
 		$db.execute "INSERT INTO ticket(nom, time, place, vehicule, park, borne) VALUES 
 					('#{nom}', '#{time}', #{place}, '#{vehicule.immatriculation}', '#{nomPark}', '#{nomBorne}')"

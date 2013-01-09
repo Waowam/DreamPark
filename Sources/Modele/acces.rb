@@ -16,6 +16,7 @@ class Acces
 	attr_reader :nom,:park,:teleporteurs,:panneau,:borne,:camera,:vehicule_temp
 	attr_writer :nom,:park,:teleporteurs,:vehicule_temp
 
+	#Constructeur
 	def initialize(nom="",parking)
 		self.nom= nom
 		self.park= parking
@@ -32,6 +33,7 @@ class Acces
 
 	end
 
+	#Capture un véhicule à partir des infos de la caméra et appelle la méthode est_entre
 	def capture_vehicule
 		begin
 			#Ouverture de la base de donnée
@@ -56,11 +58,13 @@ class Acces
 		end
 	end
 	
+	#Capture un véhicule à partir des paramètres donnés et appelle la méthode est_entre
 	def capture_vehicule_with_info(immat, hauteur, longueur)
 		veh=Vehicule.new(immat,hauteur,longueur)
 		est_entre(veh)
 	end
 
+	#Déclenche les scénarios avec la borne pour garer le véhicule
 	def est_entre v=nil
 		@vehicule_temp=v if v!=nil
 		#on determine le scenario initiale
@@ -79,33 +83,15 @@ class Acces
 				park.ctrl_park.alert_error "Aucune place ne correspond a ce vehicule : #{vehicule_temp}"
 			end
 		end
-
-=begin if park.nb_place_libre and park.where_to_park(v) then
-			if v.is_abonne? then
-				if not v.abonne.has_pack? then
-					borne.controleur.ask_upgrade(v.abonne) if v.nbreVisites >= 10 #CAS : Proposer pack garanti
-				end
-				borne.controleur.ask_services #Params ????
-			else
-				borne.controleur.ask_abonnement(v) #if v.nbreVisites >= 10 #CAS : Abonner le client
-			end
-		
-			if borne.controleur.ask_paiement then
-				numPlace = teleporteurs[0].transporter_garer(v)
-				borne.editerTicket(numPlace,v) #if numPlace
-				park.incrementer_panneaux
-			end
-		else
-			#le garer quand même if v.is_abonne? and v.abonne.has_pack?
-		end
-=end
 	end
 
+	#Signale la reprise d'un véhicule
 	def est_sorti(v)
 		teleporteurs[0].transporter_reprendre(v)
 		park.decrementer_panneaux
 	end
 	
+	#Méthode de sauvegarde
 	def save(nomPark)
 		$db.execute "INSERT INTO acce (nom, park) VALUES ('#{nom}', '#{nomPark}')"
 		borne.save(nomPark, nom)

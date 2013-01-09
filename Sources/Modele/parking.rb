@@ -23,6 +23,7 @@ class Parking
 	attr_writer :place,:listAbonnes,:listClient,:nom,:acces,:panneaux,:services,:listLivraisons
 	attr_reader :nom,:nbNiv,:nbPlaceNiv,:hauteurMax, :longueurMax, :place,:listAbonnes,:listClient,:acces,:panneaux,:ctrl_park,:services,:listLivraisons
 
+	#Constructeur
 	def initialize(nom="DreamPark",nbNiv=1,nbPlaceNiv=50,hauteurMax=500,longueurMax=500)
 		self.nom = nom
 		self.nbNiv=nbNiv
@@ -38,21 +39,25 @@ class Parking
 		@listLivraisons = []
 	end
 
+	#Redifinition du setter pour le nombre de niveaux
 	def nbNiv=(n)
 		raise ArgumentError.new("Error : nbNiv (numbre of levels) must be positive.") if n <= 0
 		@nbNiv= n
 	end
 	
+	#Redifinition du setter pour le nombre de places par niveau
 	def nbPlaceNiv=(n)
 		raise ArgumentError.new("Error : nbPlaceNiv (numbre of place by level) must be positive.") if n <= 0
 		@nbPlaceNiv= n
 	end
 	
+	#Redifinition du setter pour la hauteur maximale d'une place
 	def hauteurMax=(h)
 		raise ArgumentError.new("Error : hauteurMax (maximum height of a place) must be greater than 100.") if h < 100
 		@hauteurMax= h
 	end
 	
+	#Redifinition du setter pour la longueur maximale d'une place
 	def longueurMax=(l)
 		raise ArgumentError.new("Error : longueurMax (maximum length of a place) must be greater than 100.") if l < 100
 		@longueurMax= l
@@ -103,8 +108,7 @@ class Parking
 	end
 
 	#Choisis une place correspondante au vehicule donné.
-	#Retourne le numéro de la place attribuée.
-	#Retourne -1 en cas d'echec.
+	#Retourne la place attribuée. nil en cas d'echec
 	def assigner_place(v)
 		listPlaces = where_to_park(v)
 		if listPlaces then
@@ -145,7 +149,7 @@ class Parking
 		ctrl_park.show_panneau
 	end
 	
-	#Decremente le compteur des panneaux du parking
+	#Décremente le compteur des panneaux du parking
 	def decrementer_panneaux
 		panneaux.each do |p|
 			p.decrementer
@@ -171,12 +175,12 @@ class Parking
 	end
 	
 	#Retourne les statistiques commerciales du parking
-	#	client : nombre de client simple
-	#	abonne : nombre de client abonnés
-	#	entretien : nombre d'entretiens total
-	#	maintenance : nombre de maintenances total
-	#	livraison : nombre de livraisons total
-	#	visites : nombre de visites total
+	#	client : nombre de client simple dans le parking
+	#	abonne : nombre de client abonnés dans le parking
+	#	entretien : nombre d'entretiens
+	#	maintenance : nombre de maintenances 
+	#	livraison : nombre de livraisons 
+	#	visites : nombre de visites total actuellement dans le parking
 	#	pack : nombre d'abonnés ayant souscris au pack garantie
 	def stats_commercial
 		stats=Hash.new(0)
@@ -203,7 +207,7 @@ class Parking
 	#Retourne les statistiques admin du parking
 	#	acces1 : nombre de passages pour l'accès 1
 	#	acces2 : nombre de passages pour l'accès 2
-	#	place : place la plus utilisée
+	#	place : place la plus utilisée (0 si aucune trouvée)
 	def stats_admin
 		stats=Hash.new(0)
 		
@@ -227,7 +231,7 @@ class Parking
 		return stats
 	end
 
-	#Vue en text d'un parking
+	#Redéfinition de la méthode to_s
 	def to_s
 		s= "Nom : #{nom}\n"
 		for p in panneaux do
@@ -237,6 +241,7 @@ class Parking
 		return s
 	end
 
+	#Méthode de sauvegarde
 	def save
 		begin
 			#Ouverture de la base de donnée
@@ -268,6 +273,7 @@ class Parking
 		end
 	end
 	
+	#Méthode de chargement
 	def load
 		begin
 			#Ouverture de la base de donnée
@@ -336,8 +342,7 @@ class Parking
 		end
 	end
 	
-	#Méthode de class
-
+	#Méthode de classe permettant la génération automatique des places
 	def self.generate_place(niveau,nbPlace,rangHaut,rangLong)
 		p = []
 		for niv in (0...niveau)

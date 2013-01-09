@@ -11,6 +11,7 @@ class Camera
 	attr_reader :numero,:nom,:hauteurMax,:longueurMax
 	attr_writer :numero,:nom,:hauteurMax,:longueurMax
 
+	#Constructeur
 	def initialize(num=0, nom, hauteurMax, longueurMax)
 		self.numero= num
 		self.nom= nom

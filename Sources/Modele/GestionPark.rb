@@ -16,6 +16,7 @@ class GestionPark
 
 	attr_accessor :parks
 
+	#Constructeur
 	def initialize
 		#Recuperation des noms
 		names = []
@@ -49,11 +50,13 @@ class GestionPark
 		@ctrl = Ctrl_gen.new(self)
 	end
 
+	#Création d'un parking
 	def creerPark(nom="",niv,placeMax,hauteur,longueur)
 		p1 = Parking.new(nom,niv,placeMax,hauteur,longueur)
 		@parks<<p1
 	end
 
+	#Retourne le controleur d'un parking donné
 	def get_ctrl_park(nom)
 		parking=""
 		parks.each { |p| parking=p if p.nom==nom}

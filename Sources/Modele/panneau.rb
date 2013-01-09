@@ -13,6 +13,7 @@ class Panneau
 	attr_reader :placeUsed,:placeTot,:nom
 	attr_writer :placeUsed,:placeTot,:nom
 
+	#Constructeur
 	def initialize(nom="",place=0)
 		self.nom = nom
 		self.placeUsed=0
@@ -24,16 +25,17 @@ class Panneau
 		self.placeUsed= placeUsed + 1 if placeUsed<placeTot
 	end
 
-	#Decremente le nombre de places utilisées
+	#Décremente le nombre de places utilisées
 	def decrementer
 		self.placeUsed-=1 if placeUsed > 0
 	end
 
-	#Redef to_s
+	#Redefinition de la méthode to_s
 	def to_s
 		s="#{nom} : #{placeUsed}/#{placeTot}"
 	end
 	
+	#Méthode de sauvegarde
 	def save(nomPark)
 		$db.execute "INSERT INTO panneau(nom, placeUsed, placeTot, park) VALUES ('#{nom}', #{placeUsed}, #{placeTot}, '#{nomPark}')"
 	end

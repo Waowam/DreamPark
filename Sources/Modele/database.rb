@@ -5,6 +5,7 @@
 # sessions
 class Database
 	
+	#Créer les tables si elles n'existes pas déja.
 	def self.createTables
 		#----------Creation des tables----------#
 				#TABLE PARKING
@@ -104,6 +105,7 @@ class Database
 				PRIMARY KEY(dateTime, park))"
 	end
 
+	#Supprime les informations propres à un parking pour préparer la sauvegarde
 	def self.save(nomParking)
 			#-------------Drop des tables-------------#
 			$db.execute "DELETE FROM parking WHERE nom='#{nomParking}'"
@@ -117,6 +119,7 @@ class Database
 			$db.execute "DELETE FROM livraison WHERE park='#{nomParking}'"
 	end
 	
+	#Méthode de chargement d'un parking donné
 	def self.load(nomParking)
 		begin
 			#Ouverture de la base de donnée

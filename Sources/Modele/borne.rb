@@ -13,6 +13,7 @@ class Borne
 	attr_reader :nom,:controleur,:listTickets,:autorisation
 	attr_writer :nom,:listTickets,:autorisation
 
+	#Constructeur
 	def initialize(acces,nom)
 		self.nom = nom
 		self.listTickets = []
@@ -36,19 +37,23 @@ class Borne
 		listTickets<<Ticket.new(place, v)
 	end
 	
+	#Méthode de sauvegarde
 	def save(nomPark, nomAcce)
 		$db.execute "INSERT INTO borne(nom, park, acce) VALUES ('#{nom}', '#{nomPark}', '#{nomAcce}')"
 		listTickets.each { |t| t.save(nomPark, nom) }
 	end
 
+	#Retourne le numéro du scénario actuel
 	def get_num_scenario
 		return controleur.vue_borne.num_scenario
 	end
 
+	#Change le numéro du scénario actuel
 	def change_num_scenario n
 		controleur.vue_borne.num_scenario= n
 	end
 
+	#Lance le scénario appropprié
 	def apply_scenarios
 		case get_num_scenario
 			when 1
