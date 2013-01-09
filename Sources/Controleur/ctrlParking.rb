@@ -44,17 +44,19 @@ class Ctrl_parking
 	def append_vehicule acces,tabV=nil
 		error=0
 		if tabV != nil then
-			park.listClient.each do |client| 
+			mdl_par.listClient.each do |client| 
 				if client.immatriculation == tabV[0] && client.hauteur == tabV[1] && client.longueur == tabV[2] then
 					error=1
 				end
 			end
-			park.listAbonnes.each do |abonne| 
+			mdl_par.listAbonnes.each do |abonne| 
 				if abonne.immatriculation == tabV[0] && abonne.hauteur == tabV[1] && abonne.longueur == tabV[2] then
 					error=1
 				end
 			end
-		elsif acces==0 || tabV[0].match(/(^\d{4}$)/) then
+		end
+
+		if error == 0 || acces == 0 || tabV[0].match(/(^\d{4}$)/) then
 			case acces
 				when 0
 					indexAcc= rand(0..1)
@@ -84,6 +86,7 @@ class Ctrl_parking
 		                        "Une erreur est survenu, l'immatriculation '%s' est surement invalide"%tabV[0])
 					dialog.run
 					dialog.destroy
+			end
 		end
 	end
 
