@@ -10,22 +10,48 @@ require 'gtk2'
 require "./parking.rb"
 require 'sqlite3'
 require "../../Sources/Controleur/ctrlGeneral.rb"
+require "./database.rb"
 
 class GestionPark
 
 	attr_accessor :parks
 
 	def initialize
+		#Recuperation des noms
+		names = []
+		begin
+			#Ouverture de la base de donnée
+			$db = SQLite3::Database.open "dreampark.db"
+			
+			parkInfo = $db.get_first_row "SELECT nom FROM parking"
+			if parkInfo then
+				names<<parkInfo[0]
+			end
+			
+		rescue SQLite3::Exception => e 
+			
+			print "Exception occured : "
+			puts e.message
+			
+		ensure
+			$db.close if $db
+		end
+=begin
+		#Load des parkings
 		@parks = []
-		p1 = Parking.new("DreamPark",3,20,500,500)
-		@parks<<p1
-		@parks<<Parking.new("ProutPark",3,20,500,500)
+		names.each do |n|
+			@parks<<Database.load(n)
+			
+		end
+		@parks.each { |p| puts "#{p}"}
+=end
+		@parks=[]
+		names.each { |n| @parks<<Parking.new(n,2,5,500,500)}
 		@ctrl = Ctrl_gen.new(self)
 	end
 
 	def creerPark(nom="",niv,placeMax,hauteur,longueur)
 		p1 = Parking.new(nom,niv,placeMax,hauteur,longueur)
-		puts "#{p1}"
 		@parks<<p1
 	end
 

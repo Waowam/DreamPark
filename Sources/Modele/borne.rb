@@ -50,7 +50,6 @@ class Borne
 	end
 
 	def apply_scenarios
-		puts "Method apply_scenarios, num_scenario = #{get_num_scenario}"
 		case get_num_scenario
 			when 1
 				controleur.ask_abonnement
@@ -67,7 +66,6 @@ class Borne
 				controleur.reset_view
 				@autorisation=true
 				@acces.est_entre
-				puts "fin des scenarios" #if numPlace
 		end
 	end
 end

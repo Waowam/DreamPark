@@ -65,7 +65,6 @@ class Acces
 
 	def est_entre v=nil
 		@vehicule_temp=v if v!=nil
-		puts "Methode : est_entre, vehicule param : #{v}, vehicule_temp : #{vehicule_temp}, num_scenario = #{borne.get_num_scenario}"
 		#on determine le scenario initiale
 		if v!=nil then
 			vehicule_temp.is_abonne? ? borne.change_num_scenario(2) : borne.change_num_scenario(1)
@@ -77,7 +76,6 @@ class Acces
 			numPlace = teleporteurs[0].transporter_garer(vehicule_temp)
 			borne.editerTicket(numPlace,vehicule_temp)
 			park.incrementer_panneaux
-			puts "Ca passe a ciao moineau"
 		end
 
 =begin if park.nb_place_libre and park.where_to_park(v) then

@@ -16,7 +16,7 @@ require "../../Sources/Controleur/ctrlParking.rb"
 #Classe Parking
 #
 # Cette classe représente l'objet principal de la gestion
-# du parking. Elle gère l'entrée/sortie de véhicules
+# d'un parking. Elle gère l'entrée/sortie de véhicules
 # ainsi que la gestion des clients et des abonnées
 class Parking
 
@@ -247,7 +247,7 @@ class Parking
 			if accesInfos then
 				self.acces = []
 				accesInfos.each do |acceInf|
-					self.acces<<Panneau.new(acceInf[0],self)
+					self.acces<<Acces.new(acceInf[0],self)
 				end
 			end
 			

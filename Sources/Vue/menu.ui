@@ -1,0 +1,15 @@
+<ui>
+	<menubar name="MenuBar">
+		<menu name="Statistiques" action="Statistiques">
+			<menuitem name="StatCommercial" action="VoirStatCommercial"/>
+			<menuitem name="StatAdmin" action="VoirStatAdmin"/>
+		</menu>
+		<menu name="Quitter" action="Quitter">
+			<menuitem name="QuitSave" action="QuitterSauvegarder"/>
+			<menuitem name="Quit" action="Quitter"/>
+		</menu>
+		<menu name="HelpMenu" action="Aide">
+			<menuitem name="HelpAbout" action="APropos"/>
+		</menu>
+	</menubar>
+</ui>

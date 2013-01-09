@@ -51,4 +51,8 @@ class Ctrl_gen
 		index = mdl_gen.delete_park nomP
 		return index
 	end
+
+	def save_all_da_park
+		@mdl_gen.parks.each { |p| p.save}
+	end
 end

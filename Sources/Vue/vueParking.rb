@@ -37,6 +37,8 @@ class Vue_parking < Gtk::VBox
 		#Liste de vehicule
 		@model_L = Gtk::ListStore.new(String,Integer,Integer)
 		vue_L = Gtk::TreeView.new(model_L)
+		scrollWindow = Gtk::ScrolledWindow.new
+		scrollWindow.set_policy(Gtk::POLICY_NEVER,Gtk::POLICY_ALWAYS)
 
 		colonne_I = Gtk::TreeViewColumn.new("Immatriculation",
 											Gtk::CellRendererText.new, :text => 0 )
@@ -74,16 +76,15 @@ class Vue_parking < Gtk::VBox
 		vuePopHautLong.add(lbl_H).add(spin_H).add(lbl_L).add(spin_L)
 		vueButPop.pack_start(butt_pop,false,false,0).pack_start(butt_pop2,false,false,0).pack_start(butt_popAlea,false,false,0)
 		vuePop.add(vuePopImma).add(vuePopHautLong).add(vueButPop)
-		vueList.add(vue_L).pack_start(butt_rep,false,false,0)
+		scrollWindow.add(vue_L)
+		vueList.add(scrollWindow).pack_start(butt_rep,false,false,0)
 		self.add(vuePop).add(vueList)
 	end
 
 	def maj_modele_liste_vehicule
 		vehi = ctrl.get_vehicule
-		puts "MAJ : vehicule = #{vehi}"
 		@model_L.clear
 		vehi.each do |v|
-			puts "Vehi X = #{v}"
 			iter = @model_L.append
 			iter[0],iter[1],iter[2] = v.immatriculation,v.hauteur,v.longueur
 		end
