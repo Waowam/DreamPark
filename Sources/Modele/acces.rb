@@ -72,7 +72,7 @@ class Acces
 		if borne.autorisation==true then
 			borne.autorisation=false
 			numPlace = teleporteurs[0].transporter_garer(vehicule_temp)
-			borne.editerTicket(numPlace,vehicule_temp)
+			borne.editerTicket(numPlace.num,vehicule_temp)
 			park.incrementer_panneaux
 		end
 
@@ -103,7 +103,7 @@ class Acces
 	end
 	
 	def save(nomPark)
-		$db.execute "INSERT INTO acce(nom, park) VALUES ('#{nom}', '#{nomPark}')"
+		$db.execute "INSERT INTO acce (nom, park) VALUES ('#{nom}', '#{nomPark}')"
 		borne.save(nomPark, nom)
 	end
 end
