@@ -59,7 +59,7 @@
     <nav id="parent-class-section" class="section">
   <h3 class="section-header">Parent</h3>
   
-  <p class="link"><a href="Object.html">Object</a>
+  <p class="link">Object
   
 </nav>
 
@@ -75,8 +75,6 @@
     <li><a href="#method-i-3D-3D">#==</a>
     
     <li><a href="#method-i-has_pack-3F">#has_pack?</a>
-    
-    <li><a href="#method-i-id-3D">#id=</a>
     
     <li><a href="#method-i-save">#save</a>
     
@@ -96,8 +94,6 @@
   
     <li><a href="./Acces.html">Acces</a>
   
-    <li><a href="./Borne.html">Borne</a>
-  
     <li><a href="./Camera.html">Camera</a>
   
     <li><a href="./Ctrl_borne.html">Ctrl_borne</a>
@@ -111,8 +107,6 @@
     <li><a href="./GestionPark.html">GestionPark</a>
   
     <li><a href="./Livraison.html">Livraison</a>
-  
-    <li><a href="./Object.html">Object</a>
   
     <li><a href="./Panneau.html">Panneau</a>
   
@@ -250,12 +244,12 @@
 
         <div class="method-description">
           
-          
+          <p>Constructeur</p>
           
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File Modele/abonne.rb, line 6</span>
+            <pre><span class="ruby-comment"># File Modele/abonne.rb, line 7</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">nom</span>,<span class="ruby-identifier">prenom</span>,<span class="ruby-identifier">adresse</span>,<span class="ruby-identifier">tel</span>)
         <span class="ruby-keyword">self</span>.<span class="ruby-identifier">nom</span>=<span class="ruby-identifier">nom</span>
         <span class="ruby-keyword">self</span>.<span class="ruby-identifier">prenom</span>=<span class="ruby-identifier">prenom</span>
@@ -290,12 +284,12 @@
 
         <div class="method-description">
           
-          
+          <p>Redéfinition de la méthode ==</p>
           
 
           
           <div class="method-source-code" id="3D-3D-source">
-            <pre><span class="ruby-comment"># File Modele/abonne.rb, line 23</span>
+            <pre><span class="ruby-comment"># File Modele/abonne.rb, line 21</span>
 <span class="ruby-keyword">def</span> <span class="ruby-operator">==</span>(<span class="ruby-identifier">a</span>)
         <span class="ruby-keyword">return</span>  <span class="ruby-keyword">false</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">a</span>.<span class="ruby-identifier">class</span> <span class="ruby-operator">!=</span> <span class="ruby-constant">Abonne</span>
         <span class="ruby-keyword">return</span>  <span class="ruby-identifier">a</span>.<span class="ruby-identifier">nom</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">nom</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">a</span>.<span class="ruby-identifier">prenom</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">prenom</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">a</span>.<span class="ruby-identifier">tel</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">tel</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">a</span>.<span class="ruby-identifier">hasPack</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">hasPack</span>
@@ -321,12 +315,12 @@
 
         <div class="method-description">
           
-          
+          <p>Retourne vrai si l’abonné à le pack garantie. Faux sinon.</p>
           
 
           
           <div class="method-source-code" id="has_pack-3F-source">
-            <pre><span class="ruby-comment"># File Modele/abonne.rb, line 19</span>
+            <pre><span class="ruby-comment"># File Modele/abonne.rb, line 16</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">has_pack?</span>
         <span class="ruby-keyword">self</span>.<span class="ruby-identifier">hasPack</span>
 <span class="ruby-keyword">end</span></pre>
@@ -340,37 +334,6 @@
       </div><!-- has_pack-3F-method -->
 
     
-      <div id="method-i-id-3D" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">id=</span><span
-            class="method-args">(i)</span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-        
-
-        <div class="method-description">
-          
-          
-          
-
-          
-          <div class="method-source-code" id="id-3D-source">
-            <pre><span class="ruby-comment"># File Modele/abonne.rb, line 14</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">id=</span>(<span class="ruby-identifier">i</span>)
-        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;Error : id must be positive.&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">i</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-value">0</span>
-        <span class="ruby-ivar">@id</span>= <span class="ruby-identifier">i</span>
-<span class="ruby-keyword">end</span></pre>
-          </div><!-- id-3D-source -->
-          
-        </div>
-
-        
-
-        
-      </div><!-- id-3D-method -->
-
-    
       <div id="method-i-save" class="method-detail ">
         
         <div class="method-heading">
@@ -382,12 +345,12 @@
 
         <div class="method-description">
           
-          
+          <p>Méthode de sauvegarde</p>
           
 
           
           <div class="method-source-code" id="save-source">
-            <pre><span class="ruby-comment"># File Modele/abonne.rb, line 28</span>
+            <pre><span class="ruby-comment"># File Modele/abonne.rb, line 27</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">save</span>(<span class="ruby-identifier">nomPark</span>)
         <span class="ruby-identifier">$db</span>.<span class="ruby-identifier">execute</span> <span class="ruby-node">&quot;INSERT INTO abonne(nom, prenom, adresse, tel, hasPack, park) VALUES (#{nom}, #{prenom}, #{adresse}, #{tel}, #{hasPack}, '#{nomPark}')&quot;</span>
 <span class="ruby-keyword">end</span></pre>

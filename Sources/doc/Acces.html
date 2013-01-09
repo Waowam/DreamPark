@@ -59,7 +59,7 @@
     <nav id="parent-class-section" class="section">
   <h3 class="section-header">Parent</h3>
   
-  <p class="link"><a href="Object.html">Object</a>
+  <p class="link">Object
   
 </nav>
 
@@ -98,8 +98,6 @@
   
     <li><a href="./Acces.html">Acces</a>
   
-    <li><a href="./Borne.html">Borne</a>
-  
     <li><a href="./Camera.html">Camera</a>
   
     <li><a href="./Ctrl_borne.html">Ctrl_borne</a>
@@ -113,8 +111,6 @@
     <li><a href="./GestionPark.html">GestionPark</a>
   
     <li><a href="./Livraison.html">Livraison</a>
-  
-    <li><a href="./Object.html">Object</a>
   
     <li><a href="./Panneau.html">Panneau</a>
   
@@ -278,12 +274,12 @@
 
         <div class="method-description">
           
-          
+          <p>Constructeur</p>
           
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File Modele/acces.rb, line 19</span>
+            <pre><span class="ruby-comment"># File Modele/acces.rb, line 20</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">nom</span>=<span class="ruby-string">&quot;&quot;</span>,<span class="ruby-identifier">parking</span>)
         <span class="ruby-keyword">self</span>.<span class="ruby-identifier">nom</span>= <span class="ruby-identifier">nom</span>
         <span class="ruby-keyword">self</span>.<span class="ruby-identifier">park</span>= <span class="ruby-identifier">parking</span>
@@ -326,12 +322,13 @@
 
         <div class="method-description">
           
-          
+          <p>Capture un véhicule à partir des infos de la caméra et appelle la méthode
+<a href="Acces.html#method-i-est_entre">#est_entre</a></p>
           
 
           
           <div class="method-source-code" id="capture_vehicule-source">
-            <pre><span class="ruby-comment"># File Modele/acces.rb, line 35</span>
+            <pre><span class="ruby-comment"># File Modele/acces.rb, line 37</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">capture_vehicule</span>
         <span class="ruby-keyword">begin</span>
                 <span class="ruby-comment">#Ouverture de la base de donnée</span>
@@ -376,12 +373,13 @@
 
         <div class="method-description">
           
-          
+          <p>Capture un véhicule à partir des paramètres donnés et appelle la méthode <a
+href="Acces.html#method-i-est_entre">#est_entre</a></p>
           
 
           
           <div class="method-source-code" id="capture_vehicule_with_info-source">
-            <pre><span class="ruby-comment"># File Modele/acces.rb, line 59</span>
+            <pre><span class="ruby-comment"># File Modele/acces.rb, line 62</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">capture_vehicule_with_info</span>(<span class="ruby-identifier">immat</span>, <span class="ruby-identifier">hauteur</span>, <span class="ruby-identifier">longueur</span>)
         <span class="ruby-identifier">veh</span>=<span class="ruby-constant">Vehicule</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">immat</span>,<span class="ruby-identifier">hauteur</span>,<span class="ruby-identifier">longueur</span>)
         <span class="ruby-identifier">est_entre</span>(<span class="ruby-identifier">veh</span>)
@@ -407,49 +405,31 @@
 
         <div class="method-description">
           
-          
+          <p>Déclenche les scénarios avec la borne pour garer le véhicule</p>
           
 
           
           <div class="method-source-code" id="est_entre-source">
-            <pre><span class="ruby-comment"># File Modele/acces.rb, line 64</span>
-        <span class="ruby-keyword">def</span> <span class="ruby-identifier">est_entre</span> <span class="ruby-identifier">v</span>=<span class="ruby-keyword">nil</span>
-                <span class="ruby-ivar">@vehicule_temp</span>=<span class="ruby-identifier">v</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">v!</span>=<span class="ruby-keyword">nil</span>
-                <span class="ruby-comment">#on determine le scenario initiale</span>
-                <span class="ruby-keyword">if</span> <span class="ruby-identifier">v!</span>=<span class="ruby-keyword">nil</span> <span class="ruby-keyword">then</span>
-                        <span class="ruby-identifier">vehicule_temp</span>.<span class="ruby-identifier">is_abonne?</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">borne</span>.<span class="ruby-identifier">change_num_scenario</span>(<span class="ruby-value">2</span>) <span class="ruby-operator">:</span> <span class="ruby-identifier">borne</span>.<span class="ruby-identifier">change_num_scenario</span>(<span class="ruby-value">1</span>)
-                        <span class="ruby-identifier">borne</span>.<span class="ruby-identifier">controleur</span>.<span class="ruby-identifier">show_view</span>
-                        <span class="ruby-identifier">borne</span>.<span class="ruby-identifier">apply_scenarios</span>
+            <pre><span class="ruby-comment"># File Modele/acces.rb, line 68</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">est_entre</span> <span class="ruby-identifier">v</span>=<span class="ruby-keyword">nil</span>
+        <span class="ruby-ivar">@vehicule_temp</span>=<span class="ruby-identifier">v</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">v!</span>=<span class="ruby-keyword">nil</span>
+        <span class="ruby-comment">#on determine le scenario initiale</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">v!</span>=<span class="ruby-keyword">nil</span> <span class="ruby-keyword">then</span>
+                <span class="ruby-identifier">vehicule_temp</span>.<span class="ruby-identifier">is_abonne?</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">borne</span>.<span class="ruby-identifier">change_num_scenario</span>(<span class="ruby-value">2</span>) <span class="ruby-operator">:</span> <span class="ruby-identifier">borne</span>.<span class="ruby-identifier">change_num_scenario</span>(<span class="ruby-value">1</span>)
+                <span class="ruby-identifier">borne</span>.<span class="ruby-identifier">controleur</span>.<span class="ruby-identifier">show_view</span>
+                <span class="ruby-identifier">borne</span>.<span class="ruby-identifier">apply_scenarios</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">borne</span>.<span class="ruby-identifier">autorisation</span><span class="ruby-operator">==</span><span class="ruby-keyword">true</span> <span class="ruby-keyword">then</span>
+                <span class="ruby-identifier">borne</span>.<span class="ruby-identifier">autorisation</span>=<span class="ruby-keyword">false</span>
+                <span class="ruby-identifier">numPlace</span> = <span class="ruby-identifier">teleporteurs</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">transporter_garer</span>(<span class="ruby-identifier">vehicule_temp</span>)
+                <span class="ruby-keyword">if</span> <span class="ruby-identifier">numPlace</span> <span class="ruby-keyword">then</span>
+                        <span class="ruby-identifier">borne</span>.<span class="ruby-identifier">editerTicket</span>(<span class="ruby-identifier">numPlace</span>.<span class="ruby-identifier">num</span>,<span class="ruby-identifier">vehicule_temp</span>) 
+                        <span class="ruby-identifier">park</span>.<span class="ruby-identifier">incrementer_panneaux</span> 
+                <span class="ruby-keyword">else</span>
+                        <span class="ruby-identifier">park</span>.<span class="ruby-identifier">ctrl_park</span>.<span class="ruby-identifier">alert_error</span> <span class="ruby-node">&quot;Aucune place ne correspond a ce vehicule : #{vehicule_temp}&quot;</span>
                 <span class="ruby-keyword">end</span>
-                <span class="ruby-keyword">if</span> <span class="ruby-identifier">borne</span>.<span class="ruby-identifier">autorisation</span><span class="ruby-operator">==</span><span class="ruby-keyword">true</span> <span class="ruby-keyword">then</span>
-                        <span class="ruby-identifier">borne</span>.<span class="ruby-identifier">autorisation</span>=<span class="ruby-keyword">false</span>
-                        <span class="ruby-identifier">numPlace</span> = <span class="ruby-identifier">teleporteurs</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">transporter_garer</span>(<span class="ruby-identifier">vehicule_temp</span>)
-                        <span class="ruby-keyword">if</span> <span class="ruby-identifier">numPlace</span> <span class="ruby-keyword">then</span>
-                                <span class="ruby-identifier">borne</span>.<span class="ruby-identifier">editerTicket</span>(<span class="ruby-identifier">numPlace</span>.<span class="ruby-identifier">num</span>,<span class="ruby-identifier">vehicule_temp</span>) 
-                                <span class="ruby-identifier">park</span>.<span class="ruby-identifier">incrementer_panneaux</span> 
-                        <span class="ruby-keyword">else</span>
-                                <span class="ruby-identifier">park</span>.<span class="ruby-identifier">ctrl_park</span>.<span class="ruby-identifier">alert_error</span> <span class="ruby-node">&quot;Aucune place ne correspond a ce vehicule : #{vehicule_temp}&quot;</span>
-                        <span class="ruby-keyword">end</span>
-                <span class="ruby-keyword">end</span>
-
-<span class="ruby-comment">                        if v.is_abonne? then
-                                if not v.abonne.has_pack? then
-                                        borne.controleur.ask_upgrade(v.abonne) if v.nbreVisites &gt;= 10 #CAS : Proposer pack garanti
-                                end
-                                borne.controleur.ask_services #Params ????
-                        else
-                                borne.controleur.ask_abonnement(v) #if v.nbreVisites &gt;= 10 #CAS : Abonner le client
-                        end
-                
-                        if borne.controleur.ask_paiement then
-                                numPlace = teleporteurs[0].transporter_garer(v)
-                                borne.editerTicket(numPlace,v) #if numPlace
-                                park.incrementer_panneaux
-                        end
-                else
-                        #le garer quand même if v.is_abonne? and v.abonne.has_pack?
-                end
-</span>        <span class="ruby-keyword">end</span></pre>
+        <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
           </div><!-- est_entre-source -->
           
         </div>
@@ -471,12 +451,12 @@
 
         <div class="method-description">
           
-          
+          <p>Signale la reprise d’un véhicule</p>
           
 
           
           <div class="method-source-code" id="est_sorti-source">
-            <pre><span class="ruby-comment"># File Modele/acces.rb, line 104</span>
+            <pre><span class="ruby-comment"># File Modele/acces.rb, line 89</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">est_sorti</span>(<span class="ruby-identifier">v</span>)
         <span class="ruby-identifier">teleporteurs</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">transporter_reprendre</span>(<span class="ruby-identifier">v</span>)
         <span class="ruby-identifier">park</span>.<span class="ruby-identifier">decrementer_panneaux</span>
@@ -502,12 +482,12 @@
 
         <div class="method-description">
           
-          
+          <p>Méthode de sauvegarde</p>
           
 
           
           <div class="method-source-code" id="save-source">
-            <pre><span class="ruby-comment"># File Modele/acces.rb, line 109</span>
+            <pre><span class="ruby-comment"># File Modele/acces.rb, line 95</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">save</span>(<span class="ruby-identifier">nomPark</span>)
         <span class="ruby-identifier">$db</span>.<span class="ruby-identifier">execute</span> <span class="ruby-node">&quot;INSERT INTO acce (nom, park) VALUES ('#{nom}', '#{nomPark}')&quot;</span>
         <span class="ruby-identifier">borne</span>.<span class="ruby-identifier">save</span>(<span class="ruby-identifier">nomPark</span>, <span class="ruby-identifier">nom</span>)

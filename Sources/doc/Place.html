@@ -59,7 +59,7 @@
     <nav id="parent-class-section" class="section">
   <h3 class="section-header">Parent</h3>
   
-  <p class="link"><a href="Object.html">Object</a>
+  <p class="link">Object
   
 </nav>
 
@@ -102,8 +102,6 @@
   
     <li><a href="./Acces.html">Acces</a>
   
-    <li><a href="./Borne.html">Borne</a>
-  
     <li><a href="./Camera.html">Camera</a>
   
     <li><a href="./Ctrl_borne.html">Ctrl_borne</a>
@@ -117,8 +115,6 @@
     <li><a href="./GestionPark.html">GestionPark</a>
   
     <li><a href="./Livraison.html">Livraison</a>
-  
-    <li><a href="./Object.html">Object</a>
   
     <li><a href="./Panneau.html">Panneau</a>
   
@@ -261,12 +257,12 @@ son numero, son niveau sa hauteur, sa longueur et son vehicule.</p>
 
         <div class="method-description">
           
-          
+          <p>Constructeur</p>
           
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File Modele/place.rb, line 22</span>
+            <pre><span class="ruby-comment"># File Modele/place.rb, line 23</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">num</span>,<span class="ruby-identifier">niveau</span>,<span class="ruby-identifier">hauteur</span>,<span class="ruby-identifier">longueur</span>)
         <span class="ruby-keyword">self</span>.<span class="ruby-identifier">num</span>=<span class="ruby-identifier">num</span>
         <span class="ruby-keyword">self</span>.<span class="ruby-identifier">niveau</span>=<span class="ruby-identifier">niveau</span>
@@ -301,12 +297,12 @@ son numero, son niveau sa hauteur, sa longueur et son vehicule.</p>
 
         <div class="method-description">
           
-          
+          <p>Redifinition du setter pour la hauteur</p>
           
 
           
           <div class="method-source-code" id="hauteur-3D-source">
-            <pre><span class="ruby-comment"># File Modele/place.rb, line 40</span>
+            <pre><span class="ruby-comment"># File Modele/place.rb, line 44</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">hauteur=</span>(<span class="ruby-identifier">h</span>)
         <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;Error : hauteur must be positive.&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">h</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-value">0</span>
         <span class="ruby-ivar">@hauteur</span>= <span class="ruby-identifier">h</span>
@@ -332,12 +328,13 @@ son numero, son niveau sa hauteur, sa longueur et son vehicule.</p>
 
         <div class="method-description">
           
-          
+          <p>Retourne vrai si la place est libre, faux si elle est occupée par un
+véhicule</p>
           
 
           
           <div class="method-source-code" id="libre-3F-source">
-            <pre><span class="ruby-comment"># File Modele/place.rb, line 50</span>
+            <pre><span class="ruby-comment"># File Modele/place.rb, line 56</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">libre?</span>
         <span class="ruby-identifier">vehicule</span>.<span class="ruby-identifier">nil?</span>
 <span class="ruby-keyword">end</span></pre>
@@ -362,12 +359,12 @@ son numero, son niveau sa hauteur, sa longueur et son vehicule.</p>
 
         <div class="method-description">
           
-          
+          <p>Redifinition du setter pour la longueur</p>
           
 
           
           <div class="method-source-code" id="longueur-3D-source">
-            <pre><span class="ruby-comment"># File Modele/place.rb, line 45</span>
+            <pre><span class="ruby-comment"># File Modele/place.rb, line 50</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">longueur=</span>(<span class="ruby-identifier">l</span>)
         <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;Error : longueur must be positive.&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">l</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-value">0</span>
         <span class="ruby-ivar">@longueur</span>= <span class="ruby-identifier">l</span>
@@ -393,12 +390,12 @@ son numero, son niveau sa hauteur, sa longueur et son vehicule.</p>
 
         <div class="method-description">
           
-          
+          <p>Redifinition du setter pour le niveau</p>
           
 
           
           <div class="method-source-code" id="niveau-3D-source">
-            <pre><span class="ruby-comment"># File Modele/place.rb, line 35</span>
+            <pre><span class="ruby-comment"># File Modele/place.rb, line 38</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">niveau=</span>(<span class="ruby-identifier">niv</span>)
         <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;Error : niveau must be positive.&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">niv</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0</span>
         <span class="ruby-ivar">@niveau</span>= <span class="ruby-identifier">niv</span>
@@ -424,12 +421,12 @@ son numero, son niveau sa hauteur, sa longueur et son vehicule.</p>
 
         <div class="method-description">
           
-          
+          <p>Redifinition du setter pour le numéro</p>
           
 
           
           <div class="method-source-code" id="num-3D-source">
-            <pre><span class="ruby-comment"># File Modele/place.rb, line 30</span>
+            <pre><span class="ruby-comment"># File Modele/place.rb, line 32</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">num=</span>(<span class="ruby-identifier">n</span>)
         <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;Error : num must be positive.&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">n</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-value">0</span>
         <span class="ruby-ivar">@num</span>= <span class="ruby-identifier">n</span>
@@ -455,12 +452,12 @@ son numero, son niveau sa hauteur, sa longueur et son vehicule.</p>
 
         <div class="method-description">
           
-          
+          <p>Méthode de sauvegarde</p>
           
 
           
           <div class="method-source-code" id="save-source">
-            <pre><span class="ruby-comment"># File Modele/place.rb, line 61</span>
+            <pre><span class="ruby-comment"># File Modele/place.rb, line 69</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">save</span>(<span class="ruby-identifier">nomPark</span>)
         <span class="ruby-identifier">$db</span>.<span class="ruby-identifier">execute</span> <span class="ruby-node">&quot;INSERT INTO place(num, niveau, hauteur, longueur, park) VALUES (#{num}, #{niveau}, #{hauteur}, #{longueur}, '#{nomPark}')&quot;</span>
         <span class="ruby-keyword">if</span> <span class="ruby-keyword">not</span> <span class="ruby-identifier">libre?</span> <span class="ruby-keyword">then</span>
@@ -488,12 +485,12 @@ son numero, son niveau sa hauteur, sa longueur et son vehicule.</p>
 
         <div class="method-description">
           
-          
+          <p>Redéfinition de la méthode <a href="Place.html#method-i-to_s">#to_s</a></p>
           
 
           
           <div class="method-source-code" id="to_s-source">
-            <pre><span class="ruby-comment"># File Modele/place.rb, line 54</span>
+            <pre><span class="ruby-comment"># File Modele/place.rb, line 61</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">to_s</span>
         <span class="ruby-identifier">s</span> =<span class="ruby-node">&quot;Place n #{num}, niveau : #{niveau}, h : #{hauteur}, l : #{longueur} &quot;</span>
         <span class="ruby-identifier">s</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">vehicule</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">not</span> <span class="ruby-identifier">libre?</span>

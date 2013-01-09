@@ -59,7 +59,7 @@
     <nav id="parent-class-section" class="section">
   <h3 class="section-header">Parent</h3>
   
-  <p class="link"><a href="Object.html">Object</a>
+  <p class="link">Object
   
 </nav>
 
@@ -130,8 +130,6 @@
   
     <li><a href="./Acces.html">Acces</a>
   
-    <li><a href="./Borne.html">Borne</a>
-  
     <li><a href="./Camera.html">Camera</a>
   
     <li><a href="./Ctrl_borne.html">Ctrl_borne</a>
@@ -145,8 +143,6 @@
     <li><a href="./GestionPark.html">GestionPark</a>
   
     <li><a href="./Livraison.html">Livraison</a>
-  
-    <li><a href="./Object.html">Object</a>
   
     <li><a href="./Panneau.html">Panneau</a>
   
@@ -394,12 +390,12 @@ ainsi que la gestion des clients et des abonnées</pre>
 
         <div class="method-description">
           
-          <p>Méthode de class</p>
+          <p>Méthode de classe permettant la génération automatique des places</p>
           
 
           
           <div class="method-source-code" id="generate_place-source">
-            <pre><span class="ruby-comment"># File Modele/parking.rb, line 341</span>
+            <pre><span class="ruby-comment"># File Modele/parking.rb, line 346</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">generate_place</span>(<span class="ruby-identifier">niveau</span>,<span class="ruby-identifier">nbPlace</span>,<span class="ruby-identifier">rangHaut</span>,<span class="ruby-identifier">rangLong</span>)
         <span class="ruby-identifier">p</span> = []
         <span class="ruby-keyword">for</span> <span class="ruby-identifier">niv</span> <span class="ruby-keyword">in</span> (<span class="ruby-value">0</span><span class="ruby-operator">...</span><span class="ruby-identifier">niveau</span>)
@@ -432,12 +428,12 @@ ainsi que la gestion des clients et des abonnées</pre>
 
         <div class="method-description">
           
-          
+          <p>Constructeur</p>
           
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File Modele/parking.rb, line 26</span>
+            <pre><span class="ruby-comment"># File Modele/parking.rb, line 27</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">nom</span>=<span class="ruby-string">&quot;DreamPark&quot;</span>,<span class="ruby-identifier">nbNiv</span>=<span class="ruby-value">1</span>,<span class="ruby-identifier">nbPlaceNiv</span>=<span class="ruby-value">50</span>,<span class="ruby-identifier">hauteurMax</span>=<span class="ruby-value">500</span>,<span class="ruby-identifier">longueurMax</span>=<span class="ruby-value">500</span>)
         <span class="ruby-keyword">self</span>.<span class="ruby-identifier">nom</span> = <span class="ruby-identifier">nom</span>
         <span class="ruby-keyword">self</span>.<span class="ruby-identifier">nbNiv</span>=<span class="ruby-identifier">nbNiv</span>
@@ -485,7 +481,7 @@ href="Abonne.html">Abonne</a> not is_abonne? =&gt; listClient</p>
 
           
           <div class="method-source-code" id="add_vehicule-source">
-            <pre><span class="ruby-comment"># File Modele/parking.rb, line 64</span>
+            <pre><span class="ruby-comment"># File Modele/parking.rb, line 69</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">add_vehicule</span>(<span class="ruby-identifier">p</span>,<span class="ruby-identifier">v</span>)
         <span class="ruby-identifier">v</span>.<span class="ruby-identifier">incrementer_visite</span>
         <span class="ruby-identifier">listAbonnes</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">v</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">v</span>.<span class="ruby-identifier">is_abonne?</span>
@@ -513,13 +509,13 @@ href="Abonne.html">Abonne</a> not is_abonne? =&gt; listClient</p>
 
         <div class="method-description">
           
-          <p>Choisis une place correspondante au vehicule donné. Retourne le numéro de
-la place attribuée. Retourne -1 en cas d’echec.</p>
+          <p>Choisis une place correspondante au vehicule donné. Retourne la place
+attribuée. nil en cas d’echec</p>
           
 
           
           <div class="method-source-code" id="assigner_place-source">
-            <pre><span class="ruby-comment"># File Modele/parking.rb, line 108</span>
+            <pre><span class="ruby-comment"># File Modele/parking.rb, line 112</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">assigner_place</span>(<span class="ruby-identifier">v</span>)
         <span class="ruby-identifier">listPlaces</span> = <span class="ruby-identifier">where_to_park</span>(<span class="ruby-identifier">v</span>)
         <span class="ruby-keyword">if</span> <span class="ruby-identifier">listPlaces</span> <span class="ruby-keyword">then</span>
@@ -555,12 +551,12 @@ la place attribuée. Retourne -1 en cas d’echec.</p>
 
         <div class="method-description">
           
-          <p>Decremente le compteur des panneaux du parking</p>
+          <p>Décremente le compteur des panneaux du parking</p>
           
 
           
           <div class="method-source-code" id="decrementer_panneaux-source">
-            <pre><span class="ruby-comment"># File Modele/parking.rb, line 149</span>
+            <pre><span class="ruby-comment"># File Modele/parking.rb, line 153</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">decrementer_panneaux</span>
         <span class="ruby-identifier">panneaux</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">p</span><span class="ruby-operator">|</span>
                 <span class="ruby-identifier">p</span>.<span class="ruby-identifier">decrementer</span>
@@ -592,7 +588,7 @@ la place attribuée. Retourne -1 en cas d’echec.</p>
 
           
           <div class="method-source-code" id="garer-source">
-            <pre><span class="ruby-comment"># File Modele/parking.rb, line 124</span>
+            <pre><span class="ruby-comment"># File Modele/parking.rb, line 128</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">garer</span>(<span class="ruby-identifier">v</span>)
         <span class="ruby-identifier">place</span> = <span class="ruby-identifier">assigner_place</span>(<span class="ruby-identifier">v</span>)
         <span class="ruby-identifier">add_vehicule</span>(<span class="ruby-identifier">place</span>,<span class="ruby-identifier">v</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">place</span>
@@ -624,7 +620,7 @@ la place attribuée. Retourne -1 en cas d’echec.</p>
 
           
           <div class="method-source-code" id="get_vehicule_with_info-source">
-            <pre><span class="ruby-comment"># File Modele/parking.rb, line 156</span>
+            <pre><span class="ruby-comment"># File Modele/parking.rb, line 160</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">get_vehicule_with_info</span> (<span class="ruby-identifier">imma</span>,<span class="ruby-identifier">haut</span>,<span class="ruby-identifier">long</span>)
         <span class="ruby-identifier">vehiculeTempo</span> = <span class="ruby-keyword">nil</span>
         <span class="ruby-identifier">listClient</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
@@ -662,12 +658,12 @@ la place attribuée. Retourne -1 en cas d’echec.</p>
 
         <div class="method-description">
           
-          
+          <p>Redifinition du setter pour la hauteur maximale d’une place</p>
           
 
           
           <div class="method-source-code" id="hauteurMax-3D-source">
-            <pre><span class="ruby-comment"># File Modele/parking.rb, line 51</span>
+            <pre><span class="ruby-comment"># File Modele/parking.rb, line 55</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">hauteurMax=</span>(<span class="ruby-identifier">h</span>)
         <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;Error : hauteurMax (maximum height of a place) must be greater than 100.&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">h</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">100</span>
         <span class="ruby-ivar">@hauteurMax</span>= <span class="ruby-identifier">h</span>
@@ -698,7 +694,7 @@ la place attribuée. Retourne -1 en cas d’echec.</p>
 
           
           <div class="method-source-code" id="incrementer_panneaux-source">
-            <pre><span class="ruby-comment"># File Modele/parking.rb, line 140</span>
+            <pre><span class="ruby-comment"># File Modele/parking.rb, line 144</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">incrementer_panneaux</span>
         <span class="ruby-identifier">panneaux</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">p</span><span class="ruby-operator">|</span>
                 <span class="ruby-identifier">p</span>.<span class="ruby-identifier">incrementer</span>
@@ -727,12 +723,12 @@ la place attribuée. Retourne -1 en cas d’echec.</p>
 
         <div class="method-description">
           
-          
+          <p>Méthode de chargement</p>
           
 
           
           <div class="method-source-code" id="load-source">
-            <pre><span class="ruby-comment"># File Modele/parking.rb, line 271</span>
+            <pre><span class="ruby-comment"># File Modele/parking.rb, line 277</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">load</span>
         <span class="ruby-keyword">begin</span>
                 <span class="ruby-comment">#Ouverture de la base de donnée</span>
@@ -821,12 +817,12 @@ la place attribuée. Retourne -1 en cas d’echec.</p>
 
         <div class="method-description">
           
-          
+          <p>Redifinition du setter pour la longueur maximale d’une place</p>
           
 
           
           <div class="method-source-code" id="longueurMax-3D-source">
-            <pre><span class="ruby-comment"># File Modele/parking.rb, line 56</span>
+            <pre><span class="ruby-comment"># File Modele/parking.rb, line 61</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">longueurMax=</span>(<span class="ruby-identifier">l</span>)
         <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;Error : longueurMax (maximum length of a place) must be greater than 100.&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">l</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">100</span>
         <span class="ruby-ivar">@longueurMax</span>= <span class="ruby-identifier">l</span>
@@ -852,12 +848,12 @@ la place attribuée. Retourne -1 en cas d’echec.</p>
 
         <div class="method-description">
           
-          
+          <p>Redifinition du setter pour le nombre de niveaux</p>
           
 
           
           <div class="method-source-code" id="nbNiv-3D-source">
-            <pre><span class="ruby-comment"># File Modele/parking.rb, line 41</span>
+            <pre><span class="ruby-comment"># File Modele/parking.rb, line 43</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">nbNiv=</span>(<span class="ruby-identifier">n</span>)
         <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;Error : nbNiv (numbre of levels) must be positive.&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">n</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-value">0</span>
         <span class="ruby-ivar">@nbNiv</span>= <span class="ruby-identifier">n</span>
@@ -883,12 +879,12 @@ la place attribuée. Retourne -1 en cas d’echec.</p>
 
         <div class="method-description">
           
-          
+          <p>Redifinition du setter pour le nombre de places par niveau</p>
           
 
           
           <div class="method-source-code" id="nbPlaceNiv-3D-source">
-            <pre><span class="ruby-comment"># File Modele/parking.rb, line 46</span>
+            <pre><span class="ruby-comment"># File Modele/parking.rb, line 49</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">nbPlaceNiv=</span>(<span class="ruby-identifier">n</span>)
         <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;Error : nbPlaceNiv (numbre of place by level) must be positive.&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">n</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-value">0</span>
         <span class="ruby-ivar">@nbPlaceNiv</span>= <span class="ruby-identifier">n</span>
@@ -919,7 +915,7 @@ la place attribuée. Retourne -1 en cas d’echec.</p>
 
           
           <div class="method-source-code" id="nb_place-source">
-            <pre><span class="ruby-comment"># File Modele/parking.rb, line 88</span>
+            <pre><span class="ruby-comment"># File Modele/parking.rb, line 93</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">nb_place</span>
         <span class="ruby-keyword">return</span> <span class="ruby-identifier">place</span>.<span class="ruby-identifier">length</span>
 <span class="ruby-keyword">end</span></pre>
@@ -949,7 +945,7 @@ la place attribuée. Retourne -1 en cas d’echec.</p>
 
           
           <div class="method-source-code" id="nb_place_libre-source">
-            <pre><span class="ruby-comment"># File Modele/parking.rb, line 79</span>
+            <pre><span class="ruby-comment"># File Modele/parking.rb, line 84</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">nb_place_libre</span>
         <span class="ruby-identifier">res</span> = <span class="ruby-value">0</span>
         <span class="ruby-identifier">place</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">p</span><span class="ruby-operator">|</span>
@@ -983,7 +979,7 @@ la place attribuée. Retourne -1 en cas d’echec.</p>
 
           
           <div class="method-source-code" id="remove_vehicule-source">
-            <pre><span class="ruby-comment"># File Modele/parking.rb, line 72</span>
+            <pre><span class="ruby-comment"># File Modele/parking.rb, line 77</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">remove_vehicule</span>(<span class="ruby-identifier">p</span>,<span class="ruby-identifier">v</span>)
         <span class="ruby-identifier">listAbonnes</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">v</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">v</span>.<span class="ruby-identifier">is_abonne?</span>
         <span class="ruby-identifier">listClient</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">v</span>) <span class="ruby-keyword">if</span> <span class="ruby-keyword">not</span> <span class="ruby-identifier">v</span>.<span class="ruby-identifier">is_abonne?</span>
@@ -1015,7 +1011,7 @@ la place attribuée. Retourne -1 en cas d’echec.</p>
 
           
           <div class="method-source-code" id="reprendre-source">
-            <pre><span class="ruby-comment"># File Modele/parking.rb, line 131</span>
+            <pre><span class="ruby-comment"># File Modele/parking.rb, line 135</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">reprendre</span>(<span class="ruby-identifier">v</span>)
         <span class="ruby-identifier">place</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">p</span><span class="ruby-operator">|</span>
                 <span class="ruby-keyword">if</span> <span class="ruby-identifier">p</span>.<span class="ruby-identifier">vehicule</span><span class="ruby-operator">==</span><span class="ruby-identifier">v</span> <span class="ruby-keyword">then</span>
@@ -1044,12 +1040,12 @@ la place attribuée. Retourne -1 en cas d’echec.</p>
 
         <div class="method-description">
           
-          
+          <p>Méthode de sauvegarde</p>
           
 
           
           <div class="method-source-code" id="save-source">
-            <pre><span class="ruby-comment"># File Modele/parking.rb, line 240</span>
+            <pre><span class="ruby-comment"># File Modele/parking.rb, line 245</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">save</span>
         <span class="ruby-keyword">begin</span>
                 <span class="ruby-comment">#Ouverture de la base de donnée</span>
@@ -1105,12 +1101,12 @@ la place attribuée. Retourne -1 en cas d’echec.</p>
 
 <pre>acces1 : nombre de passages pour l'accès 1
 acces2 : nombre de passages pour l'accès 2
-place : place la plus utilisée</pre>
+place : place la plus utilisée (0 si aucune trouvée)</pre>
           
 
           
           <div class="method-source-code" id="stats_admin-source">
-            <pre><span class="ruby-comment"># File Modele/parking.rb, line 207</span>
+            <pre><span class="ruby-comment"># File Modele/parking.rb, line 211</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">stats_admin</span>
         <span class="ruby-identifier">stats</span>=<span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">0</span>)
         
@@ -1156,18 +1152,18 @@ place : place la plus utilisée</pre>
           
           <p>Retourne les statistiques commerciales du parking</p>
 
-<pre>client : nombre de client simple
-abonne : nombre de client abonnés
-entretien : nombre d'entretiens total
-maintenance : nombre de maintenances total
-livraison : nombre de livraisons total
-visites : nombre de visites total
+<pre>client : nombre de client simple dans le parking
+abonne : nombre de client abonnés dans le parking
+entretien : nombre d'entretiens
+maintenance : nombre de maintenances 
+livraison : nombre de livraisons 
+visites : nombre de visites total actuellement dans le parking
 pack : nombre d'abonnés ayant souscris au pack garantie</pre>
           
 
           
           <div class="method-source-code" id="stats_commercial-source">
-            <pre><span class="ruby-comment"># File Modele/parking.rb, line 181</span>
+            <pre><span class="ruby-comment"># File Modele/parking.rb, line 185</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">stats_commercial</span>
         <span class="ruby-identifier">stats</span>=<span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">0</span>)
         <span class="ruby-identifier">stats</span>[<span class="ruby-string">&quot;client&quot;</span>]=<span class="ruby-identifier">listClient</span>.<span class="ruby-identifier">length</span>
@@ -1210,12 +1206,12 @@ pack : nombre d'abonnés ayant souscris au pack garantie</pre>
 
         <div class="method-description">
           
-          <p>Vue en text d’un parking</p>
+          <p>Redéfinition de la méthode <a href="Parking.html#method-i-to_s">#to_s</a></p>
           
 
           
           <div class="method-source-code" id="to_s-source">
-            <pre><span class="ruby-comment"># File Modele/parking.rb, line 231</span>
+            <pre><span class="ruby-comment"># File Modele/parking.rb, line 235</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">to_s</span>
         <span class="ruby-identifier">s</span>= <span class="ruby-node">&quot;Nom : #{nom}\n&quot;</span>
         <span class="ruby-keyword">for</span> <span class="ruby-identifier">p</span> <span class="ruby-keyword">in</span> <span class="ruby-identifier">panneaux</span> <span class="ruby-keyword">do</span>
@@ -1251,7 +1247,7 @@ Retourne nil si aucune place trouvée</p>
 
           
           <div class="method-source-code" id="where_to_park-source">
-            <pre><span class="ruby-comment"># File Modele/parking.rb, line 94</span>
+            <pre><span class="ruby-comment"># File Modele/parking.rb, line 99</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">where_to_park</span>(<span class="ruby-identifier">v</span>)
         <span class="ruby-identifier">res</span>=[]
         <span class="ruby-identifier">place</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">p</span><span class="ruby-operator">|</span> <span class="ruby-comment">#Peut être optimisé pour se rapprocher des dimension du véhicule</span>

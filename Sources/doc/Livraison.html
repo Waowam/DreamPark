@@ -59,7 +59,7 @@
     <nav id="parent-class-section" class="section">
   <h3 class="section-header">Parent</h3>
   
-  <p class="link"><a href="Object.html">Object</a>
+  <p class="link">Object
   
 </nav>
 
@@ -90,8 +90,6 @@
   
     <li><a href="./Acces.html">Acces</a>
   
-    <li><a href="./Borne.html">Borne</a>
-  
     <li><a href="./Camera.html">Camera</a>
   
     <li><a href="./Ctrl_borne.html">Ctrl_borne</a>
@@ -105,8 +103,6 @@
     <li><a href="./GestionPark.html">GestionPark</a>
   
     <li><a href="./Livraison.html">Livraison</a>
-  
-    <li><a href="./Object.html">Object</a>
   
     <li><a href="./Panneau.html">Panneau</a>
   
@@ -208,12 +204,12 @@ trace des livraisons proposées.</p>
 
         <div class="method-description">
           
-          
+          <p>Constructeur</p>
           
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File Modele/livraison.rb, line 6</span>
+            <pre><span class="ruby-comment"># File Modele/livraison.rb, line 7</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">dateTime</span>, <span class="ruby-identifier">adresse</span>)
         <span class="ruby-keyword">self</span>.<span class="ruby-identifier">dateTime</span>=<span class="ruby-identifier">dateTime</span>
         <span class="ruby-keyword">self</span>.<span class="ruby-identifier">adresse</span>=<span class="ruby-identifier">adresse</span>
@@ -245,12 +241,12 @@ trace des livraisons proposées.</p>
 
         <div class="method-description">
           
-          
+          <p>Méthode de sauvegarde</p>
           
 
           
           <div class="method-source-code" id="save-source">
-            <pre><span class="ruby-comment"># File Modele/livraison.rb, line 11</span>
+            <pre><span class="ruby-comment"># File Modele/livraison.rb, line 13</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">save</span>(<span class="ruby-identifier">nomPark</span>, <span class="ruby-identifier">immVehicule</span>)
         <span class="ruby-identifier">$db</span>.<span class="ruby-identifier">execute</span> <span class="ruby-node">&quot;INSERT INTO livraison(dateTime, adresse, vehicule, park) VALUES ('#{dateTime}', #{adresse}, #{immVehicule}, '#{nomPark}')&quot;</span>
 <span class="ruby-keyword">end</span></pre>

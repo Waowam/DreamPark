@@ -59,7 +59,7 @@
     <nav id="parent-class-section" class="section">
   <h3 class="section-header">Parent</h3>
   
-  <p class="link"><a href="Object.html">Object</a>
+  <p class="link">Object
   
 </nav>
 
@@ -92,8 +92,6 @@
   
     <li><a href="./Acces.html">Acces</a>
   
-    <li><a href="./Borne.html">Borne</a>
-  
     <li><a href="./Camera.html">Camera</a>
   
     <li><a href="./Ctrl_borne.html">Ctrl_borne</a>
@@ -107,8 +105,6 @@
     <li><a href="./GestionPark.html">GestionPark</a>
   
     <li><a href="./Livraison.html">Livraison</a>
-  
-    <li><a href="./Object.html">Object</a>
   
     <li><a href="./Panneau.html">Panneau</a>
   
@@ -213,12 +209,12 @@
 
         <div class="method-description">
           
-          
+          <p>Constructeur</p>
           
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File Modele/teleporteur.rb, line 15</span>
+            <pre><span class="ruby-comment"># File Modele/teleporteur.rb, line 16</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">id</span>, <span class="ruby-identifier">acces</span>)
         <span class="ruby-keyword">self</span>.<span class="ruby-identifier">id</span>= <span class="ruby-identifier">id</span>
         <span class="ruby-keyword">self</span>.<span class="ruby-identifier">acces</span>= <span class="ruby-identifier">acces</span>
@@ -250,12 +246,12 @@
 
         <div class="method-description">
           
-          
+          <p>Gare le véhicule</p>
           
 
           
           <div class="method-source-code" id="transporter_garer-source">
-            <pre><span class="ruby-comment"># File Modele/teleporteur.rb, line 20</span>
+            <pre><span class="ruby-comment"># File Modele/teleporteur.rb, line 22</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">transporter_garer</span>(<span class="ruby-identifier">v</span>)
         <span class="ruby-identifier">acces</span>.<span class="ruby-identifier">park</span>.<span class="ruby-identifier">garer</span>(<span class="ruby-identifier">v</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -280,12 +276,12 @@
 
         <div class="method-description">
           
-          
+          <p>Reprend le véhicule</p>
           
 
           
           <div class="method-source-code" id="transporter_reprendre-source">
-            <pre><span class="ruby-comment"># File Modele/teleporteur.rb, line 24</span>
+            <pre><span class="ruby-comment"># File Modele/teleporteur.rb, line 27</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">transporter_reprendre</span>(<span class="ruby-identifier">v</span>)
         <span class="ruby-identifier">acces</span>.<span class="ruby-identifier">park</span>.<span class="ruby-identifier">reprendre</span>(<span class="ruby-identifier">v</span>)
 <span class="ruby-keyword">end</span></pre>

@@ -59,7 +59,7 @@
     <nav id="parent-class-section" class="section">
   <h3 class="section-header">Parent</h3>
   
-  <p class="link"><a href="Object.html">Object</a>
+  <p class="link">Object
   
 </nav>
 
@@ -94,8 +94,6 @@
   
     <li><a href="./Acces.html">Acces</a>
   
-    <li><a href="./Borne.html">Borne</a>
-  
     <li><a href="./Camera.html">Camera</a>
   
     <li><a href="./Ctrl_borne.html">Ctrl_borne</a>
@@ -109,8 +107,6 @@
     <li><a href="./GestionPark.html">GestionPark</a>
   
     <li><a href="./Livraison.html">Livraison</a>
-  
-    <li><a href="./Object.html">Object</a>
   
     <li><a href="./Panneau.html">Panneau</a>
   
@@ -196,12 +192,12 @@
 
         <div class="method-description">
           
-          
+          <p>Constructeur</p>
           
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File Modele/GestionPark.rb, line 19</span>
+            <pre><span class="ruby-comment"># File Modele/GestionPark.rb, line 20</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>
         <span class="ruby-comment">#Recuperation des noms</span>
         <span class="ruby-identifier">names</span> = []
@@ -261,12 +257,12 @@
 
         <div class="method-description">
           
-          
+          <p>Création d’un parking</p>
           
 
           
           <div class="method-source-code" id="creerPark-source">
-            <pre><span class="ruby-comment"># File Modele/GestionPark.rb, line 52</span>
+            <pre><span class="ruby-comment"># File Modele/GestionPark.rb, line 54</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">creerPark</span>(<span class="ruby-identifier">nom</span>=<span class="ruby-string">&quot;&quot;</span>,<span class="ruby-identifier">niv</span>,<span class="ruby-identifier">placeMax</span>,<span class="ruby-identifier">hauteur</span>,<span class="ruby-identifier">longueur</span>)
         <span class="ruby-identifier">p1</span> = <span class="ruby-constant">Parking</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">nom</span>,<span class="ruby-identifier">niv</span>,<span class="ruby-identifier">placeMax</span>,<span class="ruby-identifier">hauteur</span>,<span class="ruby-identifier">longueur</span>)
         <span class="ruby-ivar">@parks</span><span class="ruby-operator">&lt;&lt;</span><span class="ruby-identifier">p1</span>
@@ -298,7 +294,7 @@ supprimé</p>
 
           
           <div class="method-source-code" id="delete_park-source">
-            <pre><span class="ruby-comment"># File Modele/GestionPark.rb, line 65</span>
+            <pre><span class="ruby-comment"># File Modele/GestionPark.rb, line 68</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">delete_park</span> <span class="ruby-identifier">nomP</span>
         <span class="ruby-identifier">index</span> = (<span class="ruby-value">-1</span>)
         <span class="ruby-ivar">@parks</span>.<span class="ruby-identifier">each_with_index</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">e</span>,<span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-identifier">index</span> = <span class="ruby-identifier">i</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">nom</span><span class="ruby-operator">==</span><span class="ruby-identifier">nomP</span>}
@@ -326,12 +322,12 @@ supprimé</p>
 
         <div class="method-description">
           
-          
+          <p>Retourne le controleur d’un parking donné</p>
           
 
           
           <div class="method-source-code" id="get_ctrl_park-source">
-            <pre><span class="ruby-comment"># File Modele/GestionPark.rb, line 57</span>
+            <pre><span class="ruby-comment"># File Modele/GestionPark.rb, line 60</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">get_ctrl_park</span>(<span class="ruby-identifier">nom</span>)
         <span class="ruby-identifier">parking</span>=<span class="ruby-string">&quot;&quot;</span>
         <span class="ruby-identifier">parks</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">p</span><span class="ruby-operator">|</span> <span class="ruby-identifier">parking</span>=<span class="ruby-identifier">p</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">p</span>.<span class="ruby-identifier">nom</span><span class="ruby-operator">==</span><span class="ruby-identifier">nom</span>}

@@ -59,7 +59,7 @@
     <nav id="parent-class-section" class="section">
   <h3 class="section-header">Parent</h3>
   
-  <p class="link"><a href="Object.html">Object</a>
+  <p class="link">Object
   
 </nav>
 
@@ -92,8 +92,6 @@
   
     <li><a href="./Acces.html">Acces</a>
   
-    <li><a href="./Borne.html">Borne</a>
-  
     <li><a href="./Camera.html">Camera</a>
   
     <li><a href="./Ctrl_borne.html">Ctrl_borne</a>
@@ -107,8 +105,6 @@
     <li><a href="./GestionPark.html">GestionPark</a>
   
     <li><a href="./Livraison.html">Livraison</a>
-  
-    <li><a href="./Object.html">Object</a>
   
     <li><a href="./Panneau.html">Panneau</a>
   
@@ -180,12 +176,12 @@ sessions</pre>
 
         <div class="method-description">
           
-          
+          <p>Créer les tables si elles n’existes pas déja.</p>
           
 
           
           <div class="method-source-code" id="createTables-source">
-            <pre><span class="ruby-comment"># File Modele/database.rb, line 8</span>
+            <pre><span class="ruby-comment"># File Modele/database.rb, line 9</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">createTables</span>
         <span class="ruby-comment">#----------Creation des tables----------#</span>
                         <span class="ruby-comment">#TABLE PARKING</span>
@@ -305,12 +301,12 @@ sessions</pre>
 
         <div class="method-description">
           
-          
+          <p>Méthode de chargement d’un parking donné</p>
           
 
           
           <div class="method-source-code" id="load-source">
-            <pre><span class="ruby-comment"># File Modele/database.rb, line 120</span>
+            <pre><span class="ruby-comment"># File Modele/database.rb, line 123</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">load</span>(<span class="ruby-identifier">nomParking</span>)
         <span class="ruby-keyword">begin</span>
                 <span class="ruby-comment">#Ouverture de la base de donnée</span>
@@ -353,12 +349,12 @@ sessions</pre>
 
         <div class="method-description">
           
-          
+          <p>Supprime les informations propres à un parking pour préparer la sauvegarde</p>
           
 
           
           <div class="method-source-code" id="save-source">
-            <pre><span class="ruby-comment"># File Modele/database.rb, line 107</span>
+            <pre><span class="ruby-comment"># File Modele/database.rb, line 109</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">save</span>(<span class="ruby-identifier">nomParking</span>)
                 <span class="ruby-comment">#-------------Drop des tables-------------#</span>
                 <span class="ruby-identifier">$db</span>.<span class="ruby-identifier">execute</span> <span class="ruby-node">&quot;DELETE FROM parking WHERE nom='#{nomParking}'&quot;</span>

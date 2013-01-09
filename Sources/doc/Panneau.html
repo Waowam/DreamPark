@@ -59,7 +59,7 @@
     <nav id="parent-class-section" class="section">
   <h3 class="section-header">Parent</h3>
   
-  <p class="link"><a href="Object.html">Object</a>
+  <p class="link">Object
   
 </nav>
 
@@ -96,8 +96,6 @@
   
     <li><a href="./Acces.html">Acces</a>
   
-    <li><a href="./Borne.html">Borne</a>
-  
     <li><a href="./Camera.html">Camera</a>
   
     <li><a href="./Ctrl_borne.html">Ctrl_borne</a>
@@ -111,8 +109,6 @@
     <li><a href="./GestionPark.html">GestionPark</a>
   
     <li><a href="./Livraison.html">Livraison</a>
-  
-    <li><a href="./Object.html">Object</a>
   
     <li><a href="./Panneau.html">Panneau</a>
   
@@ -227,12 +223,12 @@ restantes.</p>
 
         <div class="method-description">
           
-          
+          <p>Constructeur</p>
           
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File Modele/panneau.rb, line 16</span>
+            <pre><span class="ruby-comment"># File Modele/panneau.rb, line 17</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">nom</span>=<span class="ruby-string">&quot;&quot;</span>,<span class="ruby-identifier">place</span>=<span class="ruby-value">0</span>)
         <span class="ruby-keyword">self</span>.<span class="ruby-identifier">nom</span> = <span class="ruby-identifier">nom</span>
         <span class="ruby-keyword">self</span>.<span class="ruby-identifier">placeUsed</span>=<span class="ruby-value">0</span>
@@ -265,12 +261,12 @@ restantes.</p>
 
         <div class="method-description">
           
-          <p>Decremente le nombre de places utilisées</p>
+          <p>Décremente le nombre de places utilisées</p>
           
 
           
           <div class="method-source-code" id="decrementer-source">
-            <pre><span class="ruby-comment"># File Modele/panneau.rb, line 28</span>
+            <pre><span class="ruby-comment"># File Modele/panneau.rb, line 29</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">decrementer</span>
         <span class="ruby-keyword">self</span>.<span class="ruby-identifier">placeUsed</span><span class="ruby-operator">-=</span><span class="ruby-value">1</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">placeUsed</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
 <span class="ruby-keyword">end</span></pre>
@@ -300,7 +296,7 @@ restantes.</p>
 
           
           <div class="method-source-code" id="incrementer-source">
-            <pre><span class="ruby-comment"># File Modele/panneau.rb, line 23</span>
+            <pre><span class="ruby-comment"># File Modele/panneau.rb, line 24</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">incrementer</span>
         <span class="ruby-keyword">self</span>.<span class="ruby-identifier">placeUsed</span>= <span class="ruby-identifier">placeUsed</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">placeUsed</span><span class="ruby-operator">&lt;</span><span class="ruby-identifier">placeTot</span>
 <span class="ruby-keyword">end</span></pre>
@@ -325,12 +321,12 @@ restantes.</p>
 
         <div class="method-description">
           
-          
+          <p>Méthode de sauvegarde</p>
           
 
           
           <div class="method-source-code" id="save-source">
-            <pre><span class="ruby-comment"># File Modele/panneau.rb, line 37</span>
+            <pre><span class="ruby-comment"># File Modele/panneau.rb, line 39</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">save</span>(<span class="ruby-identifier">nomPark</span>)
         <span class="ruby-identifier">$db</span>.<span class="ruby-identifier">execute</span> <span class="ruby-node">&quot;INSERT INTO panneau(nom, placeUsed, placeTot, park) VALUES ('#{nom}', #{placeUsed}, #{placeTot}, '#{nomPark}')&quot;</span>
 <span class="ruby-keyword">end</span></pre>
@@ -355,12 +351,12 @@ restantes.</p>
 
         <div class="method-description">
           
-          <p>Redef <a href="Panneau.html#method-i-to_s">#to_s</a></p>
+          <p>Redefinition de la méthode <a href="Panneau.html#method-i-to_s">#to_s</a></p>
           
 
           
           <div class="method-source-code" id="to_s-source">
-            <pre><span class="ruby-comment"># File Modele/panneau.rb, line 33</span>
+            <pre><span class="ruby-comment"># File Modele/panneau.rb, line 34</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">to_s</span>
         <span class="ruby-identifier">s</span>=<span class="ruby-node">&quot;#{nom} : #{placeUsed}/#{placeTot}&quot;</span>
 <span class="ruby-keyword">end</span></pre>
