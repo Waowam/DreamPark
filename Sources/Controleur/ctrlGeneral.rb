@@ -63,13 +63,13 @@ class Ctrl_gen
 		stats_text="Parking : #{nomPark} \n"
 		stats_text=stats_text+"Nombre de passage par l'acces Nord : #{stats["acces1"]}\n"
 		stats_text=stats_text+"Nombre de passage par l'acces Sud : #{stats["acces2"]}\n"
-		stats_text=stats_text+"Place la plus utilisé : #{stats["place"]}\n"
+		stats_text=stats_text+"Place la plus utilise : #{stats["place"]}\n"
 		return stats_text
 	end
 
 	def get_com_stats(nomPark)
 		parkTemp=nil
-		parks.each {|p| parkTemp=p if p.nom==nomPark}
+		mdl_gen.parks.each {|p| parkTemp=p if p.nom==nomPark}
 		stats = parkTemp.stats_commercial
 		stats_text="Parking : #{nomPark} \n"
 		stats_text=stats_text+"Nombre de clients simples : #{stats["client"]}\n"

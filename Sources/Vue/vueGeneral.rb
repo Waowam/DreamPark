@@ -7,6 +7,7 @@ vueGeneral.rb
 =end
 
 require 'gtk2'
+require "../Vue/vueStats.rb"
 
 class VueGeneral
 
@@ -157,7 +158,8 @@ class VueGeneral
         @window       = builder.get_object( "vue_main" ) #Fenetre entière
         @windowWelcom = builder.get_object( "win_welcom" ) #Fenetre de prechargement
         @create_dialog = builder.get_object( "d_newPark" ) #Dialogue de creation
-        @stats_dialog = builder.get_object("d_statistiques") #Dialogue des stats
+        @stats_admin=nil
+        @stats_com=nil
         @about_dialog = builder.get_object("d_about") #Dialogue d'about
         @quit_dialog  = builder.get_object( "RUSURE" ) #Dialogue de fermeture
 
@@ -191,7 +193,7 @@ class VueGeneral
         quitterSansSauvegarder=Proc.new{gtk_main_quit2}
         aPropos=Proc.new{cb_about}
         nouveau=Proc.new{cb_newPark}
-        supprimer=Proc.new{cb_delete_event}
+        supprimer=Proc.new{delete_park}
 
         entrees = [
         ["Statistiques",nil,"_Statistiques",nil,nil],

@@ -179,7 +179,7 @@ class Parking
 	#	visites : nombre de visites total
 	#	pack : nombre d'abonnés ayant souscris au pack garantie
 	def stats_commercial
-		stats=Hash.new("n/a")
+		stats=Hash.new(0)
 		stats["client"]=listClient.length
 		stats["abonne"]=listAbonnes.length
 		
@@ -205,7 +205,7 @@ class Parking
 	#	acces2 : nombre de passages pour l'accès 2
 	#	place : place la plus utilisée
 	def stats_admin
-		stats=Hash.new("n/a")
+		stats=Hash.new(0)
 		
 		stats["acces1"]=acces[0].borne.listTickets.length
 		placeListA1=Hash.new(0)
