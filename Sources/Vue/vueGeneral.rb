@@ -13,7 +13,11 @@ class VueGeneral
 	attr_accessor :window,:create_dialog,:quit_dialog,:ctrl,:builder,:combo_main,:combo_load,:windowWelcom,:framePar,:framePan
 
 	def gtk_main_quit
+<<<<<<< HEAD
+        #@ctrl.save_all_da_park
+=======
 		ctrl.save_all_da_park
+>>>>>>> 11df9389a144592ee3efa41a28aca8457f320d3e
         Gtk::main_quit()
     end
 
@@ -152,7 +156,59 @@ class VueGeneral
         v_box_main.add_child(builder,@combo_main,nil)
         v_box_welcom =builder.get_object("d_vbox_combo")
         v_box_welcom.add_child(builder,@combo_load,nil)
-       
+
+    ##Preparation de la toolbar et menubar##
+        #Creation du group d'action et des entrées
+            #A faire
+        voirStatCommercial=Proc.new{puts "OK"}
+        voirStatAdmin=Proc.new{puts "OK"}
+        quitterSauvegarder=Proc.new{puts "OK"}
+        quitterSansSauvegarder=Proc.new{puts "OK"}
+        aPropos=Proc.new{puts "OK"}
+        nouveau=Proc.new{puts "OK"}
+        supprimer=Proc.new{puts "OK"}
+        carRandom=Proc.new{puts "OK"}
+        carAcces1=Proc.new{puts "OK"}
+        caracces2=Proc.new{puts "OK"}
+        toutReprendre=Proc.new{puts "OK"}
+
+        entrees = [
+        ["Statistiques",nil,"_Statistiques",nil,nil],
+        ["VoirStatCommercial", nil,"_VoirStatCommercial",nil,"Affiche les statistiques concernant le commercial",voirStatCommercial ],
+        ["VoirStatAdmin", nil, "_VoirStatAdmin", nil, "Affiche les statistiques concernant l'administrateur", voirStatAdmin],
+        ["Quitter",nil,"_Quitter",nil,nil],
+        ["QuitterSauvegarder", Gtk::Stock::SAVE, "_QuitterSauvegarder", nil, "Quitter en sauvegardant l'etat", quitterSauvegarder],
+        ["QuitterSansSauvegarder", Gtk::Stock::QUIT, "_Quitter", nil, "Quitte le programme sans sauvegarder", quitterSansSauvegarder],
+        ["Aide",nil,"_Aide",nil,nil],
+        ["APropos", Gtk::Stock::ABOUT, "A Propos", nil, "Plus d'information", aPropos],
+        ["Nouveau", Gtk::Stock::NEW,"_Nouveau", nil, "Creer un nouveau parking", nouveau],
+        ["Supprimer", Gtk::Stock::DELETE, "_Supprimer", nil, "Supprime le parking courant", supprimer],
+        ["CarRandom", nil, "_CarRandom", nil, "Fais pop un vehicule a un acces aleatoire",  carRandom],
+        ["CarAcces1", nil, "_CarAcces1",nil, "Fais pop un vehicule a l'acces 1", carAcces1],
+        ["CarAcces2", nil, "_CarAcces2",nil, "Fais pop un vehicule a l'acces 2", carAcces2],
+        ["ToutReprendre", nil, "_ToutReprendre", nil, "Reprend tous les vehicules d'un parking", toutReprendre]]
+        
+        # Crée un groupe d’action et lui ajoute toutes les actions.
+        group = Gtk::ActionGroup.new("MainActionGroup")
+        group.add_actions(entrees)
+
+        #Creation de l'uimanager et des barres, ajout du groupe d'action
+        uimanager = Gtk::UIManager.new
+        uimanager.insert_action_group(group, 0)
+        uimanager.add_ui("menu.ui")
+        uimanager.add_ui("toolbar.ui")
+        
+        #recupération des barres et des accelerateurs
+        menubar = uimanager.get_widget("/MenuBar")
+        toolbar = uimanager.get_widget("/Toolbar")
+        toolbar.toolbar_style = Gtk::Toolbar::Style::ICONS
+        window.add_accel_group(uimanager.accel_group)
+
+        #mise en place des barres
+        vboxBar = builder.get_objetc("vbox_menu_main")
+        vboxBar.pack_start_defaults(menubar)
+        vboxBar.pack_start_defaults(toolbar)
+
         #Show all
         cb_welcom
         #@window.show_all
