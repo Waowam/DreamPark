@@ -1,8 +1,5 @@
 require "./vehicule.rb"
 
-
-#Classe TestVehicule
-#
 #Classe permettant de tester les méthodes de la classe Vehicule.
 class TestVehicule < Test::Unit::TestCase
 	IMMAT, HAUT, LONG = "IMM_OK", 125, 200

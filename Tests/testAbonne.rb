@@ -1,10 +1,9 @@
 require "./abonne.rb"
 
-#Classe TestAbonne
-#
 #Classe permettant de tester les méthodes de la classe Abonne.
 class TestAbonne < Test::Unit::TestCase
 	
+	#Variable abonne testée
 	def setup
 		@abonne = Abonne.new("testNom","testPrenom","testAdresse","0506070809")
 	end

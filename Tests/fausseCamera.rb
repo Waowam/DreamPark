@@ -1,6 +1,6 @@
 require './camera.rb'
 
-#Classe fournissant l'instance d'un vehicule 
+#Classe fournissant l'instance d'une camera 
 class FausseCamera < Camera
 
 	attr_reader :numero,:nom,:hauteurMax,:longueurMax

@@ -1,7 +1,5 @@
 require "./place.rb"
 
-#Classe TestPlace
-#
 #Classe permettant de tester les méthodes de la classe Place.
 class TestPlace < Test::Unit::TestCase
 	NUM, NIV, HAUT, LONG = 1, 0, 125, 200

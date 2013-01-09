@@ -19,7 +19,7 @@ class Test_teleporteur < Test::Unit::TestCase
 		@teleporteur=Teleporteur.new(1,@parkTest.acces[1])
 	end
 
-	#Test d'instanciation
+	#Test d'instanciation du téléporteur
 	def test_new
 		assert_instance_of(Teleporteur,@teleporteur,"Porbleme instance teleporteur")
 	end

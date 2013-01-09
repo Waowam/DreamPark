@@ -7,12 +7,13 @@ testCamera.rb
 =end
 
 require "./camera.rb"
-#Classe de test unitaire des cameras
-#Regroupant l'ensemble des test 
+
+#Classe rassemblant les test unitaires d'une camera
 class Test_camera < Test::Unit::TestCase
 	HAUTMAX, LONGMAX = 200, 500
 
-	#Setup variables
+	#Variable 
+	#	cam objet de type caméra
 	def setup
 		@cam = Camera.new(0,"camTest", HAUTMAX, LONGMAX)
 	end

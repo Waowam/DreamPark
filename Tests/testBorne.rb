@@ -9,12 +9,15 @@ testBorne.rb
 require "test/unit"
 require "./borne.rb"
 
-
-#Class Test_borne
-#
 #Classe rassemblant les test unitaires d'une borne
 class Test_borne < Test::Unit::TestCase
 
+	#Variables
+	#	parkFake : Objet fauxParking (simulant la classe Parking)
+	#	abonneFake : Objet FauxAbonne (simulant la classe Abonne)
+	#	vehiculeFake : Objet FauxVehicule (simulant la classe Vehicule)
+	#	placeFake : Objet FaussePlace (simulant la classe Place)
+	#	borne : Objet testé
 	def setup
 		@parkFake = FauxParking.new
 		@abonneFake = FauxAbonne.new("nomTest","prenomTest","1 rue du test","0506070809")
@@ -23,6 +26,7 @@ class Test_borne < Test::Unit::TestCase
 		@borne = Borne.new(@parkFake.acces[0],"testBorne")
 	end
 
+	#Test portant sur l'instanciation d'une borne
 	def test_new
 		assert_instance_of(Borne,@borne,"Erreur lors de l'instanciation d'une borne")
 		assert_equal([],@borne.listTickets,"Erreur : tickets d'une nouvelle borne pas []")

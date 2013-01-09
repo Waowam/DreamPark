@@ -1,10 +1,11 @@
 require "./acces.rb"
 
-#Classe TestAcces
-#
 #Classe permettant de tester les méthodes de la classe Acces.
 class TestAcces < Test::Unit::TestCase
 	
+	#Variables
+	#	parkFake : Objet fauxParking (simulant la classe Parking)
+	#	acces : Objet testé
 	def setup
 		@parkFake = FauxParking.new
 		@acces = Acces.new("testAcces",@parkFake)

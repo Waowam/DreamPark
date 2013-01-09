@@ -8,6 +8,7 @@ fauxAcces.rb
 
 require "./acces.rb"
 
+#Classe fournissant l'instance d'un acces
 class FauxAcces < Acces
 
 	attr_reader :nom,:park,:teleporteurs,:panneau,:borne,:camera,:vehicule_temp

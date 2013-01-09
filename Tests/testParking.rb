@@ -1,7 +1,5 @@
 require "./parking.rb"
 
-#Classe TestParking
-#
 #Classe permettant de tester les méthodes de la classe Parking.
 class TestParking < Test::Unit::TestCase
 	NBNIV, NBPLACENIV = 1, 50
