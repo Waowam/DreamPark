@@ -13,11 +13,11 @@ class VueGeneral
 	attr_accessor :window,:create_dialog,:quit_dialog,:ctrl,:builder,:combo_main,:combo_load,:windowWelcom,:framePar,:framePan
 
 	def gtk_main_quit
-<<<<<<< HEAD
-        #@ctrl.save_all_da_park
-=======
-		ctrl.save_all_da_park
->>>>>>> 11df9389a144592ee3efa41a28aca8457f320d3e
+        @ctrl.save_all_da_park
+        Gtk::main_quit()
+    end
+
+    def gtk_main_quit2
         Gtk::main_quit()
     end
 
@@ -25,14 +25,24 @@ class VueGeneral
         # Run dialog
         response = self.quit_dialog.run
         self.quit_dialog.hide()
-
-        return response != -1
     end
 
     def cb_newPark
         # Run dialog
         response = self.create_dialog.run
         self.create_dialog.hide
+    end
+
+    def cb_about
+        #run a propos
+        response = @about_dialog.run
+        @about_dialog.hide
+    end
+
+    def cb_stats
+        #Run the dialog
+        response = @stats_dialog.run
+        @stats_dialog.hide
     end
 
     def create_park
@@ -134,6 +144,8 @@ class VueGeneral
         @window       = builder.get_object( "vue_main" ) #Fenetre entière
         @windowWelcom = builder.get_object( "win_welcom" ) #Fenetre de prechargement
         @create_dialog = builder.get_object( "d_newPark" ) #Dialogue de creation
+        @stats_dialog = builder.get_object("d_statistiques") #Dialogue des stats
+        @about_dialog = builder.get_object("d_about") #Dialogue d'about
         @quit_dialog  = builder.get_object( "RUSURE" ) #Dialogue de fermeture
 
         #Elements utiles
@@ -160,17 +172,13 @@ class VueGeneral
     ##Preparation de la toolbar et menubar##
         #Creation du group d'action et des entrées
             #A faire
-        voirStatCommercial=Proc.new{puts "OK"}
-        voirStatAdmin=Proc.new{puts "OK"}
-        quitterSauvegarder=Proc.new{puts "OK"}
-        quitterSansSauvegarder=Proc.new{puts "OK"}
-        aPropos=Proc.new{puts "OK"}
-        nouveau=Proc.new{puts "OK"}
-        supprimer=Proc.new{puts "OK"}
-        carRandom=Proc.new{puts "OK"}
-        carAcces1=Proc.new{puts "OK"}
-        caracces2=Proc.new{puts "OK"}
-        toutReprendre=Proc.new{puts "OK"}
+        voirStatCommercial=Proc.new{cb_stats}
+        voirStatAdmin=Proc.new{cb_stats}
+        quitterSauvegarder=Proc.new{gtk_main_quit}
+        quitterSansSauvegarder=Proc.new{gtk_main_quit2}
+        aPropos=Proc.new{cb_about}
+        nouveau=Proc.new{cb_newPark}
+        supprimer=Proc.new{cb_delete_event}
 
         entrees = [
         ["Statistiques",nil,"_Statistiques",nil,nil],
@@ -183,11 +191,9 @@ class VueGeneral
         ["APropos", Gtk::Stock::ABOUT, "A Propos", nil, "Plus d'information", aPropos],
         ["Nouveau", Gtk::Stock::NEW,"_Nouveau", nil, "Creer un nouveau parking", nouveau],
         ["Supprimer", Gtk::Stock::DELETE, "_Supprimer", nil, "Supprime le parking courant", supprimer],
-        ["CarRandom", nil, "_CarRandom", nil, "Fais pop un vehicule a un acces aleatoire",  carRandom],
-        ["CarAcces1", nil, "_CarAcces1",nil, "Fais pop un vehicule a l'acces 1", carAcces1],
-        ["CarAcces2", nil, "_CarAcces2",nil, "Fais pop un vehicule a l'acces 2", carAcces2],
-        ["ToutReprendre", nil, "_ToutReprendre", nil, "Reprend tous les vehicules d'un parking", toutReprendre]]
-        
+        ["StatCom",nil,"_StatCom",nil,"Affiche les statistiques commerciales",voirStatCommercial],
+        ["StatAdmin",nil,"_StatAdmin",nil,"Affiche les statistiques administrateur",voirStatAdmin]]
+
         # Crée un groupe d’action et lui ajoute toutes les actions.
         group = Gtk::ActionGroup.new("MainActionGroup")
         group.add_actions(entrees)
@@ -195,8 +201,8 @@ class VueGeneral
         #Creation de l'uimanager et des barres, ajout du groupe d'action
         uimanager = Gtk::UIManager.new
         uimanager.insert_action_group(group, 0)
-        uimanager.add_ui("menu.ui")
-        uimanager.add_ui("toolbar.ui")
+        uimanager.add_ui("../Vue/menu.ui")
+        uimanager.add_ui("../Vue/toolbar.ui")
         
         #recupération des barres et des accelerateurs
         menubar = uimanager.get_widget("/MenuBar")
@@ -205,9 +211,9 @@ class VueGeneral
         window.add_accel_group(uimanager.accel_group)
 
         #mise en place des barres
-        vboxBar = builder.get_objetc("vbox_menu_main")
-        vboxBar.pack_start_defaults(menubar)
-        vboxBar.pack_start_defaults(toolbar)
+        vboxBar = builder.get_object("vbox_menu_main")
+        vboxBar.pack_start(menubar,false,false,0)
+        vboxBar.pack_start(toolbar,false,false,0)
 
         #Show all
         cb_welcom

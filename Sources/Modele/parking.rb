@@ -128,17 +128,12 @@ class Parking
 	end
 	
 	#Libere une place occupée.
-	#Retourne le numéro de la place libérée.
-	#Retourne -1 en cas d'echec.
 	def reprendre(v)
-		res= nil
 		place.each do |p|
-			if p.vehicule=v then
-				p.vehicule= nil
-				res= p.num
+			if p.vehicule==v then
+				remove_vehicule(p,v)
 			end
 		end
-		return res
 	end
 	
 	#Incremente le compteur des panneaux du parking
@@ -155,6 +150,24 @@ class Parking
 		panneaux.each do |p|
 			p.decrementer
 		end
+	end
+
+	#Retourne le vehicule correspondant aux valeurs passées en paramètre
+	def get_vehicule_with_info (imma,haut,long)
+		vehiculeTempo = nil
+		listClient.each do |v|
+			if v.immatriculation == imma && v.hauteur == haut && v.longueur == long then
+				vehiculeTempo=v
+			end
+		end
+		if vehiculeTempo==nil then
+			listAbonnes.each do |v|
+				if v.immatriculation == imma && v.hauteur == haut && v.longueur == long then
+					vehiculeTempo=v
+				end
+			end
+		end
+		return vehiculeTempo
 	end
 	
 	#Retourne les statistiques commerciales du parking

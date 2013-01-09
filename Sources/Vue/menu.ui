@@ -6,7 +6,7 @@
 		</menu>
 		<menu name="Quitter" action="Quitter">
 			<menuitem name="QuitSave" action="QuitterSauvegarder"/>
-			<menuitem name="Quit" action="Quitter"/>
+			<menuitem name="Quit" action="QuitterSansSauvegarder"/>
 		</menu>
 		<menu name="HelpMenu" action="Aide">
 			<menuitem name="HelpAbout" action="APropos"/>

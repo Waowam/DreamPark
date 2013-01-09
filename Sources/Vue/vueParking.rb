@@ -16,7 +16,7 @@ class Vue_parking < Gtk::VBox
 	def initialize(ctrl)
 		super
 		@ctrl = ctrl
-
+		vueTot = Gtk::VBox.new
 		vuePop = Gtk::VBox.new
 		vuePopImma = Gtk::HBox.new
 			lbl_imm = Gtk::Label.new("Immatriculation :")
@@ -27,11 +27,10 @@ class Vue_parking < Gtk::VBox
 			spin_H= Gtk::SpinButton.new(100,500,1)
 			spin_L=Gtk::SpinButton.new(100,500,1)
 		vueButPop = Gtk::HBox.new
-			butt_pop = Gtk::Button.new("Pop acces 1")
-			butt_pop2 = Gtk::Button.new("Pop acces 2")
-			butt_popAlea = Gtk::Button.new("Pop aleatoire")
+			butt_pop = Gtk::Button.new("Detection acces 1")
+			butt_pop2 = Gtk::Button.new("Detection acces 2")
+			butt_popAlea = Gtk::Button.new("Detection aleatoire")
 		
-		vueList = Gtk::HBox.new
 		butt_rep = Gtk::Button.new("Reprendre")
 
 		#Liste de vehicule
@@ -69,16 +68,16 @@ class Vue_parking < Gtk::VBox
 		end
 		butt_rep.signal_connect('clicked') do
 			iter = vue_L.selection.selected
-			ctrl.remove_vehicule(iter)
+			ctrl.remove_vehicule(iter) if iter != nil
 		end
 
 		vuePopImma.add(lbl_imm).add(txt_imma)
 		vuePopHautLong.add(lbl_H).add(spin_H).add(lbl_L).add(spin_L)
-		vueButPop.pack_start(butt_pop,false,false,0).pack_start(butt_pop2,false,false,0).pack_start(butt_popAlea,false,false,0)
-		vuePop.add(vuePopImma).add(vuePopHautLong).add(vueButPop)
+		vueButPop.add(butt_pop).add(butt_pop2).add(butt_popAlea)
+		vuePop.pack_start(vuePopImma,false,false,0).pack_start(vuePopHautLong,false,false,0).pack_start(vueButPop,false,true,0).pack_start(butt_rep,false,true,0)
 		scrollWindow.add(vue_L)
-		vueList.add(scrollWindow).pack_start(butt_rep,false,false,0)
-		self.add(vuePop).add(vueList)
+		vueTot.pack_start(vuePop,false,false,0).pack_start(scrollWindow,true,true,0)
+		self.add(vueTot)
 	end
 
 	def maj_modele_liste_vehicule

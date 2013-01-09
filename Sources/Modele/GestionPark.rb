@@ -43,10 +43,7 @@ class GestionPark
 			@parks<<Database.load(n)
 			
 		end
-<<<<<<< HEAD
 
-=======
->>>>>>> 11df9389a144592ee3efa41a28aca8457f320d3e
 		@ctrl = Ctrl_gen.new(self)
 	end
 

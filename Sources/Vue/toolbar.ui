@@ -3,12 +3,7 @@
 		<toolitem name="NewPark" action="Nouveau"/>
 		<toolitem name="DelPark" action="Supprimer"/>
 		<separator/>
-		<toolitem name="NewCarRand" action="CarRandom"/>
-		<toolitem name="NewCarAcces1" action="CarAcces1"/>
-		<toolitem name="NewCarAcces2" action="Caracces2"/>
-		<separator/>
-		<toolitem name="RecupAll" action="ToutReprendre"/>
-		<separator/>
-		<toolitem name="HelpAbout" action="APropos"/>
+		<toolitem name="StatCom" action="StatCom"/>
+		<toolitem name="StatAdmin" action="StatAdmin"/>
 	</toolbar>
 </ui>

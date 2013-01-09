@@ -42,7 +42,7 @@ class Ctrl_parking
 	end
 
 	def append_vehicule acces,tabV
-		if acces==0 || tabV[0].match(/(^\d{4}\w{2}\d{2}$)|(^(\w{2})\d{3}\3$)|(^.{8}$)/)
+		if acces==0 || tabV[0].match(/(^\d{4}$)/) then
 			case acces
 				when 0
 					indexAcc= rand(0..1)
@@ -51,10 +51,10 @@ class Ctrl_parking
 					mdl_par.acces[indexAcc].capture_vehicule
 				when 1
 					imma,h,l= *tabV
-					#mdl_par.acces[0].capture_vehicule(imma,h,l)
+					mdl_par.acces[0].capture_vehicule(imma,h,l)
 				when 2
 					imma,h,l= *tabV
-					#mdl_par.acces[1].capture_vehicule(imma,h,l)
+					mdl_par.acces[1].capture_vehicule(imma,h,l)
 			end
 		else
 			dialog = Gtk::MessageDialog.new(nil, 
@@ -68,7 +68,11 @@ class Ctrl_parking
 	end
 
 	def remove_vehicule (iter)
-		puts "HERE IN REMOVE_VEHICULE + #{iter}"
+		indexAcc= rand(0..1)
+		vehiculeTemp = mdl_par.get_vehicule_with_info(iter[0],iter[1],iter[2])
+		mdl_par.acces[indexAcc].est_sorti(vehiculeTemp)
+		show_vehicule
+		show_panneau
 	end
 
 	def get_info
