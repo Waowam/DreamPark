@@ -13,7 +13,11 @@ class VueGeneral
 	attr_accessor :window,:create_dialog,:quit_dialog,:ctrl,:builder,:combo_main,:combo_load,:windowWelcom,:framePar,:framePan
 
 	def gtk_main_quit
+<<<<<<< HEAD
         #@ctrl.save_all_da_park
+=======
+		ctrl.save_all_da_park
+>>>>>>> 11df9389a144592ee3efa41a28aca8457f320d3e
         Gtk::main_quit()
     end
 

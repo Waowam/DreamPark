@@ -219,6 +219,9 @@ class Parking
 								abo = Abonne.new(abonneInfo[0],abonneInfo[1],abonneInfo[2],abonneInfo[3])
 								abo.hasPack=abonneInfo[4]
 								veh.abonne=abo
+								self.listAbonnes<<veh
+							else
+								self.listClient<<veh
 							end
 						end
 						placeTemp.vehicule=veh
@@ -250,6 +253,8 @@ class Parking
 					self.acces<<Acces.new(acceInf[0],self)
 				end
 			end
+			
+			@ctrl_park = Ctrl_parking.new(self)
 			
 		rescue SQLite3::Exception => e 
 			
