@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>class TestParking - RDoc Documentation</title>
+
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="./index.html">Home</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>testParking.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link">Test::Unit::TestCase
+  
+</nav>
+
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li><a href="#method-i-nb_place_libre">#nb_place_libre</a>
+    
+    <li><a href="#method-i-setup">#setup</a>
+    
+    <li><a href="#method-i-teardown">#teardown</a>
+    
+    <li><a href="#method-i-test_add_vehicule">#test_add_vehicule</a>
+    
+    <li><a href="#method-i-test_assigner_place">#test_assigner_place</a>
+    
+    <li><a href="#method-i-test_nb_place">#test_nb_place</a>
+    
+    <li><a href="#method-i-test_new">#test_new</a>
+    
+    <li><a href="#method-i-test_remove_vehicule">#test_remove_vehicule</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="./_git/COMMIT_EDITMSG.html">COMMIT_EDITMSG</a>
+  
+    <li class="file"><a href="./_git/HEAD.html">HEAD</a>
+  
+    <li class="file"><a href="./_git/config.html">config</a>
+  
+    <li class="file"><a href="./_git/description.html">description</a>
+  
+    <li class="file"><a href="./_git/info/exclude.html">exclude</a>
+  
+    <li class="file"><a href="./_git/logs/HEAD.html">HEAD</a>
+  
+    <li class="file"><a href="./_git/logs/refs/heads/master.html">master</a>
+  
+    <li class="file"><a href="./_git/refs/heads/master.html">master</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./FausseBorne.html">FausseBorne</a>
+  
+    <li><a href="./FausseCamera.html">FausseCamera</a>
+  
+    <li><a href="./FaussePlace.html">FaussePlace</a>
+  
+    <li><a href="./FauxAbonne.html">FauxAbonne</a>
+  
+    <li><a href="./FauxAcces.html">FauxAcces</a>
+  
+    <li><a href="./FauxPanneau.html">FauxPanneau</a>
+  
+    <li><a href="./FauxParking.html">FauxParking</a>
+  
+    <li><a href="./FauxTeleporteur.html">FauxTeleporteur</a>
+  
+    <li><a href="./FauxVehicule.html">FauxVehicule</a>
+  
+    <li><a href="./TestAbonne.html">TestAbonne</a>
+  
+    <li><a href="./TestAcces.html">TestAcces</a>
+  
+    <li><a href="./TestParking.html">TestParking</a>
+  
+    <li><a href="./TestPlace.html">TestPlace</a>
+  
+    <li><a href="./TestVehicule.html">TestVehicule</a>
+  
+    <li><a href="./Test_borne.html">Test_borne</a>
+  
+    <li><a href="./Test_camera.html">Test_camera</a>
+  
+    <li><a href="./Test_panneau.html">Test_panneau</a>
+  
+    <li><a href="./Test_teleporteur.html">Test_teleporteur</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class TestParking</h1>
+
+  <div id="description" class="description">
+    
+<p>Classe permettant de tester les méthodes de la classe Parking.</p>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <!-- Constants -->
+    <section id="constants-list" class="section">
+      <h3 class="section-header">Constants</h3>
+      <dl>
+      
+        <dt id="NBPLACENIV">NBPLACENIV
+        
+        <dd class="description">
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-nb_place_libre" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">nb_place_libre</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Test de la methode <a
+href="TestParking.html#method-i-nb_place_libre">#nb_place_libre</a></p>
+          
+
+          
+          <div class="method-source-code" id="nb_place_libre-source">
+            <pre><span class="ruby-comment"># File testParking.rb, line 78</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">nb_place_libre</span>
+        <span class="ruby-identifier">assert_equal</span>(<span class="ruby-constant">NBNIV</span>*<span class="ruby-constant">NBPLACENIV</span>, <span class="ruby-ivar">@parking</span>.<span class="ruby-identifier">nb_place_libre</span>, <span class="ruby-string">&quot;Erreur : nombre de place libre incorrect&quot;</span>)
+        <span class="ruby-ivar">@parking</span>.<span class="ruby-identifier">place</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">vehicule</span>=<span class="ruby-ivar">@vehiculeFake</span>
+        <span class="ruby-identifier">assert_equal</span>(<span class="ruby-constant">NBNIV</span>*<span class="ruby-constant">NBPLACENIV</span><span class="ruby-operator">-</span><span class="ruby-value">1</span>, <span class="ruby-ivar">@parking</span>.<span class="ruby-identifier">nb_place_libre</span>, <span class="ruby-string">&quot;Erreur : nombre de place libre apres attribution incorrect&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- nb_place_libre-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- nb_place_libre-method -->
+
+    
+      <div id="method-i-setup" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">setup</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="setup-source">
+            <pre><span class="ruby-comment"># File testParking.rb, line 6</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">setup</span>
+        <span class="ruby-ivar">@vehiculeFake</span> = <span class="ruby-constant">FauxVehicule</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;testVehi&quot;</span>,<span class="ruby-value">200</span>,<span class="ruby-value">200</span>)
+        <span class="ruby-ivar">@vehiculeNOKFake</span> = <span class="ruby-constant">FauxVehicule</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;testVehiNOK&quot;</span>,<span class="ruby-value">2000</span>,<span class="ruby-value">2000</span>)
+        <span class="ruby-ivar">@abonneFake</span> = <span class="ruby-constant">FauxAbonne</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;nom&quot;</span>,<span class="ruby-string">&quot;prenom&quot;</span>,<span class="ruby-string">&quot;adresse&quot;</span>,<span class="ruby-string">&quot;0506070809&quot;</span>)
+        <span class="ruby-ivar">@placeFake</span> = <span class="ruby-constant">FaussePlace</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">1</span>,<span class="ruby-value">0</span>,<span class="ruby-value">300</span>,<span class="ruby-value">300</span>)
+        <span class="ruby-ivar">@parking</span> = <span class="ruby-constant">Parking</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;DreamPark&quot;</span>,<span class="ruby-constant">NBNIV</span>,<span class="ruby-constant">NBPLACENIV</span>,<span class="ruby-value">500</span>,<span class="ruby-value">500</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- setup-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- setup-method -->
+
+    
+      <div id="method-i-teardown" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">teardown</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="teardown-source">
+            <pre><span class="ruby-comment"># File testParking.rb, line 14</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">teardown</span>
+
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- teardown-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- teardown-method -->
+
+    
+      <div id="method-i-test_add_vehicule" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_add_vehicule</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Test de la methode add_vehicule</p>
+          
+
+          
+          <div class="method-source-code" id="test_add_vehicule-source">
+            <pre><span class="ruby-comment"># File testParking.rb, line 46</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_add_vehicule</span>
+        <span class="ruby-ivar">@parking</span>.<span class="ruby-identifier">add_vehicule</span>(<span class="ruby-ivar">@placeFake</span>, <span class="ruby-ivar">@vehiculeFake</span>)
+        <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value">1</span>, <span class="ruby-ivar">@parking</span>.<span class="ruby-identifier">listClient</span>.<span class="ruby-identifier">length</span>, <span class="ruby-string">&quot;Erreur : add_vehicule (client) pas de modif de listCLient&quot;</span>)
+        <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value">0</span>, <span class="ruby-ivar">@parking</span>.<span class="ruby-identifier">listAbonnes</span>.<span class="ruby-identifier">length</span>, <span class="ruby-string">&quot;Erreur : add_vehicule (client) modif de listAbonnes&quot;</span>)
+        <span class="ruby-identifier">assert_instance_of</span>(<span class="ruby-constant">FauxVehicule</span>, <span class="ruby-ivar">@placeFake</span>.<span class="ruby-identifier">vehicule</span>, <span class="ruby-string">&quot;Erreur : add_vehicule attribut vehicule de la place n'est pas de la classe Vehicule&quot;</span>)
+        
+        <span class="ruby-ivar">@placeFake</span>.<span class="ruby-identifier">vehicule</span>=<span class="ruby-keyword">nil</span>
+        <span class="ruby-ivar">@vehiculeFake</span>.<span class="ruby-identifier">abonne</span> = <span class="ruby-ivar">@abonneFake</span>
+        <span class="ruby-ivar">@parking</span>.<span class="ruby-identifier">add_vehicule</span>(<span class="ruby-ivar">@placeFake</span>, <span class="ruby-ivar">@vehiculeFake</span>)
+        <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value">1</span>, <span class="ruby-ivar">@parking</span>.<span class="ruby-identifier">listClient</span>.<span class="ruby-identifier">length</span>, <span class="ruby-string">&quot;Erreur : add_vehicule (abonne) modif de listCLient&quot;</span>)
+        <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value">1</span>, <span class="ruby-ivar">@parking</span>.<span class="ruby-identifier">listAbonnes</span>.<span class="ruby-identifier">length</span>, <span class="ruby-string">&quot;Erreur : add_vehicule (abonne) pas de modif de listAbonnes&quot;</span>)
+        <span class="ruby-identifier">assert_instance_of</span>(<span class="ruby-constant">FauxVehicule</span>, <span class="ruby-ivar">@placeFake</span>.<span class="ruby-identifier">vehicule</span>, <span class="ruby-string">&quot;Erreur : add_vehicule attribut vehicule de la place n'est pas de la classe Vehicule&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- test_add_vehicule-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- test_add_vehicule-method -->
+
+    
+      <div id="method-i-test_assigner_place" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_assigner_place</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Test de la methode assigner_place</p>
+          
+
+          
+          <div class="method-source-code" id="test_assigner_place-source">
+            <pre><span class="ruby-comment"># File testParking.rb, line 90</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_assigner_place</span>
+        <span class="ruby-identifier">assert_instance_of</span>(<span class="ruby-constant">Place</span>, <span class="ruby-ivar">@parking</span>.<span class="ruby-identifier">assigner_place</span>(<span class="ruby-ivar">@vehiculeFake</span>), <span class="ruby-string">&quot;Erreur : assigner place (vehicule OK) ne retourne pas de Fixnum&quot;</span>)
+        <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">nil</span>, <span class="ruby-ivar">@parking</span>.<span class="ruby-identifier">assigner_place</span>(<span class="ruby-ivar">@vehiculeNOKFake</span>), <span class="ruby-string">&quot;Erreur : assigner place (vehicule NOK) ne retourne pas nil&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- test_assigner_place-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- test_assigner_place-method -->
+
+    
+      <div id="method-i-test_nb_place" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_nb_place</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Test de la methode nb_place</p>
+          
+
+          
+          <div class="method-source-code" id="test_nb_place-source">
+            <pre><span class="ruby-comment"># File testParking.rb, line 85</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_nb_place</span>
+        <span class="ruby-identifier">assert_equal</span>(<span class="ruby-constant">NBNIV</span>*<span class="ruby-constant">NBPLACENIV</span>, <span class="ruby-ivar">@parking</span>.<span class="ruby-identifier">nb_place</span>, <span class="ruby-string">&quot;Erreur : nombre de place total incorrect&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- test_nb_place-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- test_nb_place-method -->
+
+    
+      <div id="method-i-test_new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_new</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Test des attributs apres l’instanciation d’un abonne</p>
+          
+
+          
+          <div class="method-source-code" id="test_new-source">
+            <pre><span class="ruby-comment"># File testParking.rb, line 19</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_new</span>
+        <span class="ruby-identifier">assert_instance_of</span>(<span class="ruby-constant">Parking</span>, <span class="ruby-ivar">@parking</span>, <span class="ruby-string">&quot;Erreur creation parking&quot;</span>)
+        
+        <span class="ruby-identifier">assert_instance_of</span>(<span class="ruby-constant">Set</span>, <span class="ruby-ivar">@parking</span>.<span class="ruby-identifier">listClient</span>, <span class="ruby-string">&quot;Erreur creation parking listClient n'est pas un Set&quot;</span>)
+        <span class="ruby-identifier">assert_instance_of</span>(<span class="ruby-constant">Set</span>, <span class="ruby-ivar">@parking</span>.<span class="ruby-identifier">listAbonnes</span>, <span class="ruby-string">&quot;Erreur creation parking listAbonnes n'est pas un Set&quot;</span>)
+        <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value">0</span>, <span class="ruby-ivar">@parking</span>.<span class="ruby-identifier">listClient</span>.<span class="ruby-identifier">length</span>, <span class="ruby-string">&quot;Erreur creation parking longueur listClient incorrecte&quot;</span>)
+        <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value">0</span>, <span class="ruby-ivar">@parking</span>.<span class="ruby-identifier">listAbonnes</span>.<span class="ruby-identifier">length</span>, <span class="ruby-string">&quot;Erreur creation parking longueur listAbonnes incorrecte&quot;</span>)
+        
+        <span class="ruby-identifier">assert_equal</span>([], <span class="ruby-ivar">@parking</span>.<span class="ruby-identifier">listLivraisons</span>, <span class="ruby-string">&quot;Erreur creation parking listLivraisons n'est pas un []&quot;</span>)
+        
+        <span class="ruby-identifier">assert_not_equal</span>([], <span class="ruby-ivar">@parking</span>.<span class="ruby-identifier">place</span>, <span class="ruby-string">&quot;Erreur creation parking SANS places&quot;</span>)
+        
+        <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value">2</span>, <span class="ruby-ivar">@parking</span>.<span class="ruby-identifier">acces</span>.<span class="ruby-identifier">length</span>, <span class="ruby-string">&quot;Erreur creation parking mais pas 2 acces&quot;</span>)
+        
+        <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value">2</span>, <span class="ruby-ivar">@parking</span>.<span class="ruby-identifier">panneaux</span>.<span class="ruby-identifier">length</span>, <span class="ruby-string">&quot;Erreur creation parking mais pas 2 panneau&quot;</span>)
+        
+        <span class="ruby-identifier">assert_raise</span>(<span class="ruby-constant">ArgumentError</span>) {<span class="ruby-constant">Parking</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;ArgumErr&quot;</span>, <span class="ruby-value">0</span>,<span class="ruby-value">0</span>,<span class="ruby-value">0</span>,<span class="ruby-value">0</span>)}
+        <span class="ruby-identifier">assert_raise</span>(<span class="ruby-constant">ArgumentError</span>) {<span class="ruby-constant">Parking</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;ArgumErr&quot;</span>, <span class="ruby-value">-1</span>,<span class="ruby-value">-1</span>,<span class="ruby-value">-1</span>,<span class="ruby-value">-1</span>)}
+        <span class="ruby-identifier">assert_raise</span>(<span class="ruby-constant">ArgumentError</span>) {<span class="ruby-constant">Parking</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;ArgumErr&quot;</span>, <span class="ruby-value">0</span>,<span class="ruby-value">1</span>,<span class="ruby-value">100</span>,<span class="ruby-value">100</span>)}
+        <span class="ruby-identifier">assert_raise</span>(<span class="ruby-constant">ArgumentError</span>) {<span class="ruby-constant">Parking</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;ArgumErr&quot;</span>, <span class="ruby-value">1</span>,<span class="ruby-value">0</span>,<span class="ruby-value">100</span>,<span class="ruby-value">100</span>)}
+        <span class="ruby-identifier">assert_raise</span>(<span class="ruby-constant">ArgumentError</span>) {<span class="ruby-constant">Parking</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;ArgumErr&quot;</span>, <span class="ruby-value">-1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">100</span>,<span class="ruby-value">100</span>)}
+        <span class="ruby-identifier">assert_raise</span>(<span class="ruby-constant">ArgumentError</span>) {<span class="ruby-constant">Parking</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;ArgumErr&quot;</span>, <span class="ruby-value">1</span>,<span class="ruby-value">-1</span>,<span class="ruby-value">100</span>,<span class="ruby-value">100</span>)}
+        <span class="ruby-identifier">assert_raise</span>(<span class="ruby-constant">ArgumentError</span>) {<span class="ruby-constant">Parking</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;ArgumErr&quot;</span>, <span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">99</span>,<span class="ruby-value">100</span>)}
+        <span class="ruby-identifier">assert_raise</span>(<span class="ruby-constant">ArgumentError</span>) {<span class="ruby-constant">Parking</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;ArgumErr&quot;</span>, <span class="ruby-value">1</span>,<span class="ruby-value">1</span>,<span class="ruby-value">100</span>,<span class="ruby-value">99</span>)}
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- test_new-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- test_new-method -->
+
+    
+      <div id="method-i-test_remove_vehicule" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_remove_vehicule</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Test de la methode remove_vehicule</p>
+          
+
+          
+          <div class="method-source-code" id="test_remove_vehicule-source">
+            <pre><span class="ruby-comment"># File testParking.rb, line 61</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_remove_vehicule</span>
+        <span class="ruby-ivar">@parking</span>.<span class="ruby-identifier">listClient</span><span class="ruby-operator">&lt;&lt;</span><span class="ruby-ivar">@vehiculeFake</span>
+        <span class="ruby-ivar">@parking</span>.<span class="ruby-identifier">listAbonnes</span><span class="ruby-operator">&lt;&lt;</span><span class="ruby-ivar">@vehiculeFake</span>
+        
+        <span class="ruby-ivar">@placeFake</span>.<span class="ruby-identifier">vehicule</span> = <span class="ruby-ivar">@vehiculeFake</span>
+        <span class="ruby-ivar">@parking</span>.<span class="ruby-identifier">remove_vehicule</span>(<span class="ruby-ivar">@placeFake</span>,<span class="ruby-ivar">@vehiculeFake</span>)
+        <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value">0</span>, <span class="ruby-ivar">@parking</span>.<span class="ruby-identifier">listClient</span>.<span class="ruby-identifier">length</span>, <span class="ruby-string">&quot;Erreur : remove_vehicule (client) pas de modif de listCLient&quot;</span>)
+        <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value">1</span>, <span class="ruby-ivar">@parking</span>.<span class="ruby-identifier">listAbonnes</span>.<span class="ruby-identifier">length</span>, <span class="ruby-string">&quot;Erreur : remove_vehicule (client) modif de listAbonnes&quot;</span>)
+        
+        <span class="ruby-ivar">@placeFake</span>.<span class="ruby-identifier">vehicule</span> = <span class="ruby-ivar">@vehiculeFake</span>
+        <span class="ruby-ivar">@vehiculeFake</span>.<span class="ruby-identifier">abonne</span> = <span class="ruby-ivar">@abonneFake</span>
+        <span class="ruby-ivar">@parking</span>.<span class="ruby-identifier">remove_vehicule</span>(<span class="ruby-ivar">@placeFake</span>,<span class="ruby-ivar">@vehiculeFake</span>)
+        <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value">0</span>, <span class="ruby-ivar">@parking</span>.<span class="ruby-identifier">listClient</span>.<span class="ruby-identifier">length</span>, <span class="ruby-string">&quot;Erreur : remove_vehicule (abonne) modif de listCLient&quot;</span>)
+        <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value">0</span>, <span class="ruby-ivar">@parking</span>.<span class="ruby-identifier">listAbonnes</span>.<span class="ruby-identifier">length</span>, <span class="ruby-string">&quot;Erreur : remove_vehicule (abonne) pas de modif de listAbonnes&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- test_remove_vehicule-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- test_remove_vehicule-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

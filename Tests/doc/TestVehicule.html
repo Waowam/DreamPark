@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>class TestVehicule - RDoc Documentation</title>
+
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="./index.html">Home</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>testVehicule.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link">Test::Unit::TestCase
+  
+</nav>
+
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li><a href="#method-i-setup">#setup</a>
+    
+    <li><a href="#method-i-teardown">#teardown</a>
+    
+    <li><a href="#method-i-test_is_abonne-3F">#test_is_abonne?</a>
+    
+    <li><a href="#method-i-test_nbreVisites">#test_nbreVisites</a>
+    
+    <li><a href="#method-i-test_new">#test_new</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="./_git/COMMIT_EDITMSG.html">COMMIT_EDITMSG</a>
+  
+    <li class="file"><a href="./_git/HEAD.html">HEAD</a>
+  
+    <li class="file"><a href="./_git/config.html">config</a>
+  
+    <li class="file"><a href="./_git/description.html">description</a>
+  
+    <li class="file"><a href="./_git/info/exclude.html">exclude</a>
+  
+    <li class="file"><a href="./_git/logs/HEAD.html">HEAD</a>
+  
+    <li class="file"><a href="./_git/logs/refs/heads/master.html">master</a>
+  
+    <li class="file"><a href="./_git/refs/heads/master.html">master</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./FausseBorne.html">FausseBorne</a>
+  
+    <li><a href="./FausseCamera.html">FausseCamera</a>
+  
+    <li><a href="./FaussePlace.html">FaussePlace</a>
+  
+    <li><a href="./FauxAbonne.html">FauxAbonne</a>
+  
+    <li><a href="./FauxAcces.html">FauxAcces</a>
+  
+    <li><a href="./FauxPanneau.html">FauxPanneau</a>
+  
+    <li><a href="./FauxParking.html">FauxParking</a>
+  
+    <li><a href="./FauxTeleporteur.html">FauxTeleporteur</a>
+  
+    <li><a href="./FauxVehicule.html">FauxVehicule</a>
+  
+    <li><a href="./TestAbonne.html">TestAbonne</a>
+  
+    <li><a href="./TestAcces.html">TestAcces</a>
+  
+    <li><a href="./TestParking.html">TestParking</a>
+  
+    <li><a href="./TestPlace.html">TestPlace</a>
+  
+    <li><a href="./TestVehicule.html">TestVehicule</a>
+  
+    <li><a href="./Test_borne.html">Test_borne</a>
+  
+    <li><a href="./Test_camera.html">Test_camera</a>
+  
+    <li><a href="./Test_panneau.html">Test_panneau</a>
+  
+    <li><a href="./Test_teleporteur.html">Test_teleporteur</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class TestVehicule</h1>
+
+  <div id="description" class="description">
+    
+<p>Classe permettant de tester les méthodes de la classe Vehicule.</p>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <!-- Constants -->
+    <section id="constants-list" class="section">
+      <h3 class="section-header">Constants</h3>
+      <dl>
+      
+        <dt id="LONG">LONG
+        
+        <dd class="description">
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-setup" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">setup</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="setup-source">
+            <pre><span class="ruby-comment"># File testVehicule.rb, line 7</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">setup</span>
+        <span class="ruby-ivar">@abonneFake</span> = <span class="ruby-constant">FauxAbonne</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;nomTest&quot;</span>,<span class="ruby-string">&quot;prenomTest&quot;</span>,<span class="ruby-string">&quot;1 rue du test&quot;</span>,<span class="ruby-string">&quot;0506070809&quot;</span>)
+        <span class="ruby-ivar">@vehiculeOK</span> = <span class="ruby-constant">Vehicule</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">IMMAT</span>, <span class="ruby-constant">HAUT</span>, <span class="ruby-constant">LONG</span> )
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- setup-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- setup-method -->
+
+    
+      <div id="method-i-teardown" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">teardown</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="teardown-source">
+            <pre><span class="ruby-comment"># File testVehicule.rb, line 12</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">teardown</span>
+
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- teardown-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- teardown-method -->
+
+    
+      <div id="method-i-test_is_abonne-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_is_abonne?</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Test de la méthode is_abonne?</p>
+          
+
+          
+          <div class="method-source-code" id="test_is_abonne-3F-source">
+            <pre><span class="ruby-comment"># File testVehicule.rb, line 44</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_is_abonne?</span>
+        <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">false</span>, <span class="ruby-ivar">@vehiculeOK</span>.<span class="ruby-identifier">is_abonne?</span>, <span class="ruby-string">&quot;Erreur : new vehicule -&gt; is_abonne? non nul&quot;</span>)
+        <span class="ruby-ivar">@vehiculeOK</span>.<span class="ruby-identifier">abonne</span>=<span class="ruby-ivar">@abonneFake</span>
+        <span class="ruby-identifier">assert</span>(<span class="ruby-ivar">@vehiculeOK</span>.<span class="ruby-identifier">is_abonne?</span>, <span class="ruby-string">&quot;Erreur : is_abonne? pas true alors qu'attribut abonne existe&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- test_is_abonne-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- test_is_abonne-3F-method -->
+
+    
+      <div id="method-i-test_nbreVisites" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_nbreVisites</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Test incrementation / decrementation du nombre de visites d’un véhicule.</p>
+          
+
+          
+          <div class="method-source-code" id="test_nbreVisites-source">
+            <pre><span class="ruby-comment"># File testVehicule.rb, line 32</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_nbreVisites</span>
+        <span class="ruby-ivar">@vehiculeOK</span>.<span class="ruby-identifier">incrementer_visite</span>
+        <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value">1</span>, <span class="ruby-ivar">@vehiculeOK</span>.<span class="ruby-identifier">nbreVisites</span>, <span class="ruby-string">&quot;Erreur : incrementer_visite impossible&quot;</span>)
+        
+        <span class="ruby-ivar">@vehiculeOK</span>.<span class="ruby-identifier">decrementer_visite</span>
+        <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value">0</span>, <span class="ruby-ivar">@vehiculeOK</span>.<span class="ruby-identifier">nbreVisites</span>, <span class="ruby-string">&quot;Erreur : decrementer_visite impossible&quot;</span>)
+        
+        <span class="ruby-ivar">@vehiculeOK</span>.<span class="ruby-identifier">decrementer_visite</span>
+        <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value">0</span>, <span class="ruby-ivar">@vehiculeOK</span>.<span class="ruby-identifier">nbreVisites</span>, <span class="ruby-string">&quot;Erreur : visites decrementes au dela de zero&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- test_nbreVisites-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- test_nbreVisites-method -->
+
+    
+      <div id="method-i-test_new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_new</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Test des attributs apres l’instanciation d’un vehicule vehiculeOK : place
+avec des attributs correct vehicules incorrects (taille nulle ou négative)
+: lève ArgumentError</p>
+          
+
+          
+          <div class="method-source-code" id="test_new-source">
+            <pre><span class="ruby-comment"># File testVehicule.rb, line 19</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_new</span>
+        <span class="ruby-identifier">assert_instance_of</span>(<span class="ruby-constant">Vehicule</span>, <span class="ruby-ivar">@vehiculeOK</span>, <span class="ruby-string">&quot;Erreur creation vehiculeOK&quot;</span>)
+        <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword">nil</span>, <span class="ruby-ivar">@vehiculeOK</span>.<span class="ruby-identifier">abonne</span>, <span class="ruby-string">&quot;Erreur : creation de vehiculeOK -&gt; abonne non nul&quot;</span>)
+        <span class="ruby-identifier">assert_equal</span>([], <span class="ruby-ivar">@vehiculeOK</span>.<span class="ruby-identifier">livraisons</span>, <span class="ruby-string">&quot;Erreur : creation de vehiculeOK -&gt; livraisons non []&quot;</span>)
+        <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value">0</span>, <span class="ruby-ivar">@vehiculeOK</span>.<span class="ruby-identifier">nbreEntretien</span>, <span class="ruby-string">&quot;Erreur : creation de vehiculeOK -&gt; nbreEntretien non nul&quot;</span>)
+        <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value">0</span>, <span class="ruby-ivar">@vehiculeOK</span>.<span class="ruby-identifier">nbreMaintenance</span>, <span class="ruby-string">&quot;Erreur : creation de vehiculeOK -&gt; nbreMaintenance non nul&quot;</span>)
+        <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value">0</span>, <span class="ruby-ivar">@vehiculeOK</span>.<span class="ruby-identifier">nbreVisites</span>, <span class="ruby-string">&quot;Erreur : creation de vehiculeOK -&gt; nbreVisites non nul&quot;</span>)
+        
+        <span class="ruby-identifier">assert_raise</span>(<span class="ruby-constant">ArgumentError</span>) {<span class="ruby-constant">Vehicule</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;badNul&quot;</span>,<span class="ruby-value">0</span>,<span class="ruby-value">0</span>)}
+        <span class="ruby-identifier">assert_raise</span>(<span class="ruby-constant">ArgumentError</span>) {<span class="ruby-constant">Vehicule</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;badNeg&quot;</span>,<span class="ruby-value">-10</span>,<span class="ruby-value">-20</span>)}
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- test_new-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- test_new-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+
