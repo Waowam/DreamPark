@@ -13,20 +13,24 @@ class VueStats
 	attr_reader :builder,:ctrl,:window,:buffer,:endIter
 	attr_writer :builder,:ctrl,:window,:buffer,:endIter
 
+	#Insere le texte passé en paramètre dans la zone de texte
 	def insert text
 		buffer.insert(buffer.end_iter,text)
 	end
 
+	#Cache la fenêtre de statistiques
 	def cb_hide
 		window.hide
 	end
 
+	#Mets à jour les statistiques
 	def maj_stats text
 		buffer.delete(buffer.start_iter,buffer.end_iter)
 		insert text
 		window.show_all
 	end
 
+	#constructeur
 	def initialize text
 		#Builder de la fenetre
 	  	@builder = Gtk::Builder.new

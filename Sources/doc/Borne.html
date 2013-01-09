@@ -72,9 +72,19 @@
     
     <li><a href="#method-c-new">::new</a>
     
-    <li><a href="#method-i-abonnerClient">#abonnerClient</a>
+    <li><a href="#method-i-abonner">#abonner</a>
     
-    <li><a href="#method-i-editerTicker">#editerTicker</a>
+    <li><a href="#method-i-apply_scenarios">#apply_scenarios</a>
+    
+    <li><a href="#method-i-change_num_scenario">#change_num_scenario</a>
+    
+    <li><a href="#method-i-editerTicket">#editerTicket</a>
+    
+    <li><a href="#method-i-get_num_scenario">#get_num_scenario</a>
+    
+    <li><a href="#method-i-save">#save</a>
+    
+    <li><a href="#method-i-upgrade">#upgrade</a>
     
   </ul>
 </nav>
@@ -88,6 +98,8 @@
 
   <ul class="link-list">
   
+    <li><a href="./Abonne.html">Abonne</a>
+  
     <li><a href="./Acces.html">Acces</a>
   
     <li><a href="./Borne.html">Borne</a>
@@ -96,7 +108,15 @@
   
     <li><a href="./Ctrl_borne.html">Ctrl_borne</a>
   
+    <li><a href="./Ctrl_gen.html">Ctrl_gen</a>
+  
+    <li><a href="./Ctrl_parking.html">Ctrl_parking</a>
+  
+    <li><a href="./Database.html">Database</a>
+  
     <li><a href="./GestionPark.html">GestionPark</a>
+  
+    <li><a href="./Livraison.html">Livraison</a>
   
     <li><a href="./Object.html">Object</a>
   
@@ -112,7 +132,15 @@
   
     <li><a href="./Vehicule.html">Vehicule</a>
   
+    <li><a href="./VueGeneral.html">VueGeneral</a>
+  
+    <li><a href="./VueStats.html">VueStats</a>
+  
     <li><a href="./Vue_borne.html">Vue_borne</a>
+  
+    <li><a href="./Vue_panneau.html">Vue_panneau</a>
+  
+    <li><a href="./Vue_parking.html">Vue_parking</a>
   
   </ul>
 </nav>
@@ -125,12 +153,6 @@
 
   <div id="description" class="description">
     
-<p>04/12/12</p>
-
-<p>Eglem - Pinto</p>
-
-<p>borne.rb</p>
-
   </div><!-- description -->
 
   
@@ -149,9 +171,22 @@
       <h3 class="section-header">Attributes</h3>
 
       
-      <div id="attribute-i-acces" class="method-detail">
+      <div id="attribute-i-autorisation" class="method-detail">
         <div class="method-heading attribute-method-heading">
-          <span class="method-name">acces</span><span
+          <span class="method-name">autorisation</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-controleur" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">controleur</span><span
             class="attribute-access-type">[R]</span>
         </div>
 
@@ -162,10 +197,23 @@
         </div>
       </div>
       
-      <div id="attribute-i-idBorne" class="method-detail">
+      <div id="attribute-i-listTickets" class="method-detail">
         <div class="method-heading attribute-method-heading">
-          <span class="method-name">idBorne</span><span
-            class="attribute-access-type">[R]</span>
+          <span class="method-name">listTickets</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-nom" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">nom</span><span
+            class="attribute-access-type">[RW]</span>
         </div>
 
         <div class="method-description">
@@ -188,7 +236,7 @@
         
         <div class="method-heading">
           <span class="method-name">new</span><span
-            class="method-args">(acces)</span>
+            class="method-args">(acces,nom)</span>
           <span class="method-click-advice">click to toggle source</span>
         </div>
         
@@ -200,10 +248,13 @@
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File Modele/borne.rb, line 13</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">acces</span>)
-        <span class="ruby-ivar">@idBorne</span> = <span class="ruby-value">01</span>
-        <span class="ruby-ivar">@acces</span> = <span class="ruby-identifier">acces</span>
+            <pre><span class="ruby-comment"># File Modele/borne.rb, line 16</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">acces</span>,<span class="ruby-identifier">nom</span>)
+        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">nom</span> = <span class="ruby-identifier">nom</span>
+        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">listTickets</span> = []
+        <span class="ruby-ivar">@acces</span>=<span class="ruby-identifier">acces</span>
+        <span class="ruby-ivar">@autorisation</span>=<span class="ruby-keyword">false</span>
+        <span class="ruby-ivar">@controleur</span> = <span class="ruby-constant">Ctrl_borne</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>)
 <span class="ruby-keyword">end</span></pre>
           </div><!-- new-source -->
           
@@ -221,10 +272,40 @@
       <h3 class="section-header">Public Instance Methods</h3>
 
     
-      <div id="method-i-abonnerClient" class="method-detail ">
+      <div id="method-i-abonner" class="method-detail ">
         
         <div class="method-heading">
-          <span class="method-name">abonnerClient</span><span
+          <span class="method-name">abonner</span><span
+            class="method-args">(v,c)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Lie le nouveau client abonné à son véhicule</p>
+          
+
+          
+          <div class="method-source-code" id="abonner-source">
+            <pre><span class="ruby-comment"># File Modele/borne.rb, line 25</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">abonner</span>(<span class="ruby-identifier">v</span>,<span class="ruby-identifier">c</span>)
+        <span class="ruby-identifier">v</span>.<span class="ruby-identifier">abonne</span>=<span class="ruby-identifier">c</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- abonner-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- abonner-method -->
+
+    
+      <div id="method-i-apply_scenarios" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">apply_scenarios</span><span
             class="method-args">()</span>
           <span class="method-click-advice">click to toggle source</span>
         </div>
@@ -236,25 +317,42 @@
           
 
           
-          <div class="method-source-code" id="abonnerClient-source">
-            <pre><span class="ruby-comment"># File Modele/borne.rb, line 18</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">abonnerClient</span>
+          <div class="method-source-code" id="apply_scenarios-source">
+            <pre><span class="ruby-comment"># File Modele/borne.rb, line 52</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">apply_scenarios</span>
+        <span class="ruby-keyword">case</span> <span class="ruby-identifier">get_num_scenario</span>
+                <span class="ruby-keyword">when</span> <span class="ruby-value">1</span>
+                        <span class="ruby-identifier">controleur</span>.<span class="ruby-identifier">ask_abonnement</span>
+                <span class="ruby-keyword">when</span> <span class="ruby-value">2</span>
+                        <span class="ruby-identifier">controleur</span>.<span class="ruby-identifier">ask_services</span>
+                <span class="ruby-keyword">when</span> <span class="ruby-value">3</span>
+                        <span class="ruby-identifier">controleur</span>.<span class="ruby-identifier">ask_upgrade</span>
+                <span class="ruby-keyword">when</span> <span class="ruby-value">4</span>
+                        <span class="ruby-identifier">controleur</span>.<span class="ruby-identifier">ask_paiement</span>
+                <span class="ruby-keyword">when</span> <span class="ruby-value">5</span>
+                        <span class="ruby-identifier">controleur</span>.<span class="ruby-identifier">ask_adhesion</span> <span class="ruby-value">1</span>
+                <span class="ruby-keyword">when</span> (<span class="ruby-value">-1</span>)
+                        <span class="ruby-identifier">controleur</span>.<span class="ruby-identifier">say_bybye</span>
+                        <span class="ruby-identifier">controleur</span>.<span class="ruby-identifier">reset_view</span>
+                        <span class="ruby-ivar">@autorisation</span>=<span class="ruby-keyword">true</span>
+                        <span class="ruby-ivar">@acces</span>.<span class="ruby-identifier">est_entre</span>
+        <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></pre>
-          </div><!-- abonnerClient-source -->
+          </div><!-- apply_scenarios-source -->
           
         </div>
 
         
 
         
-      </div><!-- abonnerClient-method -->
+      </div><!-- apply_scenarios-method -->
 
     
-      <div id="method-i-editerTicker" class="method-detail ">
+      <div id="method-i-change_num_scenario" class="method-detail ">
         
         <div class="method-heading">
-          <span class="method-name">editerTicker</span><span
-            class="method-args">(place,imma)</span>
+          <span class="method-name">change_num_scenario</span><span
+            class="method-args">(n)</span>
           <span class="method-click-advice">click to toggle source</span>
         </div>
         
@@ -265,18 +363,141 @@
           
 
           
-          <div class="method-source-code" id="editerTicker-source">
-            <pre><span class="ruby-comment"># File Modele/borne.rb, line 21</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">editerTicker</span>(<span class="ruby-identifier">place</span>,<span class="ruby-identifier">imma</span>)
+          <div class="method-source-code" id="change_num_scenario-source">
+            <pre><span class="ruby-comment"># File Modele/borne.rb, line 48</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">change_num_scenario</span> <span class="ruby-identifier">n</span>
+        <span class="ruby-identifier">controleur</span>.<span class="ruby-identifier">vue_borne</span>.<span class="ruby-identifier">num_scenario</span>= <span class="ruby-identifier">n</span>
 <span class="ruby-keyword">end</span></pre>
-          </div><!-- editerTicker-source -->
+          </div><!-- change_num_scenario-source -->
           
         </div>
 
         
 
         
-      </div><!-- editerTicker-method -->
+      </div><!-- change_num_scenario-method -->
+
+    
+      <div id="method-i-editerTicket" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">editerTicket</span><span
+            class="method-args">(place,v)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>creer un ticket pour un véhicule donné</p>
+          
+
+          
+          <div class="method-source-code" id="editerTicket-source">
+            <pre><span class="ruby-comment"># File Modele/borne.rb, line 35</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">editerTicket</span>(<span class="ruby-identifier">place</span>,<span class="ruby-identifier">v</span>)
+        <span class="ruby-identifier">listTickets</span><span class="ruby-operator">&lt;&lt;</span><span class="ruby-constant">Ticket</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">place</span>, <span class="ruby-identifier">v</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- editerTicket-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- editerTicket-method -->
+
+    
+      <div id="method-i-get_num_scenario" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_num_scenario</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="get_num_scenario-source">
+            <pre><span class="ruby-comment"># File Modele/borne.rb, line 44</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_num_scenario</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-identifier">controleur</span>.<span class="ruby-identifier">vue_borne</span>.<span class="ruby-identifier">num_scenario</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- get_num_scenario-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- get_num_scenario-method -->
+
+    
+      <div id="method-i-save" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">save</span><span
+            class="method-args">(nomPark, nomAcce)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="save-source">
+            <pre><span class="ruby-comment"># File Modele/borne.rb, line 39</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">save</span>(<span class="ruby-identifier">nomPark</span>, <span class="ruby-identifier">nomAcce</span>)
+        <span class="ruby-identifier">$db</span>.<span class="ruby-identifier">execute</span> <span class="ruby-node">&quot;INSERT INTO borne(nom, park, acce) VALUES ('#{nom}', '#{nomPark}', '#{nomAcce}')&quot;</span>
+        <span class="ruby-identifier">listTickets</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">save</span>(<span class="ruby-identifier">nomPark</span>, <span class="ruby-identifier">nom</span>) }
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- save-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- save-method -->
+
+    
+      <div id="method-i-upgrade" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">upgrade</span><span
+            class="method-args">(c)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p><a href="Abonne.html">Abonne</a> au pack garanti le client passé en
+paramètre</p>
+          
+
+          
+          <div class="method-source-code" id="upgrade-source">
+            <pre><span class="ruby-comment"># File Modele/borne.rb, line 30</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">upgrade</span>(<span class="ruby-identifier">c</span>)
+        <span class="ruby-identifier">c</span>.<span class="ruby-identifier">hasPack</span>=<span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- upgrade-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- upgrade-method -->
 
     
     </section><!-- public-instance-method-details -->

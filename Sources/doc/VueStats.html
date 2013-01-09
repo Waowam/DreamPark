@@ -4,7 +4,7 @@
 <head>
 <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
 
-<title>class Panneau - RDoc Documentation</title>
+<title>class VueStats - RDoc Documentation</title>
 
 <link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
 
@@ -47,7 +47,7 @@
     <nav id="file-list-section" class="section">
   <h3 class="section-header">Defined In</h3>
   <ul>
-    <li>Modele/panneau.rb
+    <li>Vue/vueStats.rb
   </ul>
 </nav>
 
@@ -72,13 +72,11 @@
     
     <li><a href="#method-c-new">::new</a>
     
-    <li><a href="#method-i-decrementer">#decrementer</a>
+    <li><a href="#method-i-cb_hide">#cb_hide</a>
     
-    <li><a href="#method-i-incrementer">#incrementer</a>
+    <li><a href="#method-i-insert">#insert</a>
     
-    <li><a href="#method-i-save">#save</a>
-    
-    <li><a href="#method-i-to_s">#to_s</a>
+    <li><a href="#method-i-maj_stats">#maj_stats</a>
     
   </ul>
 </nav>
@@ -143,13 +141,10 @@
 </nav>
 
 <div id="documentation">
-  <h1 class="class">class Panneau</h1>
+  <h1 class="class">class VueStats</h1>
 
   <div id="description" class="description">
     
-<p>Classe panneau représentant le panneau d’affichage des places totales
-restantes.</p>
-
   </div><!-- description -->
 
   
@@ -168,9 +163,9 @@ restantes.</p>
       <h3 class="section-header">Attributes</h3>
 
       
-      <div id="attribute-i-nom" class="method-detail">
+      <div id="attribute-i-buffer" class="method-detail">
         <div class="method-heading attribute-method-heading">
-          <span class="method-name">nom</span><span
+          <span class="method-name">buffer</span><span
             class="attribute-access-type">[RW]</span>
         </div>
 
@@ -181,9 +176,9 @@ restantes.</p>
         </div>
       </div>
       
-      <div id="attribute-i-placeTot" class="method-detail">
+      <div id="attribute-i-builder" class="method-detail">
         <div class="method-heading attribute-method-heading">
-          <span class="method-name">placeTot</span><span
+          <span class="method-name">builder</span><span
             class="attribute-access-type">[RW]</span>
         </div>
 
@@ -194,9 +189,35 @@ restantes.</p>
         </div>
       </div>
       
-      <div id="attribute-i-placeUsed" class="method-detail">
+      <div id="attribute-i-ctrl" class="method-detail">
         <div class="method-heading attribute-method-heading">
-          <span class="method-name">placeUsed</span><span
+          <span class="method-name">ctrl</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-endIter" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">endIter</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-window" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">window</span><span
             class="attribute-access-type">[RW]</span>
         </div>
 
@@ -220,23 +241,38 @@ restantes.</p>
         
         <div class="method-heading">
           <span class="method-name">new</span><span
-            class="method-args">(nom="",place=0)</span>
+            class="method-args">(text)</span>
           <span class="method-click-advice">click to toggle source</span>
         </div>
         
 
         <div class="method-description">
           
-          
+          <p>constructeur</p>
           
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File Modele/panneau.rb, line 16</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">nom</span>=<span class="ruby-string">&quot;&quot;</span>,<span class="ruby-identifier">place</span>=<span class="ruby-value">0</span>)
-        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">nom</span> = <span class="ruby-identifier">nom</span>
-        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">placeUsed</span>=<span class="ruby-value">0</span>
-        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">placeTot</span>=<span class="ruby-identifier">place</span>
+            <pre><span class="ruby-comment"># File Vue/vueStats.rb, line 34</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span> <span class="ruby-identifier">text</span>
+            <span class="ruby-comment">#Builder de la fenetre</span>
+           <span class="ruby-ivar">@builder</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Builder</span>.<span class="ruby-identifier">new</span>
+           <span class="ruby-ivar">@builder</span>.<span class="ruby-identifier">add_from_file</span>( <span class="ruby-string">&quot;../Vue/vueStats.glade&quot;</span> )
+
+
+            <span class="ruby-comment">#Elements principaux</span>
+            <span class="ruby-ivar">@window</span>       = <span class="ruby-identifier">builder</span>.<span class="ruby-identifier">get_object</span>( <span class="ruby-string">&quot;vue_stats&quot;</span> ) <span class="ruby-comment">#Fenetre entière</span>
+            <span class="ruby-ivar">@buffer</span>         = <span class="ruby-identifier">builder</span>.<span class="ruby-identifier">get_object</span>( <span class="ruby-string">&quot;stats_buffer&quot;</span> )     <span class="ruby-comment">#BUFFFFEEERR</span>
+            <span class="ruby-ivar">@endIter</span>        = <span class="ruby-identifier">buffer</span>.<span class="ruby-identifier">end_iter</span>
+
+            <span class="ruby-comment">#Init les buffers</span>
+            <span class="ruby-identifier">buffer</span>.<span class="ruby-identifier">insert</span>(<span class="ruby-identifier">endIter</span>,<span class="ruby-identifier">text</span>)
+            <span class="ruby-identifier">endIter</span> = <span class="ruby-identifier">buffer</span>.<span class="ruby-identifier">end_iter</span>
+
+            <span class="ruby-identifier">window</span>.<span class="ruby-identifier">show_all</span>
+
+            <span class="ruby-comment">#Build des signaux</span>
+            <span class="ruby-identifier">builder</span>.<span class="ruby-identifier">connect_signals</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">handler</span><span class="ruby-operator">|</span> <span class="ruby-identifier">method</span>(<span class="ruby-identifier">handler</span>) }
 <span class="ruby-keyword">end</span></pre>
           </div><!-- new-source -->
           
@@ -254,10 +290,10 @@ restantes.</p>
       <h3 class="section-header">Public Instance Methods</h3>
 
     
-      <div id="method-i-decrementer" class="method-detail ">
+      <div id="method-i-cb_hide" class="method-detail ">
         
         <div class="method-heading">
-          <span class="method-name">decrementer</span><span
+          <span class="method-name">cb_hide</span><span
             class="method-args">()</span>
           <span class="method-click-advice">click to toggle source</span>
         </div>
@@ -265,113 +301,85 @@ restantes.</p>
 
         <div class="method-description">
           
-          <p>Decremente le nombre de places utilisées</p>
+          <p>Cache la fenêtre de statistiques</p>
           
 
           
-          <div class="method-source-code" id="decrementer-source">
-            <pre><span class="ruby-comment"># File Modele/panneau.rb, line 28</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">decrementer</span>
-        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">placeUsed</span><span class="ruby-operator">-=</span><span class="ruby-value">1</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">placeUsed</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+          <div class="method-source-code" id="cb_hide-source">
+            <pre><span class="ruby-comment"># File Vue/vueStats.rb, line 22</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">cb_hide</span>
+        <span class="ruby-identifier">window</span>.<span class="ruby-identifier">hide</span>
 <span class="ruby-keyword">end</span></pre>
-          </div><!-- decrementer-source -->
+          </div><!-- cb_hide-source -->
           
         </div>
 
         
 
         
-      </div><!-- decrementer-method -->
+      </div><!-- cb_hide-method -->
 
     
-      <div id="method-i-incrementer" class="method-detail ">
+      <div id="method-i-insert" class="method-detail ">
         
         <div class="method-heading">
-          <span class="method-name">incrementer</span><span
-            class="method-args">()</span>
+          <span class="method-name">insert</span><span
+            class="method-args">(text)</span>
           <span class="method-click-advice">click to toggle source</span>
         </div>
         
 
         <div class="method-description">
           
-          <p>Incremente le nombre de places utilisées</p>
+          <p>Insere le texte passé en paramètre dans la zone de texte</p>
           
 
           
-          <div class="method-source-code" id="incrementer-source">
-            <pre><span class="ruby-comment"># File Modele/panneau.rb, line 23</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">incrementer</span>
-        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">placeUsed</span>= <span class="ruby-identifier">placeUsed</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">placeUsed</span><span class="ruby-operator">&lt;</span><span class="ruby-identifier">placeTot</span>
+          <div class="method-source-code" id="insert-source">
+            <pre><span class="ruby-comment"># File Vue/vueStats.rb, line 17</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">insert</span> <span class="ruby-identifier">text</span>
+        <span class="ruby-identifier">buffer</span>.<span class="ruby-identifier">insert</span>(<span class="ruby-identifier">buffer</span>.<span class="ruby-identifier">end_iter</span>,<span class="ruby-identifier">text</span>)
 <span class="ruby-keyword">end</span></pre>
-          </div><!-- incrementer-source -->
+          </div><!-- insert-source -->
           
         </div>
 
         
 
         
-      </div><!-- incrementer-method -->
+      </div><!-- insert-method -->
 
     
-      <div id="method-i-save" class="method-detail ">
+      <div id="method-i-maj_stats" class="method-detail ">
         
         <div class="method-heading">
-          <span class="method-name">save</span><span
-            class="method-args">(nomPark)</span>
+          <span class="method-name">maj_stats</span><span
+            class="method-args">(text)</span>
           <span class="method-click-advice">click to toggle source</span>
         </div>
         
 
         <div class="method-description">
           
-          
+          <p>Mets à jour les statistiques</p>
           
 
           
-          <div class="method-source-code" id="save-source">
-            <pre><span class="ruby-comment"># File Modele/panneau.rb, line 37</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">save</span>(<span class="ruby-identifier">nomPark</span>)
-        <span class="ruby-identifier">$db</span>.<span class="ruby-identifier">execute</span> <span class="ruby-node">&quot;INSERT INTO panneau(nom, placeUsed, placeTot, park) VALUES ('#{nom}', #{placeUsed}, #{placeTot}, '#{nomPark}')&quot;</span>
+          <div class="method-source-code" id="maj_stats-source">
+            <pre><span class="ruby-comment"># File Vue/vueStats.rb, line 27</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">maj_stats</span> <span class="ruby-identifier">text</span>
+        <span class="ruby-identifier">buffer</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">buffer</span>.<span class="ruby-identifier">start_iter</span>,<span class="ruby-identifier">buffer</span>.<span class="ruby-identifier">end_iter</span>)
+        <span class="ruby-identifier">insert</span> <span class="ruby-identifier">text</span>
+        <span class="ruby-identifier">window</span>.<span class="ruby-identifier">show_all</span>
 <span class="ruby-keyword">end</span></pre>
-          </div><!-- save-source -->
+          </div><!-- maj_stats-source -->
           
         </div>
 
         
 
         
-      </div><!-- save-method -->
-
-    
-      <div id="method-i-to_s" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">to_s</span><span
-            class="method-args">()</span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-        
-
-        <div class="method-description">
-          
-          <p>Redef <a href="Panneau.html#method-i-to_s">#to_s</a></p>
-          
-
-          
-          <div class="method-source-code" id="to_s-source">
-            <pre><span class="ruby-comment"># File Modele/panneau.rb, line 33</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_s</span>
-        <span class="ruby-identifier">s</span>=<span class="ruby-node">&quot;#{nom} : #{placeUsed}/#{placeTot}&quot;</span>
-<span class="ruby-keyword">end</span></pre>
-          </div><!-- to_s-source -->
-          
-        </div>
-
-        
-
-        
-      </div><!-- to_s-method -->
+      </div><!-- maj_stats-method -->
 
     
     </section><!-- public-instance-method-details -->

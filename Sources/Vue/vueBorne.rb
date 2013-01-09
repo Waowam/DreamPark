@@ -8,20 +8,21 @@ vueBorne.rb
 
 require 'gtk2'
 
+#Classe de vue de la borne permettant l'intéraction partielle entre
+#les clients et la borne du parking afin d'effectuer les choix et le paiement.
 class Vue_borne
 
         attr_reader :builder,:window,:entree,:console,:buffer,:endIter,:answer, :num_scenario,:ctrl
         attr_writer :num_scenario
 
-        def maj_iter
-        	endIter=buffer.end_iter
-        end
-
+        #Fonction d'insertion du texte passé en paramètre
         def insert text
         	buffer.insert(endIter,text)
           endIter=buffer.end_iter
         end
 
+        #Action du bouton valider, il réagis selon la tournure du scénario pris par 
+        #le client.
         def clkd_valider
           puts "Method : clkd_valider, num_scenario : #{num_scenario}"
          case num_scenario
@@ -64,6 +65,7 @@ class Vue_borne
          ctrl.replay_scenarios
         end
 
+        #Constructeur
         def initialize ctrl
         	 #Builder de la fenetre
           @builder = Gtk::Builder.new

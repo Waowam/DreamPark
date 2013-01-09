@@ -70,17 +70,49 @@
 
   <ul class="link-list">
     
+    <li><a href="#method-c-generate_place">::generate_place</a>
+    
     <li><a href="#method-c-new">::new</a>
     
     <li><a href="#method-i-add_vehicule">#add_vehicule</a>
     
     <li><a href="#method-i-assigner_place">#assigner_place</a>
     
-    <li><a href="#method-i-get_nb_place">#get_nb_place</a>
+    <li><a href="#method-i-decrementer_panneaux">#decrementer_panneaux</a>
     
-    <li><a href="#method-i-get_nb_place_libre">#get_nb_place_libre</a>
+    <li><a href="#method-i-garer">#garer</a>
+    
+    <li><a href="#method-i-get_vehicule_with_info">#get_vehicule_with_info</a>
+    
+    <li><a href="#method-i-hauteurMax-3D">#hauteurMax=</a>
+    
+    <li><a href="#method-i-incrementer_panneaux">#incrementer_panneaux</a>
+    
+    <li><a href="#method-i-load">#load</a>
+    
+    <li><a href="#method-i-longueurMax-3D">#longueurMax=</a>
+    
+    <li><a href="#method-i-nbNiv-3D">#nbNiv=</a>
+    
+    <li><a href="#method-i-nbPlaceNiv-3D">#nbPlaceNiv=</a>
+    
+    <li><a href="#method-i-nb_place">#nb_place</a>
+    
+    <li><a href="#method-i-nb_place_libre">#nb_place_libre</a>
     
     <li><a href="#method-i-remove_vehicule">#remove_vehicule</a>
+    
+    <li><a href="#method-i-reprendre">#reprendre</a>
+    
+    <li><a href="#method-i-save">#save</a>
+    
+    <li><a href="#method-i-stats_admin">#stats_admin</a>
+    
+    <li><a href="#method-i-stats_commercial">#stats_commercial</a>
+    
+    <li><a href="#method-i-to_s">#to_s</a>
+    
+    <li><a href="#method-i-where_to_park">#where_to_park</a>
     
   </ul>
 </nav>
@@ -94,6 +126,8 @@
 
   <ul class="link-list">
   
+    <li><a href="./Abonne.html">Abonne</a>
+  
     <li><a href="./Acces.html">Acces</a>
   
     <li><a href="./Borne.html">Borne</a>
@@ -102,7 +136,15 @@
   
     <li><a href="./Ctrl_borne.html">Ctrl_borne</a>
   
+    <li><a href="./Ctrl_gen.html">Ctrl_gen</a>
+  
+    <li><a href="./Ctrl_parking.html">Ctrl_parking</a>
+  
+    <li><a href="./Database.html">Database</a>
+  
     <li><a href="./GestionPark.html">GestionPark</a>
+  
+    <li><a href="./Livraison.html">Livraison</a>
   
     <li><a href="./Object.html">Object</a>
   
@@ -118,7 +160,15 @@
   
     <li><a href="./Vehicule.html">Vehicule</a>
   
+    <li><a href="./VueGeneral.html">VueGeneral</a>
+  
+    <li><a href="./VueStats.html">VueStats</a>
+  
     <li><a href="./Vue_borne.html">Vue_borne</a>
+  
+    <li><a href="./Vue_panneau.html">Vue_panneau</a>
+  
+    <li><a href="./Vue_parking.html">Vue_parking</a>
   
   </ul>
 </nav>
@@ -131,15 +181,11 @@
 
   <div id="description" class="description">
     
-<p>03/12/12</p>
+<p>Classe <a href="Parking.html">Parking</a></p>
 
-<p>Eglem - Pinto</p>
-
-<p>parking.rb</p>
-
-<p>#Classe <a href="Parking.html">Parking</a> # # Cette classe représente
-l’objet principal de la gestion # du parking. Elle gère l’entrée/sortie de
-véhicules # ainsi que la gestion des clients et des abonnées</p>
+<pre>Cette classe représente l'objet principal de la gestion
+d'un parking. Elle gère l'entrée/sortie de véhicules
+ainsi que la gestion des clients et des abonnées</pre>
 
   </div><!-- description -->
 
@@ -159,6 +205,45 @@ véhicules # ainsi que la gestion des clients et des abonnées</p>
       <h3 class="section-header">Attributes</h3>
 
       
+      <div id="attribute-i-acces" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">acces</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-ctrl_park" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">ctrl_park</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-hauteurMax" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">hauteurMax</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
       <div id="attribute-i-listAbonnes" class="method-detail">
         <div class="method-heading attribute-method-heading">
           <span class="method-name">listAbonnes</span><span
@@ -172,10 +257,62 @@ véhicules # ainsi que la gestion des clients et des abonnées</p>
         </div>
       </div>
       
-      <div id="attribute-i-listVehicules" class="method-detail">
+      <div id="attribute-i-listClient" class="method-detail">
         <div class="method-heading attribute-method-heading">
-          <span class="method-name">listVehicules</span><span
+          <span class="method-name">listClient</span><span
             class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-listLivraisons" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">listLivraisons</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-longueurMax" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">longueurMax</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-nbNiv" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">nbNiv</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-nbPlaceNiv" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">nbPlaceNiv</span><span
+            class="attribute-access-type">[R]</span>
         </div>
 
         <div class="method-description">
@@ -188,6 +325,19 @@ véhicules # ainsi que la gestion des clients et des abonnées</p>
       <div id="attribute-i-nom" class="method-detail">
         <div class="method-heading attribute-method-heading">
           <span class="method-name">nom</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-panneaux" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">panneaux</span><span
             class="attribute-access-type">[RW]</span>
         </div>
 
@@ -211,6 +361,19 @@ véhicules # ainsi que la gestion des clients et des abonnées</p>
         </div>
       </div>
       
+      <div id="attribute-i-services" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">services</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
     </section><!-- attribute-method-details -->
     
 
@@ -220,11 +383,49 @@ véhicules # ainsi que la gestion des clients et des abonnées</p>
       <h3 class="section-header">Public Class Methods</h3>
 
     
+      <div id="method-c-generate_place" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">generate_place</span><span
+            class="method-args">(niveau,nbPlace,rangHaut,rangLong)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Méthode de class</p>
+          
+
+          
+          <div class="method-source-code" id="generate_place-source">
+            <pre><span class="ruby-comment"># File Modele/parking.rb, line 341</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">generate_place</span>(<span class="ruby-identifier">niveau</span>,<span class="ruby-identifier">nbPlace</span>,<span class="ruby-identifier">rangHaut</span>,<span class="ruby-identifier">rangLong</span>)
+        <span class="ruby-identifier">p</span> = []
+        <span class="ruby-keyword">for</span> <span class="ruby-identifier">niv</span> <span class="ruby-keyword">in</span> (<span class="ruby-value">0</span><span class="ruby-operator">...</span><span class="ruby-identifier">niveau</span>)
+                <span class="ruby-keyword">for</span> <span class="ruby-identifier">id</span> <span class="ruby-keyword">in</span> (<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-identifier">nbPlace</span>)
+                        <span class="ruby-identifier">idP</span> = (<span class="ruby-identifier">niv</span>*<span class="ruby-identifier">nbPlace</span>)<span class="ruby-operator">+</span><span class="ruby-identifier">id</span>
+                        <span class="ruby-identifier">newP</span> = <span class="ruby-constant">Place</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">idP</span>,<span class="ruby-identifier">niv</span>,<span class="ruby-identifier">rand</span>(<span class="ruby-identifier">rangHaut</span>),<span class="ruby-identifier">rand</span>(<span class="ruby-identifier">rangLong</span>))
+                        <span class="ruby-identifier">p</span><span class="ruby-operator">&lt;&lt;</span><span class="ruby-identifier">newP</span>
+                <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-identifier">p</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- generate_place-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- generate_place-method -->
+
+    
       <div id="method-c-new" class="method-detail ">
         
         <div class="method-heading">
           <span class="method-name">new</span><span
-            class="method-args">(nom="DreamPark",places=[])</span>
+            class="method-args">(nom="DreamPark",nbNiv=1,nbPlaceNiv=50,hauteurMax=500,longueurMax=500)</span>
           <span class="method-click-advice">click to toggle source</span>
         </div>
         
@@ -236,12 +437,20 @@ véhicules # ainsi que la gestion des clients et des abonnées</p>
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File Modele/parking.rb, line 19</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">nom</span>=<span class="ruby-string">&quot;DreamPark&quot;</span>,<span class="ruby-identifier">places</span>=[])
-        <span class="ruby-ivar">@nom</span> = <span class="ruby-identifier">nom</span>
-        <span class="ruby-ivar">@place</span> = <span class="ruby-identifier">places</span>
-        <span class="ruby-ivar">@listAbonnes</span> = []
-        <span class="ruby-ivar">@listClient</span> = []
+            <pre><span class="ruby-comment"># File Modele/parking.rb, line 26</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">nom</span>=<span class="ruby-string">&quot;DreamPark&quot;</span>,<span class="ruby-identifier">nbNiv</span>=<span class="ruby-value">1</span>,<span class="ruby-identifier">nbPlaceNiv</span>=<span class="ruby-value">50</span>,<span class="ruby-identifier">hauteurMax</span>=<span class="ruby-value">500</span>,<span class="ruby-identifier">longueurMax</span>=<span class="ruby-value">500</span>)
+        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">nom</span> = <span class="ruby-identifier">nom</span>
+        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">nbNiv</span>=<span class="ruby-identifier">nbNiv</span>
+        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">nbPlaceNiv</span>=<span class="ruby-identifier">nbPlaceNiv</span>
+        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">hauteurMax</span>=<span class="ruby-identifier">hauteurMax</span>
+        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">longueurMax</span>=<span class="ruby-identifier">longueurMax</span>
+        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">place</span> = <span class="ruby-constant">Parking</span>.<span class="ruby-identifier">generate_place</span>(<span class="ruby-identifier">nbNiv</span>,<span class="ruby-identifier">nbPlaceNiv</span>,<span class="ruby-constant">Range</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">100</span>,<span class="ruby-identifier">hauteurMax</span>),<span class="ruby-constant">Range</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">100</span>,<span class="ruby-identifier">longueurMax</span>))
+        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">listAbonnes</span> = <span class="ruby-constant">Set</span>.<span class="ruby-identifier">new</span>
+        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">listClient</span> = <span class="ruby-constant">Set</span>.<span class="ruby-identifier">new</span>
+        <span class="ruby-ivar">@acces</span> = [<span class="ruby-constant">Acces</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;AccesNord&quot;</span>,<span class="ruby-keyword">self</span>), <span class="ruby-constant">Acces</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;AccesSud&quot;</span>,<span class="ruby-keyword">self</span>)]
+        <span class="ruby-ivar">@panneaux</span> = [<span class="ruby-constant">Panneau</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;Panneau-1&quot;</span>, <span class="ruby-keyword">self</span>.<span class="ruby-identifier">nb_place</span>), <span class="ruby-constant">Panneau</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;Panneau-2&quot;</span>, <span class="ruby-keyword">self</span>.<span class="ruby-identifier">nb_place</span>)]
+        <span class="ruby-ivar">@ctrl_park</span> = <span class="ruby-constant">Ctrl_parking</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>)
+        <span class="ruby-ivar">@listLivraisons</span> = []
 <span class="ruby-keyword">end</span></pre>
           </div><!-- new-source -->
           
@@ -270,16 +479,18 @@ véhicules # ainsi que la gestion des clients et des abonnées</p>
 
         <div class="method-description">
           
-          <p>Ajoute un véhicule dans la liste correspondante. is_abonne? =&gt;
-listAbonne not is_abonne? =&gt; listClient</p>
+          <p>Ajoute un véhicule dans la liste correspondante. is_abonne? =&gt; list<a
+href="Abonne.html">Abonne</a> not is_abonne? =&gt; listClient</p>
           
 
           
           <div class="method-source-code" id="add_vehicule-source">
-            <pre><span class="ruby-comment"># File Modele/parking.rb, line 29</span>
+            <pre><span class="ruby-comment"># File Modele/parking.rb, line 64</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">add_vehicule</span>(<span class="ruby-identifier">p</span>,<span class="ruby-identifier">v</span>)
+        <span class="ruby-identifier">v</span>.<span class="ruby-identifier">incrementer_visite</span>
+        <span class="ruby-identifier">listAbonnes</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">v</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">v</span>.<span class="ruby-identifier">is_abonne?</span>
+        <span class="ruby-identifier">listClient</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">v</span>) <span class="ruby-keyword">if</span> <span class="ruby-keyword">not</span> <span class="ruby-identifier">v</span>.<span class="ruby-identifier">is_abonne?</span>
         <span class="ruby-identifier">p</span>.<span class="ruby-identifier">vehicule</span> = <span class="ruby-identifier">v</span>
-        <span class="ruby-ivar">@listAbonnes</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">p</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">v</span>.<span class="ruby-identifier">is_abonne?</span> <span class="ruby-keyword">else</span> <span class="ruby-ivar">@listClient</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">p</span>)
 <span class="ruby-keyword">end</span></pre>
           </div><!-- add_vehicule-source -->
           
@@ -302,21 +513,26 @@ listAbonne not is_abonne? =&gt; listClient</p>
 
         <div class="method-description">
           
-          <p>Choisis une place correspondante au vehicule donné</p>
+          <p>Choisis une place correspondante au vehicule donné. Retourne le numéro de
+la place attribuée. Retourne -1 en cas d’echec.</p>
           
 
           
           <div class="method-source-code" id="assigner_place-source">
-            <pre><span class="ruby-comment"># File Modele/parking.rb, line 52</span>
+            <pre><span class="ruby-comment"># File Modele/parking.rb, line 108</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">assigner_place</span>(<span class="ruby-identifier">v</span>)
-        <span class="ruby-ivar">@place</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">p</span><span class="ruby-operator">|</span>
-                <span class="ruby-comment">#blablablabla algo de recherche</span>
-                <span class="ruby-comment">#selon la hauteur et la longueur</span>
-                <span class="ruby-comment"># problematique : prendre la premier place libre avec h&amp;l plus grand ? </span>
-                <span class="ruby-comment">#                                    ou</span>
-                <span class="ruby-comment">#                              prendre la premiere place libre avec h&amp;l plus grand mais de juste assez</span>
-                <span class="ruby-comment">#                                    pour garder les plus grandes places.</span>
+        <span class="ruby-identifier">listPlaces</span> = <span class="ruby-identifier">where_to_park</span>(<span class="ruby-identifier">v</span>)
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">listPlaces</span> <span class="ruby-keyword">then</span>
+                <span class="ruby-identifier">best</span> = <span class="ruby-identifier">listPlaces</span>[<span class="ruby-value">0</span>]
+                <span class="ruby-keyword">for</span> <span class="ruby-identifier">i</span> <span class="ruby-keyword">in</span> (<span class="ruby-value">1</span><span class="ruby-operator">...</span><span class="ruby-identifier">listPlaces</span>.<span class="ruby-identifier">length</span>) <span class="ruby-keyword">do</span>
+                        <span class="ruby-keyword">if</span> <span class="ruby-identifier">listPlaces</span>[<span class="ruby-identifier">i</span>].<span class="ruby-identifier">longueur</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-identifier">best</span>.<span class="ruby-identifier">longueur</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">listPlaces</span>[<span class="ruby-identifier">i</span>].<span class="ruby-identifier">hauteur</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-identifier">best</span>.<span class="ruby-identifier">hauteur</span> <span class="ruby-keyword">or</span>
+                           <span class="ruby-identifier">listPlaces</span>[<span class="ruby-identifier">i</span>].<span class="ruby-identifier">longueur</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-identifier">best</span>.<span class="ruby-identifier">longueur</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">listPlaces</span>[<span class="ruby-identifier">i</span>].<span class="ruby-identifier">hauteur</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">best</span>.<span class="ruby-identifier">hauteur</span> <span class="ruby-keyword">or</span>
+                           <span class="ruby-identifier">listPlaces</span>[<span class="ruby-identifier">i</span>].<span class="ruby-identifier">longueur</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">best</span>.<span class="ruby-identifier">longueur</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">listPlaces</span>[<span class="ruby-identifier">i</span>].<span class="ruby-identifier">hauteur</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-identifier">best</span>.<span class="ruby-identifier">hauteur</span> <span class="ruby-keyword">then</span>
+                           <span class="ruby-identifier">best</span> = <span class="ruby-identifier">listPlaces</span>[<span class="ruby-identifier">i</span>]
+                          <span class="ruby-keyword">end</span>
+                <span class="ruby-keyword">end</span>          
         <span class="ruby-keyword">end</span>
+        <span class="ruby-identifier">res</span> = <span class="ruby-identifier">best</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">best</span> <span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>
 <span class="ruby-keyword">end</span></pre>
           </div><!-- assigner_place-source -->
           
@@ -328,10 +544,369 @@ listAbonne not is_abonne? =&gt; listClient</p>
       </div><!-- assigner_place-method -->
 
     
-      <div id="method-i-get_nb_place" class="method-detail ">
+      <div id="method-i-decrementer_panneaux" class="method-detail ">
         
         <div class="method-heading">
-          <span class="method-name">get_nb_place</span><span
+          <span class="method-name">decrementer_panneaux</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Decremente le compteur des panneaux du parking</p>
+          
+
+          
+          <div class="method-source-code" id="decrementer_panneaux-source">
+            <pre><span class="ruby-comment"># File Modele/parking.rb, line 149</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">decrementer_panneaux</span>
+        <span class="ruby-identifier">panneaux</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">p</span><span class="ruby-operator">|</span>
+                <span class="ruby-identifier">p</span>.<span class="ruby-identifier">decrementer</span>
+        <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- decrementer_panneaux-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- decrementer_panneaux-method -->
+
+    
+      <div id="method-i-garer" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">garer</span><span
+            class="method-args">(v)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Assigne une place à un véhicule et ajoute le client.</p>
+          
+
+          
+          <div class="method-source-code" id="garer-source">
+            <pre><span class="ruby-comment"># File Modele/parking.rb, line 124</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">garer</span>(<span class="ruby-identifier">v</span>)
+        <span class="ruby-identifier">place</span> = <span class="ruby-identifier">assigner_place</span>(<span class="ruby-identifier">v</span>)
+        <span class="ruby-identifier">add_vehicule</span>(<span class="ruby-identifier">place</span>,<span class="ruby-identifier">v</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">place</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-identifier">place</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- garer-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- garer-method -->
+
+    
+      <div id="method-i-get_vehicule_with_info" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_vehicule_with_info</span><span
+            class="method-args">(imma,haut,long)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Retourne le vehicule correspondant aux valeurs passées en paramètre</p>
+          
+
+          
+          <div class="method-source-code" id="get_vehicule_with_info-source">
+            <pre><span class="ruby-comment"># File Modele/parking.rb, line 156</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_vehicule_with_info</span> (<span class="ruby-identifier">imma</span>,<span class="ruby-identifier">haut</span>,<span class="ruby-identifier">long</span>)
+        <span class="ruby-identifier">vehiculeTempo</span> = <span class="ruby-keyword">nil</span>
+        <span class="ruby-identifier">listClient</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+                <span class="ruby-keyword">if</span> <span class="ruby-identifier">v</span>.<span class="ruby-identifier">immatriculation</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">imma</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">v</span>.<span class="ruby-identifier">hauteur</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">haut</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">v</span>.<span class="ruby-identifier">longueur</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">long</span> <span class="ruby-keyword">then</span>
+                        <span class="ruby-identifier">vehiculeTempo</span>=<span class="ruby-identifier">v</span>
+                <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">vehiculeTempo</span><span class="ruby-operator">==</span><span class="ruby-keyword">nil</span> <span class="ruby-keyword">then</span>
+                <span class="ruby-identifier">listAbonnes</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+                        <span class="ruby-keyword">if</span> <span class="ruby-identifier">v</span>.<span class="ruby-identifier">immatriculation</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">imma</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">v</span>.<span class="ruby-identifier">hauteur</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">haut</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">v</span>.<span class="ruby-identifier">longueur</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">long</span> <span class="ruby-keyword">then</span>
+                                <span class="ruby-identifier">vehiculeTempo</span>=<span class="ruby-identifier">v</span>
+                        <span class="ruby-keyword">end</span>
+                <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-identifier">vehiculeTempo</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- get_vehicule_with_info-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- get_vehicule_with_info-method -->
+
+    
+      <div id="method-i-hauteurMax-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">hauteurMax=</span><span
+            class="method-args">(h)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="hauteurMax-3D-source">
+            <pre><span class="ruby-comment"># File Modele/parking.rb, line 51</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">hauteurMax=</span>(<span class="ruby-identifier">h</span>)
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;Error : hauteurMax (maximum height of a place) must be greater than 100.&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">h</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">100</span>
+        <span class="ruby-ivar">@hauteurMax</span>= <span class="ruby-identifier">h</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- hauteurMax-3D-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- hauteurMax-3D-method -->
+
+    
+      <div id="method-i-incrementer_panneaux" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">incrementer_panneaux</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Incremente le compteur des panneaux du parking</p>
+          
+
+          
+          <div class="method-source-code" id="incrementer_panneaux-source">
+            <pre><span class="ruby-comment"># File Modele/parking.rb, line 140</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">incrementer_panneaux</span>
+        <span class="ruby-identifier">panneaux</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">p</span><span class="ruby-operator">|</span>
+                <span class="ruby-identifier">p</span>.<span class="ruby-identifier">incrementer</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-identifier">ctrl_park</span>.<span class="ruby-identifier">show_vehicule</span>
+        <span class="ruby-identifier">ctrl_park</span>.<span class="ruby-identifier">show_panneau</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- incrementer_panneaux-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- incrementer_panneaux-method -->
+
+    
+      <div id="method-i-load" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">load</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="load-source">
+            <pre><span class="ruby-comment"># File Modele/parking.rb, line 271</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">load</span>
+        <span class="ruby-keyword">begin</span>
+                <span class="ruby-comment">#Ouverture de la base de donnée</span>
+                <span class="ruby-identifier">$db</span> = <span class="ruby-constant">SQLite3</span><span class="ruby-operator">::</span><span class="ruby-constant">Database</span>.<span class="ruby-identifier">open</span> <span class="ruby-string">&quot;dreampark.db&quot;</span>
+                
+                <span class="ruby-comment">#Chargement des places, vehicules, abonnes</span>
+                <span class="ruby-identifier">placesInfos</span> = <span class="ruby-identifier">$db</span>.<span class="ruby-identifier">execute</span> <span class="ruby-node">&quot;SELECT * FROM place WHERE park='#{nom}'&quot;</span>
+                <span class="ruby-keyword">if</span> <span class="ruby-identifier">placesInfos</span> <span class="ruby-keyword">then</span>
+                        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">place</span> = []
+                        <span class="ruby-identifier">placesInfos</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">placeInf</span><span class="ruby-operator">|</span>
+                                <span class="ruby-identifier">placeTemp</span> = <span class="ruby-constant">Place</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">placeInf</span>[<span class="ruby-value">0</span>],<span class="ruby-identifier">placeInf</span>[<span class="ruby-value">1</span>],<span class="ruby-identifier">placeInf</span>[<span class="ruby-value">2</span>],<span class="ruby-identifier">placeInf</span>[<span class="ruby-value">3</span>])
+                                <span class="ruby-keyword">if</span> <span class="ruby-identifier">placeInf</span>[<span class="ruby-value">4</span>] <span class="ruby-keyword">then</span>
+                                        <span class="ruby-identifier">vehiculeInfo</span> = <span class="ruby-identifier">$db</span>.<span class="ruby-identifier">get_first_row</span> <span class="ruby-node">&quot;SELECT * FROM vehicule WHERE park='#{nom}' AND imm='#{placeInf[4]}'&quot;</span>
+                                        <span class="ruby-identifier">veh</span>=<span class="ruby-constant">Vehicule</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">vehiculeInfo</span>[<span class="ruby-value">0</span>],<span class="ruby-identifier">vehiculeInfo</span>[<span class="ruby-value">1</span>],<span class="ruby-identifier">vehiculeInfo</span>[<span class="ruby-value">2</span>])
+                                        <span class="ruby-identifier">veh</span>.<span class="ruby-identifier">nbreVisites</span>=<span class="ruby-identifier">vehiculeInfo</span>[<span class="ruby-value">3</span>]
+                                        <span class="ruby-keyword">if</span> <span class="ruby-identifier">vehiculeInfo</span>[<span class="ruby-value">4</span>] <span class="ruby-keyword">then</span>
+                                                <span class="ruby-identifier">abonneInfo</span> = <span class="ruby-identifier">$db</span>.<span class="ruby-identifier">get_first_row</span> <span class="ruby-node">&quot;SELECT * FROM abonne WHERE park='#{nom}' AND nom='#{placeInf[4]}' AND prenom='#{placeInf[5]}'&quot;</span>
+                                                <span class="ruby-keyword">if</span> <span class="ruby-identifier">abonneInfo</span> <span class="ruby-keyword">then</span>
+                                                        <span class="ruby-identifier">abo</span> = <span class="ruby-constant">Abonne</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">abonneInfo</span>[<span class="ruby-value">0</span>],<span class="ruby-identifier">abonneInfo</span>[<span class="ruby-value">1</span>],<span class="ruby-identifier">abonneInfo</span>[<span class="ruby-value">2</span>],<span class="ruby-identifier">abonneInfo</span>[<span class="ruby-value">3</span>])
+                                                        <span class="ruby-identifier">abo</span>.<span class="ruby-identifier">hasPack</span>=<span class="ruby-identifier">abonneInfo</span>[<span class="ruby-value">4</span>]
+                                                        <span class="ruby-identifier">veh</span>.<span class="ruby-identifier">abonne</span>=<span class="ruby-identifier">abo</span>
+                                                        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">listAbonnes</span><span class="ruby-operator">&lt;&lt;</span><span class="ruby-identifier">veh</span>
+                                                <span class="ruby-keyword">else</span>
+                                                        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">listClient</span><span class="ruby-operator">&lt;&lt;</span><span class="ruby-identifier">veh</span>
+                                                <span class="ruby-keyword">end</span>
+                                        <span class="ruby-keyword">end</span>
+                                        <span class="ruby-identifier">placeTemp</span>.<span class="ruby-identifier">vehicule</span>=<span class="ruby-identifier">veh</span>
+                                <span class="ruby-keyword">else</span>
+                                        <span class="ruby-identifier">placeTemp</span>.<span class="ruby-identifier">vehicule</span>=<span class="ruby-keyword">nil</span>
+                                <span class="ruby-keyword">end</span>
+                                <span class="ruby-keyword">self</span>.<span class="ruby-identifier">place</span><span class="ruby-operator">&lt;&lt;</span><span class="ruby-identifier">placeTemp</span>
+                        <span class="ruby-keyword">end</span> 
+                <span class="ruby-keyword">end</span>
+                
+                <span class="ruby-comment">#Chargement des panneaux</span>
+                <span class="ruby-identifier">panneauxInfos</span> = <span class="ruby-identifier">$db</span>.<span class="ruby-identifier">execute</span> <span class="ruby-node">&quot;SELECT * FROM panneau WHERE park='#{nom}'&quot;</span>
+                <span class="ruby-keyword">if</span> <span class="ruby-identifier">panneauxInfos</span> <span class="ruby-keyword">then</span>
+                        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">panneaux</span> = []
+                        <span class="ruby-identifier">panneauxInfos</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">panneauInf</span><span class="ruby-operator">|</span>
+                                <span class="ruby-identifier">panel</span>=<span class="ruby-constant">Panneau</span>.<span class="ruby-identifier">new</span>
+                                <span class="ruby-identifier">panel</span>.<span class="ruby-identifier">nom</span> = <span class="ruby-identifier">panneauInf</span>[<span class="ruby-value">0</span>]
+                                <span class="ruby-identifier">panel</span>.<span class="ruby-identifier">placeUsed</span>= <span class="ruby-identifier">panneauInf</span>[<span class="ruby-value">1</span>]
+                                <span class="ruby-identifier">panel</span>.<span class="ruby-identifier">placeTot</span>= <span class="ruby-identifier">panneauInf</span>[<span class="ruby-value">2</span>]
+                                <span class="ruby-keyword">self</span>.<span class="ruby-identifier">panneaux</span><span class="ruby-operator">&lt;&lt;</span><span class="ruby-identifier">panel</span>
+                        <span class="ruby-keyword">end</span>
+                <span class="ruby-keyword">end</span>
+                
+                <span class="ruby-comment">#Chargement des acces</span>
+                <span class="ruby-identifier">accesInfos</span> = <span class="ruby-identifier">$db</span>.<span class="ruby-identifier">execute</span> <span class="ruby-node">&quot;SELECT * FROM acce WHERE park='#{nom}'&quot;</span>
+                <span class="ruby-keyword">if</span> <span class="ruby-identifier">accesInfos</span> <span class="ruby-keyword">then</span>
+                        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">acces</span> = []
+                        <span class="ruby-identifier">accesInfos</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">acceInf</span><span class="ruby-operator">|</span>
+                                <span class="ruby-keyword">self</span>.<span class="ruby-identifier">acces</span><span class="ruby-operator">&lt;&lt;</span><span class="ruby-constant">Acces</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">acceInf</span>[<span class="ruby-value">0</span>],<span class="ruby-keyword">self</span>)
+                        <span class="ruby-keyword">end</span>
+                <span class="ruby-keyword">end</span>
+                
+                <span class="ruby-ivar">@ctrl_park</span> = <span class="ruby-constant">Ctrl_parking</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>)
+                
+        <span class="ruby-keyword">rescue</span> <span class="ruby-constant">SQLite3</span><span class="ruby-operator">::</span><span class="ruby-constant">Exception</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span> 
+                
+                <span class="ruby-identifier">print</span> <span class="ruby-string">&quot;Exception occured in load (parking.rb) : &quot;</span>
+                <span class="ruby-identifier">puts</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">message</span>
+                
+        <span class="ruby-keyword">ensure</span>
+                <span class="ruby-identifier">$db</span>.<span class="ruby-identifier">close</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">$db</span>
+        <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- load-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- load-method -->
+
+    
+      <div id="method-i-longueurMax-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">longueurMax=</span><span
+            class="method-args">(l)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="longueurMax-3D-source">
+            <pre><span class="ruby-comment"># File Modele/parking.rb, line 56</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">longueurMax=</span>(<span class="ruby-identifier">l</span>)
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;Error : longueurMax (maximum length of a place) must be greater than 100.&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">l</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">100</span>
+        <span class="ruby-ivar">@longueurMax</span>= <span class="ruby-identifier">l</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- longueurMax-3D-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- longueurMax-3D-method -->
+
+    
+      <div id="method-i-nbNiv-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">nbNiv=</span><span
+            class="method-args">(n)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="nbNiv-3D-source">
+            <pre><span class="ruby-comment"># File Modele/parking.rb, line 41</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">nbNiv=</span>(<span class="ruby-identifier">n</span>)
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;Error : nbNiv (numbre of levels) must be positive.&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">n</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-value">0</span>
+        <span class="ruby-ivar">@nbNiv</span>= <span class="ruby-identifier">n</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- nbNiv-3D-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- nbNiv-3D-method -->
+
+    
+      <div id="method-i-nbPlaceNiv-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">nbPlaceNiv=</span><span
+            class="method-args">(n)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="nbPlaceNiv-3D-source">
+            <pre><span class="ruby-comment"># File Modele/parking.rb, line 46</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">nbPlaceNiv=</span>(<span class="ruby-identifier">n</span>)
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;Error : nbPlaceNiv (numbre of place by level) must be positive.&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">n</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-value">0</span>
+        <span class="ruby-ivar">@nbPlaceNiv</span>= <span class="ruby-identifier">n</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- nbPlaceNiv-3D-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- nbPlaceNiv-3D-method -->
+
+    
+      <div id="method-i-nb_place" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">nb_place</span><span
             class="method-args">()</span>
           <span class="method-click-advice">click to toggle source</span>
         </div>
@@ -343,25 +918,25 @@ listAbonne not is_abonne? =&gt; listClient</p>
           
 
           
-          <div class="method-source-code" id="get_nb_place-source">
-            <pre><span class="ruby-comment"># File Modele/parking.rb, line 47</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_nb_place</span>
-        <span class="ruby-keyword">return</span> <span class="ruby-ivar">@place</span>.<span class="ruby-identifier">length</span>
+          <div class="method-source-code" id="nb_place-source">
+            <pre><span class="ruby-comment"># File Modele/parking.rb, line 88</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">nb_place</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-identifier">place</span>.<span class="ruby-identifier">length</span>
 <span class="ruby-keyword">end</span></pre>
-          </div><!-- get_nb_place-source -->
+          </div><!-- nb_place-source -->
           
         </div>
 
         
 
         
-      </div><!-- get_nb_place-method -->
+      </div><!-- nb_place-method -->
 
     
-      <div id="method-i-get_nb_place_libre" class="method-detail ">
+      <div id="method-i-nb_place_libre" class="method-detail ">
         
         <div class="method-heading">
-          <span class="method-name">get_nb_place_libre</span><span
+          <span class="method-name">nb_place_libre</span><span
             class="method-args">()</span>
           <span class="method-click-advice">click to toggle source</span>
         </div>
@@ -373,20 +948,23 @@ listAbonne not is_abonne? =&gt; listClient</p>
           
 
           
-          <div class="method-source-code" id="get_nb_place_libre-source">
-            <pre><span class="ruby-comment"># File Modele/parking.rb, line 41</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_nb_place_libre</span>
-        <span class="ruby-identifier">som</span> = <span class="ruby-ivar">@listAbonnes</span>.<span class="ruby-identifier">length</span><span class="ruby-operator">+</span><span class="ruby-ivar">@listClient</span>.<span class="ruby-identifier">length</span>
-        <span class="ruby-keyword">return</span> <span class="ruby-ivar">@place</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">som</span>
+          <div class="method-source-code" id="nb_place_libre-source">
+            <pre><span class="ruby-comment"># File Modele/parking.rb, line 79</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">nb_place_libre</span>
+        <span class="ruby-identifier">res</span> = <span class="ruby-value">0</span>
+        <span class="ruby-identifier">place</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">p</span><span class="ruby-operator">|</span>
+                <span class="ruby-identifier">res</span><span class="ruby-operator">+=</span><span class="ruby-value">1</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">p</span>.<span class="ruby-identifier">libre?</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-identifier">res</span>
 <span class="ruby-keyword">end</span></pre>
-          </div><!-- get_nb_place_libre-source -->
+          </div><!-- nb_place_libre-source -->
           
         </div>
 
         
 
         
-      </div><!-- get_nb_place_libre-method -->
+      </div><!-- nb_place_libre-method -->
 
     
       <div id="method-i-remove_vehicule" class="method-detail ">
@@ -400,14 +978,15 @@ listAbonne not is_abonne? =&gt; listClient</p>
 
         <div class="method-description">
           
-          <p>Remove le vehicule des listes et libère la place</p>
+          <p>Remove le vehicule des listes</p>
           
 
           
           <div class="method-source-code" id="remove_vehicule-source">
-            <pre><span class="ruby-comment"># File Modele/parking.rb, line 35</span>
+            <pre><span class="ruby-comment"># File Modele/parking.rb, line 72</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">remove_vehicule</span>(<span class="ruby-identifier">p</span>,<span class="ruby-identifier">v</span>)
-        <span class="ruby-ivar">@listAbonnes</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">p</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">v</span>.<span class="ruby-identifier">is_abonne?</span> <span class="ruby-keyword">else</span> <span class="ruby-ivar">@listClient</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">p</span>)
+        <span class="ruby-identifier">listAbonnes</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">v</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">v</span>.<span class="ruby-identifier">is_abonne?</span>
+        <span class="ruby-identifier">listClient</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">v</span>) <span class="ruby-keyword">if</span> <span class="ruby-keyword">not</span> <span class="ruby-identifier">v</span>.<span class="ruby-identifier">is_abonne?</span>
         <span class="ruby-identifier">p</span>.<span class="ruby-identifier">vehicule</span> = <span class="ruby-keyword">nil</span>
 <span class="ruby-keyword">end</span></pre>
           </div><!-- remove_vehicule-source -->
@@ -418,6 +997,279 @@ listAbonne not is_abonne? =&gt; listClient</p>
 
         
       </div><!-- remove_vehicule-method -->
+
+    
+      <div id="method-i-reprendre" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">reprendre</span><span
+            class="method-args">(v)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Libere une place occupée.</p>
+          
+
+          
+          <div class="method-source-code" id="reprendre-source">
+            <pre><span class="ruby-comment"># File Modele/parking.rb, line 131</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">reprendre</span>(<span class="ruby-identifier">v</span>)
+        <span class="ruby-identifier">place</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">p</span><span class="ruby-operator">|</span>
+                <span class="ruby-keyword">if</span> <span class="ruby-identifier">p</span>.<span class="ruby-identifier">vehicule</span><span class="ruby-operator">==</span><span class="ruby-identifier">v</span> <span class="ruby-keyword">then</span>
+                        <span class="ruby-identifier">remove_vehicule</span>(<span class="ruby-identifier">p</span>,<span class="ruby-identifier">v</span>)
+                <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- reprendre-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- reprendre-method -->
+
+    
+      <div id="method-i-save" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">save</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="save-source">
+            <pre><span class="ruby-comment"># File Modele/parking.rb, line 240</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">save</span>
+        <span class="ruby-keyword">begin</span>
+                <span class="ruby-comment">#Ouverture de la base de donnée</span>
+                <span class="ruby-identifier">$db</span> = <span class="ruby-constant">SQLite3</span><span class="ruby-operator">::</span><span class="ruby-constant">Database</span>.<span class="ruby-identifier">open</span> <span class="ruby-string">&quot;dreampark.db&quot;</span>
+                
+                <span class="ruby-comment">#R.A.Z. de la base de données pour ce parking.</span>
+                <span class="ruby-constant">Database</span>.<span class="ruby-identifier">save</span>(<span class="ruby-identifier">nom</span>)
+                
+                <span class="ruby-comment">#Sauvegarde du parking</span>
+                <span class="ruby-identifier">$db</span>.<span class="ruby-identifier">execute</span> <span class="ruby-node">&quot;INSERT INTO parking(nom, nbNiv, nbPlaceNiv, hauteurMax, longueurMax) VALUES ('#{nom}',#{nbNiv},#{nbPlaceNiv},#{hauteurMax},#{longueurMax})&quot;</span>
+                
+                <span class="ruby-comment">#Appel des méthodes save</span>
+                <span class="ruby-identifier">listAbonnes</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">a</span><span class="ruby-operator">|</span> <span class="ruby-identifier">a</span>.<span class="ruby-identifier">save</span>(<span class="ruby-identifier">nom</span>) }
+                <span class="ruby-identifier">listClient</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span> <span class="ruby-identifier">c</span>.<span class="ruby-identifier">save</span>(<span class="ruby-identifier">nom</span>) }
+                <span class="ruby-identifier">place</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">p</span><span class="ruby-operator">|</span> <span class="ruby-identifier">p</span>.<span class="ruby-identifier">save</span>(<span class="ruby-identifier">nom</span>) }
+                
+                <span class="ruby-identifier">acces</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">a</span><span class="ruby-operator">|</span> <span class="ruby-identifier">a</span>.<span class="ruby-identifier">save</span>(<span class="ruby-identifier">nom</span>) }
+                <span class="ruby-identifier">panneaux</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">p</span><span class="ruby-operator">|</span> <span class="ruby-identifier">p</span>.<span class="ruby-identifier">save</span>(<span class="ruby-identifier">nom</span>) }
+                
+                <span class="ruby-identifier">listLivraisons</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">l</span><span class="ruby-operator">|</span> <span class="ruby-identifier">l</span>.<span class="ruby-identifier">save</span>(<span class="ruby-identifier">nom</span>) }
+                
+        <span class="ruby-keyword">rescue</span> <span class="ruby-constant">SQLite3</span><span class="ruby-operator">::</span><span class="ruby-constant">Exception</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span> 
+                
+                <span class="ruby-identifier">print</span> <span class="ruby-string">&quot;Exception occured in save (parking.rb) : &quot;</span>
+                <span class="ruby-identifier">puts</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">message</span>
+                
+        <span class="ruby-keyword">ensure</span>
+                <span class="ruby-identifier">$db</span>.<span class="ruby-identifier">close</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">$db</span>
+        <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- save-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- save-method -->
+
+    
+      <div id="method-i-stats_admin" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">stats_admin</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Retourne les statistiques admin du parking</p>
+
+<pre>acces1 : nombre de passages pour l'accès 1
+acces2 : nombre de passages pour l'accès 2
+place : place la plus utilisée</pre>
+          
+
+          
+          <div class="method-source-code" id="stats_admin-source">
+            <pre><span class="ruby-comment"># File Modele/parking.rb, line 207</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">stats_admin</span>
+        <span class="ruby-identifier">stats</span>=<span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">0</span>)
+        
+        <span class="ruby-identifier">stats</span>[<span class="ruby-string">&quot;acces1&quot;</span>]=<span class="ruby-identifier">acces</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">borne</span>.<span class="ruby-identifier">listTickets</span>.<span class="ruby-identifier">length</span>
+        <span class="ruby-identifier">placeListA1</span>=<span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">0</span>)
+        <span class="ruby-identifier">acces</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">borne</span>.<span class="ruby-identifier">listTickets</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span>
+                <span class="ruby-identifier">placeListA1</span>[<span class="ruby-identifier">t</span>.<span class="ruby-identifier">place</span>]= <span class="ruby-identifier">placeListA1</span>[<span class="ruby-identifier">t</span>.<span class="ruby-identifier">place</span>] <span class="ruby-operator">+</span> <span class="ruby-value">1</span> 
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-identifier">place1</span>=<span class="ruby-identifier">placeListA1</span>.<span class="ruby-identifier">index</span>(<span class="ruby-identifier">placeListA1</span>.<span class="ruby-identifier">max</span>)
+        
+        <span class="ruby-identifier">stats</span>[<span class="ruby-string">&quot;acces2&quot;</span>]=<span class="ruby-identifier">acces</span>[<span class="ruby-value">1</span>].<span class="ruby-identifier">borne</span>.<span class="ruby-identifier">listTickets</span>.<span class="ruby-identifier">length</span>
+        <span class="ruby-identifier">placeListA2</span>=<span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">0</span>)
+        <span class="ruby-identifier">acces</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">borne</span>.<span class="ruby-identifier">listTickets</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span>
+                <span class="ruby-identifier">placeListA2</span>[<span class="ruby-identifier">t</span>.<span class="ruby-identifier">place</span>]= <span class="ruby-identifier">placeListA2</span>[<span class="ruby-identifier">t</span>.<span class="ruby-identifier">place</span>] <span class="ruby-operator">+</span> <span class="ruby-value">1</span> 
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-identifier">place2</span>=<span class="ruby-identifier">placeListA2</span>.<span class="ruby-identifier">index</span>(<span class="ruby-identifier">placeListA2</span>.<span class="ruby-identifier">max</span>)
+
+        <span class="ruby-identifier">place1</span> = <span class="ruby-value">0</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">not</span> <span class="ruby-identifier">place1</span>
+        <span class="ruby-identifier">place2</span> = <span class="ruby-value">0</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">not</span> <span class="ruby-identifier">place2</span>
+        <span class="ruby-identifier">stats</span>[<span class="ruby-string">&quot;place&quot;</span>] = <span class="ruby-identifier">place1</span><span class="ruby-operator">&gt;</span><span class="ruby-identifier">place2</span> <span class="ruby-operator">?</span>  <span class="ruby-identifier">place1</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">place2</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-identifier">stats</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- stats_admin-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- stats_admin-method -->
+
+    
+      <div id="method-i-stats_commercial" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">stats_commercial</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Retourne les statistiques commerciales du parking</p>
+
+<pre>client : nombre de client simple
+abonne : nombre de client abonnés
+entretien : nombre d'entretiens total
+maintenance : nombre de maintenances total
+livraison : nombre de livraisons total
+visites : nombre de visites total
+pack : nombre d'abonnés ayant souscris au pack garantie</pre>
+          
+
+          
+          <div class="method-source-code" id="stats_commercial-source">
+            <pre><span class="ruby-comment"># File Modele/parking.rb, line 181</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">stats_commercial</span>
+        <span class="ruby-identifier">stats</span>=<span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">0</span>)
+        <span class="ruby-identifier">stats</span>[<span class="ruby-string">&quot;client&quot;</span>]=<span class="ruby-identifier">listClient</span>.<span class="ruby-identifier">length</span>
+        <span class="ruby-identifier">stats</span>[<span class="ruby-string">&quot;abonne&quot;</span>]=<span class="ruby-identifier">listAbonnes</span>.<span class="ruby-identifier">length</span>
+        
+        <span class="ruby-identifier">listClient</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span>
+                <span class="ruby-identifier">stats</span>[<span class="ruby-string">&quot;entretien&quot;</span>]= <span class="ruby-identifier">stats</span>[<span class="ruby-string">&quot;entretien&quot;</span>] <span class="ruby-operator">+</span> <span class="ruby-identifier">c</span>.<span class="ruby-identifier">nbreEntretien</span>
+                <span class="ruby-identifier">stats</span>[<span class="ruby-string">&quot;maintenance&quot;</span>]= <span class="ruby-identifier">stats</span>[<span class="ruby-string">&quot;maintenance&quot;</span>] <span class="ruby-operator">+</span> <span class="ruby-identifier">c</span>.<span class="ruby-identifier">nbreMaintenance</span>
+                <span class="ruby-identifier">stats</span>[<span class="ruby-string">&quot;livraison&quot;</span>]= <span class="ruby-identifier">stats</span>[<span class="ruby-string">&quot;livraison&quot;</span>] <span class="ruby-operator">+</span> <span class="ruby-identifier">c</span>.<span class="ruby-identifier">livraisons</span>.<span class="ruby-identifier">length</span>
+                <span class="ruby-identifier">stats</span>[<span class="ruby-string">&quot;visites&quot;</span>]= <span class="ruby-identifier">stats</span>[<span class="ruby-string">&quot;visites&quot;</span>] <span class="ruby-operator">+</span> <span class="ruby-identifier">c</span>.<span class="ruby-identifier">nbreVisites</span>
+        <span class="ruby-keyword">end</span>
+        
+        <span class="ruby-identifier">listAbonnes</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">a</span><span class="ruby-operator">|</span>
+                <span class="ruby-identifier">stats</span>[<span class="ruby-string">&quot;entretien&quot;</span>]= <span class="ruby-identifier">stats</span>[<span class="ruby-string">&quot;entretien&quot;</span>] <span class="ruby-operator">+</span> <span class="ruby-identifier">a</span>.<span class="ruby-identifier">nbreEntretien</span>
+                <span class="ruby-identifier">stats</span>[<span class="ruby-string">&quot;maintenance&quot;</span>]= <span class="ruby-identifier">stats</span>[<span class="ruby-string">&quot;maintenance&quot;</span>] <span class="ruby-operator">+</span> <span class="ruby-identifier">a</span>.<span class="ruby-identifier">nbreMaintenance</span>
+                <span class="ruby-identifier">stats</span>[<span class="ruby-string">&quot;livraison&quot;</span>]= <span class="ruby-identifier">stats</span>[<span class="ruby-string">&quot;livraison&quot;</span>] <span class="ruby-operator">+</span> <span class="ruby-identifier">a</span>.<span class="ruby-identifier">livraisons</span>.<span class="ruby-identifier">length</span>
+                <span class="ruby-identifier">stats</span>[<span class="ruby-string">&quot;pack&quot;</span>]= <span class="ruby-identifier">stats</span>[<span class="ruby-string">&quot;pack&quot;</span>] <span class="ruby-operator">+</span> <span class="ruby-value">1</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">a</span>.<span class="ruby-identifier">is_abonne?</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">a</span>.<span class="ruby-identifier">abonne</span>.<span class="ruby-identifier">hasPack</span>
+                <span class="ruby-identifier">stats</span>[<span class="ruby-string">&quot;visites&quot;</span>]= <span class="ruby-identifier">stats</span>[<span class="ruby-string">&quot;visites&quot;</span>] <span class="ruby-operator">+</span> <span class="ruby-identifier">c</span>.<span class="ruby-identifier">nbreVisites</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-identifier">stats</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- stats_commercial-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- stats_commercial-method -->
+
+    
+      <div id="method-i-to_s" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_s</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Vue en text d’un parking</p>
+          
+
+          
+          <div class="method-source-code" id="to_s-source">
+            <pre><span class="ruby-comment"># File Modele/parking.rb, line 231</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_s</span>
+        <span class="ruby-identifier">s</span>= <span class="ruby-node">&quot;Nom : #{nom}\n&quot;</span>
+        <span class="ruby-keyword">for</span> <span class="ruby-identifier">p</span> <span class="ruby-keyword">in</span> <span class="ruby-identifier">panneaux</span> <span class="ruby-keyword">do</span>
+                <span class="ruby-identifier">s</span><span class="ruby-operator">+=</span> <span class="ruby-node">&quot;#{p}\n&quot;</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-identifier">place</span>.<span class="ruby-identifier">each_with_index</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">p</span>,<span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-identifier">s</span><span class="ruby-operator">+=</span> <span class="ruby-node">&quot;Place #{i} : #{p}\n&quot;</span>}
+        <span class="ruby-keyword">return</span> <span class="ruby-identifier">s</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- to_s-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- to_s-method -->
+
+    
+      <div id="method-i-where_to_park" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">where_to_park</span><span
+            class="method-args">(v)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Retourne la liste des places coresspondant aux dimensions du véhivule
+Retourne nil si aucune place trouvée</p>
+          
+
+          
+          <div class="method-source-code" id="where_to_park-source">
+            <pre><span class="ruby-comment"># File Modele/parking.rb, line 94</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">where_to_park</span>(<span class="ruby-identifier">v</span>)
+        <span class="ruby-identifier">res</span>=[]
+        <span class="ruby-identifier">place</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">p</span><span class="ruby-operator">|</span> <span class="ruby-comment">#Peut être optimisé pour se rapprocher des dimension du véhicule</span>
+                <span class="ruby-keyword">if</span> <span class="ruby-identifier">p</span>.<span class="ruby-identifier">libre?</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">p</span>.<span class="ruby-identifier">longueur</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-identifier">v</span>.<span class="ruby-identifier">longueur</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">p</span>.<span class="ruby-identifier">hauteur</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-identifier">v</span>.<span class="ruby-identifier">hauteur</span> <span class="ruby-keyword">then</span> 
+                        <span class="ruby-identifier">res</span><span class="ruby-operator">&lt;&lt;</span><span class="ruby-identifier">p</span>
+                <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-identifier">res</span>= <span class="ruby-keyword">nil</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">res</span> <span class="ruby-operator">==</span> []
+        <span class="ruby-keyword">return</span> <span class="ruby-identifier">res</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- where_to_park-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- where_to_park-method -->
 
     
     </section><!-- public-instance-method-details -->

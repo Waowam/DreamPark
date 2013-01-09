@@ -72,7 +72,9 @@
     
     <li><a href="#method-c-new">::new</a>
     
-    <li><a href="#method-i-print">#print</a>
+    <li><a href="#method-i-save">#save</a>
+    
+    <li><a href="#method-i-to_s">#to_s</a>
     
   </ul>
 </nav>
@@ -86,6 +88,8 @@
 
   <ul class="link-list">
   
+    <li><a href="./Abonne.html">Abonne</a>
+  
     <li><a href="./Acces.html">Acces</a>
   
     <li><a href="./Borne.html">Borne</a>
@@ -94,7 +98,15 @@
   
     <li><a href="./Ctrl_borne.html">Ctrl_borne</a>
   
+    <li><a href="./Ctrl_gen.html">Ctrl_gen</a>
+  
+    <li><a href="./Ctrl_parking.html">Ctrl_parking</a>
+  
+    <li><a href="./Database.html">Database</a>
+  
     <li><a href="./GestionPark.html">GestionPark</a>
+  
+    <li><a href="./Livraison.html">Livraison</a>
   
     <li><a href="./Object.html">Object</a>
   
@@ -110,7 +122,15 @@
   
     <li><a href="./Vehicule.html">Vehicule</a>
   
+    <li><a href="./VueGeneral.html">VueGeneral</a>
+  
+    <li><a href="./VueStats.html">VueStats</a>
+  
     <li><a href="./Vue_borne.html">Vue_borne</a>
+  
+    <li><a href="./Vue_panneau.html">Vue_panneau</a>
+  
+    <li><a href="./Vue_parking.html">Vue_parking</a>
   
   </ul>
 </nav>
@@ -142,6 +162,65 @@
     
 
     
+    <!-- Attributes -->
+    <section id="attribute-method-details" class="method-section section">
+      <h3 class="section-header">Attributes</h3>
+
+      
+      <div id="attribute-i-nom" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">nom</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-place" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">place</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-time" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">time</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-vehicule" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">vehicule</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section><!-- attribute-method-details -->
+    
 
     <!-- Methods -->
     
@@ -153,7 +232,7 @@
         
         <div class="method-heading">
           <span class="method-name">new</span><span
-            class="method-args">(nomPark="DreamPark",place=00, vehicule=nil, abonnee=nil)</span>
+            class="method-args">(numPlace, vehicule)</span>
           <span class="method-click-advice">click to toggle source</span>
         </div>
         
@@ -165,13 +244,12 @@
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File Modele/ticket.rb, line 11</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">nomPark</span>=<span class="ruby-string">&quot;DreamPark&quot;</span>,<span class="ruby-identifier">place</span>=<span class="ruby-value">00</span>, <span class="ruby-identifier">vehicule</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">abonnee</span>=<span class="ruby-keyword">nil</span>)
-        <span class="ruby-ivar">@nom</span> = <span class="ruby-identifier">nomPark</span>
-        <span class="ruby-ivar">@time</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>.<span class="ruby-identifier">to_s</span>
-        <span class="ruby-ivar">@place</span> = <span class="ruby-identifier">place</span>
-        <span class="ruby-ivar">@vehicule</span> = <span class="ruby-identifier">vehicule</span>
-        <span class="ruby-ivar">@client</span> = <span class="ruby-identifier">abonnee</span>
+            <pre><span class="ruby-comment"># File Modele/ticket.rb, line 14</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">numPlace</span>, <span class="ruby-identifier">vehicule</span>)
+        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">time</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>.<span class="ruby-identifier">to_s</span>
+        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">place</span> = <span class="ruby-identifier">numPlace</span>
+        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">vehicule</span> = <span class="ruby-identifier">vehicule</span>
+        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">nom</span> = <span class="ruby-node">&quot;Ticket P#{self.place}V#{self.vehicule.immatriculation} - #{self.time}&quot;</span>
 <span class="ruby-keyword">end</span></pre>
           </div><!-- new-source -->
           
@@ -189,10 +267,41 @@
       <h3 class="section-header">Public Instance Methods</h3>
 
     
-      <div id="method-i-print" class="method-detail ">
+      <div id="method-i-save" class="method-detail ">
         
         <div class="method-heading">
-          <span class="method-name">print</span><span
+          <span class="method-name">save</span><span
+            class="method-args">(nomPark, nomBorne)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="save-source">
+            <pre><span class="ruby-comment"># File Modele/ticket.rb, line 32</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">save</span>(<span class="ruby-identifier">nomPark</span>, <span class="ruby-identifier">nomBorne</span>)
+        <span class="ruby-identifier">$db</span>.<span class="ruby-identifier">execute</span> <span class="ruby-node">&quot;INSERT INTO ticket(nom, time, place, vehicule, park, borne) VALUES 
+                                ('#{nom}', '#{time}', #{place}, '#{vehicule.immatriculation}', '#{nomPark}', '#{nomBorne}')&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- save-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- save-method -->
+
+    
+      <div id="method-i-to_s" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_s</span><span
             class="method-args">()</span>
           <span class="method-click-advice">click to toggle source</span>
         </div>
@@ -204,27 +313,26 @@
           
 
           
-          <div class="method-source-code" id="print-source">
-            <pre><span class="ruby-comment"># File Modele/ticket.rb, line 19</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">print</span>
-        <span class="ruby-identifier">result</span> = <span class="ruby-string">&quot;&quot;</span>
-        <span class="ruby-identifier">result</span><span class="ruby-operator">+=</span> <span class="ruby-string">&quot;----------------------------------\n&quot;</span>
+          <div class="method-source-code" id="to_s-source">
+            <pre><span class="ruby-comment"># File Modele/ticket.rb, line 21</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_s</span>
+        <span class="ruby-identifier">result</span> = <span class="ruby-string">&quot;----------------------------------\n&quot;</span>
         <span class="ruby-identifier">result</span><span class="ruby-operator">+=</span> <span class="ruby-ivar">@nom</span>.<span class="ruby-identifier">center</span>(<span class="ruby-value">20</span>,<span class="ruby-string">'-'</span>)
         <span class="ruby-identifier">result</span><span class="ruby-operator">+=</span> <span class="ruby-string">&quot;----------------------------------\n&quot;</span>
         <span class="ruby-identifier">result</span><span class="ruby-operator">+=</span> <span class="ruby-ivar">@time</span>.<span class="ruby-identifier">center</span>(<span class="ruby-value">20</span>,<span class="ruby-string">' '</span>)
         <span class="ruby-identifier">result</span><span class="ruby-operator">+=</span><span class="ruby-node">&quot;\nPlace : #{@place}\n&quot;</span>
-        <span class="ruby-identifier">result</span><span class="ruby-operator">+=</span><span class="ruby-node">&quot;Client : #{@client}&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@client</span> <span class="ruby-operator">!=</span><span class="ruby-keyword">nil</span>
-        <span class="ruby-identifier">result</span><span class="ruby-operator">+=</span><span class="ruby-node">&quot;Vehicule : #{@vehicule}&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@vehicule</span> <span class="ruby-operator">!=</span><span class="ruby-keyword">nil</span>
+        <span class="ruby-identifier">result</span><span class="ruby-operator">+=</span><span class="ruby-node">&quot;Client : #{@vehicule.abonne}&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@vehicule</span>.<span class="ruby-identifier">abonne</span> <span class="ruby-operator">!=</span><span class="ruby-keyword">nil</span>
+        <span class="ruby-identifier">result</span><span class="ruby-operator">+=</span><span class="ruby-node">&quot;Vehicule : #{@vehicule}&quot;</span>
         <span class="ruby-keyword">return</span> <span class="ruby-identifier">result</span>
 <span class="ruby-keyword">end</span></pre>
-          </div><!-- print-source -->
+          </div><!-- to_s-source -->
           
         </div>
 
         
 
         
-      </div><!-- print-method -->
+      </div><!-- to_s-method -->
 
     
     </section><!-- public-instance-method-details -->

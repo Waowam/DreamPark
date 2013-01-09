@@ -13,15 +13,18 @@ class Ctrl_borne
 
 	attr_accessor :mdl_borne,:vue_borne
 
+	#Constructeur
 	def initialize(borne)
 		@mdl_borne = borne
 		@vue_borne = Vue_borne.new(self)
 	end
 
+	#Affiche la vue de la borne
 	def show_view
 		vue_borne.window.show_all
 	end
 
+	#Permet l'enchainement des scenarios
 	def replay_scenarios
 		mdl_borne.apply_scenarios
 	end
@@ -76,12 +79,14 @@ class Ctrl_borne
 		end
 	end
 
+	#Dit aurevoir !
 	def say_bybye
 		quest=
 		"Merci et aurevoir"
 		vue_borne.insert quest
 	end
 
+	#Remet à zéro la vue
 	def reset_view
 		@vue_borne.window.hide
 		@vue_borne=Vue_borne.new(self)

@@ -8,11 +8,13 @@ vueParking.rb
 
 require 'gtk2'
 
+#Classe de la vue d'une parking relatant les histoires de tous ses petits vehicules.
 class Vue_parking < Gtk::VBox
 
 	attr_reader :ctrl,:model_L
 	attr_writer :model_L
 
+	#Constructeur
 	def initialize(ctrl)
 		super
 		@ctrl = ctrl
@@ -80,6 +82,7 @@ class Vue_parking < Gtk::VBox
 		self.add(vueTot)
 	end
 
+	#Fonction de mise à jour de la liste des véhicules garés
 	def maj_modele_liste_vehicule
 		vehi = ctrl.get_vehicule
 		@model_L.clear

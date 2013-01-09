@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>class Ctrl_parking - RDoc Documentation</title>
+
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="./index.html">Home</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>Controleur/ctrlParking.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link"><a href="Object.html">Object</a>
+  
+</nav>
+
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li><a href="#method-c-new">::new</a>
+    
+    <li><a href="#method-i-alert_error">#alert_error</a>
+    
+    <li><a href="#method-i-append_vehicule">#append_vehicule</a>
+    
+    <li><a href="#method-i-get_info">#get_info</a>
+    
+    <li><a href="#method-i-get_txt_panneau">#get_txt_panneau</a>
+    
+    <li><a href="#method-i-get_vehicule">#get_vehicule</a>
+    
+    <li><a href="#method-i-remove_vehicule">#remove_vehicule</a>
+    
+    <li><a href="#method-i-show_panneau">#show_panneau</a>
+    
+    <li><a href="#method-i-show_vehicule">#show_vehicule</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./Abonne.html">Abonne</a>
+  
+    <li><a href="./Acces.html">Acces</a>
+  
+    <li><a href="./Borne.html">Borne</a>
+  
+    <li><a href="./Camera.html">Camera</a>
+  
+    <li><a href="./Ctrl_borne.html">Ctrl_borne</a>
+  
+    <li><a href="./Ctrl_gen.html">Ctrl_gen</a>
+  
+    <li><a href="./Ctrl_parking.html">Ctrl_parking</a>
+  
+    <li><a href="./Database.html">Database</a>
+  
+    <li><a href="./GestionPark.html">GestionPark</a>
+  
+    <li><a href="./Livraison.html">Livraison</a>
+  
+    <li><a href="./Object.html">Object</a>
+  
+    <li><a href="./Panneau.html">Panneau</a>
+  
+    <li><a href="./Parking.html">Parking</a>
+  
+    <li><a href="./Place.html">Place</a>
+  
+    <li><a href="./Teleporteur.html">Teleporteur</a>
+  
+    <li><a href="./Ticket.html">Ticket</a>
+  
+    <li><a href="./Vehicule.html">Vehicule</a>
+  
+    <li><a href="./VueGeneral.html">VueGeneral</a>
+  
+    <li><a href="./VueStats.html">VueStats</a>
+  
+    <li><a href="./Vue_borne.html">Vue_borne</a>
+  
+    <li><a href="./Vue_panneau.html">Vue_panneau</a>
+  
+    <li><a href="./Vue_parking.html">Vue_parking</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class Ctrl_parking</h1>
+
+  <div id="description" class="description">
+    
+<p>Controleur de parking</p>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <!-- Attributes -->
+    <section id="attribute-method-details" class="method-section section">
+      <h3 class="section-header">Attributes</h3>
+
+      
+      <div id="attribute-i-mdl_par" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">mdl_par</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-vue_pan" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">vue_pan</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-vue_par" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">vue_par</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section><!-- attribute-method-details -->
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(mdl)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Constructeur</p>
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File Controleur/ctrlParking.rb, line 19</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">mdl</span>)
+        <span class="ruby-ivar">@mdl_par</span> = <span class="ruby-identifier">mdl</span>
+        <span class="ruby-ivar">@vue_par</span> = <span class="ruby-constant">Vue_parking</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>)
+        <span class="ruby-ivar">@vue_pan</span> = <span class="ruby-constant">Vue_panneau</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- new-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-alert_error" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">alert_error</span><span
+            class="method-args">(text)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Permet l’affichage d’une boite de dialogue d’alerte affichant le texte
+passé en paramètre</p>
+          
+
+          
+          <div class="method-source-code" id="alert_error-source">
+            <pre><span class="ruby-comment"># File Controleur/ctrlParking.rb, line 109</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">alert_error</span> <span class="ruby-identifier">text</span>
+        <span class="ruby-identifier">dialog</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">MessageDialog</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">nil</span>, 
+                                <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Dialog</span><span class="ruby-operator">::</span><span class="ruby-constant">DESTROY_WITH_PARENT</span>,
+                                <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">MessageDialog</span><span class="ruby-operator">::</span><span class="ruby-constant">QUESTION</span>,
+                                <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">MessageDialog</span><span class="ruby-operator">::</span><span class="ruby-constant">BUTTONS_CLOSE</span>,
+                                <span class="ruby-identifier">text</span>)
+                                <span class="ruby-identifier">dialog</span>.<span class="ruby-identifier">run</span>
+                                <span class="ruby-identifier">dialog</span>.<span class="ruby-identifier">destroy</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- alert_error-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- alert_error-method -->
+
+    
+      <div id="method-i-append_vehicule" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">append_vehicule</span><span
+            class="method-args">(acces,tabV=nil)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Permet l’apparition d’un véhicule aleatoire ou non sur les différents accès
+possibles</p>
+          
+
+          
+          <div class="method-source-code" id="append_vehicule-source">
+            <pre><span class="ruby-comment"># File Controleur/ctrlParking.rb, line 51</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">append_vehicule</span> <span class="ruby-identifier">acces</span>,<span class="ruby-identifier">tabV</span>=<span class="ruby-keyword">nil</span>
+        <span class="ruby-identifier">error</span>=<span class="ruby-value">0</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">tabV</span> <span class="ruby-keyword">then</span>
+                <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;#{tabV}&quot;</span>
+                <span class="ruby-identifier">mdl_par</span>.<span class="ruby-identifier">listClient</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">client</span><span class="ruby-operator">|</span> <span class="ruby-identifier">error</span>=<span class="ruby-value">1</span>   <span class="ruby-keyword">if</span> <span class="ruby-identifier">client</span>.<span class="ruby-identifier">immatriculation</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">tabV</span>[<span class="ruby-value">0</span>] }
+                <span class="ruby-identifier">mdl_par</span>.<span class="ruby-identifier">listAbonnes</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">abonne</span><span class="ruby-operator">|</span> <span class="ruby-identifier">error</span>=<span class="ruby-value">1</span>  <span class="ruby-keyword">if</span> <span class="ruby-identifier">abonne</span>.<span class="ruby-identifier">immatriculation</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">tabV</span>[<span class="ruby-value">0</span>] }
+        <span class="ruby-keyword">end</span>
+
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">error</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span> <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-identifier">acces</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">tabV</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">match</span>(<span class="ruby-regexp">%r(^\d{4}$)/</span>) ) <span class="ruby-keyword">then</span>
+                <span class="ruby-keyword">case</span> <span class="ruby-identifier">acces</span>
+                        <span class="ruby-keyword">when</span> <span class="ruby-value">0</span>
+                                <span class="ruby-identifier">indexAcc</span>= <span class="ruby-identifier">rand</span>(<span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-value">1</span>)
+                                <span class="ruby-identifier">mdl_par</span>.<span class="ruby-identifier">acces</span>[<span class="ruby-identifier">indexAcc</span>].<span class="ruby-identifier">capture_vehicule</span>
+                        <span class="ruby-keyword">when</span> <span class="ruby-value">1</span>
+                                <span class="ruby-identifier">imma</span>,<span class="ruby-identifier">h</span>,<span class="ruby-identifier">l</span>= *<span class="ruby-identifier">tabV</span>
+                                <span class="ruby-identifier">mdl_par</span>.<span class="ruby-identifier">acces</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">capture_vehicule_with_info</span>(<span class="ruby-identifier">imma</span>,<span class="ruby-identifier">h</span>,<span class="ruby-identifier">l</span>)
+                        <span class="ruby-keyword">when</span> <span class="ruby-value">2</span>
+                                <span class="ruby-identifier">imma</span>,<span class="ruby-identifier">h</span>,<span class="ruby-identifier">l</span>= *<span class="ruby-identifier">tabV</span>
+                                <span class="ruby-identifier">mdl_par</span>.<span class="ruby-identifier">acces</span>[<span class="ruby-value">1</span>].<span class="ruby-identifier">capture_vehicule_with_info</span>(<span class="ruby-identifier">imma</span>,<span class="ruby-identifier">h</span>,<span class="ruby-identifier">l</span>)
+                <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">else</span>
+                <span class="ruby-identifier">error</span>=<span class="ruby-value">2</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">not</span> <span class="ruby-identifier">tabV</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">match</span>(<span class="ruby-regexp">%r(^\d{4}$)/</span>)
+                <span class="ruby-keyword">case</span> <span class="ruby-identifier">error</span>
+                        <span class="ruby-keyword">when</span> <span class="ruby-value">1</span>
+                                <span class="ruby-identifier">dialog</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">MessageDialog</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">nil</span>, 
+                                <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Dialog</span><span class="ruby-operator">::</span><span class="ruby-constant">DESTROY_WITH_PARENT</span>,
+                                <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">MessageDialog</span><span class="ruby-operator">::</span><span class="ruby-constant">QUESTION</span>,
+                                <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">MessageDialog</span><span class="ruby-operator">::</span><span class="ruby-constant">BUTTONS_CLOSE</span>,
+                                <span class="ruby-string">&quot;Ce vehicule existe deja dans ce parking&quot;</span><span class="ruby-operator">%</span><span class="ruby-identifier">tabV</span>[<span class="ruby-value">0</span>])
+                                <span class="ruby-identifier">dialog</span>.<span class="ruby-identifier">run</span>
+                                <span class="ruby-identifier">dialog</span>.<span class="ruby-identifier">destroy</span>
+                        <span class="ruby-keyword">when</span> <span class="ruby-value">2</span>
+                                <span class="ruby-identifier">dialog</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">MessageDialog</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">nil</span>, 
+                                <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Dialog</span><span class="ruby-operator">::</span><span class="ruby-constant">DESTROY_WITH_PARENT</span>,
+                                <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">MessageDialog</span><span class="ruby-operator">::</span><span class="ruby-constant">QUESTION</span>,
+                                <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">MessageDialog</span><span class="ruby-operator">::</span><span class="ruby-constant">BUTTONS_CLOSE</span>,
+                                <span class="ruby-string">&quot;Une erreur est survenu, l'immatriculation '%s' est surement invalide&quot;</span><span class="ruby-operator">%</span><span class="ruby-identifier">tabV</span>[<span class="ruby-value">0</span>])
+                                <span class="ruby-identifier">dialog</span>.<span class="ruby-identifier">run</span>
+                                <span class="ruby-identifier">dialog</span>.<span class="ruby-identifier">destroy</span>
+                <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- append_vehicule-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- append_vehicule-method -->
+
+    
+      <div id="method-i-get_info" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_info</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Retourne les informations du modèle de ce controleur</p>
+          
+
+          
+          <div class="method-source-code" id="get_info-source">
+            <pre><span class="ruby-comment"># File Controleur/ctrlParking.rb, line 104</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_info</span>
+        <span class="ruby-keyword">return</span> [<span class="ruby-identifier">mdl_par</span>.<span class="ruby-identifier">nom</span>,<span class="ruby-identifier">mdl_par</span>.<span class="ruby-identifier">nbNiv</span>,<span class="ruby-identifier">mdl_par</span>.<span class="ruby-identifier">nbPlaceNiv</span>,<span class="ruby-identifier">mdl_par</span>.<span class="ruby-identifier">hauteurMax</span>,<span class="ruby-identifier">mdl_par</span>.<span class="ruby-identifier">longueurMax</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- get_info-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- get_info-method -->
+
+    
+      <div id="method-i-get_txt_panneau" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_txt_panneau</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Retourne la valeur que doivent prendre les panneaux</p>
+          
+
+          
+          <div class="method-source-code" id="get_txt_panneau-source">
+            <pre><span class="ruby-comment"># File Controleur/ctrlParking.rb, line 26</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_txt_panneau</span>
+        <span class="ruby-keyword">return</span> [<span class="ruby-identifier">mdl_par</span>.<span class="ruby-identifier">panneaux</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">to_s</span>,<span class="ruby-identifier">mdl_par</span>.<span class="ruby-identifier">panneaux</span>[<span class="ruby-value">1</span>].<span class="ruby-identifier">to_s</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- get_txt_panneau-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- get_txt_panneau-method -->
+
+    
+      <div id="method-i-get_vehicule" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_vehicule</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Retourne la liste des véhicules actuellement garés</p>
+          
+
+          
+          <div class="method-source-code" id="get_vehicule-source">
+            <pre><span class="ruby-comment"># File Controleur/ctrlParking.rb, line 31</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_vehicule</span>
+        <span class="ruby-identifier">v</span> = []
+        <span class="ruby-identifier">plce</span> = <span class="ruby-identifier">mdl_par</span>.<span class="ruby-identifier">place</span>
+        <span class="ruby-identifier">plce</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">p</span><span class="ruby-operator">|</span> 
+                <span class="ruby-identifier">v</span><span class="ruby-operator">&lt;&lt;</span><span class="ruby-identifier">p</span>.<span class="ruby-identifier">vehicule</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">p</span>.<span class="ruby-identifier">vehicule</span> <span class="ruby-operator">!=</span> <span class="ruby-keyword">nil</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-identifier">v</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- get_vehicule-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- get_vehicule-method -->
+
+    
+      <div id="method-i-remove_vehicule" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">remove_vehicule</span><span
+            class="method-args">(iter)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Permet la suppression d’un véhicule</p>
+          
+
+          
+          <div class="method-source-code" id="remove_vehicule-source">
+            <pre><span class="ruby-comment"># File Controleur/ctrlParking.rb, line 95</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">remove_vehicule</span> (<span class="ruby-identifier">iter</span>)
+        <span class="ruby-identifier">indexAcc</span>= <span class="ruby-identifier">rand</span>(<span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-value">1</span>)
+        <span class="ruby-identifier">vehiculeTemp</span> = <span class="ruby-identifier">mdl_par</span>.<span class="ruby-identifier">get_vehicule_with_info</span>(<span class="ruby-identifier">iter</span>[<span class="ruby-value">0</span>],<span class="ruby-identifier">iter</span>[<span class="ruby-value">1</span>],<span class="ruby-identifier">iter</span>[<span class="ruby-value">2</span>])
+        <span class="ruby-identifier">mdl_par</span>.<span class="ruby-identifier">acces</span>[<span class="ruby-identifier">indexAcc</span>].<span class="ruby-identifier">est_sorti</span>(<span class="ruby-identifier">vehiculeTemp</span>)
+        <span class="ruby-identifier">show_vehicule</span>
+        <span class="ruby-identifier">show_panneau</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- remove_vehicule-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- remove_vehicule-method -->
+
+    
+      <div id="method-i-show_panneau" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">show_panneau</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Déclenche la mise à jour des panneaux</p>
+          
+
+          
+          <div class="method-source-code" id="show_panneau-source">
+            <pre><span class="ruby-comment"># File Controleur/ctrlParking.rb, line 46</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">show_panneau</span>
+        <span class="ruby-identifier">vue_pan</span>.<span class="ruby-identifier">maj_panneau</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- show_panneau-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- show_panneau-method -->
+
+    
+      <div id="method-i-show_vehicule" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">show_vehicule</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Déclenche la mise à jour de la liste de véhicule</p>
+          
+
+          
+          <div class="method-source-code" id="show_vehicule-source">
+            <pre><span class="ruby-comment"># File Controleur/ctrlParking.rb, line 41</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">show_vehicule</span>
+        <span class="ruby-identifier">vue_par</span>.<span class="ruby-identifier">maj_modele_liste_vehicule</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- show_vehicule-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- show_vehicule-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+
