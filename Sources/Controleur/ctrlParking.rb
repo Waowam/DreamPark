@@ -43,13 +43,13 @@ class Ctrl_parking
 
 	def append_vehicule acces,tabV=nil
 		error=0
-		if tabV != nil then
+		if tabV then
 			puts "#{tabV}"
 			mdl_par.listClient.each { |client| error=1	if client.immatriculation == tabV[0] }
 			mdl_par.listAbonnes.each { |abonne| error=1	if abonne.immatriculation == tabV[0] }
 		end
 
-		if error == 0 || acces == 0 || tabV[0].match(/(^\d{4}$)/) then
+		if error == 0 && (acces == 0 || tabV[0].match(/(^\d{4}$)/) ) then
 			case acces
 				when 0
 					indexAcc= rand(0..1)
@@ -62,6 +62,7 @@ class Ctrl_parking
 					mdl_par.acces[1].capture_vehicule_with_info(imma,h,l)
 			end
 		else
+			error=2 if not tabV[0].match(/(^\d{4}$)/)
 			case error
 				when 1
 					dialog = Gtk::MessageDialog.new(nil, 
@@ -93,5 +94,15 @@ class Ctrl_parking
 
 	def get_info
 		return [mdl_par.nom,mdl_par.nbNiv,mdl_par.nbPlaceNiv,mdl_par.hauteurMax,mdl_par.longueurMax]
+	end
+
+	def alert_error text
+		dialog = Gtk::MessageDialog.new(nil, 
+		                        Gtk::Dialog::DESTROY_WITH_PARENT,
+		                        Gtk::MessageDialog::QUESTION,
+		                        Gtk::MessageDialog::BUTTONS_CLOSE,
+		                        text)
+					dialog.run
+					dialog.destroy
 	end
 end

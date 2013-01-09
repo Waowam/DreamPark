@@ -5,8 +5,8 @@
 			<menuitem name="StatAdmin" action="VoirStatAdmin"/>
 		</menu>
 		<menu name="Quitter" action="Quitter">
-			<menuitem name="QuitSave" action="QuitterSauvegarder"/>
-			<menuitem name="Quit" action="QuitterSansSauvegarder"/>
+			<menuitem name="QuitSave" action="SaveQuit"/>
+			<menuitem name="Quit" action="Quit"/>
 		</menu>
 		<menu name="HelpMenu" action="Aide">
 			<menuitem name="HelpAbout" action="APropos"/>

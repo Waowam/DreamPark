@@ -72,8 +72,12 @@ class Acces
 		if borne.autorisation==true then
 			borne.autorisation=false
 			numPlace = teleporteurs[0].transporter_garer(vehicule_temp)
-			borne.editerTicket(numPlace.num,vehicule_temp)
-			park.incrementer_panneaux
+			if numPlace then
+				borne.editerTicket(numPlace.num,vehicule_temp) 
+				park.incrementer_panneaux 
+			else
+				park.ctrl_park.alert_error "Aucune place ne correspond a ce vehicule : #{vehicule_temp}"
+			end
 		end
 
 =begin if park.nb_place_libre and park.where_to_park(v) then

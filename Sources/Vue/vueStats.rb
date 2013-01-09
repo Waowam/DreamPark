@@ -14,8 +14,7 @@ class VueStats
 	attr_writer :builder,:ctrl,:window,:buffer,:endIter
 
 	def insert text
-		buffer.insert(endIter,text)
-		endIter=buffer.end_iter
+		buffer.insert(buffer.end_iter,text)
 	end
 
 	def cb_hide

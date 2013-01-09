@@ -29,7 +29,7 @@ class Parking
 		self.nbPlaceNiv=nbPlaceNiv
 		self.hauteurMax=hauteurMax
 		self.longueurMax=longueurMax
-		self.place = Parking.generate_place(nbNiv,nbPlaceNiv,Range.new(50,hauteurMax),Range.new(50,longueurMax))
+		self.place = Parking.generate_place(nbNiv,nbPlaceNiv,Range.new(100,hauteurMax),Range.new(100,longueurMax))
 		self.listAbonnes = Set.new
 		self.listClient = Set.new
 		@acces = [Acces.new("AccesNord",self), Acces.new("AccesSud",self)]
@@ -209,17 +209,20 @@ class Parking
 		
 		stats["acces1"]=acces[0].borne.listTickets.length
 		placeListA1=Hash.new(0)
-		acces[0].borne.lisTickets.each do |t|
+		acces[0].borne.listTickets.each do |t|
 			placeListA1[t.place]= placeListA1[t.place] + 1 
 		end
 		place1=placeListA1.index(placeListA1.max)
 		
 		stats["acces2"]=acces[1].borne.listTickets.length
 		placeListA2=Hash.new(0)
-		acces[0].borne.lisTickets.each do |t|
+		acces[0].borne.listTickets.each do |t|
 			placeListA2[t.place]= placeListA2[t.place] + 1 
 		end
 		place2=placeListA2.index(placeListA2.max)
+
+		place1 = 0 if not place1
+		place2 = 0 if not place2
 		stats["place"] = place1>place2 ?  place1 : place2
 		return stats
 	end

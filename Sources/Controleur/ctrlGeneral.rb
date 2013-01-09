@@ -70,12 +70,12 @@ class Ctrl_gen
 
 	def get_admin_stats(nomPark)
 		parkTemp=nil
-		parks.each {|p| parkTemp=p if p.nom==nomPark}
+		mdl_gen.parks.each {|p| parkTemp=p if p.nom==nomPark}
 		stats = parkTemp.stats_admin
 		stats_text="Parking : #{nomPark} \n"
 		stats_text=stats_text+"Nombre de passage par l'acces Nord : #{stats["acces1"]}\n"
 		stats_text=stats_text+"Nombre de passage par l'acces Sud : #{stats["acces2"]}\n"
-		stats_text=stats_text+"Place la plus utilise : #{stats["place"]}\n"
+		stats_text=stats_text+"Place la plus utilise : #{stats["place"]==0? "Aucune" : stats["place"]}\n"
 		return stats_text
 	end
 
