@@ -44,16 +44,9 @@ class Ctrl_parking
 	def append_vehicule acces,tabV=nil
 		error=0
 		if tabV != nil then
-			mdl_par.listClient.each do |client| 
-				if client.immatriculation == tabV[0] && client.hauteur == tabV[1] && client.longueur == tabV[2] then
-					error=1
-				end
-			end
-			mdl_par.listAbonnes.each do |abonne| 
-				if abonne.immatriculation == tabV[0] && abonne.hauteur == tabV[1] && abonne.longueur == tabV[2] then
-					error=1
-				end
-			end
+			puts "#{tabV}"
+			mdl_par.listClient.each { |client| error=1	if client.immatriculation == tabV[0] }
+			mdl_par.listAbonnes.each { |abonne| error=1	if abonne.immatriculation == tabV[0] }
 		end
 
 		if error == 0 || acces == 0 || tabV[0].match(/(^\d{4}$)/) then
