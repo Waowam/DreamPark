@@ -156,8 +156,60 @@ class Parking
 			p.decrementer
 		end
 	end
+	
+	#Retourne les statistiques commerciales du parking
+	#	client : nombre de client simple
+	#	abonne : nombre de client abonnés
+	#	entretien : nombre d'entretiens total
+	#	maintenance : nombre de maintenances total
+	#	livraison : nombre de livraisons total
+	#	visites : nombre de visites total
+	#	pack : nombre d'abonnés ayant souscris au pack garantie
+	def stats_commercial
+		stats=Hash.new("n/a")
+		stats["client"]=listClient.length
+		stats["abonne"]=listAbonnes.length
+		
+		listClient.each do |c|
+			stats["entretien"]= stats["entretien"] + c.nbreEntretien
+			stats["maintenance"]= stats["maintenance"] + c.nbreMaintenance
+			stats["livraison"]= stats["livraison"] + c.livraisons.length
+			stats["visites"]= stats["visites"] + c.nbreVisites
+		end
+		
+		listAbonnes.each do |a|
+			stats["entretien"]= stats["entretien"] + a.nbreEntretien
+			stats["maintenance"]= stats["maintenance"] + a.nbreMaintenance
+			stats["livraison"]= stats["livraison"] + a.livraisons.length
+			stats["pack"]= stats["pack"] + 1 if a.is_abonne? and a.abonne.hasPack
+			stats["visites"]= stats["visites"] + c.nbreVisites
+		end
+	end
+	
+	#Retourne les statistiques admin du parking
+	#	acces1 : nombre de passages pour l'accès 1
+	#	acces2 : nombre de passages pour l'accès 2
+	#	place1 : place la plus utilisée pour l'accès 1
+	#	place2 : place la plus utilisée pour l'accès 2
+	def stats_admin
+		stats=Hash.new("n/a")
+		
+		stats["acces1"]=acces[0].borne.listTickets.length
+		placeListA1=Hash.new(0)
+		acces[0].borne.lisTickets.each do |t|
+			placeListA1[t.place]= placeListA1[t.place] + 1 
+		end
+		stats["palce1"]=placeListA1.index(placeListA1.max)
+		
+		stats["acces2"]=acces[1].borne.listTickets.length
+		placeListA2=Hash.new(0)
+		acces[0].borne.lisTickets.each do |t|
+			placeListA2[t.place]= placeListA2[t.place] + 1 
+		end
+		stats["palce2"]=placeListA2.index(placeListA2.max)
+	end
 
-	#Rapide vue en text d'un parking
+	#Vue en text d'un parking
 	def to_s
 		s= "Nom : #{nom}\n"
 		for p in panneaux do
