@@ -23,9 +23,9 @@ class GestionPark
 			#Ouverture de la base de donnée
 			$db = SQLite3::Database.open "dreampark.db"
 			
-			parkInfo = $db.get_first_row "SELECT nom FROM parking"
-			if parkInfo then
-				names<<parkInfo[0]
+			parkInfo = $db.execute "SELECT nom FROM parking"
+			parkInfo.each do |park|
+				names<<park[0]
 			end
 			
 		rescue SQLite3::Exception => e 
