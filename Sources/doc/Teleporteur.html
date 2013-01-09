@@ -88,6 +88,8 @@
 
   <ul class="link-list">
   
+    <li><a href="./Abonne.html">Abonne</a>
+  
     <li><a href="./Acces.html">Acces</a>
   
     <li><a href="./Borne.html">Borne</a>
@@ -96,7 +98,15 @@
   
     <li><a href="./Ctrl_borne.html">Ctrl_borne</a>
   
+    <li><a href="./Ctrl_gen.html">Ctrl_gen</a>
+  
+    <li><a href="./Ctrl_parking.html">Ctrl_parking</a>
+  
+    <li><a href="./Database.html">Database</a>
+  
     <li><a href="./GestionPark.html">GestionPark</a>
+  
+    <li><a href="./Livraison.html">Livraison</a>
   
     <li><a href="./Object.html">Object</a>
   
@@ -112,7 +122,15 @@
   
     <li><a href="./Vehicule.html">Vehicule</a>
   
+    <li><a href="./VueGeneral.html">VueGeneral</a>
+  
+    <li><a href="./VueStats.html">VueStats</a>
+  
     <li><a href="./Vue_borne.html">Vue_borne</a>
+  
+    <li><a href="./Vue_panneau.html">Vue_panneau</a>
+  
+    <li><a href="./Vue_parking.html">Vue_parking</a>
   
   </ul>
 </nav>
@@ -125,6 +143,12 @@
 
   <div id="description" class="description">
     
+<p>04/12/12</p>
+
+<p>Eglem - Pinto</p>
+
+<p>teleporteur.rb</p>
+
   </div><!-- description -->
 
   
@@ -138,6 +162,39 @@
     
 
     
+    <!-- Attributes -->
+    <section id="attribute-method-details" class="method-section section">
+      <h3 class="section-header">Attributes</h3>
+
+      
+      <div id="attribute-i-acces" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">acces</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-id" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">id</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section><!-- attribute-method-details -->
+    
 
     <!-- Methods -->
     
@@ -149,7 +206,7 @@
         
         <div class="method-heading">
           <span class="method-name">new</span><span
-            class="method-args">(acces)</span>
+            class="method-args">(id, acces)</span>
           <span class="method-click-advice">click to toggle source</span>
         </div>
         
@@ -161,10 +218,10 @@
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File Modele/teleporteur.rb, line 13</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">acces</span>)
-        <span class="ruby-ivar">@idTp</span> = <span class="ruby-value">001</span>
-        <span class="ruby-ivar">@acces</span>=<span class="ruby-identifier">acces</span>
+            <pre><span class="ruby-comment"># File Modele/teleporteur.rb, line 15</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">id</span>, <span class="ruby-identifier">acces</span>)
+        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">id</span>= <span class="ruby-identifier">id</span>
+        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">acces</span>= <span class="ruby-identifier">acces</span>
 <span class="ruby-keyword">end</span></pre>
           </div><!-- new-source -->
           
@@ -186,7 +243,7 @@
         
         <div class="method-heading">
           <span class="method-name">transporter_garer</span><span
-            class="method-args">(place)</span>
+            class="method-args">(v)</span>
           <span class="method-click-advice">click to toggle source</span>
         </div>
         
@@ -198,9 +255,9 @@
 
           
           <div class="method-source-code" id="transporter_garer-source">
-            <pre><span class="ruby-comment"># File Modele/teleporteur.rb, line 18</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">transporter_garer</span>(<span class="ruby-identifier">place</span>)
-        <span class="ruby-identifier">acces</span>.<span class="ruby-identifier">est_entree</span>(<span class="ruby-identifier">place</span>)
+            <pre><span class="ruby-comment"># File Modele/teleporteur.rb, line 20</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">transporter_garer</span>(<span class="ruby-identifier">v</span>)
+        <span class="ruby-identifier">acces</span>.<span class="ruby-identifier">park</span>.<span class="ruby-identifier">garer</span>(<span class="ruby-identifier">v</span>)
 <span class="ruby-keyword">end</span></pre>
           </div><!-- transporter_garer-source -->
           
@@ -216,7 +273,7 @@
         
         <div class="method-heading">
           <span class="method-name">transporter_reprendre</span><span
-            class="method-args">()</span>
+            class="method-args">(v)</span>
           <span class="method-click-advice">click to toggle source</span>
         </div>
         
@@ -228,9 +285,9 @@
 
           
           <div class="method-source-code" id="transporter_reprendre-source">
-            <pre><span class="ruby-comment"># File Modele/teleporteur.rb, line 22</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">transporter_reprendre</span>
-        <span class="ruby-identifier">acces</span>.<span class="ruby-identifier">est_sorti</span>(<span class="ruby-identifier">place</span>)
+            <pre><span class="ruby-comment"># File Modele/teleporteur.rb, line 24</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">transporter_reprendre</span>(<span class="ruby-identifier">v</span>)
+        <span class="ruby-identifier">acces</span>.<span class="ruby-identifier">park</span>.<span class="ruby-identifier">reprendre</span>(<span class="ruby-identifier">v</span>)
 <span class="ruby-keyword">end</span></pre>
           </div><!-- transporter_reprendre-source -->
           

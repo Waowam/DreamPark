@@ -9,19 +9,25 @@ vueGeneral.rb
 require 'gtk2'
 require "../Vue/vueStats.rb"
 
+#Classe de vue général de la gestion des parkings, elle intègre les vues
+# des panneaux et du parking courant.
 class VueGeneral
 
 	attr_accessor :window,:create_dialog,:quit_dialog,:ctrl,:builder,:combo_main,:combo_load,:windowWelcom,:framePar,:framePan
 
+    #Fermeture avec sauvegarde automatique
 	def gtk_main_quit
         @ctrl.save_all_da_park
         Gtk::main_quit()
     end
 
+    #Fermeture sans sauvegarde
     def gtk_main_quit2
         Gtk::main_quit()
     end
 
+    #Fonction de fermeture forcé par la croix, elle
+    #impose une fenêtre de confirmation et une sauvegarde.
 	def cb_delete_event
         # Run dialog
         response = self.quit_dialog.run
@@ -29,18 +35,21 @@ class VueGeneral
         return response if response != (-1)
     end
 
+    #Fonction d'appel à la fenêtre de création d'un nouveau parking
     def cb_newPark
         # Run dialog
         response = self.create_dialog.run
         self.create_dialog.hide
     end
 
+    #Appel de la fenêtre "about" servant d'à propos peu utiles.
     def cb_about
         #run a propos
         response = @about_dialog.run
         @about_dialog.hide
     end
 
+    #Appel de la fenêtre des statistiques concernant l'administrateur
     def cb_stats_admin
         txt=ctrl.get_admin_stats(combo_load.active_text)
         if @stats_admin == nil then
@@ -50,6 +59,7 @@ class VueGeneral
         end
     end
 
+    #Appel de la fenêtre des statistiques concernant les commerciaux
     def cb_stats_com
         txt=ctrl.get_com_stats(combo_load.active_text)
         if @stats_com == nil then
@@ -59,6 +69,7 @@ class VueGeneral
         end
     end
 
+    #Fonction de récupération des données lors de la création d'un nouveau parking
     def create_park
     	park = [builder.get_object("nomPark").text,builder.get_object("d_niveau").value.to_i,builder.get_object("d_nbPlaceM").value.to_i,builder.get_object("d_hauteur").value.to_i,builder.get_object("d_longueur").value.to_i]
     	ctrl.post_park_info(park)
@@ -67,10 +78,12 @@ class VueGeneral
         cb_charged
     end
 
+    #Appel de la fenêtre de bienvenue
     def cb_welcom
     	@windowWelcom.show_all
     end
 
+    #Fonction de suppression du parking courant
     def delete_park
        nomPark = builder.get_object("label_nomPark1").text
        indexComboPark = ctrl.del_park nomPark
@@ -87,6 +100,7 @@ class VueGeneral
 
     end
 
+    #Fonction d'ouverture du parking choisis
     def cb_charged
         if combo_main.active==0 then
             cb_newPark
@@ -111,6 +125,7 @@ class VueGeneral
         @window.show_all
     end
 
+    #Fonction de chargement au première demarrage
     def first_load
         if combo_load.active==0 then
             cb_newPark
@@ -134,6 +149,7 @@ class VueGeneral
         window.show_all
     end
 
+    #Change les propriétés affichés du parking
     def _change_park_property tab
         builder.get_object("label_nomPark1").text = tab[0].to_s
         builder.get_object("entry_niv").text = tab[1].to_s
@@ -142,10 +158,12 @@ class VueGeneral
         builder.get_object("entry_long").text = tab[4].to_s
     end
 
+    #revois les propriétés affichés du parking courant
     def _get_park_property
         return [builder.get_object("label_nomPark1").text,builder.get_object("entry_niv").text.to_i,builder.get_object("entry_place").text.to_i,builder.get_object("entry_haut").text.to_i,builder.get_object("entry_long").text.to_i]
     end
 
+    #constructeur
     def initialize(ctrl)
         #Builder de la fenetre
         @builder = Gtk::Builder.new

@@ -72,6 +72,20 @@
     
     <li><a href="#method-c-new">::new</a>
     
+    <li><a href="#method-i-hauteur-3D">#hauteur=</a>
+    
+    <li><a href="#method-i-libre-3F">#libre?</a>
+    
+    <li><a href="#method-i-longueur-3D">#longueur=</a>
+    
+    <li><a href="#method-i-niveau-3D">#niveau=</a>
+    
+    <li><a href="#method-i-num-3D">#num=</a>
+    
+    <li><a href="#method-i-save">#save</a>
+    
+    <li><a href="#method-i-to_s">#to_s</a>
+    
   </ul>
 </nav>
 
@@ -84,6 +98,8 @@
 
   <ul class="link-list">
   
+    <li><a href="./Abonne.html">Abonne</a>
+  
     <li><a href="./Acces.html">Acces</a>
   
     <li><a href="./Borne.html">Borne</a>
@@ -92,7 +108,15 @@
   
     <li><a href="./Ctrl_borne.html">Ctrl_borne</a>
   
+    <li><a href="./Ctrl_gen.html">Ctrl_gen</a>
+  
+    <li><a href="./Ctrl_parking.html">Ctrl_parking</a>
+  
+    <li><a href="./Database.html">Database</a>
+  
     <li><a href="./GestionPark.html">GestionPark</a>
+  
+    <li><a href="./Livraison.html">Livraison</a>
   
     <li><a href="./Object.html">Object</a>
   
@@ -108,7 +132,15 @@
   
     <li><a href="./Vehicule.html">Vehicule</a>
   
+    <li><a href="./VueGeneral.html">VueGeneral</a>
+  
+    <li><a href="./VueStats.html">VueStats</a>
+  
     <li><a href="./Vue_borne.html">Vue_borne</a>
+  
+    <li><a href="./Vue_panneau.html">Vue_panneau</a>
+  
+    <li><a href="./Vue_parking.html">Vue_parking</a>
   
   </ul>
 </nav>
@@ -147,7 +179,7 @@ son numero, son niveau sa hauteur, sa longueur et son vehicule.</p>
       <div id="attribute-i-hauteur" class="method-detail">
         <div class="method-heading attribute-method-heading">
           <span class="method-name">hauteur</span><span
-            class="attribute-access-type">[RW]</span>
+            class="attribute-access-type">[R]</span>
         </div>
 
         <div class="method-description">
@@ -160,7 +192,7 @@ son numero, son niveau sa hauteur, sa longueur et son vehicule.</p>
       <div id="attribute-i-longueur" class="method-detail">
         <div class="method-heading attribute-method-heading">
           <span class="method-name">longueur</span><span
-            class="attribute-access-type">[RW]</span>
+            class="attribute-access-type">[R]</span>
         </div>
 
         <div class="method-description">
@@ -173,7 +205,7 @@ son numero, son niveau sa hauteur, sa longueur et son vehicule.</p>
       <div id="attribute-i-niveau" class="method-detail">
         <div class="method-heading attribute-method-heading">
           <span class="method-name">niveau</span><span
-            class="attribute-access-type">[RW]</span>
+            class="attribute-access-type">[R]</span>
         </div>
 
         <div class="method-description">
@@ -186,6 +218,19 @@ son numero, son niveau sa hauteur, sa longueur et son vehicule.</p>
       <div id="attribute-i-num" class="method-detail">
         <div class="method-heading attribute-method-heading">
           <span class="method-name">num</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-vehicule" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">vehicule</span><span
             class="attribute-access-type">[RW]</span>
         </div>
 
@@ -221,13 +266,13 @@ son numero, son niveau sa hauteur, sa longueur et son vehicule.</p>
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File Modele/place.rb, line 19</span>
+            <pre><span class="ruby-comment"># File Modele/place.rb, line 22</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">num</span>,<span class="ruby-identifier">niveau</span>,<span class="ruby-identifier">hauteur</span>,<span class="ruby-identifier">longueur</span>)
-        <span class="ruby-ivar">@num</span>=<span class="ruby-identifier">num</span>
-        <span class="ruby-ivar">@niveau</span>=<span class="ruby-identifier">niveau</span>
-        <span class="ruby-ivar">@vehicule</span>=<span class="ruby-keyword">nil</span>
-        <span class="ruby-ivar">@hauteur</span>=<span class="ruby-identifier">hauteur</span>
-        <span class="ruby-ivar">@longueur</span>=<span class="ruby-identifier">longueur</span>
+        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">num</span>=<span class="ruby-identifier">num</span>
+        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">niveau</span>=<span class="ruby-identifier">niveau</span>
+        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">hauteur</span>=<span class="ruby-identifier">hauteur</span>
+        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">longueur</span>=<span class="ruby-identifier">longueur</span>
+        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">vehicule</span>=<span class="ruby-keyword">nil</span>
 <span class="ruby-keyword">end</span></pre>
           </div><!-- new-source -->
           
@@ -240,6 +285,232 @@ son numero, son niveau sa hauteur, sa longueur et son vehicule.</p>
 
     
     </section><!-- public-class-method-details -->
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-hauteur-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">hauteur=</span><span
+            class="method-args">(h)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="hauteur-3D-source">
+            <pre><span class="ruby-comment"># File Modele/place.rb, line 40</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">hauteur=</span>(<span class="ruby-identifier">h</span>)
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;Error : hauteur must be positive.&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">h</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-value">0</span>
+        <span class="ruby-ivar">@hauteur</span>= <span class="ruby-identifier">h</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- hauteur-3D-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- hauteur-3D-method -->
+
+    
+      <div id="method-i-libre-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">libre?</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="libre-3F-source">
+            <pre><span class="ruby-comment"># File Modele/place.rb, line 50</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">libre?</span>
+        <span class="ruby-identifier">vehicule</span>.<span class="ruby-identifier">nil?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- libre-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- libre-3F-method -->
+
+    
+      <div id="method-i-longueur-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">longueur=</span><span
+            class="method-args">(l)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="longueur-3D-source">
+            <pre><span class="ruby-comment"># File Modele/place.rb, line 45</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">longueur=</span>(<span class="ruby-identifier">l</span>)
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;Error : longueur must be positive.&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">l</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-value">0</span>
+        <span class="ruby-ivar">@longueur</span>= <span class="ruby-identifier">l</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- longueur-3D-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- longueur-3D-method -->
+
+    
+      <div id="method-i-niveau-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">niveau=</span><span
+            class="method-args">(niv)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="niveau-3D-source">
+            <pre><span class="ruby-comment"># File Modele/place.rb, line 35</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">niveau=</span>(<span class="ruby-identifier">niv</span>)
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;Error : niveau must be positive.&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">niv</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0</span>
+        <span class="ruby-ivar">@niveau</span>= <span class="ruby-identifier">niv</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- niveau-3D-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- niveau-3D-method -->
+
+    
+      <div id="method-i-num-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">num=</span><span
+            class="method-args">(n)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="num-3D-source">
+            <pre><span class="ruby-comment"># File Modele/place.rb, line 30</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">num=</span>(<span class="ruby-identifier">n</span>)
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;Error : num must be positive.&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">n</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-value">0</span>
+        <span class="ruby-ivar">@num</span>= <span class="ruby-identifier">n</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- num-3D-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- num-3D-method -->
+
+    
+      <div id="method-i-save" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">save</span><span
+            class="method-args">(nomPark)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="save-source">
+            <pre><span class="ruby-comment"># File Modele/place.rb, line 61</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">save</span>(<span class="ruby-identifier">nomPark</span>)
+        <span class="ruby-identifier">$db</span>.<span class="ruby-identifier">execute</span> <span class="ruby-node">&quot;INSERT INTO place(num, niveau, hauteur, longueur, park) VALUES (#{num}, #{niveau}, #{hauteur}, #{longueur}, '#{nomPark}')&quot;</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-keyword">not</span> <span class="ruby-identifier">libre?</span> <span class="ruby-keyword">then</span>
+                <span class="ruby-identifier">$db</span>.<span class="ruby-identifier">execute</span> <span class="ruby-node">&quot;UPDATE place SET vehicule='#{vehicule.immatriculation}' WHERE num=#{num} AND park='#{nomPark}'&quot;</span>
+        <span class="ruby-keyword">end</span>   
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- save-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- save-method -->
+
+    
+      <div id="method-i-to_s" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_s</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="to_s-source">
+            <pre><span class="ruby-comment"># File Modele/place.rb, line 54</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_s</span>
+        <span class="ruby-identifier">s</span> =<span class="ruby-node">&quot;Place n #{num}, niveau : #{niveau}, h : #{hauteur}, l : #{longueur} &quot;</span>
+        <span class="ruby-identifier">s</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">vehicule</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">not</span> <span class="ruby-identifier">libre?</span>
+        <span class="ruby-identifier">s</span> <span class="ruby-operator">+=</span> <span class="ruby-string">&quot;LIBRE&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">libre?</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-identifier">s</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- to_s-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- to_s-method -->
+
+    
+    </section><!-- public-instance-method-details -->
   
   </section><!-- 5Buntitled-5D -->
 

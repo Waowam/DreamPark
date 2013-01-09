@@ -10,20 +10,24 @@ require 'gtk2'
 require "../../Sources/Vue/vueParking.rb"
 require "../../Sources/Vue/vuePanneau.rb"
 
+#Controleur de parking
 class Ctrl_parking
 
 	attr_reader :mdl_par,:vue_par,:vue_pan
 
+	#Constructeur
 	def initialize(mdl)
 		@mdl_par = mdl
 		@vue_par = Vue_parking.new(self)
 		@vue_pan = Vue_panneau.new(self)
 	end
 
+	#Retourne la valeur que doivent prendre les panneaux
 	def get_txt_panneau
 		return [mdl_par.panneaux[0].to_s,mdl_par.panneaux[1].to_s]
 	end
 
+	#Retourne la liste des véhicules actuellement garés
 	def get_vehicule
 		v = []
 		plce = mdl_par.place
@@ -33,14 +37,17 @@ class Ctrl_parking
 		return v
 	end
 
+	#Déclenche la mise à jour de la liste de véhicule
 	def show_vehicule
 		vue_par.maj_modele_liste_vehicule
 	end
 
+	#Déclenche la mise à jour des panneaux
 	def show_panneau
 		vue_pan.maj_panneau
 	end
 
+	#Permet l'apparition d'un véhicule aleatoire ou non sur les différents accès possibles
 	def append_vehicule acces,tabV=nil
 		error=0
 		if tabV then
@@ -84,6 +91,7 @@ class Ctrl_parking
 		end
 	end
 
+	#Permet la suppression d'un véhicule
 	def remove_vehicule (iter)
 		indexAcc= rand(0..1)
 		vehiculeTemp = mdl_par.get_vehicule_with_info(iter[0],iter[1],iter[2])
@@ -92,10 +100,12 @@ class Ctrl_parking
 		show_panneau
 	end
 
+	#Retourne les informations du modèle de ce controleur
 	def get_info
 		return [mdl_par.nom,mdl_par.nbNiv,mdl_par.nbPlaceNiv,mdl_par.hauteurMax,mdl_par.longueurMax]
 	end
 
+	#Permet l'affichage d'une boite de dialogue d'alerte affichant le texte passé en paramètre
 	def alert_error text
 		dialog = Gtk::MessageDialog.new(nil, 
 		                        Gtk::Dialog::DESTROY_WITH_PARENT,

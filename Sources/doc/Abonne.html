@@ -4,7 +4,7 @@
 <head>
 <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
 
-<title>class Panneau - RDoc Documentation</title>
+<title>class Abonne - RDoc Documentation</title>
 
 <link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
 
@@ -47,7 +47,7 @@
     <nav id="file-list-section" class="section">
   <h3 class="section-header">Defined In</h3>
   <ul>
-    <li>Modele/panneau.rb
+    <li>Modele/abonne.rb
   </ul>
 </nav>
 
@@ -72,13 +72,13 @@
     
     <li><a href="#method-c-new">::new</a>
     
-    <li><a href="#method-i-decrementer">#decrementer</a>
+    <li><a href="#method-i-3D-3D">#==</a>
     
-    <li><a href="#method-i-incrementer">#incrementer</a>
+    <li><a href="#method-i-has_pack-3F">#has_pack?</a>
+    
+    <li><a href="#method-i-id-3D">#id=</a>
     
     <li><a href="#method-i-save">#save</a>
-    
-    <li><a href="#method-i-to_s">#to_s</a>
     
   </ul>
 </nav>
@@ -143,13 +143,10 @@
 </nav>
 
 <div id="documentation">
-  <h1 class="class">class Panneau</h1>
+  <h1 class="class">class Abonne</h1>
 
   <div id="description" class="description">
     
-<p>Classe panneau représentant le panneau d’affichage des places totales
-restantes.</p>
-
   </div><!-- description -->
 
   
@@ -168,6 +165,32 @@ restantes.</p>
       <h3 class="section-header">Attributes</h3>
 
       
+      <div id="attribute-i-adresse" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">adresse</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-hasPack" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">hasPack</span><span
+            class="attribute-access-type">[W]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
       <div id="attribute-i-nom" class="method-detail">
         <div class="method-heading attribute-method-heading">
           <span class="method-name">nom</span><span
@@ -181,9 +204,9 @@ restantes.</p>
         </div>
       </div>
       
-      <div id="attribute-i-placeTot" class="method-detail">
+      <div id="attribute-i-prenom" class="method-detail">
         <div class="method-heading attribute-method-heading">
-          <span class="method-name">placeTot</span><span
+          <span class="method-name">prenom</span><span
             class="attribute-access-type">[RW]</span>
         </div>
 
@@ -194,9 +217,9 @@ restantes.</p>
         </div>
       </div>
       
-      <div id="attribute-i-placeUsed" class="method-detail">
+      <div id="attribute-i-tel" class="method-detail">
         <div class="method-heading attribute-method-heading">
-          <span class="method-name">placeUsed</span><span
+          <span class="method-name">tel</span><span
             class="attribute-access-type">[RW]</span>
         </div>
 
@@ -220,7 +243,7 @@ restantes.</p>
         
         <div class="method-heading">
           <span class="method-name">new</span><span
-            class="method-args">(nom="",place=0)</span>
+            class="method-args">(nom,prenom,adresse,tel)</span>
           <span class="method-click-advice">click to toggle source</span>
         </div>
         
@@ -232,11 +255,13 @@ restantes.</p>
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File Modele/panneau.rb, line 16</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">nom</span>=<span class="ruby-string">&quot;&quot;</span>,<span class="ruby-identifier">place</span>=<span class="ruby-value">0</span>)
-        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">nom</span> = <span class="ruby-identifier">nom</span>
-        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">placeUsed</span>=<span class="ruby-value">0</span>
-        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">placeTot</span>=<span class="ruby-identifier">place</span>
+            <pre><span class="ruby-comment"># File Modele/abonne.rb, line 6</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">nom</span>,<span class="ruby-identifier">prenom</span>,<span class="ruby-identifier">adresse</span>,<span class="ruby-identifier">tel</span>)
+        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">nom</span>=<span class="ruby-identifier">nom</span>
+        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">prenom</span>=<span class="ruby-identifier">prenom</span>
+        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">adresse</span>=<span class="ruby-identifier">adresse</span>
+        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">tel</span>=<span class="ruby-identifier">tel</span>
+        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">hasPack</span>=<span class="ruby-keyword">false</span>
 <span class="ruby-keyword">end</span></pre>
           </div><!-- new-source -->
           
@@ -254,40 +279,41 @@ restantes.</p>
       <h3 class="section-header">Public Instance Methods</h3>
 
     
-      <div id="method-i-decrementer" class="method-detail ">
+      <div id="method-i-3D-3D" class="method-detail ">
         
         <div class="method-heading">
-          <span class="method-name">decrementer</span><span
-            class="method-args">()</span>
+          <span class="method-name">==</span><span
+            class="method-args">(a)</span>
           <span class="method-click-advice">click to toggle source</span>
         </div>
         
 
         <div class="method-description">
           
-          <p>Decremente le nombre de places utilisées</p>
+          
           
 
           
-          <div class="method-source-code" id="decrementer-source">
-            <pre><span class="ruby-comment"># File Modele/panneau.rb, line 28</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">decrementer</span>
-        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">placeUsed</span><span class="ruby-operator">-=</span><span class="ruby-value">1</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">placeUsed</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+          <div class="method-source-code" id="3D-3D-source">
+            <pre><span class="ruby-comment"># File Modele/abonne.rb, line 23</span>
+<span class="ruby-keyword">def</span> <span class="ruby-operator">==</span>(<span class="ruby-identifier">a</span>)
+        <span class="ruby-keyword">return</span>  <span class="ruby-keyword">false</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">a</span>.<span class="ruby-identifier">class</span> <span class="ruby-operator">!=</span> <span class="ruby-constant">Abonne</span>
+        <span class="ruby-keyword">return</span>  <span class="ruby-identifier">a</span>.<span class="ruby-identifier">nom</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">nom</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">a</span>.<span class="ruby-identifier">prenom</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">prenom</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">a</span>.<span class="ruby-identifier">tel</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">tel</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">a</span>.<span class="ruby-identifier">hasPack</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">hasPack</span>
 <span class="ruby-keyword">end</span></pre>
-          </div><!-- decrementer-source -->
+          </div><!-- 3D-3D-source -->
           
         </div>
 
         
 
         
-      </div><!-- decrementer-method -->
+      </div><!-- 3D-3D-method -->
 
     
-      <div id="method-i-incrementer" class="method-detail ">
+      <div id="method-i-has_pack-3F" class="method-detail ">
         
         <div class="method-heading">
-          <span class="method-name">incrementer</span><span
+          <span class="method-name">has_pack?</span><span
             class="method-args">()</span>
           <span class="method-click-advice">click to toggle source</span>
         </div>
@@ -295,23 +321,54 @@ restantes.</p>
 
         <div class="method-description">
           
-          <p>Incremente le nombre de places utilisées</p>
+          
           
 
           
-          <div class="method-source-code" id="incrementer-source">
-            <pre><span class="ruby-comment"># File Modele/panneau.rb, line 23</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">incrementer</span>
-        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">placeUsed</span>= <span class="ruby-identifier">placeUsed</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">placeUsed</span><span class="ruby-operator">&lt;</span><span class="ruby-identifier">placeTot</span>
+          <div class="method-source-code" id="has_pack-3F-source">
+            <pre><span class="ruby-comment"># File Modele/abonne.rb, line 19</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">has_pack?</span>
+        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">hasPack</span>
 <span class="ruby-keyword">end</span></pre>
-          </div><!-- incrementer-source -->
+          </div><!-- has_pack-3F-source -->
           
         </div>
 
         
 
         
-      </div><!-- incrementer-method -->
+      </div><!-- has_pack-3F-method -->
+
+    
+      <div id="method-i-id-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">id=</span><span
+            class="method-args">(i)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="id-3D-source">
+            <pre><span class="ruby-comment"># File Modele/abonne.rb, line 14</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">id=</span>(<span class="ruby-identifier">i</span>)
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;Error : id must be positive.&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">i</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-value">0</span>
+        <span class="ruby-ivar">@id</span>= <span class="ruby-identifier">i</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- id-3D-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- id-3D-method -->
 
     
       <div id="method-i-save" class="method-detail ">
@@ -330,9 +387,9 @@ restantes.</p>
 
           
           <div class="method-source-code" id="save-source">
-            <pre><span class="ruby-comment"># File Modele/panneau.rb, line 37</span>
+            <pre><span class="ruby-comment"># File Modele/abonne.rb, line 28</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">save</span>(<span class="ruby-identifier">nomPark</span>)
-        <span class="ruby-identifier">$db</span>.<span class="ruby-identifier">execute</span> <span class="ruby-node">&quot;INSERT INTO panneau(nom, placeUsed, placeTot, park) VALUES ('#{nom}', #{placeUsed}, #{placeTot}, '#{nomPark}')&quot;</span>
+        <span class="ruby-identifier">$db</span>.<span class="ruby-identifier">execute</span> <span class="ruby-node">&quot;INSERT INTO abonne(nom, prenom, adresse, tel, hasPack, park) VALUES (#{nom}, #{prenom}, #{adresse}, #{tel}, #{hasPack}, '#{nomPark}')&quot;</span>
 <span class="ruby-keyword">end</span></pre>
           </div><!-- save-source -->
           
@@ -342,36 +399,6 @@ restantes.</p>
 
         
       </div><!-- save-method -->
-
-    
-      <div id="method-i-to_s" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">to_s</span><span
-            class="method-args">()</span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-        
-
-        <div class="method-description">
-          
-          <p>Redef <a href="Panneau.html#method-i-to_s">#to_s</a></p>
-          
-
-          
-          <div class="method-source-code" id="to_s-source">
-            <pre><span class="ruby-comment"># File Modele/panneau.rb, line 33</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_s</span>
-        <span class="ruby-identifier">s</span>=<span class="ruby-node">&quot;#{nom} : #{placeUsed}/#{placeTot}&quot;</span>
-<span class="ruby-keyword">end</span></pre>
-          </div><!-- to_s-source -->
-          
-        </div>
-
-        
-
-        
-      </div><!-- to_s-method -->
 
     
     </section><!-- public-instance-method-details -->

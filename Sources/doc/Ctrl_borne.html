@@ -74,7 +74,21 @@
     
     <li><a href="#method-i-ask_abonnement">#ask_abonnement</a>
     
+    <li><a href="#method-i-ask_adhesion">#ask_adhesion</a>
+    
     <li><a href="#method-i-ask_paiement">#ask_paiement</a>
+    
+    <li><a href="#method-i-ask_services">#ask_services</a>
+    
+    <li><a href="#method-i-ask_upgrade">#ask_upgrade</a>
+    
+    <li><a href="#method-i-replay_scenarios">#replay_scenarios</a>
+    
+    <li><a href="#method-i-reset_view">#reset_view</a>
+    
+    <li><a href="#method-i-say_bybye">#say_bybye</a>
+    
+    <li><a href="#method-i-show_view">#show_view</a>
     
   </ul>
 </nav>
@@ -88,6 +102,8 @@
 
   <ul class="link-list">
   
+    <li><a href="./Abonne.html">Abonne</a>
+  
     <li><a href="./Acces.html">Acces</a>
   
     <li><a href="./Borne.html">Borne</a>
@@ -96,7 +112,15 @@
   
     <li><a href="./Ctrl_borne.html">Ctrl_borne</a>
   
+    <li><a href="./Ctrl_gen.html">Ctrl_gen</a>
+  
+    <li><a href="./Ctrl_parking.html">Ctrl_parking</a>
+  
+    <li><a href="./Database.html">Database</a>
+  
     <li><a href="./GestionPark.html">GestionPark</a>
+  
+    <li><a href="./Livraison.html">Livraison</a>
   
     <li><a href="./Object.html">Object</a>
   
@@ -112,7 +136,15 @@
   
     <li><a href="./Vehicule.html">Vehicule</a>
   
+    <li><a href="./VueGeneral.html">VueGeneral</a>
+  
+    <li><a href="./VueStats.html">VueStats</a>
+  
     <li><a href="./Vue_borne.html">Vue_borne</a>
+  
+    <li><a href="./Vue_panneau.html">Vue_panneau</a>
+  
+    <li><a href="./Vue_parking.html">Vue_parking</a>
   
   </ul>
 </nav>
@@ -125,12 +157,6 @@
 
   <div id="description" class="description">
     
-<p>05/12/12</p>
-
-<p>Eglem - Pinto</p>
-
-<p>ctrlBorne.rb</p>
-
   </div><!-- description -->
 
   
@@ -143,6 +169,39 @@
 
     
 
+    
+    <!-- Attributes -->
+    <section id="attribute-method-details" class="method-section section">
+      <h3 class="section-header">Attributes</h3>
+
+      
+      <div id="attribute-i-mdl_borne" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">mdl_borne</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-vue_borne" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">vue_borne</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section><!-- attribute-method-details -->
     
 
     <!-- Methods -->
@@ -162,15 +221,15 @@
 
         <div class="method-description">
           
-          
+          <p>Constructeur</p>
           
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File Controleur/ctrlBorne.rb, line 11</span>
+            <pre><span class="ruby-comment"># File Controleur/ctrlBorne.rb, line 17</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">borne</span>)
         <span class="ruby-ivar">@mdl_borne</span> = <span class="ruby-identifier">borne</span>
-        <span class="ruby-ivar">@vue_borne</span> = <span class="ruby-constant">Vue_borne</span>.<span class="ruby-identifier">new</span>
+        <span class="ruby-ivar">@vue_borne</span> = <span class="ruby-constant">Vue_borne</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>)
 <span class="ruby-keyword">end</span></pre>
           </div><!-- new-source -->
           
@@ -199,14 +258,18 @@
 
         <div class="method-description">
           
-          
+          <p>Méthode de demande d’abonnement Retourne un objet <a
+href="Abonne.html">Abonne</a> construit avec les informations récupérées.</p>
           
 
           
           <div class="method-source-code" id="ask_abonnement-source">
-            <pre><span class="ruby-comment"># File Controleur/ctrlBorne.rb, line 16</span>
+            <pre><span class="ruby-comment"># File Controleur/ctrlBorne.rb, line 34</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">ask_abonnement</span>
-        <span class="ruby-comment">#Méthode de demande d'ask_abonnement</span>
+        <span class="ruby-identifier">quest</span>=
+        <span class="ruby-string">&quot;Nous vous proposons notre abonnement\nIl vous permettra de beneficier des services suivant : maintenance, entretien, livraison\nVoulez vous vous abonner ? (y/n)\n&quot;</span>
+        <span class="ruby-identifier">vue_borne</span>.<span class="ruby-identifier">insert</span> <span class="ruby-identifier">quest</span>
+        <span class="ruby-comment">#La réponse est géré par la méthode de gestion de click du boutton valider</span>
 <span class="ruby-keyword">end</span></pre>
           </div><!-- ask_abonnement-source -->
           
@@ -216,6 +279,50 @@
 
         
       </div><!-- ask_abonnement-method -->
+
+    
+      <div id="method-i-ask_adhesion" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ask_adhesion</span><span
+            class="method-args">(n)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Méthode de demande d’adhésion, n correspondant a l’étape</p>
+          
+
+          
+          <div class="method-source-code" id="ask_adhesion-source">
+            <pre><span class="ruby-comment"># File Controleur/ctrlBorne.rb, line 64</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ask_adhesion</span> <span class="ruby-identifier">n</span>
+        <span class="ruby-keyword">case</span> <span class="ruby-identifier">n</span>
+                <span class="ruby-keyword">when</span> <span class="ruby-value">1</span>
+                        <span class="ruby-identifier">quest</span>=
+                        <span class="ruby-string">&quot;Par la suite nous allons receuillir vos informations d'abonne.\nVeuillez specifier votre nom : &quot;</span>
+                        <span class="ruby-identifier">vue_borne</span>.<span class="ruby-identifier">insert</span> <span class="ruby-identifier">quest</span>
+                <span class="ruby-keyword">when</span> <span class="ruby-value">2</span>
+                        <span class="ruby-identifier">quest</span>=
+                        <span class="ruby-string">&quot;Veuillez specifier votre prenom : &quot;</span>
+                        <span class="ruby-identifier">vue_borne</span>.<span class="ruby-identifier">insert</span> <span class="ruby-identifier">quest</span>
+                <span class="ruby-keyword">when</span> <span class="ruby-value">3</span>
+                        <span class="ruby-identifier">quest</span>=
+                        <span class="ruby-string">&quot;Veuillez specifier votre adresse : &quot;</span>
+                        <span class="ruby-identifier">vue_borne</span>.<span class="ruby-identifier">insert</span> <span class="ruby-identifier">quest</span>
+                <span class="ruby-keyword">when</span> <span class="ruby-value">4</span>
+        <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- ask_adhesion-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- ask_adhesion-method -->
 
     
       <div id="method-i-ask_paiement" class="method-detail ">
@@ -229,14 +336,17 @@
 
         <div class="method-description">
           
-          
+          <p>Méthode de demande de <a
+href="Ctrl_borne.html#method-i-ask_paiement">#ask_paiement</a></p>
           
 
           
           <div class="method-source-code" id="ask_paiement-source">
-            <pre><span class="ruby-comment"># File Controleur/ctrlBorne.rb, line 20</span>
+            <pre><span class="ruby-comment"># File Controleur/ctrlBorne.rb, line 57</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">ask_paiement</span>
-        <span class="ruby-comment">#Méthode de demande de ask_paiement</span>
+        <span class="ruby-identifier">quest</span>=
+        <span class="ruby-string">&quot;Veuillez effectue le paiement, au choix :\n\t1 - Carte Bleue\n\t2 - Especes\n&quot;</span>
+        <span class="ruby-identifier">vue_borne</span>.<span class="ruby-identifier">insert</span> <span class="ruby-identifier">quest</span>
 <span class="ruby-keyword">end</span></pre>
           </div><!-- ask_paiement-source -->
           
@@ -246,6 +356,193 @@
 
         
       </div><!-- ask_paiement-method -->
+
+    
+      <div id="method-i-ask_services" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ask_services</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Méthode de demande de services</p>
+          
+
+          
+          <div class="method-source-code" id="ask_services-source">
+            <pre><span class="ruby-comment"># File Controleur/ctrlBorne.rb, line 50</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ask_services</span>
+        <span class="ruby-identifier">quest</span>=
+        <span class="ruby-string">&quot;En tant qu'abonne, vous avez le droit aux services que nous proposons :\n\t1 - Maintenance\n\t2 - Entretien\n\t3 - Livraison\n\t0 - Rien\n&quot;</span>
+        <span class="ruby-identifier">vue_borne</span>.<span class="ruby-identifier">insert</span> <span class="ruby-identifier">quest</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- ask_services-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- ask_services-method -->
+
+    
+      <div id="method-i-ask_upgrade" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ask_upgrade</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Méthode de demande d’upgrade Demande la confirmation d’abonnement</p>
+          
+
+          
+          <div class="method-source-code" id="ask_upgrade-source">
+            <pre><span class="ruby-comment"># File Controleur/ctrlBorne.rb, line 43</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ask_upgrade</span>
+        <span class="ruby-identifier">quest</span>=
+        <span class="ruby-string">&quot;Nous vous proposons de devenir membre prenium !\nAinsi vous profiterez d'une place assuree dans nos parkings.\nVoulez vous le devenir ? (y/n) \n&quot;</span>
+        <span class="ruby-identifier">vue_borne</span>.<span class="ruby-identifier">insert</span> <span class="ruby-identifier">quest</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- ask_upgrade-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- ask_upgrade-method -->
+
+    
+      <div id="method-i-replay_scenarios" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">replay_scenarios</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Permet l’enchainement des scenarios</p>
+          
+
+          
+          <div class="method-source-code" id="replay_scenarios-source">
+            <pre><span class="ruby-comment"># File Controleur/ctrlBorne.rb, line 28</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">replay_scenarios</span>
+        <span class="ruby-identifier">mdl_borne</span>.<span class="ruby-identifier">apply_scenarios</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- replay_scenarios-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- replay_scenarios-method -->
+
+    
+      <div id="method-i-reset_view" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">reset_view</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Remet à zéro la vue</p>
+          
+
+          
+          <div class="method-source-code" id="reset_view-source">
+            <pre><span class="ruby-comment"># File Controleur/ctrlBorne.rb, line 90</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">reset_view</span>
+        <span class="ruby-ivar">@vue_borne</span>.<span class="ruby-identifier">window</span>.<span class="ruby-identifier">hide</span>
+        <span class="ruby-ivar">@vue_borne</span>=<span class="ruby-constant">Vue_borne</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- reset_view-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- reset_view-method -->
+
+    
+      <div id="method-i-say_bybye" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">say_bybye</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Dit aurevoir !</p>
+          
+
+          
+          <div class="method-source-code" id="say_bybye-source">
+            <pre><span class="ruby-comment"># File Controleur/ctrlBorne.rb, line 83</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">say_bybye</span>
+        <span class="ruby-identifier">quest</span>=
+        <span class="ruby-string">&quot;Merci et aurevoir&quot;</span>
+        <span class="ruby-identifier">vue_borne</span>.<span class="ruby-identifier">insert</span> <span class="ruby-identifier">quest</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- say_bybye-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- say_bybye-method -->
+
+    
+      <div id="method-i-show_view" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">show_view</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Affiche la vue de la borne</p>
+          
+
+          
+          <div class="method-source-code" id="show_view-source">
+            <pre><span class="ruby-comment"># File Controleur/ctrlBorne.rb, line 23</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">show_view</span>
+        <span class="ruby-identifier">vue_borne</span>.<span class="ruby-identifier">window</span>.<span class="ruby-identifier">show_all</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- show_view-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- show_view-method -->
 
     
     </section><!-- public-instance-method-details -->

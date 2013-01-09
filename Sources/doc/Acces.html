@@ -72,11 +72,15 @@
     
     <li><a href="#method-c-new">::new</a>
     
-    <li><a href="#method-i-est_entree">#est_entree</a>
+    <li><a href="#method-i-capture_vehicule">#capture_vehicule</a>
+    
+    <li><a href="#method-i-capture_vehicule_with_info">#capture_vehicule_with_info</a>
+    
+    <li><a href="#method-i-est_entre">#est_entre</a>
     
     <li><a href="#method-i-est_sorti">#est_sorti</a>
     
-    <li><a href="#method-i-notifier">#notifier</a>
+    <li><a href="#method-i-save">#save</a>
     
   </ul>
 </nav>
@@ -90,6 +94,8 @@
 
   <ul class="link-list">
   
+    <li><a href="./Abonne.html">Abonne</a>
+  
     <li><a href="./Acces.html">Acces</a>
   
     <li><a href="./Borne.html">Borne</a>
@@ -98,7 +104,15 @@
   
     <li><a href="./Ctrl_borne.html">Ctrl_borne</a>
   
+    <li><a href="./Ctrl_gen.html">Ctrl_gen</a>
+  
+    <li><a href="./Ctrl_parking.html">Ctrl_parking</a>
+  
+    <li><a href="./Database.html">Database</a>
+  
     <li><a href="./GestionPark.html">GestionPark</a>
+  
+    <li><a href="./Livraison.html">Livraison</a>
   
     <li><a href="./Object.html">Object</a>
   
@@ -114,7 +128,15 @@
   
     <li><a href="./Vehicule.html">Vehicule</a>
   
+    <li><a href="./VueGeneral.html">VueGeneral</a>
+  
+    <li><a href="./VueStats.html">VueStats</a>
+  
     <li><a href="./Vue_borne.html">Vue_borne</a>
+  
+    <li><a href="./Vue_panneau.html">Vue_panneau</a>
+  
+    <li><a href="./Vue_parking.html">Vue_parking</a>
   
   </ul>
 </nav>
@@ -140,6 +162,104 @@
     
 
     
+    <!-- Attributes -->
+    <section id="attribute-method-details" class="method-section section">
+      <h3 class="section-header">Attributes</h3>
+
+      
+      <div id="attribute-i-borne" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">borne</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-camera" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">camera</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-nom" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">nom</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-panneau" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">panneau</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-park" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">park</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-teleporteurs" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">teleporteurs</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-vehicule_temp" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">vehicule_temp</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section><!-- attribute-method-details -->
+    
 
     <!-- Methods -->
     
@@ -151,7 +271,7 @@
         
         <div class="method-heading">
           <span class="method-name">new</span><span
-            class="method-args">()</span>
+            class="method-args">(nom="",parking)</span>
           <span class="method-click-advice">click to toggle source</span>
         </div>
         
@@ -163,14 +283,21 @@
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File Modele/acces.rb, line 17</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>
-        <span class="ruby-ivar">@borne1</span>
-        <span class="ruby-ivar">@borne2</span>
-        <span class="ruby-ivar">@camera</span>
-        <span class="ruby-ivar">@panneau</span>
-        <span class="ruby-ivar">@teleporteur1</span>
-        <span class="ruby-ivar">@teleporteur2</span>
+            <pre><span class="ruby-comment"># File Modele/acces.rb, line 19</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">nom</span>=<span class="ruby-string">&quot;&quot;</span>,<span class="ruby-identifier">parking</span>)
+        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">nom</span>= <span class="ruby-identifier">nom</span>
+        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">park</span>= <span class="ruby-identifier">parking</span>
+        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">vehicule_temp</span>=<span class="ruby-keyword">nil</span>
+
+        <span class="ruby-comment">#Les bornes, interface client</span>
+        <span class="ruby-ivar">@borne</span> = <span class="ruby-constant">Borne</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>,<span class="ruby-node">&quot;Borne-#{@nom}&quot;</span>)
+
+        <span class="ruby-comment">#La camera</span>
+        <span class="ruby-ivar">@camera</span> = <span class="ruby-constant">Camera</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">00</span>,<span class="ruby-node">&quot;Camera-#{@nom}&quot;</span>, <span class="ruby-identifier">park</span>.<span class="ruby-identifier">hauteurMax</span>, <span class="ruby-identifier">park</span>.<span class="ruby-identifier">longueurMax</span>)
+
+        <span class="ruby-comment">#Les deux téléporteur</span>
+        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">teleporteurs</span>= [<span class="ruby-constant">Teleporteur</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">1</span>,<span class="ruby-keyword">self</span>), <span class="ruby-constant">Teleporteur</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">2</span>,<span class="ruby-keyword">self</span>)]
+
 <span class="ruby-keyword">end</span></pre>
           </div><!-- new-source -->
           
@@ -188,10 +315,10 @@
       <h3 class="section-header">Public Instance Methods</h3>
 
     
-      <div id="method-i-est_entree" class="method-detail ">
+      <div id="method-i-capture_vehicule" class="method-detail ">
         
         <div class="method-heading">
-          <span class="method-name">est_entree</span><span
+          <span class="method-name">capture_vehicule</span><span
             class="method-args">()</span>
           <span class="method-click-advice">click to toggle source</span>
         </div>
@@ -203,25 +330,141 @@
           
 
           
-          <div class="method-source-code" id="est_entree-source">
-            <pre><span class="ruby-comment"># File Modele/acces.rb, line 29</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">est_entree</span>
+          <div class="method-source-code" id="capture_vehicule-source">
+            <pre><span class="ruby-comment"># File Modele/acces.rb, line 35</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">capture_vehicule</span>
+        <span class="ruby-keyword">begin</span>
+                <span class="ruby-comment">#Ouverture de la base de donnée</span>
+                <span class="ruby-identifier">$db</span> = <span class="ruby-constant">SQLite3</span><span class="ruby-operator">::</span><span class="ruby-constant">Database</span>.<span class="ruby-identifier">open</span> <span class="ruby-string">&quot;dreampark.db&quot;</span>
+                <span class="ruby-identifier">tableVehicule</span> = <span class="ruby-identifier">$db</span>.<span class="ruby-identifier">get_first_value</span> <span class="ruby-string">&quot;SELECT count(*) FROM sqlite_master WHERE type='table' AND name='vehicule'&quot;</span>
+                <span class="ruby-keyword">begin</span>
+                        <span class="ruby-identifier">v</span> = <span class="ruby-identifier">camera</span>.<span class="ruby-identifier">send_info</span>
+                        <span class="ruby-keyword">if</span> <span class="ruby-identifier">tableVehicule</span> <span class="ruby-operator">!=</span> <span class="ruby-value">0</span> <span class="ruby-keyword">then</span>
+                                <span class="ruby-identifier">listImmat</span> = <span class="ruby-identifier">$db</span>.<span class="ruby-identifier">execute</span> <span class="ruby-string">&quot;SELECT imm FROM vehicule&quot;</span>
+                                <span class="ruby-identifier">listImmat</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">row</span><span class="ruby-operator">|</span>
+                                        <span class="ruby-identifier">v</span>[<span class="ruby-value">0</span>] = <span class="ruby-string">&quot;&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">row</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">v</span>[<span class="ruby-value">0</span>]
+                                <span class="ruby-keyword">end</span>
+                        <span class="ruby-keyword">end</span>
+                <span class="ruby-keyword">end</span> <span class="ruby-keyword">until</span> <span class="ruby-identifier">v</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">4</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">v</span>[<span class="ruby-value">1</span>].<span class="ruby-identifier">between?</span>(<span class="ruby-value">100</span>,<span class="ruby-identifier">park</span>.<span class="ruby-identifier">hauteurMax</span>) <span class="ruby-keyword">and</span> <span class="ruby-identifier">v</span>[<span class="ruby-value">2</span>].<span class="ruby-identifier">between?</span>(<span class="ruby-value">100</span>,<span class="ruby-identifier">park</span>.<span class="ruby-identifier">longueurMax</span>)
+                <span class="ruby-identifier">est_entre</span>(<span class="ruby-constant">Vehicule</span>.<span class="ruby-identifier">new</span>(*<span class="ruby-identifier">v</span>))
+                
+        <span class="ruby-keyword">rescue</span> <span class="ruby-constant">SQLite3</span><span class="ruby-operator">::</span><span class="ruby-constant">Exception</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>        
+                <span class="ruby-identifier">print</span> <span class="ruby-string">&quot;Exception occured in capture_vehicule (acces.rb) : &quot;</span>
+                <span class="ruby-identifier">puts</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">message</span>
+        <span class="ruby-keyword">ensure</span>
+                <span class="ruby-identifier">$db</span>.<span class="ruby-identifier">close</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">$db</span>
+        <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></pre>
-          </div><!-- est_entree-source -->
+          </div><!-- capture_vehicule-source -->
           
         </div>
 
         
 
         
-      </div><!-- est_entree-method -->
+      </div><!-- capture_vehicule-method -->
+
+    
+      <div id="method-i-capture_vehicule_with_info" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">capture_vehicule_with_info</span><span
+            class="method-args">(immat, hauteur, longueur)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="capture_vehicule_with_info-source">
+            <pre><span class="ruby-comment"># File Modele/acces.rb, line 59</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">capture_vehicule_with_info</span>(<span class="ruby-identifier">immat</span>, <span class="ruby-identifier">hauteur</span>, <span class="ruby-identifier">longueur</span>)
+        <span class="ruby-identifier">veh</span>=<span class="ruby-constant">Vehicule</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">immat</span>,<span class="ruby-identifier">hauteur</span>,<span class="ruby-identifier">longueur</span>)
+        <span class="ruby-identifier">est_entre</span>(<span class="ruby-identifier">veh</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- capture_vehicule_with_info-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- capture_vehicule_with_info-method -->
+
+    
+      <div id="method-i-est_entre" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">est_entre</span><span
+            class="method-args">(v=nil)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="est_entre-source">
+            <pre><span class="ruby-comment"># File Modele/acces.rb, line 64</span>
+        <span class="ruby-keyword">def</span> <span class="ruby-identifier">est_entre</span> <span class="ruby-identifier">v</span>=<span class="ruby-keyword">nil</span>
+                <span class="ruby-ivar">@vehicule_temp</span>=<span class="ruby-identifier">v</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">v!</span>=<span class="ruby-keyword">nil</span>
+                <span class="ruby-comment">#on determine le scenario initiale</span>
+                <span class="ruby-keyword">if</span> <span class="ruby-identifier">v!</span>=<span class="ruby-keyword">nil</span> <span class="ruby-keyword">then</span>
+                        <span class="ruby-identifier">vehicule_temp</span>.<span class="ruby-identifier">is_abonne?</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">borne</span>.<span class="ruby-identifier">change_num_scenario</span>(<span class="ruby-value">2</span>) <span class="ruby-operator">:</span> <span class="ruby-identifier">borne</span>.<span class="ruby-identifier">change_num_scenario</span>(<span class="ruby-value">1</span>)
+                        <span class="ruby-identifier">borne</span>.<span class="ruby-identifier">controleur</span>.<span class="ruby-identifier">show_view</span>
+                        <span class="ruby-identifier">borne</span>.<span class="ruby-identifier">apply_scenarios</span>
+                <span class="ruby-keyword">end</span>
+                <span class="ruby-keyword">if</span> <span class="ruby-identifier">borne</span>.<span class="ruby-identifier">autorisation</span><span class="ruby-operator">==</span><span class="ruby-keyword">true</span> <span class="ruby-keyword">then</span>
+                        <span class="ruby-identifier">borne</span>.<span class="ruby-identifier">autorisation</span>=<span class="ruby-keyword">false</span>
+                        <span class="ruby-identifier">numPlace</span> = <span class="ruby-identifier">teleporteurs</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">transporter_garer</span>(<span class="ruby-identifier">vehicule_temp</span>)
+                        <span class="ruby-keyword">if</span> <span class="ruby-identifier">numPlace</span> <span class="ruby-keyword">then</span>
+                                <span class="ruby-identifier">borne</span>.<span class="ruby-identifier">editerTicket</span>(<span class="ruby-identifier">numPlace</span>.<span class="ruby-identifier">num</span>,<span class="ruby-identifier">vehicule_temp</span>) 
+                                <span class="ruby-identifier">park</span>.<span class="ruby-identifier">incrementer_panneaux</span> 
+                        <span class="ruby-keyword">else</span>
+                                <span class="ruby-identifier">park</span>.<span class="ruby-identifier">ctrl_park</span>.<span class="ruby-identifier">alert_error</span> <span class="ruby-node">&quot;Aucune place ne correspond a ce vehicule : #{vehicule_temp}&quot;</span>
+                        <span class="ruby-keyword">end</span>
+                <span class="ruby-keyword">end</span>
+
+<span class="ruby-comment">                        if v.is_abonne? then
+                                if not v.abonne.has_pack? then
+                                        borne.controleur.ask_upgrade(v.abonne) if v.nbreVisites &gt;= 10 #CAS : Proposer pack garanti
+                                end
+                                borne.controleur.ask_services #Params ????
+                        else
+                                borne.controleur.ask_abonnement(v) #if v.nbreVisites &gt;= 10 #CAS : Abonner le client
+                        end
+                
+                        if borne.controleur.ask_paiement then
+                                numPlace = teleporteurs[0].transporter_garer(v)
+                                borne.editerTicket(numPlace,v) #if numPlace
+                                park.incrementer_panneaux
+                        end
+                else
+                        #le garer quand même if v.is_abonne? and v.abonne.has_pack?
+                end
+</span>        <span class="ruby-keyword">end</span></pre>
+          </div><!-- est_entre-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- est_entre-method -->
 
     
       <div id="method-i-est_sorti" class="method-detail ">
         
         <div class="method-heading">
           <span class="method-name">est_sorti</span><span
-            class="method-args">()</span>
+            class="method-args">(v)</span>
           <span class="method-click-advice">click to toggle source</span>
         </div>
         
@@ -233,8 +476,10 @@
 
           
           <div class="method-source-code" id="est_sorti-source">
-            <pre><span class="ruby-comment"># File Modele/acces.rb, line 32</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">est_sorti</span>
+            <pre><span class="ruby-comment"># File Modele/acces.rb, line 104</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">est_sorti</span>(<span class="ruby-identifier">v</span>)
+        <span class="ruby-identifier">teleporteurs</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">transporter_reprendre</span>(<span class="ruby-identifier">v</span>)
+        <span class="ruby-identifier">park</span>.<span class="ruby-identifier">decrementer_panneaux</span>
 <span class="ruby-keyword">end</span></pre>
           </div><!-- est_sorti-source -->
           
@@ -246,11 +491,11 @@
       </div><!-- est_sorti-method -->
 
     
-      <div id="method-i-notifier" class="method-detail ">
+      <div id="method-i-save" class="method-detail ">
         
         <div class="method-heading">
-          <span class="method-name">notifier</span><span
-            class="method-args">()</span>
+          <span class="method-name">save</span><span
+            class="method-args">(nomPark)</span>
           <span class="method-click-advice">click to toggle source</span>
         </div>
         
@@ -261,18 +506,20 @@
           
 
           
-          <div class="method-source-code" id="notifier-source">
-            <pre><span class="ruby-comment"># File Modele/acces.rb, line 26</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">notifier</span>
+          <div class="method-source-code" id="save-source">
+            <pre><span class="ruby-comment"># File Modele/acces.rb, line 109</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">save</span>(<span class="ruby-identifier">nomPark</span>)
+        <span class="ruby-identifier">$db</span>.<span class="ruby-identifier">execute</span> <span class="ruby-node">&quot;INSERT INTO acce (nom, park) VALUES ('#{nom}', '#{nomPark}')&quot;</span>
+        <span class="ruby-identifier">borne</span>.<span class="ruby-identifier">save</span>(<span class="ruby-identifier">nomPark</span>, <span class="ruby-identifier">nom</span>)
 <span class="ruby-keyword">end</span></pre>
-          </div><!-- notifier-source -->
+          </div><!-- save-source -->
           
         </div>
 
         
 
         
-      </div><!-- notifier-method -->
+      </div><!-- save-method -->
 
     
     </section><!-- public-instance-method-details -->

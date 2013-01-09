@@ -59,7 +59,7 @@
     <nav id="parent-class-section" class="section">
   <h3 class="section-header">Parent</h3>
   
-  <p class="link">Gtk::Window
+  <p class="link"><a href="Object.html">Object</a>
   
 </nav>
 
@@ -71,6 +71,10 @@
   <ul class="link-list">
     
     <li><a href="#method-c-new">::new</a>
+    
+    <li><a href="#method-i-clkd_valider">#clkd_valider</a>
+    
+    <li><a href="#method-i-insert">#insert</a>
     
   </ul>
 </nav>
@@ -84,6 +88,8 @@
 
   <ul class="link-list">
   
+    <li><a href="./Abonne.html">Abonne</a>
+  
     <li><a href="./Acces.html">Acces</a>
   
     <li><a href="./Borne.html">Borne</a>
@@ -92,7 +98,15 @@
   
     <li><a href="./Ctrl_borne.html">Ctrl_borne</a>
   
+    <li><a href="./Ctrl_gen.html">Ctrl_gen</a>
+  
+    <li><a href="./Ctrl_parking.html">Ctrl_parking</a>
+  
+    <li><a href="./Database.html">Database</a>
+  
     <li><a href="./GestionPark.html">GestionPark</a>
+  
+    <li><a href="./Livraison.html">Livraison</a>
   
     <li><a href="./Object.html">Object</a>
   
@@ -108,7 +122,15 @@
   
     <li><a href="./Vehicule.html">Vehicule</a>
   
+    <li><a href="./VueGeneral.html">VueGeneral</a>
+  
+    <li><a href="./VueStats.html">VueStats</a>
+  
     <li><a href="./Vue_borne.html">Vue_borne</a>
+  
+    <li><a href="./Vue_panneau.html">Vue_panneau</a>
+  
+    <li><a href="./Vue_parking.html">Vue_parking</a>
   
   </ul>
 </nav>
@@ -121,6 +143,9 @@
 
   <div id="description" class="description">
     
+<p>Classe de vue de la borne permettant l’intéraction partielle entre les
+clients et la borne du parking afin d’effectuer les choix et le paiement.</p>
+
   </div><!-- description -->
 
   
@@ -134,6 +159,130 @@
     
 
     
+    <!-- Attributes -->
+    <section id="attribute-method-details" class="method-section section">
+      <h3 class="section-header">Attributes</h3>
+
+      
+      <div id="attribute-i-answer" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">answer</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-buffer" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">buffer</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-builder" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">builder</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-console" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">console</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-ctrl" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">ctrl</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-endIter" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">endIter</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-entree" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">entree</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-num_scenario" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">num_scenario</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-window" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">window</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section><!-- attribute-method-details -->
+    
 
     <!-- Methods -->
     
@@ -145,22 +294,46 @@
         
         <div class="method-heading">
           <span class="method-name">new</span><span
-            class="method-args">()</span>
+            class="method-args">(ctrl)</span>
           <span class="method-click-advice">click to toggle source</span>
         </div>
         
 
         <div class="method-description">
           
-          
+          <p>Constructeur</p>
           
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File Vue/vueBorne.rb, line 13</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>
-        <span class="ruby-keyword">super</span>(<span class="ruby-string">&quot;Borne de Parking&quot;</span>)
-        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">show_all</span>
+            <pre><span class="ruby-comment"># File Vue/vueBorne.rb, line 69</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span> <span class="ruby-identifier">ctrl</span>
+         <span class="ruby-comment">#Builder de la fenetre</span>
+  <span class="ruby-ivar">@builder</span> = <span class="ruby-constant">Gtk</span><span class="ruby-operator">::</span><span class="ruby-constant">Builder</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-ivar">@builder</span>.<span class="ruby-identifier">add_from_file</span>( <span class="ruby-string">&quot;../Vue/borne.glade&quot;</span> )
+
+  <span class="ruby-comment">#Attribut d'état de la vue 1 = ask_abonnement, 2 = ask_service, 3 = ask_upgrade, 4 = ask_paiement,5 = ask_adhesion</span>
+  <span class="ruby-ivar">@num_scenario</span> = (<span class="ruby-value">-1</span>)
+
+  <span class="ruby-comment">#Controleur borne</span>
+  <span class="ruby-ivar">@ctrl</span>         = <span class="ruby-identifier">ctrl</span>
+
+  <span class="ruby-comment">#Elements principaux</span>
+  <span class="ruby-ivar">@window</span>       = <span class="ruby-identifier">builder</span>.<span class="ruby-identifier">get_object</span>( <span class="ruby-string">&quot;vue_borne&quot;</span> ) <span class="ruby-comment">#Fenetre entière</span>
+  <span class="ruby-ivar">@entree</span>         = <span class="ruby-identifier">builder</span>.<span class="ruby-identifier">get_object</span>( <span class="ruby-string">&quot;entry&quot;</span> ) <span class="ruby-comment">#Entree texte</span>
+  <span class="ruby-ivar">@console</span>        = <span class="ruby-identifier">builder</span>.<span class="ruby-identifier">get_object</span>( <span class="ruby-string">&quot;text_console&quot;</span> ) <span class="ruby-comment">#Console</span>
+  <span class="ruby-ivar">@buffer</span>         = <span class="ruby-identifier">builder</span>.<span class="ruby-identifier">get_object</span>( <span class="ruby-string">&quot;textbuffer1&quot;</span> )      <span class="ruby-comment">#BUFFFFEEERR</span>
+  <span class="ruby-ivar">@endIter</span>        = <span class="ruby-identifier">buffer</span>.<span class="ruby-identifier">end_iter</span>
+  <span class="ruby-ivar">@answer</span>                 = <span class="ruby-string">&quot;-1&quot;</span>
+
+  <span class="ruby-comment">#Init les buffers</span>
+  <span class="ruby-identifier">buffer</span>.<span class="ruby-identifier">insert</span>(<span class="ruby-identifier">endIter</span>,<span class="ruby-string">&quot;Bienvenu !\n&quot;</span>)
+  <span class="ruby-identifier">endIter</span> = <span class="ruby-identifier">buffer</span>.<span class="ruby-identifier">end_iter</span>
+
+  <span class="ruby-comment">#window.show_all</span>
+
+  <span class="ruby-comment">#Build des signaux</span>
+  <span class="ruby-identifier">builder</span>.<span class="ruby-identifier">connect_signals</span>{ <span class="ruby-operator">|</span><span class="ruby-identifier">handler</span><span class="ruby-operator">|</span> <span class="ruby-identifier">method</span>(<span class="ruby-identifier">handler</span>) }
 <span class="ruby-keyword">end</span></pre>
           </div><!-- new-source -->
           
@@ -173,6 +346,112 @@
 
     
     </section><!-- public-class-method-details -->
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-clkd_valider" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">clkd_valider</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Action du bouton valider, il réagis selon la tournure du scénario pris par 
+le client.</p>
+          
+
+          
+          <div class="method-source-code" id="clkd_valider-source">
+            <pre><span class="ruby-comment"># File Vue/vueBorne.rb, line 26</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">clkd_valider</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Method : clkd_valider, num_scenario : #{num_scenario}&quot;</span>
+ <span class="ruby-keyword">case</span> <span class="ruby-identifier">num_scenario</span>
+        <span class="ruby-keyword">when</span> <span class="ruby-value">1</span>
+            <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;Scenario de l'abonnement : &quot;</span>
+                <span class="ruby-identifier">answer</span>=<span class="ruby-identifier">entree</span>.<span class="ruby-identifier">text</span>
+                <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;ANSWER = #{answer}&quot;</span>
+            <span class="ruby-keyword">if</span> <span class="ruby-identifier">answer</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">%r[yY]/</span>) <span class="ruby-keyword">then</span>
+              <span class="ruby-comment">#si oui, on l'envoi au scenar d'adhesion.</span>
+                <span class="ruby-ivar">@num_scenario</span>=<span class="ruby-value">5</span>
+            <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">answer</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">%r[nN]/</span>) <span class="ruby-keyword">then</span>
+              <span class="ruby-comment">#si non, paiement direct</span>
+                <span class="ruby-ivar">@num_scenario</span>=<span class="ruby-value">4</span>
+            <span class="ruby-keyword">end</span>
+            <span class="ruby-comment">#sinon on change rien, ça relancera ask_abonnement</span>
+            <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;nouveau num_scenario : #{num_scenario}&quot;</span>
+        <span class="ruby-keyword">when</span> <span class="ruby-value">2</span>
+               <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;Scenario des services : &quot;</span>
+               <span class="ruby-identifier">answer</span>=<span class="ruby-identifier">entree</span>.<span class="ruby-identifier">text</span>
+               <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;ANSWER = #{answer}&quot;</span>
+               <span class="ruby-ivar">@num_scenario</span>=<span class="ruby-value">3</span>
+        <span class="ruby-keyword">when</span> <span class="ruby-value">3</span>
+               <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;Scenario de l'upgrade : &quot;</span>
+               <span class="ruby-identifier">answer</span>=<span class="ruby-identifier">entree</span>.<span class="ruby-identifier">text</span>
+               <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;ANSWER = #{answer}&quot;</span>
+               <span class="ruby-ivar">@num_scenario</span>=<span class="ruby-value">4</span>
+        <span class="ruby-keyword">when</span> <span class="ruby-value">4</span>
+               <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;Scenario de paiement : &quot;</span>
+               <span class="ruby-identifier">answer</span>=<span class="ruby-identifier">entree</span>.<span class="ruby-identifier">text</span>
+               <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;ANSWER = #{answer}&quot;</span>
+               <span class="ruby-ivar">@num_scenario</span>=(<span class="ruby-value">-1</span>)
+        <span class="ruby-keyword">when</span> <span class="ruby-value">5</span>
+              <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;Scenario de l'adhesion :&quot;</span>
+              <span class="ruby-identifier">answer</span>=<span class="ruby-identifier">entree</span>.<span class="ruby-identifier">text</span>
+              <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;ANSWER = #{answer}&quot;</span>
+              <span class="ruby-ivar">@num_scenario</span>=<span class="ruby-value">2</span>
+ <span class="ruby-keyword">end</span>
+ <span class="ruby-identifier">insert</span> (<span class="ruby-identifier">answer</span><span class="ruby-operator">+</span><span class="ruby-string">&quot;\n&quot;</span>)
+ <span class="ruby-identifier">entree</span>.<span class="ruby-identifier">text</span>=<span class="ruby-string">&quot;&quot;</span>
+ <span class="ruby-identifier">ctrl</span>.<span class="ruby-identifier">replay_scenarios</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- clkd_valider-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- clkd_valider-method -->
+
+    
+      <div id="method-i-insert" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">insert</span><span
+            class="method-args">(text)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Fonction d’insertion du texte passé en paramètre</p>
+          
+
+          
+          <div class="method-source-code" id="insert-source">
+            <pre><span class="ruby-comment"># File Vue/vueBorne.rb, line 19</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">insert</span> <span class="ruby-identifier">text</span>
+        <span class="ruby-identifier">buffer</span>.<span class="ruby-identifier">insert</span>(<span class="ruby-identifier">endIter</span>,<span class="ruby-identifier">text</span>)
+  <span class="ruby-identifier">endIter</span>=<span class="ruby-identifier">buffer</span>.<span class="ruby-identifier">end_iter</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- insert-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- insert-method -->
+
+    
+    </section><!-- public-instance-method-details -->
   
   </section><!-- 5Buntitled-5D -->
 
