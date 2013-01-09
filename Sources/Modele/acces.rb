@@ -58,9 +58,7 @@ class Acces
 	
 	def capture_vehicule_with_info(immat, hauteur, longueur)
 		veh=Vehicule.new(immat,hauteur,longueur)
-		park.listClient.each { |client| return client if veh==client }
-		park.lisAbonnes.each { |abonne| return abonne if veh==abonne }
-		return veh
+		est_entre(veh)
 	end
 
 	def est_entre v=nil

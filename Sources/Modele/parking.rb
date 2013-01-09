@@ -124,7 +124,7 @@ class Parking
 	def garer(v)
 		place = assigner_place(v)
 		add_vehicule(place,v) if place
-		return place.num
+		return place
 	end
 	
 	#Libere une place occupée.

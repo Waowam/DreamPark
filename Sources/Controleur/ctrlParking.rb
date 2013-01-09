@@ -41,29 +41,49 @@ class Ctrl_parking
 		vue_pan.maj_panneau
 	end
 
-	def append_vehicule acces,tabV
-		if acces==0 || tabV[0].match(/(^\d{4}$)/) then
+	def append_vehicule acces,tabV=nil
+		error=0
+		if tabV != nil then
+			park.listClient.each do |client| 
+				if client.immatriculation == tabV[0] && client.hauteur == tabV[1] && client.longueur == tabV[2] then
+					error=1
+				end
+			end
+			park.listAbonnes.each do |abonne| 
+				if abonne.immatriculation == tabV[0] && abonne.hauteur == tabV[1] && abonne.longueur == tabV[2] then
+					error=1
+				end
+			end
+		elsif acces==0 || tabV[0].match(/(^\d{4}$)/) then
 			case acces
 				when 0
 					indexAcc= rand(0..1)
-					puts "Acces #{indexAcc} = #{tabV}"
-
 					mdl_par.acces[indexAcc].capture_vehicule
 				when 1
 					imma,h,l= *tabV
-					mdl_par.acces[0].capture_vehicule(imma,h,l)
+					mdl_par.acces[0].capture_vehicule_with_info(imma,h,l)
 				when 2
 					imma,h,l= *tabV
-					mdl_par.acces[1].capture_vehicule(imma,h,l)
+					mdl_par.acces[1].capture_vehicule_with_info(imma,h,l)
 			end
 		else
-			dialog = Gtk::MessageDialog.new(nil, 
-                        Gtk::Dialog::DESTROY_WITH_PARENT,
-                        Gtk::MessageDialog::QUESTION,
-                        Gtk::MessageDialog::BUTTONS_CLOSE,
-                        "Une erreur est survenu, l'immatriculation '%s' est surement invalide"%tabV[0])
-			dialog.run
-			dialog.destroy
+			case error
+				when 1
+					dialog = Gtk::MessageDialog.new(nil, 
+		                        Gtk::Dialog::DESTROY_WITH_PARENT,
+		                        Gtk::MessageDialog::QUESTION,
+		                        Gtk::MessageDialog::BUTTONS_CLOSE,
+		                        "Ce vehicule existe deja dans ce parking"%tabV[0])
+					dialog.run
+					dialog.destroy
+				when 2
+					dialog = Gtk::MessageDialog.new(nil, 
+		                        Gtk::Dialog::DESTROY_WITH_PARENT,
+		                        Gtk::MessageDialog::QUESTION,
+		                        Gtk::MessageDialog::BUTTONS_CLOSE,
+		                        "Une erreur est survenu, l'immatriculation '%s' est surement invalide"%tabV[0])
+					dialog.run
+					dialog.destroy
 		end
 	end
 
