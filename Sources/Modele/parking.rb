@@ -255,7 +255,7 @@ class Parking
 			
 		rescue SQLite3::Exception => e 
 			
-			print "Exception occured : "
+			print "Exception occured in save (parking.rb) : "
 			puts e.message
 			
 		ensure
@@ -323,7 +323,7 @@ class Parking
 			
 		rescue SQLite3::Exception => e 
 			
-			print "Exception occured : "
+			print "Exception occured in load (parking.rb) : "
 			puts e.message
 			
 		ensure

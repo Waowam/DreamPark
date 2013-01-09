@@ -49,7 +49,7 @@ class Acces
 			est_entre(Vehicule.new(*v))
 			
 		rescue SQLite3::Exception => e 	
-			print "Exception occured : "
+			print "Exception occured in capture_vehicule (acces.rb) : "
 			puts e.message
 		ensure
 			$db.close if $db
