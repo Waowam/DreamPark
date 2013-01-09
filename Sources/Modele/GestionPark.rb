@@ -32,7 +32,7 @@ class GestionPark
 			
 		rescue SQLite3::Exception => e 
 			
-			print "Exception occured : "
+			print "Exception occured in initialize (GestionPark.rb) : "
 			puts e.message
 			
 		ensure

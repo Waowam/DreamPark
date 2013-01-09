@@ -131,7 +131,7 @@ class Database
 			
 		rescue SQLite3::Exception => e 
 			
-			print "Exception occured : "
+			print "Exception occured in load (database.rb) : "
 			puts e.message
 			
 		ensure
