@@ -48,6 +48,18 @@ class Ctrl_gen
 	end
 
 	def del_park nomP
+		begin
+			#Ouverture de la base de donnée
+			$db = SQLite3::Database.open "dreampark.db"
+			
+			Database.save(nomP)
+			
+			rescue SQLite3::Exception => e 
+			print "Exception occured in save (database.rb) : "
+			puts e.message
+		ensure
+			$db.close if $db
+		end
 		index = mdl_gen.delete_park nomP
 		return index
 	end
