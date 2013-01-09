@@ -197,13 +197,13 @@ class Parking
 			stats["pack"]= stats["pack"] + 1 if a.is_abonne? and a.abonne.hasPack
 			stats["visites"]= stats["visites"] + c.nbreVisites
 		end
+		return stats
 	end
 	
 	#Retourne les statistiques admin du parking
 	#	acces1 : nombre de passages pour l'accès 1
 	#	acces2 : nombre de passages pour l'accès 2
-	#	place1 : place la plus utilisée pour l'accès 1
-	#	place2 : place la plus utilisée pour l'accès 2
+	#	place : place la plus utilisée
 	def stats_admin
 		stats=Hash.new("n/a")
 		
@@ -212,14 +212,16 @@ class Parking
 		acces[0].borne.lisTickets.each do |t|
 			placeListA1[t.place]= placeListA1[t.place] + 1 
 		end
-		stats["palce1"]=placeListA1.index(placeListA1.max)
+		place1=placeListA1.index(placeListA1.max)
 		
 		stats["acces2"]=acces[1].borne.listTickets.length
 		placeListA2=Hash.new(0)
 		acces[0].borne.lisTickets.each do |t|
 			placeListA2[t.place]= placeListA2[t.place] + 1 
 		end
-		stats["palce2"]=placeListA2.index(placeListA2.max)
+		place2=placeListA2.index(placeListA2.max)
+		stats["place"] = place1>place2 ?  place1 : place2
+		return stats
 	end
 
 	#Vue en text d'un parking

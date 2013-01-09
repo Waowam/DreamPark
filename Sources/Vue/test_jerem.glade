@@ -448,6 +448,7 @@ Jérémy Pinto</property>
       <action-widget response="-1">but_annuler</action-widget>
     </action-widgets>
   </object>
+  <object class="GtkTextBuffer" id="stats_buffer"/>
   <object class="GtkDialog" id="d_statistiques">
     <property name="can_focus">False</property>
     <property name="border_width">5</property>
@@ -506,7 +507,26 @@ Jérémy Pinto</property>
           </packing>
         </child>
         <child>
-          <placeholder/>
+          <object class="GtkScrolledWindow" id="scrolledwindow1">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="hscrollbar_policy">never</property>
+            <property name="vscrollbar_policy">automatic</property>
+            <child>
+              <object class="GtkTextView" id="stats_view">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="editable">False</property>
+                <property name="cursor_visible">False</property>
+                <property name="buffer">stats_buffer</property>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">True</property>
+            <property name="fill">True</property>
+            <property name="position">2</property>
+          </packing>
         </child>
       </object>
     </child>

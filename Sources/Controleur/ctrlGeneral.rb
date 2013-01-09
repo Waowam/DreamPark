@@ -55,4 +55,30 @@ class Ctrl_gen
 	def save_all_da_park
 		@mdl_gen.parks.each { |p| p.save}
 	end
+
+	def get_admin_stats(nomPark)
+		parkTemp=nil
+		parks.each {|p| parkTemp=p if p.nom==nomPark}
+		stats = parkTemp.stats_admin
+		stats_text="Parking : #{nomPark} \n"
+		stats_text=stats_text+"Nombre de passage par l'acces Nord : #{stats["acces1"]}\n"
+		stats_text=stats_text+"Nombre de passage par l'acces Sud : #{stats["acces2"]}\n"
+		stats_text=stats_text+"Place la plus utilisé : #{stats["place"]}\n"
+		return stats_text
+	end
+
+	def get_com_stats(nomPark)
+		parkTemp=nil
+		parks.each {|p| parkTemp=p if p.nom==nomPark}
+		stats = parkTemp.stats_commercial
+		stats_text="Parking : #{nomPark} \n"
+		stats_text=stats_text+"Nombre de clients simples : #{stats["client"]}\n"
+		stats_text=stats_text+"Nombre de clients abonnes : #{stats["abonne"]}\n"
+		stats_text=stats_text+"Nombre d'entretiens totales : #{stats["entretien"]}\n"
+		stats_text=stats_text+"Nombre de maintenances totales : #{stats["maintenance"]}\n"
+		stats_text=stats_text+"Nombre des livraisons totales : #{stats["livraison"]}\n"
+		stats_text=stats_text+"Nombre nombre de visites totales : #{stats["visites"]}\n"
+		stats_text=stats_text+"Nombre nombre de packs totaux : #{stats["pack"]}\n"
+		return stats_text
+	end
 end

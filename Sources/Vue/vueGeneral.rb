@@ -40,10 +40,22 @@ class VueGeneral
         @about_dialog.hide
     end
 
-    def cb_stats
-        #Run the dialog
-        response = @stats_dialog.run
-        @stats_dialog.hide
+    def cb_stats_admin
+        txt=ctrl.get_admin_stats(combo_load.active_text)
+        if @stats_admin == nil then
+            @stats_admin = VueStats.new txt
+        else
+            @stats_admin.maj_stats txt
+        end
+    end
+
+    def cb_stats_com
+        txt=ctrl.get_com_stats(combo_load.active_text)
+        if @stats_com == nil then
+            @stats_com = VueStats.new txt
+        else
+            @stats_com.maj_stats txt
+        end
     end
 
     def create_park
@@ -173,8 +185,8 @@ class VueGeneral
     ##Preparation de la toolbar et menubar##
         #Creation du group d'action et des entrées
             #A faire
-        voirStatCommercial=Proc.new{cb_stats}
-        voirStatAdmin=Proc.new{cb_stats}
+        voirStatCommercial=Proc.new{cb_stats_com}
+        voirStatAdmin=Proc.new{cb_stats_admin}
         quitterSauvegarder=Proc.new{gtk_main_quit}
         quitterSansSauvegarder=Proc.new{gtk_main_quit2}
         aPropos=Proc.new{cb_about}
