@@ -24,8 +24,8 @@ class Vue_parking < Gtk::VBox
 		vuePopHautLong = Gtk::HBox.new
 			lbl_H = Gtk::Label.new("Hauteur :")
 			lbl_L = Gtk::Label.new("Longueur :")
-			spin_H= Gtk::SpinButton.new(10,500,1)
-			spin_L=Gtk::SpinButton.new(10,500,1)
+			spin_H= Gtk::SpinButton.new(100,500,1)
+			spin_L=Gtk::SpinButton.new(100,500,1)
 		vueButPop = Gtk::HBox.new
 			butt_pop = Gtk::Button.new("Pop acces 1")
 			butt_pop2 = Gtk::Button.new("Pop acces 2")
@@ -53,9 +53,9 @@ class Vue_parking < Gtk::VBox
 		vue_L.selection.set_mode(Gtk::SELECTION_SINGLE)
 
 		vehi = ctrl.get_vehicule
-		vehi.each do |imma,haut,long|
-			iter=model_L.append
-			iter[0],iter[1],iter[2] = imma,haut,long
+		vehi.each do |v|
+			iter = @model_L.append
+			iter[0],iter[1],iter[2] = v.immatriculation,v.hauteur,v.longueur
 		end
 
 		butt_pop.signal_connect('clicked') do

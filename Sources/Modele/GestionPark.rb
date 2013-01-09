@@ -36,17 +36,13 @@ class GestionPark
 		ensure
 			$db.close if $db
 		end
-=begin
+
 		#Load des parkings
 		@parks = []
 		names.each do |n|
 			@parks<<Database.load(n)
 			
 		end
-		@parks.each { |p| puts "#{p}"}
-=end
-		@parks=[]
-		names.each { |n| @parks<<Parking.new(n,2,5,500,500)}
 		@ctrl = Ctrl_gen.new(self)
 	end
 
