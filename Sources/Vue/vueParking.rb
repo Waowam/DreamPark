@@ -58,13 +58,13 @@ class Vue_parking < Gtk::VBox
 		end
 
 		butt_pop.signal_connect('clicked') do
-			ctrl.append_vehicule(1,[txt_imma.text,spin_H.value.to_s,spin_L.value.to_s])
+			ctrl.append_vehicule(1,[txt_imma.text,spin_H.value.to_s.to_i,spin_L.value.to_s.to_i])
 		end
 
-		butt_pop2.signal_connect('clicked') {ctrl.append_vehicule(2,[txt_imma.text,spin_H.value.to_s,spin_L.value.to_s])}
+		butt_pop2.signal_connect('clicked') {ctrl.append_vehicule(2,[txt_imma.text,spin_H.value.to_s.to_i,spin_L.value.to_s.to_i])}
 
 		butt_popAlea.signal_connect('clicked') do
-			ctrl.append_vehicule(0,[txt_imma.text,spin_H.value.to_s,spin_L.value.to_s])
+			ctrl.append_vehicule(0)
 		end
 		butt_rep.signal_connect('clicked') do
 			iter = vue_L.selection.selected

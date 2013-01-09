@@ -25,6 +25,7 @@ class VueGeneral
         # Run dialog
         response = self.quit_dialog.run
         self.quit_dialog.hide()
+        return response if response != (-1)
     end
 
     def cb_newPark
