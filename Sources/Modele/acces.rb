@@ -45,7 +45,7 @@ class Acces
 						v[0] = "" if row == v[0]
 					end
 				end
-			end until v[0].length == 4 and v[1].between?(10,park.hauteurMax) and v[2].between?(10,park.longueurMax)
+			end until v[0].length == 4 and v[1].between?(100,park.hauteurMax) and v[2].between?(100,park.longueurMax)
 			est_entre(Vehicule.new(*v))
 			
 		rescue SQLite3::Exception => e 	

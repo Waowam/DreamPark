@@ -23,6 +23,8 @@ class GestionPark
 			#Ouverture de la base de donnée
 			$db = SQLite3::Database.open "dreampark.db"
 			
+			Database.createTables
+			
 			parkInfo = $db.execute "SELECT nom FROM parking"
 			parkInfo.each do |park|
 				names<<park[0]

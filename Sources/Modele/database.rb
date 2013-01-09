@@ -4,9 +4,9 @@
 # les informations des parkings. Cela permettra de sauvegarder et charger des
 # sessions
 class Database
-
-	def self.save(nomParking)
-			#----------Creation des tables----------#
+	
+	def self.createTables
+		#----------Creation des tables----------#
 				#TABLE PARKING
 			$db.execute "CREATE TABLE IF NOT EXISTS parking(
 				nom TEXT,
@@ -102,7 +102,9 @@ class Database
 				FOREIGN KEY(vehicule) REFERENCES vehicule(imm),
 				FOREIGN KEY(park) REFERENCES parking(nom),
 				PRIMARY KEY(dateTime, park))"
-			
+	end
+
+	def self.save(nomParking)
 			#-------------Drop des tables-------------#
 			$db.execute "DELETE FROM parking WHERE nom='#{nomParking}'"
 			$db.execute "DELETE FROM acce WHERE park='#{nomParking}'"

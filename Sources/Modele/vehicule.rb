@@ -23,12 +23,12 @@ class Vehicule
 	end
 	
 	def hauteur=(h)
-		raise ArgumentError.new("Error : hauteur must be positive.") if h <= 0
+		raise ArgumentError.new("Error : hauteur must be positive.") if h < 100
 		@hauteur= h
 	end
 	
 	def longueur=(l)
-		raise ArgumentError.new("Error : longueur must be positive.") if l <= 0
+		raise ArgumentError.new("Error : longueur must be positive.") if l < 100
 		@longueur= l
 	end
 	
