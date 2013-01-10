@@ -51,7 +51,7 @@ class VueGeneral
 
     #Appel de la fenêtre des statistiques concernant l'administrateur
     def cb_stats_admin
-        txt= builder.get_object("label_nomPark1").text
+        txt= ctrl.get_admin_stats(builder.get_object("label_nomPark1").text)
         if @stats_admin == nil then
             @stats_admin = VueStats.new txt
         else
@@ -61,7 +61,7 @@ class VueGeneral
 
     #Appel de la fenêtre des statistiques concernant les commerciaux
     def cb_stats_com
-        txt= builder.get_object("label_nomPark1").text
+        txt= ctrl.get_com_stats(builder.get_object("label_nomPark1").text)
         if @stats_com == nil then
             @stats_com = VueStats.new txt
         else
